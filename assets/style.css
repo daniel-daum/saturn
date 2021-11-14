@@ -63,7 +63,7 @@ body {
     list-style-type: none;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-around;
 }
 
 .nav ul a {
@@ -73,7 +73,8 @@ body {
 
 .nav ul a:hover {
     color: black;
-    padding-bottom: 3px;
+    padding-bottom: 18px;
     border-bottom-style: solid;
-    transition: 0.2s;
+    transition: 0.3s;
+    cursor: pointer;
 }
