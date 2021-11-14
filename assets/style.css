@@ -88,3 +88,15 @@ body {
     transition: 0.3s;
     cursor: pointer;
 }
+
+@media screen and (max-width:600px) {
+    body {
+        flex-direction: column;
+    }
+    .columnright {
+        display: none;
+    }
+    .columnleft {
+        order: 2;
+    }
+}
