@@ -6,51 +6,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daniel Daum</title>
-    <link rel="stylesheet" href="/assets/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-
 </head>
 
 <body>
 
-    <section class="columnleft">
+    <section class="columnleft" id="left">
+        <div class="spacer"></div>
 
-        <img class="profile" src="/assets/profile.jpg" alt="">
+        <img class="profile" src="/assets/picture.jpg" alt="">
 
-        <h1 class="name">I'M DANIEL</h1>
-        <p class="title"> Aspiring Software Engineer</p>
-        <p class="bio">I like <a href="#">food</a> and <a href="#">building stuff</a> </p>
+        <h1 class="name">I'm Daniel</h1>
 
-        <section class="social">
-            <a href="#"><img src="/assets/linkedin48.png" alt=""></a>
-            <a href="#"><img src="/assets/github48.png" alt=""></a>
-            <a href="#"><img src="/assets/mail48.png" alt=""></a>
-        </section>
+        <p class="title">Intelligence analyst and aspiring software engineer </p>
 
-        <p class="copyright">&copy; Daniel Daum 2021</p>
+        <p class="bio">I like food and <a href="#" id="proj">building stuff</a> </p>
+
 
 
     </section>
 
-    <section class="columnright">
+    <section class="columnright" id="right">
 
-        <nav class="nav">
-            <ul class="links">
+        <nav class="nav" id="nav">
+            <ul class="links" id="links">
+                <li> <a href="#" id="dog">Home</a> </li>
+                <li><a href="#">Food</a></li>
+                <li> <a href="#">Projects</a> </li>
 
-
-                <li> <a href="index">Home</a> </li>
-                <li><a href="#">Posts</a></li>
-                <li> <a href="/pages/projects">Projects</a> </li>
-            </ul>
         </nav>
 
+        <!-- <div id="content" class='content'>
+            <p id="wip" class="wip">Work in Progress</p>
+
+        </div> -->
+
+
+
+
 
     </section>
 
-
-
-
+    <script src="transition.js"></script>
 </body>
 
 </html>
