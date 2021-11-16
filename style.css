@@ -23,6 +23,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 .profile {
@@ -110,6 +111,9 @@ body {
 /* MEDIA QUERY SECTION */
 
 @media screen and (max-width:600px) {
+    body {
+        flex-direction: column;
+    }
     .columnright {
         display: none;
     }
