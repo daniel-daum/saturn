@@ -1,0 +1,24 @@
+
+.header{
+    margin: 0px;
+    margin-bottom: 3em;
+    margin-top: 3em;
+    width: 45em;
+}
+
+.headerName{
+    color:#f4f7f5;
+    font-size: 3em;
+    font-weight: 900;
+    margin: 0px;
+    padding: 0px;
+}
+
+.headerBio{
+    color: #a7a2a9;
+    font-size: 1.3em;
+    margin: 0px;
+    font-weight: 500;
+    padding: 0px;
+
+}
