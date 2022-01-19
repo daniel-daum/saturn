@@ -1,1 +1,0 @@
-# A personal site - under migration from html/css to a react application
