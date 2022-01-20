@@ -1,5 +1,5 @@
 # daniel-daum.github.io
-A personal Site.
+A personal Site
 
 https://www.daniel-daum.com 
 
