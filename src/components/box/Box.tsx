@@ -1,6 +1,5 @@
 import React from 'react'
 import './Box.css'
-import { Link } from 'react-router-dom'
 
 
 type boxProps = {
@@ -9,7 +8,11 @@ type boxProps = {
     link?:string;
 }
 
+
+
 function Box(props: boxProps){
+
+
     return(
         <a className="box" href={props.link}>
                 <p className="boxHeader">{props.header}</p>

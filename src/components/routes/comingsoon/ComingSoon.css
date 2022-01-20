@@ -1,17 +1,19 @@
 
 .soon{
     width: 100vw;
-    height: 100vh;
+    height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+ 
+   
 }
-
 
 .comingSoonText{
     color: white;
     font-size: 1em;
     font-weight: 200;
+ 
 
 }
