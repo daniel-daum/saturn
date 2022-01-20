@@ -24,6 +24,6 @@
     margin-bottom: 2em;
 }
 
-.source1:hover{
+.source1 p:hover{
     color: #ff2467;
 }

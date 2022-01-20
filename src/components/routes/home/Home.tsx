@@ -16,7 +16,7 @@ function Home() {
 
             <Header />
 
-            <Section header="Projects" description="things i've built" />
+            <Section header="Projects" description="things i'm building" />
 
             <div className='container'>
                 <Box header='myFitness Manager' description='USAF fitness management platform' link='/comingsoon' />
@@ -27,10 +27,13 @@ function Home() {
 
             <div className='container'>
                 <Box header='Changing Careers' description="coming soon" link='/comingsoon'/>
-                <Box header='Tools I use' description="coming soon" link='/comingsoon'/>
+                <Box header='Tools I Use' description="coming soon" link='/comingsoon'/>
+                <Box header="Dream Home & Data" description="coming soon" link='/comingsoon'/>
             </div>
 
-            <a className="source1" href="https://github.com/daniel-daum/daniel-daum.github.io">View Source</a>
+            <a className="source1" href="https://github.com/daniel-daum/daniel-daum.github.io">
+                <p>View Source</p>
+            </a>
 
 
 
