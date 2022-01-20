@@ -1,5 +1,7 @@
 import React from 'react'
 import './Box.css'
+import { Link } from 'react-router-dom'
+
 
 type boxProps = {
     header?:string;

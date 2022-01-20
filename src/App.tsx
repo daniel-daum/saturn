@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import { HashRouter as Router, Routes, Route} from "react-router-dom";
 import Home from './components/routes/home/Home'
 import ComingSoon from './components/routes/comingsoon/ComingSoon'
 
@@ -7,7 +7,7 @@ import ComingSoon from './components/routes/comingsoon/ComingSoon'
 function App() {
   return (
     <div>
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}> 
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/blog" element={<ComingSoon/>} />
