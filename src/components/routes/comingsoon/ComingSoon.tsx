@@ -4,7 +4,7 @@ import Navbar from '../../nav/Navbar';
 
 function ComingSoon() {
     return (
-        <div className='soonConainter' >
+        <div className='soonContainter' >
             <Navbar />
             <div className="soon">
                 <p className="comingSoonText">Coming Soon</p>

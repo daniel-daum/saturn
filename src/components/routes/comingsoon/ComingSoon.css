@@ -1,4 +1,9 @@
 
+.soonContainter{
+    margin-left: 2em;
+    margin-right: 2em;
+}
+
 .soon{
     width: 100vw;
     height: 80vh;
