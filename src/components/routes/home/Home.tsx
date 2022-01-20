@@ -20,7 +20,7 @@ function Home() {
 
             <div className='container'>
                 <Box header='myFitness Manager' description='USAF fitness management platform' link='/comingsoon' />
-                <Box header='Citation Builder' description='A workplace citation generator for specific requirements' link='/comingsoon' />
+                <Box header='Citation Builder' description='A workplace citation generator for specific requirements' link='https://github.com/daniel-daum/citation_builder' />
             </div>
 
             <Section header="Digital Garden" description="a place for my ideas to grow" />
