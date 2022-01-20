@@ -30,7 +30,7 @@ function Home() {
                 <Box header='Tools I use' description="coming soon" link='/comingsoon'/>
             </div>
 
-            <a className="source" href="https://github.com/daniel-daum/daniel-daum.github.io">View Source</a>
+            <a className="source1" href="https://github.com/daniel-daum/daniel-daum.github.io">View Source</a>
 
 
 
