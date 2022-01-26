@@ -22,8 +22,13 @@
     height: 100%;
     margin-top: 2em;
     margin-bottom: 2em;
+    width:6em;
 }
 
 .source1 p:hover{
     color: #ff2467;
+}
+
+.source1 p{
+    display: inline;
 }
