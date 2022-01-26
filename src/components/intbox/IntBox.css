@@ -1,7 +1,7 @@
 
 .intbox{
     display: block;
-    border: 1px solid #f4f7f5;
+    border: 1px solid #212121;
     width: 20em;
     height: 6em;
     margin-right: 3em;
@@ -23,7 +23,7 @@
 }
 
 .intboxHeader{
-    color: #f4f7f5;
+    color: #212121;
     font-size: 1.5rem;
     font-weight: 400;
     padding: 0px;
@@ -33,7 +33,7 @@
 
 .intboxDescription{
     font-weight: 100;
-    color: #f4f7f5;
+    color: #212121;
     padding: 0px;
     margin-left:  5px;
     margin-right:  5px;

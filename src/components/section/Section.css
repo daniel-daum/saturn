@@ -5,7 +5,7 @@
 }
 
 .sectionHeader{
-    color:#f4f7f5;
+    color:#212121;
     font-size: 2em;
     margin: 0px;
     padding: 0px;
@@ -13,7 +13,7 @@
 }
 
 .sectionDescription{
-    color: #a7a2a9;
+    color: #212121;
     font-size: 1.3em;
     margin: 0px;
     padding:0px;
@@ -22,7 +22,7 @@
 
 .source{
     margin-top: 15em;
-    color:#f4f7f5;
+    color:#212121;
     text-decoration: none;
 }
 

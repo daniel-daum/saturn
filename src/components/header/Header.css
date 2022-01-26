@@ -7,7 +7,7 @@
 }
 
 .headerName{
-    color:#f4f7f5;
+    color:#212121;
     font-size: 3em;
     font-weight: 900;
     margin: 0px;
@@ -15,7 +15,7 @@
 }
 
 .headerBio{
-    color: #a7a2a9;
+    color: #212121;
     font-size: 1.3em;
     margin: 0px;
     font-weight: 500;
@@ -24,8 +24,3 @@
 
 }
 
-header a{
-    text-decoration: none;
-    color: black;
-    margin: .3em;
-}
