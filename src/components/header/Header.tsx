@@ -9,6 +9,8 @@ function Header(){
             <h1 className="headerName">Daniel Daum</h1>
             <p className="headerBio">Intelligence analyst, student, aspiring software engineer</p>
             
+            <a href="https://github.com/daniel-daum/">Github</a>
+            <a href="https://www.linkedin.com/in/daniel-daum-189151203/">Linkedin</a>
             
             
            

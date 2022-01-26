@@ -24,3 +24,12 @@
 
 }
 
+.header a {
+    color:#212121;
+    margin:1em;
+    margin-left: 0px;
+}
+
+.header a:hover{
+    color:#ff2467;
+}
