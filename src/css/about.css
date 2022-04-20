@@ -1,0 +1,53 @@
+
+body {
+    margin: 0px;
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Open Sans', sans-serif;
+    color: #212121;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100vw;
+}
+
+.nav a {
+    margin:1em;
+    font-size: .75rem;
+    text-decoration: none;
+    color: #212121;
+}
+
+.nav a:hover{
+    color:#ff2467;
+}
+.about-wrapper{
+    height: 100%;
+    width: 45em;
+  
+    
+}
+
+.about-title{
+    font-family: 'Unica One', cursive;
+    margin-top: 3em;
+    font-size: 2rem;
+}
+
+.about-content{
+    font-family: 'Open Sans', sans-serif;
+    color: black;
+    line-height: 1.6;
+    letter-spacing: 0.05em;
+}
+
+.about-list li{
+   
+    margin-top: 1em;
+}
