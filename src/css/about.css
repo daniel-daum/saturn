@@ -51,3 +51,33 @@ body {
    
     margin-top: 1em;
 }
+
+
+@media screen and (max-width:480px) {
+    .nav{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .about-wrapper{
+        width:80%;
+
+    }
+
+}
+
+@media screen and (max-width:800px) {
+    .nav{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .about-wrapper{
+        width:80%;
+
+    }
+}
