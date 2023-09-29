@@ -2,4 +2,3 @@
 A personal Site
 
 https://www.daniel-daum.com 
-
