@@ -45,6 +45,7 @@ main {
   align-items: center;
   width: 42rem;
   margin: 8rem 1rem 0;
+  padding: 3rem;
   max-width: 42rem;
   width: 100vw;
   white-space: pre-line;
