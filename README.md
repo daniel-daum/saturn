@@ -1,4 +1,3 @@
-# daniel-daum.github.io
-A personal Site
+# A personal site
 
-https://www.daniel-daum.com 
+https://www.danieldaum.net
