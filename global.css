@@ -80,12 +80,13 @@ h6 {
 body {
     display: flex;
     flex-direction: column;
-    background-color: #18181a;
+    background-color: #121212;
     color: #ffffff;
     font-family: "Inter", sans-serif;
-    width: 40rem;
+    max-width: 40rem;
     margin:0 auto;
-    margin-top: 7rem;    
+    margin-top: 7rem;
+    padding: 2rem;
 }
 
 header {
@@ -119,6 +120,8 @@ main {
 
 main p {
     margin-bottom: 0.7rem;
+    font-size: 1rem;
+    font-weight: 300;
 }
 
 footer {
@@ -155,4 +158,18 @@ li a {
 
 li a:hover {
     color: #b5b5b5;
+}
+
+article {
+    border: 1px solid #ffffff;
+    margin-bottom: 1rem;
+    padding: 1rem;
+} 
+
+article p {
+    color: #ffffff;
+}
+
+.post-title {
+    font-size: .8rem;
 }

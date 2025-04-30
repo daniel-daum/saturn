@@ -1,3 +1,3 @@
-# A personal site
+# a personal site
 
 https://www.danieldaum.net
