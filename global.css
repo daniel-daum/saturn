@@ -1,18 +1,18 @@
-/* CSS Reset by Josh Comeau ->  https://www.joshwcomeau.com/css/custom-css-reset/*/
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
 
-/* 1. Use a more-intuitive box-sizing model */
 *,
 *::before,
 *::after {
     box-sizing: border-box;
 }
 
-/* 2. Remove default margin */
 * {
     margin: 0;
 }
 
-/* 3. Enable keyword animations */
 @media (prefers-reduced-motion: no-preference) {
     html {
         interpolate-size: allow-keywords;
@@ -20,13 +20,10 @@
 }
 
 body {
-    /* 4. Add accessible line-height */
     line-height: 1.5;
-    /* 5. Improve text rendering */
     -webkit-font-smoothing: antialiased;
 }
 
-/* 6. Improve media defaults */
 img,
 picture,
 video,
@@ -36,7 +33,6 @@ svg {
     max-width: 100%;
 }
 
-/* 7. Inherit fonts for form controls */
 input,
 button,
 textarea,
@@ -44,7 +40,6 @@ select {
     font: inherit;
 }
 
-/* 8. Avoid text overflows */
 p,
 h1,
 h2,
@@ -55,7 +50,6 @@ h6 {
     overflow-wrap: break-word;
 }
 
-/* 9. Improve line wrapping */
 p {
     text-wrap: pretty;
 }
@@ -68,74 +62,166 @@ h6 {
     text-wrap: balance;
 }
 
-/*
-  10. Create a root stacking context
-*/
 #root,
 #__next {
     isolation: isolate;
 }
 
-/* Global CSS by me */
+/* Geist Mono Font Declarations */
+/* Variable fonts (modern browsers) */
+@font-face {
+    font-family: "Geist Mono";
+    src: url("./src/fonts/geistmono/GeistMono[wght].woff2")
+        format("woff2-variations");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+    font-feature-settings:
+        "liga" 1,
+        "calt" 1;
+}
+
+@font-face {
+    font-family: "Geist Mono";
+    src: url("./src/fonts/geistmono/GeistMono-Italic[wght].woff2")
+        format("woff2-variations");
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+    font-feature-settings:
+        "liga" 1,
+        "calt" 1;
+}
+
+/* Static font fallbacks (better browser support) */
+@font-face {
+    font-family: "Geist Mono";
+    src: url("./src/fonts/geistmono/GeistMono-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    font-feature-settings:
+        "liga" 1,
+        "calt" 1;
+}
+
+@font-face {
+    font-family: "Geist Mono";
+    src: url("./src/fonts/geistmono/GeistMono-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+    font-feature-settings:
+        "liga" 1,
+        "calt" 1;
+}
+
+@font-face {
+    font-family: "Geist Mono";
+    src: url("./src/fonts/geistmono/GeistMono-Italic.woff2") format("woff2");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+    font-feature-settings:
+        "liga" 1,
+        "calt" 1;
+}
+
+@font-face {
+    font-family: "Geist Mono";
+    src: url("./src/fonts/geistmono/GeistMono-BoldItalic.woff2") format("woff2");
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+    font-feature-settings:
+        "liga" 1,
+        "calt" 1;
+}
+
+/* Authored CSS by me*/
+
+/* generic layout and styles */
+html {
+    height: 100%;
+
+    --background-dark: #111820;
+    --text-headings: #f5f7fa;
+    --text-body: #e6e6e6;
+    --text-secondary: #b0b3b8;
+    --borders: #2a3036;
+    --accent-muted: #3a4650;
+    --accent: #e6528a;
+}
+
 body {
-    display: flex;
-    flex-direction: column;
-    background-color: #121212;
-    color: #ffffff;
-    font-family: "Inter", sans-serif;
-    max-width: 40rem;
-    margin:0 auto;
-    margin-top: 7rem;
-    padding: 2rem;
+    /*min-height: 100vh;*/
+    max-width: 65ch; /* Optimal reading width (~65 characters) */
+    margin: 0 auto; /* Center the content */
+    padding: 2rem 1rem; /* Comfortable spacing */
+    font-family:
+        "Geist Mono", "SF Mono", Monaco, "Cascadia Code", "Roboto Mono",
+        Consolas, "Courier New", monospace;
+    background-color: var(--background-dark);
+    margin-top: 3rem;
 }
 
 header {
-    margin-bottom: 1rem;
+    padding: 0.5rem;
+    color: var(--text-headings);
+    font-size: 0.9rem;
 }
 
-header a {
-    text-decoration: none;
-    color: #ffffff;
-}
-
-nav {
+article {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    padding: 0.5rem;
+    color: var(--text-body);
+    font-size: 0.9rem;
 }
 
-nav a {
-    text-decoration: none;
-    margin-right: 1rem;
-    color: #ffffff;
-}
-
-nav a:hover {
-    text-decoration: underline;
-}
-
-main {
-    margin-top: 1rem;
+article p {
     margin-bottom: 1rem;
 }
 
-main p {
-    margin-bottom: 0.7rem;
-    font-size: 1rem;
-    font-weight: 300;
+section {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    color: white;
+    font-size: 0.9rem;
+}
+
+section p {
+    color: var(--text-secondary);
+}
+
+h2 {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-headings);
+}
+
+ul li {
+    margin-bottom: 0.5rem;
 }
 
 footer {
-    border-top: 1px solid #ffffff;
-    margin-top: 1rem;
-    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
 }
 
-footer a {
-    color: #ffffff;
+a {
+    color: var(--accent);
 }
 
-footer a:hover{
-    color: #b5b5b5;
+a:hover {
+    cursor: pointer;
+    color: #fff;
+    background-color: var(--accent);
+    text-decoration: none;
 }
 
 ul {
@@ -145,31 +231,24 @@ ul {
 li {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
 
-li p {
-    margin-right: 2rem;
-    margin-bottom: 0rem;
+/* targeted styles */
+.linebreak {
+    width: 13rem;
+    border-top: 1px solid var(--borders);
+    margin-bottom: 0.5rem;
 }
 
-li a {
-    color: #ffffff;
+.lastupdated {
+    font-size: 0.8rem;
+    color: var(--accent-muted);
 }
 
-li a:hover {
-    color: #b5b5b5;
-}
-
-article {
-    border: 1px solid #ffffff;
-    margin-bottom: 1rem;
-    padding: 1rem;
-} 
-
-article p {
-    color: #ffffff;
-}
-
-.post-title {
-    font-size: .8rem;
+/* Ensure content doesn't touch screen edges on small devices */
+@media (max-width: 768px) {
+    body {
+        padding: 1.5rem 1rem;
+    }
 }
