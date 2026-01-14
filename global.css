@@ -157,12 +157,12 @@ body {
     /*min-height: 100vh;*/
     max-width: 65ch; /* Optimal reading width (~65 characters) */
     margin: 0 auto; /* Center the content */
-    padding: 2rem 1rem; /* Comfortable spacing */
+    padding: min(3rem, 8vw) min(2rem, 4vw); /* Responsive spacing with minimums */
     font-family:
         "Geist Mono", "SF Mono", Monaco, "Cascadia Code", "Roboto Mono",
         Consolas, "Courier New", monospace;
     background-color: var(--background-dark);
-    margin-top: 3rem;
+    line-height: 1.6; /* Better readability */
 }
 
 header {
@@ -246,9 +246,85 @@ li {
     color: var(--accent-muted);
 }
 
-/* Ensure content doesn't touch screen edges on small devices */
+/* Enhanced responsive design */
+@media (max-width: 480px) {
+    body {
+        padding: min(2rem, 6vw) min(1rem, 3vw);
+    }
+
+    .linebreak {
+        width: 100%;
+        max-width: 13rem;
+    }
+}
+
 @media (max-width: 768px) {
     body {
-        padding: 1.5rem 1rem;
+        padding: min(2.5rem, 7vw) min(1.5rem, 3.5vw);
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    :root {
+        --text-body: #ffffff;
+        --text-secondary: #cccccc;
+        --accent: #ff6b9d;
+        --borders: #ffffff;
+    }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    .skip-link {
+        transition: none;
+    }}
+
+/* Print styles */
+@media print {
+    body {
+        background: white;
+        color: black;
+        max-width: none;
+        padding: 1rem;
+        font-size: 12pt;
+        line-height: 1.4;
+    }
+
+    header,
+    article,
+    footer {
+        padding: 0;
+    }
+
+    a {
+        color: black;
+        text-decoration: underline;
+        background: none;
+    }
+
+    a[href^="mailto:"]:after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+    }
+
+    a[href^="https://"]:after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+    }
+
+    .linebreak {
+        border-top: 1px solid black;
+    }
+
+    .lastupdated {
+        color: #666;
     }
 }
