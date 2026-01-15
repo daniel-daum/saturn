@@ -1,10 +1,16 @@
+# Default
 User-agent: *
-Allow: /
-
-# Privacy-focused crawling preferences
+Disallow: /
 Crawl-delay: 10
 
-# Disallow aggressive or privacy-invasive bots
+# Allow search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Block AI bots
 User-agent: CCBot
 Disallow: /
 
@@ -15,6 +21,33 @@ User-agent: ChatGPT-User
 Disallow: /
 
 User-agent: Google-Extended
+Disallow: /
+
+User-agent: Googlebot-Extended
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: OAI-SPIDER
+Disallow: /
+
+User-agent: cohere-ai
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: YouBot
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+User-agent: Bytespider
 Disallow: /
 
 User-agent: FacebookBot
