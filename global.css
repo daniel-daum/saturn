@@ -157,7 +157,7 @@ html {
     --accent-muted: #354037;
 
     /*test out yellow accent?*/
-    --accent: #ffb703;
+    /*--accent: #ffb703;*/
 }
 
 body {
@@ -175,6 +175,7 @@ body {
 header {
     padding: 0.5rem;
     font-size: 0.9rem;
+    margin-bottom: .8rem;
 }
 
 main {
