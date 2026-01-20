@@ -163,7 +163,7 @@ html {
 body {
     max-width: 65ch;
     margin: 0 auto;
-    padding: min(6rem, 12vw) min(2rem, 4vw);
+    padding: min(3rem, 8vw) min(2rem, 4vw);
     font-family:
         "Geist Mono", "SF Mono", Monaco, "Cascadia Code", "Roboto Mono",
         Consolas, "Courier New", monospace;
@@ -221,7 +221,7 @@ h2 {
 h3 {
     font-size: 1.05rem;
     color: var(--accent);
-    margin: 2rem 0 0.75rem 0;
+    margin: 1.3rem 0 0.75rem 0;
     font-weight: 600;
 }
 
@@ -713,21 +713,11 @@ button:focus:not(:focus-visible) {
 
 
 
-
-
-
-
-
-
-
-
-
-
 /*============================*/
 /* blog home page styles */
 /*============================*/
 
-/*.blog-home {
+.blog-home {
     max-width: 65ch;
     margin: 0 auto;
     padding: 0.5rem;
@@ -773,4 +763,4 @@ button:focus:not(:focus-visible) {
     color: var(--text-secondary);
     font-size: 0.85rem;
     white-space: nowrap;
-}*/
+}
