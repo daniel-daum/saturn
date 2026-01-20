@@ -1,7 +1,7 @@
-/*
-  Josh's Custom CSS Reset
-  https://www.joshwcomeau.com/css/custom-css-reset/
-*/
+/*============================*/
+/* josh comeau css reset */
+/* https://www.joshwcomeau.com/css/custom-css-reset/*/
+/*============================*/
 
 *,
 *::before,
@@ -67,11 +67,14 @@ h6 {
     isolation: isolate;
 }
 
-/* Geist Mono Font Declarations */
-/* Variable fonts (modern browsers) */
+/*============================*/
+/* geist mono font declaration */
+/* variable font - modern browsers*/
+/*============================*/
+
 @font-face {
     font-family: "Geist Mono";
-    src: url("./src/fonts/geistmono/GeistMono[wght].woff2")
+    src: url("./src/assets/fonts/geistmono/GeistMono[wght].woff2")
         format("woff2-variations");
     font-weight: 100 900;
     font-style: normal;
@@ -83,7 +86,7 @@ h6 {
 
 @font-face {
     font-family: "Geist Mono";
-    src: url("./src/fonts/geistmono/GeistMono-Italic[wght].woff2")
+    src: url("./src/assets/fonts/geistmono/GeistMono-Italic[wght].woff2")
         format("woff2-variations");
     font-weight: 100 900;
     font-style: italic;
@@ -93,10 +96,10 @@ h6 {
         "calt" 1;
 }
 
-/* Static font fallbacks (better browser support) */
+/* Static font fallbacks */
 @font-face {
     font-family: "Geist Mono";
-    src: url("./src/fonts/geistmono/GeistMono-Regular.woff2") format("woff2");
+    src: url("./src/assets/fonts/geistmono/GeistMono-Regular.woff2") format("woff2");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -107,7 +110,7 @@ h6 {
 
 @font-face {
     font-family: "Geist Mono";
-    src: url("./src/fonts/geistmono/GeistMono-Bold.woff2") format("woff2");
+    src: url("./src/assets/fonts/geistmono/GeistMono-Bold.woff2") format("woff2");
     font-weight: 700;
     font-style: normal;
     font-display: swap;
@@ -118,7 +121,7 @@ h6 {
 
 @font-face {
     font-family: "Geist Mono";
-    src: url("./src/fonts/geistmono/GeistMono-Italic.woff2") format("woff2");
+    src: url("./src/assets/fonts/geistmono/GeistMono-Italic.woff2") format("woff2");
     font-weight: 400;
     font-style: italic;
     font-display: swap;
@@ -129,7 +132,7 @@ h6 {
 
 @font-face {
     font-family: "Geist Mono";
-    src: url("./src/fonts/geistmono/GeistMono-BoldItalic.woff2") format("woff2");
+    src: url("./src/assets/fonts/geistmono/GeistMono-BoldItalic.woff2") format("woff2");
     font-weight: 700;
     font-style: italic;
     font-display: swap;
@@ -138,117 +141,626 @@ h6 {
         "calt" 1;
 }
 
-/* Authored CSS by me*/
-
-/* generic layout and styles */
+/*============================*/
+/* global element styles */
+/* authored css by me*/
+/*============================*/
 html {
     height: 100%;
 
-    --background-dark: #111820;
-    --text-headings: #f5f7fa;
-    --text-body: #e6e6e6;
-    --text-secondary: #b0b3b8;
-    --borders: #2a3036;
-    --accent-muted: #3a4650;
-    --accent: #e6528a;
+    --background-dark: #0e140f;
+    --borders: #273028;
+    --text-headings: #f3f4e2;
+    --text-body: #e0e2ce;
+    --text-secondary: #a8ad98;
+    --accent:  #cddc39;
+    --accent-muted: #354037;
+
+    /*test out yellow accent?*/
+    /*--accent: #ffb703;*/
 }
 
 body {
-    /*min-height: 100vh;*/
-    max-width: 65ch; /* Optimal reading width (~65 characters) */
-    margin: 0 auto; /* Center the content */
-    padding: 2rem 1rem; /* Comfortable spacing */
+    max-width: 65ch;
+    margin: 0 auto;
+    padding: min(3rem, 8vw) min(2rem, 4vw);
     font-family:
         "Geist Mono", "SF Mono", Monaco, "Cascadia Code", "Roboto Mono",
         Consolas, "Courier New", monospace;
+    color: var(--text-body);
     background-color: var(--background-dark);
-    margin-top: 3rem;
+    line-height: 1.6;
 }
 
 header {
     padding: 0.5rem;
-    color: var(--text-headings);
     font-size: 0.9rem;
+    margin-bottom: .8rem;
 }
 
-article {
-    display: flex;
-    flex-direction: column;
+main {
     padding: 0.5rem;
-    color: var(--text-body);
     font-size: 0.9rem;
-}
-
-article p {
-    margin-bottom: 1rem;
-}
-
-section {
-    display: flex;
-    flex-direction: column;
-    padding: 0.5rem;
-    color: white;
-    font-size: 0.9rem;
-}
-
-section p {
-    color: var(--text-secondary);
-}
-
-h2 {
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
-    color: var(--text-headings);
-}
-
-ul li {
-    margin-bottom: 0.5rem;
 }
 
 footer {
-    display: flex;
-    flex-direction: column;
     padding: 0.5rem;
-    color: var(--text-secondary);
     font-size: 0.9rem;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+}
+
+nav a {
+    margin-right: 1rem;
+}
+
+nav p {
+    margin: 0rem .5rem 0rem 0rem;
+}
+
+h1 {
+    font-size: 1.6rem;
+    color: var(--accent);
+    margin: 0 0 0.3rem 0;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 1.25rem;
+    color: var(--text-headings);
+    margin: 2.5rem 0 0.75rem 0;
+    font-weight: 600;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--borders);
+}
+
+h3 {
+    font-size: 1.05rem;
+    color: var(--accent);
+    margin: 1.3rem 0 0.75rem 0;
+    font-weight: 600;
+}
+
+p {
+    margin: 0 0 1.2rem 0;
+    color: var(--text-body);
 }
 
 a {
     color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent);
+    transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 a:hover {
-    cursor: pointer;
     color: #fff;
     background-color: var(--accent);
-    text-decoration: none;
+    border-bottom-color: var(--accent);
 }
 
-ul {
+blockquote {
+    margin: 1.75rem 0;
+    padding-left: 1.2rem;
+    border-left: 3px solid var(--accent);
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--borders);
+    border-radius: 2px;
+}
+
+figcaption {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-top: 0.6rem;
+}
+
+code {
+    font-family:
+        "Geist Mono", "SF Mono", Monaco, "Cascadia Code", "Roboto Mono",
+        Consolas, "Courier New", monospace;
+    font-size: 0.88rem;
+    color: var(--text-headings);
+    background: var(--accent-muted);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    border: 1px solid var(--borders);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+pre {
+    margin: 2rem 0;
+    padding: 1.25rem;
+    background: var(--accent-muted);
+    border: 1px solid var(--borders);
+    border-radius: 6px;
+    overflow-x: auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+pre::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    border-radius: 6px 6px 0 0;
+}
+
+pre code {
+    background: none;
+    padding: 0;
+    display: block;
+    color: var(--text-body);
+    font-size: 0.85rem;
+    border: none;
+    box-shadow: none;
+    line-height: 1.5;
+}
+
+figure {
+    margin: 2.5rem 0;
+}
+
+ul, ol {
+    margin: 0 0 1.2rem 1.5rem;
     padding: 0;
 }
 
 li {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    margin: 0.5rem 0;
+    display: list-item;
 }
 
-/* targeted styles */
-.linebreak {
+hr {
+    border: 0;
+    height: 1px;
+    background: var(--borders);
+    margin-bottom: 0.7rem;
     width: 13rem;
-    border-top: 1px solid var(--borders);
-    margin-bottom: 0.5rem;
 }
 
-.lastupdated {
+
+/*============================*/
+/* targeted class styles */
+/* authored css by me*/
+/*============================*/
+
+.title {
+    margin: 0 0 0.3rem 0;
+    font-weight: 700;
+    line-height: 1.6;
+    color: var(--text-body);
+    font-size: 2rem;
+}
+
+.meta {
     font-size: 0.8rem;
-    color: var(--accent-muted);
+    color: var(--text-secondary);
+    margin-top: .5rem;
+    margin-bottom: 2.5rem;
 }
 
-/* Ensure content doesn't touch screen edges on small devices */
+.nav-back {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.nav-back a {
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--accent-muted);
+}
+
+.nav-back a:hover {
+    color: var(--accent-muted);
+    background: none;
+}
+
+/*============================*/
+/* responsive things */
+/* authored with help from ai*/
+/*============================*/
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+    body {
+        padding: min(2rem, 6vw) min(1.5rem, 4vw);
+    }
+
+    h1 {
+        font-size: 1.4rem;
+    }
+
+    h2 {
+        font-size: 1.15rem;
+        margin-top: 2rem;
+        padding-top: 1rem;
+    }
+
+    h3 {
+        font-size: 1rem;
+        margin-top: 1.5rem;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    nav a {
+        margin-right: 0.5rem;
+    }
+
+    pre {
+        padding: 1rem;
+        margin: 1.5rem -0.5rem;
+        border-radius: 4px;
+    }
+
+    pre code {
+        font-size: 0.8rem;
+    }
+
+    hr {
+        width: 100%;
+        max-width: 13rem;
+    }
+}
+
 @media (max-width: 768px) {
     body {
-        padding: 1.5rem 1rem;
+        padding: min(2.5rem, 7vw) min(1.75rem, 4vw);
     }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Focus visible for keyboard navigation */
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+/* Remove default focus for mouse users */
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    html {
+        --text-body: #ffffff;
+        --text-secondary: #cccccc;
+        --text-headings: #ffffff;
+        --accent: #ffff00;
+        --borders: #ffffff;
+        --accent-muted: #444444;
+    }
+
+    a {
+        text-decoration: underline;
+    }
+
+    code {
+        border: 2px solid var(--borders);
+    }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    /* site is dark-only .. for now.. */
+}
+
+/* Print styles */
+@media print {
+    body {
+        background: white;
+        color: black;
+        max-width: none;
+        padding: 1rem;
+        font-size: 11pt;
+        line-height: 1.4;
+    }
+
+    header,
+    main,
+    footer {
+        padding: 0.25rem 0;
+    }
+
+    h1 {
+        font-size: 1.4rem;
+        color: black;
+        page-break-after: avoid;
+    }
+
+    h2, h3 {
+        color: black;
+        page-break-after: avoid;
+        border: none;
+    }
+
+    p, li {
+        orphans: 3;
+        widows: 3;
+    }
+
+    a {
+        color: black;
+        text-decoration: underline;
+        background: none;
+        border: none;
+    }
+
+    a[href^="mailto:"]:after {
+        content: " (" attr(href) ")";
+        font-size: 0.75em;
+    }
+
+    a[href^="http"]:after {
+        content: " (" attr(href) ")";
+        font-size: 0.75em;
+    }
+
+    nav {
+        display: none;
+    }
+
+    pre, code {
+        background: #f5f5f5;
+        border: 1px solid #ccc;
+    }
+
+    blockquote {
+        border-left-color: black;
+    }
+
+    img {
+        border: 1px solid black;
+        page-break-inside: avoid;
+    }
+
+    hr {
+        background: black;
+        border-top: 1px solid black;
+    }
+
+    .meta {
+        color: #666;
+    }
+
+    .nav-back {
+        display: none;
+    }
+}
+
+
+/*============================*/
+/* project page styles */
+/* ai assisted stlying: hover, gradient, transition, glow)*/
+/*============================*/
+.project-card {
+    all:unset;
+
+    display: flex;
+    flex-direction: row;
+
+    margin-bottom: 1rem;
+    border-radius: 16px;
+    padding: 1.25rem;
+
+    border: 1px solid var(--borders);
+
+
+    background: var(--background-dark);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+    color: inherit;
+
+    /* for overlay + smoothness */
+    position: relative;
+    overflow: hidden;
+    transform: translateZ(0);
+    transform-origin: center;
+
+    /* transitions */
+    transition:
+      transform 220ms ease,
+      box-shadow 220ms ease;
+    will-change: transform;
+}
+
+.project-card h1 {
+    padding: 0rem;
+    margin: 0rem;
+}
+
+.project-card p {
+    padding:0rem;
+    margin: 0rem;
+}
+
+.project-card:hover {
+    background-color:var(--background-dark);
+    border-bottom: 1px solid var(--borders);
+    text-decoration: none;
+
+}
+
+.project-card-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 1rem;
+}
+.project-card-right {
+    padding: 0rem;
+    margin: 0rem;
+}
+
+/* gradient overlay (so text doesn’t get re-painted weirdly) */
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+
+  /* subtle green-tinted radial glow */
+  background: radial-gradient(
+    ellipse at top left,
+    rgba(205, 220, 57, 0.08),
+    rgba(53, 64, 55, 0.04),
+    transparent 70%
+  );
+
+  opacity: 0;
+  transition: opacity 220ms ease;
+  pointer-events: none;
+}
+
+.project-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 50px rgba(14, 20, 15, 0.6),
+              0 0 0 1px rgba(205, 220, 57, 0.15);
+
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
+/* keep actual content above overlay */
+.project-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* optional: small image polish */
+.project-card-img {
+  width: 30rem;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  border: 1px solid #3a4a3d;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5),
+              0 2px 8px rgba(0, 0, 0, 0.3),
+              0 0 0 1px rgba(205, 220, 57, 0.1);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.project-type {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+}
+
+.project-card:hover .project-type {
+    color: var(--accent);
+}
+
+.project-card:hover .project-card-img {
+  transform: scale(1.02);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6),
+              0 4px 12px rgba(0, 0, 0, 0.4),
+              0 0 0 1px rgba(205, 220, 57, 0.25);
+}
+
+/* accessibility: keyboard focus should get the same treatment */
+.project-card:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+  transform: scale(1.05);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card,
+  .project-card::before,
+  .project-card-img {
+    transition: none;
+  }
+}
+
+
+
+
+
+/*============================*/
+/* blog home page styles */
+/*============================*/
+
+.blog-home {
+    max-width: 65ch;
+    margin: 0 auto;
+    padding: 0.5rem;
+}
+
+.blog-home h1 {
+    font-size: 1.2rem;
+    color: var(--text-headings);
+    margin: 0 0 2rem 0;
+    font-weight: 700;
+}
+
+.blog-home .post-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.blog-home .post-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--borders);
+    gap: 1rem;
+}
+
+.blog-home .post-item:hover {
+    background: var(--accent-muted);
+}
+
+.blog-home .post-title {
+    flex: 1;
+    color: var(--text-body);
+    text-decoration: none;
+}
+
+.blog-home .post-title:hover {
+    color: var(--accent);
+}
+
+.blog-home .post-date {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    white-space: nowrap;
 }
