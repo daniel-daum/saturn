@@ -723,14 +723,101 @@ button:focus:not(:focus-visible) {
   }
 }
 
+/*============================*/
+/* project banner styles */
+/* svg html generated entirely by ai*/
+/*all other styles by me*/
+/*============================*/
+.project-banner {
+    position: relative;
+    border: 1px solid var(--text-body);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    background: linear-gradient(135deg, #1a2e1a 0%, #0f1e0f 50%, #1a3520 100%);
+    padding: 2rem;
+    height: 20rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
 
+.project-banner-background {
+    position: absolute;
+    inset: 0;
+}
+
+.project-banner-img {
+    position: relative;
+    display: block;
+    width: 93%;
+    height: auto;
+    margin: 2rem auto 0;
+    border: 3px solid rgba(255, 255, 255, 0.25);
+    border-radius: 0.5rem;
+}
+
+.project-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--borders);
+}
+
+.project-header-title  {
+    all:unset;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-right: 5rem;
+}
+
+.project-header-desc  {
+    font-weight: 300;
+    align-self: center;
+    color: var(--text-secondary)
+}
+
+.project-details {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
+}
+
+.project-details-left {
+    display: flex;
+    flex-direction: column;
+    padding-right: 1rem;
+    min-width: 12rem;
+}
+
+.project-details-right {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
+}
+
+.project-details-meta-header {
+    color: var(--text-headings);
+    font-weight: 700;
+}
+
+.project-details-meta-bullet {
+    color: var(--text-body);
+    font-weight: 300;
+}
+
+.project-details-source {
+    /*border: 1px solid red;*/
+    display: inline;
+    width: max-content;
+
+}
 
 
 
 /*============================*/
 /* blog home page styles */
 /*============================*/
-
+/*
 .blog-home {
     max-width: 65ch;
     margin: 0 auto;
@@ -777,4 +864,4 @@ button:focus:not(:focus-visible) {
     color: var(--text-secondary);
     font-size: 0.85rem;
     white-space: nowrap;
-}
+}*/

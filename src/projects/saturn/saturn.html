@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="daniel daum's website homepage - oakland based software engineer"
+        />
+        <meta
+            http-equiv="Content-Security-Policy"
+            content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self';"
+        />
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
+        <link rel="stylesheet" href="/global.css" />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/src/assets/favicon/apple-touch-icon.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/src/assets/favicon/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/src/assets/favicon/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/src/assets/favicon/site.webmanifest" />
+        <title>daniel daum - saturn</title>
+    </head>
+
+
+    <body>
+        <header>
+            <div class="nav-back">← <a href="/src/projects/projects.html">back to projects</a></div>
+            <section class="project-banner">
+                <div class="project-banner-background" aria-hidden="true">
+                    <!--svg elements generated with help from warp ai-->
+                    <svg width="100%" height="100%" preserveAspectRatio="xMinYMin">
+                        <defs>
+                            <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="1" />
+                            </pattern>
+                            <pattern id="diagonals" width="80" height="80" patternUnits="userSpaceOnUse">
+                                <line x1="0" y1="0" x2="80" y2="80" stroke="white" stroke-width="1.5" />
+                                <line x1="80" y1="0" x2="0" y2="80" stroke="white" stroke-width="1.5" />
+                            </pattern>
+                            <pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse">
+                                <circle cx="10" cy="10" r="1.5" fill="white" />
+                            </pattern>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#grid)" opacity="0.2" />
+                        <rect width="100%" height="100%" fill="url(#diagonals)" opacity="0.1" />
+                        <rect width="100%" height="100%" fill="url(#dots)" opacity="0.15" />
+                    </svg>
+                </div>
+                <img
+                    class="project-banner-img"
+                    src="/src/projects/saturn/saturn.png"
+                    alt="Saturn project screenshot"
+                />
+            </section>
+        </header>
+        <main>
+
+            <section class="project-header">
+                <h1 class="project-header-title">saturn</h1>
+                <h4 class="project-header-desc" >a cozy yet minimalist personal website</h4>
+            </section>
+
+            <section class="project-details">
+                <div class="project-details-left">
+                    <h4 class="project-details-meta-header">role</h4>
+                    <p class="project-details-meta-bullet">developer</p>
+
+                    <h4 class="project-details-meta-header">timeline</h4>
+                    <p class="project-details-meta-bullet">jan 2026 - ongoing</p>
+
+                    <h4 class="project-details-meta-header">tools</h4>
+                    <p class="project-details-meta-bullet">html, css</p>
+
+                    <h4 class="project-details-meta-header">context</h4>
+                    <p class="project-details-meta-bullet">personal project</p>
+
+                    <a class="project-details-source" href="https://github.com/daniel-daum/saturn" aria-label="link to this websites source code" target="_blank" rel="noopener noreferrer">source</a>
+
+                </div>
+                <div class="project-details-right">
+                    <p class="project-details-description">
+                        i have never been satisfied with the look of my websites. in my efforts to improve what i don't like, i end up re-designing it...over and over
+                    </p>
+
+                    <p class="project-details-description">
+                        i have always been drawn to simple, minimal sites. i find something elegeant about, less. this iteration represents my current best attempt at doing less 
+
+                    </p>
+                    <p>
+                        the implementation is intentionally simple: static html and css, no javascript or framework, registered and hosted on cloudflare
+                    </p>
+                </div>
+            </section>
+
+
+        </main>
+        <footer>
+    </body>
+</html>
