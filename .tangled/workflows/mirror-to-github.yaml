@@ -1,13 +1,13 @@
 # .tangled/workflows/mirror-to-github.yml
 
 when:
-  - event: ["push"]
+  - event: ["push", "manual"]
     branch: ["main"]
 
 engine: "nixery"
 
 clone:
-  depth: 0  # full history, not just the latest commit
+  depth: 0 # full history, not just the latest commit
 
 dependencies:
   nixpkgs:
@@ -34,7 +34,7 @@ steps:
 
       # Add GitHub as a remote and force-push
       git remote add github git@github.com:$GITHUB_USERNAME/$GITHUB_REPO_NAME.git
-      git push github refs/heads/main:refs/heads/main --force
+      git push github "$TANGLED_SHA":refs/heads/main --force
     environment:
       GITHUB_USERNAME: "daniel-daum"
       GITHUB_REPO_NAME: "saturn"
