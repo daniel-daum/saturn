@@ -7,34 +7,17 @@ when:
 engine: "nixery"
 
 clone:
-  depth: 0 # full history, not just the latest commit
+  depth: 0
 
 dependencies:
   nixpkgs:
     - git
-    - openssh
 
 steps:
   - name: "Mirror to GitHub"
     command: |
-      # Write the deploy key from secrets
-      mkdir -p ~/.ssh
-      echo "$GITHUB_DEPLOY_KEY" > ~/.ssh/github_deploy_key
-      chmod 600 ~/.ssh/github_deploy_key
-
-      # Trust github.com host key
-      ssh-keyscan github.com >> ~/.ssh/known_hosts
-
-      # Configure SSH to use the deploy key for GitHub
-      cat >> ~/.ssh/config <<EOF
-      Host github.com
-        IdentityFile ~/.ssh/github_deploy_key
-        StrictHostKeyChecking yes
-      EOF
-
-      # Add GitHub as a remote and force-push
-      git remote add github git@github.com:$GITHUB_USERNAME/$GITHUB_REPO_NAME.git
-      git push github "$TANGLED_SHA":refs/heads/main --force
+      git remote add github https://x-access-token:${GITHUB_PAT}@github.com/${GITHUB_USERNAME}/${GITHUB_REPO_NAME}.git
+      git push github refs/heads/main:refs/heads/main --force
     environment:
       GITHUB_USERNAME: "daniel-daum"
       GITHUB_REPO_NAME: "saturn"
