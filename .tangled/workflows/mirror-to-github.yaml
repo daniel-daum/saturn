@@ -17,7 +17,7 @@ steps:
   - name: "Mirror to GitHub"
     command: |
       git remote add github https://x-access-token:${GITHUB_PAT}@github.com/${GITHUB_USERNAME}/${GITHUB_REPO_NAME}.git
-      git push github refs/heads/main:refs/heads/main --force
+      git push github HEAD:refs/heads/main --force
     environment:
       GITHUB_USERNAME: "daniel-daum"
       GITHUB_REPO_NAME: "saturn"
