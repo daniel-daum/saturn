@@ -9,12 +9,12 @@ on:
 jobs:
     deploy:
         runs-on: ubuntu-latest
-
+        env:
+          GITHUB_SERVER_URL: https://git.danieldaum.net
+          
         steps:
             - name: Checkout
               uses: actions/checkout@v4
-              with:
-                server_url: https://git.danieldaum.net
 
             - name: Deploy to Cloudflare Pages
               uses: cloudflare/wrangler-action@v3
