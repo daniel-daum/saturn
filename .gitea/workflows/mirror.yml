@@ -1,0 +1,21 @@
+name: mirror to gitHub
+
+on:
+    push:
+        branches:
+            - main
+    workflow_dispatch:
+
+jobs:
+    mirror:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+
+            - name: Push to GitHub
+              run: |
+                  git remote add github https://x-access-token:${{ secrets.GH_MIRROR_TOKEN }}@github.com/daniel-daum/saturn.git
+                  git push github main --force
