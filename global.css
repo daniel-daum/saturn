@@ -178,7 +178,7 @@ body {
 header {
     padding: 0.5rem;
     font-size: 0.9rem;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.4rem;
 }
 
 main {
@@ -333,8 +333,9 @@ hr {
     border: 0;
     height: 1px;
     background: var(--borders);
-    margin-bottom: 0.7rem;
-    width: 13rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 90%;
 }
 
 /*not ready yet*/
