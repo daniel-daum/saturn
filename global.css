@@ -215,16 +215,16 @@ h1 {
 h2 {
     font-size: 1.25rem;
     color: var(--text-headings);
-    margin: 2.5rem 0 0.75rem 0;
+    margin: 2rem 0 0.5rem 0;
     font-weight: 600;
-    padding-top: 1.5rem;
+    padding-top: 1.25rem;
     border-top: 1px solid var(--borders);
 }
 
 h3 {
     font-size: 1.05rem;
     color: var(--accent);
-    margin: 1.3rem 0 0.75rem 0;
+    margin: 1rem 0 0.5rem 0;
     font-weight: 600;
 }
 
@@ -335,7 +335,7 @@ hr {
     background: var(--borders);
     margin-top: 1rem;
     margin-bottom: 1rem;
-    width: 90%;
+    width: 100%;
 }
 
 /*not ready yet*/
@@ -370,8 +370,12 @@ s a:hover {
 .meta {
     font-size: 0.8rem;
     color: var(--text-secondary);
-    margin-top: 0.5rem;
-    margin-bottom: 2.5rem;
+    margin-top: 0.4rem;
+    margin-bottom: 1.25rem;
+}
+
+footer .meta {
+    margin-top: 0.75rem;
 }
 
 .nav-back {
@@ -408,13 +412,13 @@ s a:hover {
 
     h2 {
         font-size: 1.15rem;
-        margin-top: 2rem;
+        margin-top: 1.75rem;
         padding-top: 1rem;
     }
 
     h3 {
         font-size: 1rem;
-        margin-top: 1.5rem;
+        margin-top: 0.9rem;
     }
 
     nav {
@@ -511,7 +515,12 @@ button:focus:not(:focus-visible) {
         --accent: #245c32;
         --accent-muted: #d1e9d4;
 
-        background: linear-gradient(180deg, #e5eee3 0%, #edf4ea 50%, #e0ebe2 100%);
+        background: linear-gradient(
+            180deg,
+            #e5eee3 0%,
+            #edf4ea 50%,
+            #e0ebe2 100%
+        );
     }
 
     /* accent-muted is now very light — white text on it has no contrast */
