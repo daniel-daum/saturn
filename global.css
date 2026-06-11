@@ -68,77 +68,80 @@ h6 {
 }
 
 /*============================*/
-/* geist mono font declaration */
-/* variable font - modern browsers*/
+/* ioskeley mono font declaration */
+/* static fonts only - no variable font available */
 /*============================*/
 
 @font-face {
-    font-family: "Geist Mono";
-    src: url("./src/assets/fonts/geistmono/GeistMono[wght].woff2")
-        format("woff2-variations");
-    font-weight: 100 900;
+    font-family: "Ioskeley Mono";
+    src: url("./src/assets/fonts/ioskeleymono/IoskeleyMono-Light.woff2")
+        format("woff2");
+    font-weight: 300;
     font-style: normal;
     font-display: swap;
-    font-feature-settings:
-        "liga" 1,
-        "calt" 1;
 }
 
 @font-face {
-    font-family: "Geist Mono";
-    src: url("./src/assets/fonts/geistmono/GeistMono-Italic[wght].woff2")
-        format("woff2-variations");
-    font-weight: 100 900;
+    font-family: "Ioskeley Mono";
+    src: url("./src/assets/fonts/ioskeleymono/IoskeleyMono-LightItalic.woff2")
+        format("woff2");
+    font-weight: 300;
     font-style: italic;
     font-display: swap;
-    font-feature-settings:
-        "liga" 1,
-        "calt" 1;
 }
 
-/* Static font fallbacks */
 @font-face {
-    font-family: "Geist Mono";
-    src: url("./src/assets/fonts/geistmono/GeistMono-Regular.woff2") format("woff2");
+    font-family: "Ioskeley Mono";
+    src: url("./src/assets/fonts/ioskeleymono/IoskeleyMono-Regular.woff2")
+        format("woff2");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
-    font-feature-settings:
-        "liga" 1,
-        "calt" 1;
 }
 
 @font-face {
-    font-family: "Geist Mono";
-    src: url("./src/assets/fonts/geistmono/GeistMono-Bold.woff2") format("woff2");
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-    font-feature-settings:
-        "liga" 1,
-        "calt" 1;
-}
-
-@font-face {
-    font-family: "Geist Mono";
-    src: url("./src/assets/fonts/geistmono/GeistMono-Italic.woff2") format("woff2");
+    font-family: "Ioskeley Mono";
+    src: url("./src/assets/fonts/ioskeleymono/IoskeleyMono-Italic.woff2")
+        format("woff2");
     font-weight: 400;
     font-style: italic;
     font-display: swap;
-    font-feature-settings:
-        "liga" 1,
-        "calt" 1;
 }
 
 @font-face {
-    font-family: "Geist Mono";
-    src: url("./src/assets/fonts/geistmono/GeistMono-BoldItalic.woff2") format("woff2");
+    font-family: "Ioskeley Mono";
+    src: url("./src/assets/fonts/ioskeleymono/IoskeleyMono-SemiBold.woff2")
+        format("woff2");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Ioskeley Mono";
+    src: url("./src/assets/fonts/ioskeleymono/IoskeleyMono-SemiBoldItalic.woff2")
+        format("woff2");
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Ioskeley Mono";
+    src: url("./src/assets/fonts/ioskeleymono/IoskeleyMono-Bold.woff2")
+        format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Ioskeley Mono";
+    src: url("./src/assets/fonts/ioskeleymono/IoskeleyMono-BoldItalic.woff2")
+        format("woff2");
     font-weight: 700;
     font-style: italic;
     font-display: swap;
-    font-feature-settings:
-        "liga" 1,
-        "calt" 1;
 }
 
 /*============================*/
@@ -153,7 +156,7 @@ html {
     --text-headings: #f3f4e2;
     --text-body: #e0e2ce;
     --text-secondary: #a8ad98;
-    --accent:  #cddc39;
+    --accent: #cddc39;
     --accent-muted: #354037;
 
     /*test out yellow accent?*/
@@ -165,8 +168,8 @@ body {
     margin: 0 auto;
     padding: min(3rem, 8vw) min(2rem, 4vw);
     font-family:
-        "Geist Mono", "SF Mono", Monaco, "Cascadia Code", "Roboto Mono",
-        Consolas, "Courier New", monospace;
+        "Ioskeley Mono", "Geist Mono", "SF Mono", Monaco, "Cascadia Code",
+        "Roboto Mono", Consolas, "Courier New", monospace;
     color: var(--text-body);
     background-color: var(--background-dark);
     line-height: 1.6;
@@ -175,7 +178,7 @@ body {
 header {
     padding: 0.5rem;
     font-size: 0.9rem;
-    margin-bottom: .8rem;
+    margin-bottom: 0.8rem;
 }
 
 main {
@@ -198,7 +201,7 @@ nav a {
 }
 
 nav p {
-    margin: 0rem .5rem 0rem 0rem;
+    margin: 0rem 0.5rem 0rem 0rem;
 }
 
 h1 {
@@ -234,7 +237,9 @@ a {
     color: var(--accent);
     text-decoration: none;
     border-bottom: 1px solid var(--accent);
-    transition: background-color 0.15s ease, color 0.15s ease;
+    transition:
+        background-color 0.15s ease,
+        color 0.15s ease;
 }
 
 a:hover {
@@ -266,8 +271,8 @@ figcaption {
 
 code {
     font-family:
-        "Geist Mono", "SF Mono", Monaco, "Cascadia Code", "Roboto Mono",
-        Consolas, "Courier New", monospace;
+        "Ioskeley Mono", "Geist Mono", "SF Mono", Monaco, "Cascadia Code",
+        "Roboto Mono", Consolas, "Courier New", monospace;
     font-size: 0.88rem;
     color: var(--text-headings);
     background: var(--accent-muted);
@@ -289,7 +294,7 @@ pre {
 }
 
 pre::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -313,7 +318,8 @@ figure {
     margin: 1.5rem 0;
 }
 
-ul, ol {
+ul,
+ol {
     margin: 0 0 1.2rem 1.5rem;
     padding: 0;
 }
@@ -336,7 +342,9 @@ s a {
     color: var(--accent-muted);
     text-decoration: none;
     border-bottom: 1px solid var(--accent-muted);
-    transition: background-color 0.15s ease, color 0.15s ease;
+    transition:
+        background-color 0.15s ease,
+        color 0.15s ease;
 }
 
 s a:hover {
@@ -344,7 +352,6 @@ s a:hover {
     background-color: var(--accent-muted);
     border-bottom-color: var(--accent-muted);
 }
-
 
 /*============================*/
 /* targeted class styles */
@@ -362,7 +369,7 @@ s a:hover {
 .meta {
     font-size: 0.8rem;
     color: var(--text-secondary);
-    margin-top: .5rem;
+    margin-top: 0.5rem;
     margin-bottom: 2.5rem;
 }
 
@@ -517,13 +524,15 @@ button:focus:not(:focus-visible) {
         page-break-after: avoid;
     }
 
-    h2, h3 {
+    h2,
+    h3 {
         color: black;
         page-break-after: avoid;
         border: none;
     }
 
-    p, li {
+    p,
+    li {
         orphans: 3;
         widows: 3;
     }
@@ -549,7 +558,8 @@ button:focus:not(:focus-visible) {
         display: none;
     }
 
-    pre, code {
+    pre,
+    code {
         background: #f5f5f5;
         border: 1px solid #ccc;
     }
@@ -577,13 +587,12 @@ button:focus:not(:focus-visible) {
     }
 }
 
-
 /*============================*/
 /* project page styles */
 /* ai assisted stlying: hover, gradient, transition, glow)*/
 /*============================*/
 .project-card {
-    all:unset;
+    all: unset;
 
     display: flex;
     flex-direction: row;
@@ -593,7 +602,6 @@ button:focus:not(:focus-visible) {
     padding: 1.25rem;
 
     border: 1px solid var(--borders);
-
 
     background: var(--background-dark);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
@@ -608,8 +616,8 @@ button:focus:not(:focus-visible) {
 
     /* transitions */
     transition:
-      transform 220ms ease,
-      box-shadow 220ms ease;
+        transform 220ms ease,
+        box-shadow 220ms ease;
     will-change: transform;
 }
 
@@ -619,15 +627,14 @@ button:focus:not(:focus-visible) {
 }
 
 .project-card p {
-    padding:0rem;
+    padding: 0rem;
     margin: 0rem;
 }
 
 .project-card:hover {
-    background-color:var(--background-dark);
+    background-color: var(--background-dark);
     border-bottom: 1px solid var(--borders);
     text-decoration: none;
-
 }
 
 .project-card-left {
@@ -643,52 +650,55 @@ button:focus:not(:focus-visible) {
 
 /* gradient overlay (so text doesn’t get re-painted weirdly) */
 .project-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
 
-  /* subtle green-tinted radial glow */
-  background: radial-gradient(
-    ellipse at top left,
-    rgba(205, 220, 57, 0.08),
-    rgba(53, 64, 55, 0.04),
-    transparent 70%
-  );
+    /* subtle green-tinted radial glow */
+    background: radial-gradient(
+        ellipse at top left,
+        rgba(205, 220, 57, 0.08),
+        rgba(53, 64, 55, 0.04),
+        transparent 70%
+    );
 
-  opacity: 0;
-  transition: opacity 220ms ease;
-  pointer-events: none;
+    opacity: 0;
+    transition: opacity 220ms ease;
+    pointer-events: none;
 }
 
 .project-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 20px 50px rgba(14, 20, 15, 0.6),
-              0 0 0 1px rgba(205, 220, 57, 0.15);
-
+    transform: scale(1.05);
+    box-shadow:
+        0 20px 50px rgba(14, 20, 15, 0.6),
+        0 0 0 1px rgba(205, 220, 57, 0.15);
 }
 
 .project-card:hover::before {
-  opacity: 1;
+    opacity: 1;
 }
 
 /* keep actual content above overlay */
 .project-card > * {
-  position: relative;
-  z-index: 1;
+    position: relative;
+    z-index: 1;
 }
 
 /* optional: small image polish */
 .project-card-img {
-  width: 30rem;
-  height: auto;
-  display: block;
-  border-radius: 12px;
-  border: 1px solid #3a4a3d;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5),
-              0 2px 8px rgba(0, 0, 0, 0.3),
-              0 0 0 1px rgba(205, 220, 57, 0.1);
-  transition: transform 220ms ease, box-shadow 220ms ease;
+    width: 30rem;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    border: 1px solid #3a4a3d;
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.5),
+        0 2px 8px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(205, 220, 57, 0.1);
+    transition:
+        transform 220ms ease,
+        box-shadow 220ms ease;
 }
 
 .project-type {
@@ -702,25 +712,26 @@ button:focus:not(:focus-visible) {
 }
 
 .project-card:hover .project-card-img {
-  transform: scale(1.02);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6),
-              0 4px 12px rgba(0, 0, 0, 0.4),
-              0 0 0 1px rgba(205, 220, 57, 0.25);
+    transform: scale(1.02);
+    box-shadow:
+        0 12px 32px rgba(0, 0, 0, 0.6),
+        0 4px 12px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(205, 220, 57, 0.25);
 }
 
 /* accessibility: keyboard focus should get the same treatment */
 .project-card:focus-visible {
-  outline: 2px solid currentColor;
-  outline-offset: 4px;
-  transform: scale(1.05);
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
+    transform: scale(1.05);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .project-card,
-  .project-card::before,
-  .project-card-img {
-    transition: none;
-  }
+    .project-card,
+    .project-card::before,
+    .project-card-img {
+        transition: none;
+    }
 }
 
 /*============================*/
@@ -762,18 +773,18 @@ button:focus:not(:focus-visible) {
     border-bottom: 1px solid var(--borders);
 }
 
-.project-header-title  {
-    all:unset;
+.project-header-title {
+    all: unset;
     font-size: 2rem;
     font-weight: 700;
     color: var(--accent);
     margin-right: 5rem;
 }
 
-.project-header-desc  {
+.project-header-desc {
     font-weight: 300;
     align-self: center;
-    color: var(--text-secondary)
+    color: var(--text-secondary);
 }
 
 .project-details {
@@ -809,10 +820,7 @@ button:focus:not(:focus-visible) {
     /*border: 1px solid red;*/
     display: inline;
     width: max-content;
-
 }
-
-
 
 /*============================*/
 /* blog home page styles */
