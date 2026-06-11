@@ -438,7 +438,6 @@ s a:hover {
 
     hr {
         width: 100%;
-        max-width: 13rem;
     }
 }
 
@@ -498,8 +497,32 @@ button:focus:not(:focus-visible) {
     }
 }
 
+/*============================*/
+/* light mode */
+/* system/browser preference only — no ui toggle */
+/*============================*/
 @media (prefers-color-scheme: light) {
-    /* site is dark-only .. for now.. */
+    html {
+        --background-dark: #edf4ea;
+        --borders: #becec0;
+        --text-headings: #0d1a0f;
+        --text-body: #1c2d1f;
+        --text-secondary: #546957;
+        --accent: #245c32;
+        --accent-muted: #d1e9d4;
+
+        background: linear-gradient(180deg, #e5eee3 0%, #edf4ea 50%, #e0ebe2 100%);
+    }
+
+    /* accent-muted is now very light — white text on it has no contrast */
+    s a:hover {
+        color: var(--text-body);
+    }
+
+    /* same issue for nav-back hover */
+    .nav-back a:hover {
+        color: var(--accent);
+    }
 }
 
 /* Print styles */
@@ -576,7 +599,6 @@ button:focus:not(:focus-visible) {
 
     hr {
         background: black;
-        border-top: 1px solid black;
     }
 
     .meta {
