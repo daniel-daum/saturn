@@ -1,0 +1,7 @@
+[tools]
+node = "lts"
+"npm:vite" = "latest"
+
+[tasks.dev]
+run = "vite"
+description = "Start Vite dev server"

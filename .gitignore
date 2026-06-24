@@ -1,6 +1,4 @@
 # misc
 .DS_Store
-.vscode
-*.md
 *.vite
-.claude
+
