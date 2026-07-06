@@ -19,8 +19,8 @@
     </head>
 
     <body>
-        <header>
-            <h1 class="title">changelog</h1>
+        <header class="site-header">
+            <a class="site-name" href="/index.html" aria-label="return home">daniel daum</a>
             <nav aria-label="main navigation">
                 <a href="/index.html" aria-label="return home">home</a>
                 <a href="/now" aria-label="now page">now</a>
@@ -30,6 +30,32 @@
             </nav>
         </header>
         <main>
+            <h1 class="title">changelog</h1>
+            <h2>v0.3.0 — 2026-07-06 — homepage redesign (wip)</h2>
+            <p class="meta">new homepage layout, typography pass, visual refinements</p>
+
+            <h3>added</h3>
+            <ul>
+                <li>new homepage: hero tagline section, recent writing rows, project card grid</li>
+                <li>about page (old homepage content moved to /about)</li>
+                <li>"about" link in site nav</li>
+                <li>homepage section labels (.section-label)</li>
+                <li>homepage writing rows (.post-row) with title/date layout</li>
+                <li>homepage project card grid (.home-projects-grid, .home-project-card) — 2-col, lime border on hover</li>
+                <li>::selection highlight (lime bg, dark text)</li>
+            </ul>
+
+            <h3>changed</h3>
+            <ul>
+                <li>base font-size 15px &rarr; 16px, line-height 1.7 &rarr; 1.8, max-width 75ch &rarr; 68ch</li>
+                <li>h2: removed border-top divider, uses margin for spacing only</li>
+                <li>p: margin-bottom 1rem &rarr; 1.2rem</li>
+                <li>background: #0e140f &rarr; #141e15 (lifted to intentional deep bottle green)</li>
+                <li>footer hr now matches header border-bottom width</li>
+                <li>hero h1 line-height 1.4 and bio text 0.88rem for visual hierarchy</li>
+                <li>project card hover: clean lime border-color transition (no scale or overlay)</li>
+            </ul>
+
             <h2>v0.2.0 — 2026-06-10 — clean slate</h2>
             <p class="meta">polish and foundation</p>
 

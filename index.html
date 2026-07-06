@@ -1,115 +1,113 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta
-            name="description"
-            content="daniel daum's website homepage - oakland based software engineer"
-        />
-        <meta
-            http-equiv="Content-Security-Policy"
-            content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self';"
-        />
-        <meta name="referrer" content="strict-origin-when-cross-origin" />
-        <link rel="stylesheet" href="/global.css" />
-        <link
-            rel="icon"
-            type="image/jpeg"
-            href="/src/assets/favicon/coast.jpeg"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="/src/assets/favicon/favicon-32x32.png"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            href="/src/assets/favicon/favicon-16x16.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="/src/assets/favicon/apple-touch-icon.png"
-        />
-        <link rel="manifest" href="/src/assets/favicon/site.webmanifest" />
-        <title>daniel daum</title>
-    </head>
 
-    <body>
-        <header>
-            <h1 class="title">daniel daum</h1>
-            <nav aria-label="main navigation">
-                <a href="/index.html" aria-label="return home">home</a>
-                <a href="/now" aria-label="now page">now</a>
-                <s
-                    ><a href="/writing" aria-label="writing, coming soon"
-                        >writing</a
-                    ></s
-                >
-                <s
-                    ><a href="/garden" aria-label="garden, coming soon"
-                        >garden</a
-                    ></s
-                >
-                <a href="/projects" aria-label="projects">projects</a>
-            </nav>
-        </header>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="daniel daum - software engineer based in oakland, ca" />
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self';" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <link rel="stylesheet" href="/global.css" />
+    <link rel="icon" type="image/jpeg" href="/src/assets/favicon/coast.jpeg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/src/assets/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/src/assets/favicon/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/src/assets/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="/src/assets/favicon/site.webmanifest" />
+    <title>daniel daum</title>
+</head>
 
-        <main>
-            <p>
-                Welcome! I'm Daniel, a software engineer living in Oakland, CA
-            </p>
-            <p>
-                I built this site to share my thoughts, practice my writing, and
-                publish things I find interesting. Most recently, I've worked on
-                building backend services and data infrastructure.
-            </p>
-            <p>
-                Outside of work I enjoy reading, music, running, lifting,
-                cooking, video games, writing, hiking, and building software.
-            </p>
-            <p>
-                I am pursuing an undergradute degree in computer science and
-                currently learning game development
-            </p>
-            <p>
-                Don't hesitate to shoot me an email, especially if it's to chat
-                about books or video games
-            </p>
-        </main>
+<body>
+    <header class="site-header">
+        <a class="site-name" href="/index.html" aria-label="return home">
+            daniel daum
+        </a>
+        <nav aria-label="main navigation">
+            <a href="/index.html" aria-label="return home">
+                home
+            </a>
+            <a href="/about" aria-label="about me">
+                about
+            </a>
+            <a href="/now" aria-label="now page">
+                now
+            </a>
+            <a href="/projects" aria-label="projects">
+                projects
+            </a>
+        </nav>
+    </header>
 
-        <footer>
-            <hr />
-            <nav aria-label="site links">
-                <p aria-hidden="true">[↗]:</p>
-                <a
-                    href="mailto:daniel@danieldaum.net"
-                    aria-label="link to send me an email"
-                    >email</a
-                >
-
-                <a
-                    href="https://git.danieldaum.net/"
-                    aria-label="link to my git, opens in new tab"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >git</a
-                >
-
-                <a
-                    href="/pgp.asc"
-                    aria-label="link to my pgp public key (516E97FF)"
-                    >pgp</a
-                >
-                <a href="/changelog.html">changelog</a>
-            </nav>
-            <p class="meta" aria-label="page last updated on may 11, 2026">
-                last updated: wednesday, june 10 2026 @ 19:12 [PST]
+    <main>
+        <!-- hero -->
+        <section class="hero" aria-label="introduction">
+            <h1>Software engineer.<br>Avid reader.<br>Aspiring game dev.</h1>
+            <p>
+                Building backend services and data infrastructure in Oakland, CA.
+                Currently learning game development and pursuing a CS degree.
             </p>
-        </footer>
-    </body>
+        </section>
+
+        <!-- recent writing -->
+        <section aria-label="recent writing">
+            <h2 class="section-label">recent writing</h2>
+
+            <div class="post-row">
+                <a class="post-title" href="/writing">On learning game development from scratch</a>
+                <time class="post-date" datetime="2026-06-01">jun 2026</time>
+            </div>
+            <div class="post-row">
+                <a class="post-title" href="/writing">What six months of running taught me about shipping software</a>
+                <time class="post-date" datetime="2026-05-01">may 2026</time>
+            </div>
+            <div class="post-row">
+                <a class="post-title" href="/writing">Books i read in early 2026</a>
+                <time class="post-date" datetime="2026-04-01">apr 2026</time>
+            </div>
+            <div class="post-row">
+                <a class="post-title" href="/writing">Notes on building data pipelines at scale</a>
+                <time class="post-date" datetime="2026-03-01">mar 2026</time>
+            </div>
+        </section>
+
+        <!-- projects -->
+        <section aria-label="projects">
+            <h2 class="section-label">projects</h2>
+
+            <div class="home-projects-grid">
+                <a class="home-project-card" href="/projects/saturn">
+                    <p class="project-type">JAN '26 &middot; RE-DESIGN</p>
+                    <p class="home-card-title">saturn</p>
+                    <p class="home-card-desc">a cozy yet minimalist personal website</p>
+                </a>
+                <a class="home-project-card home-project-card--more" href="/projects">
+                    <p class="home-card-title">all projects &rarr;</p>
+                    <p class="home-card-desc">more coming soon</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <hr />
+        <nav aria-label="site links">
+            <p aria-hidden="true">[↗]:</p>
+            <a href="mailto:daniel@danieldaum.net" aria-label="link to send me an email">
+                email
+            </a>
+            <a href="https://git.danieldaum.net/" aria-label="link to my git, opens in new tab" target="_blank"
+                rel="noopener noreferrer">
+                git
+            </a>
+            <a href="/pgp.asc" aria-label="link to my pgp public key (516E97FF)">
+                pgp
+            </a>
+            <a href="/changelog.html">changelog</a>
+        </nav>
+        <p class="meta" aria-label="page last updated on july 6, 2026">
+            last updated: sunday, july 6 2026 @ 20:18 [UTC]
+        </p>
+    </footer>
+</body>
+
 </html>
