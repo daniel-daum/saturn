@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="daniel daum - software engineer based in oakland, ca" />
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self';" />
+        content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <link rel="stylesheet" href="/global.css" />
     <link rel="icon" type="image/jpeg" href="/src/assets/favicon/coast.jpeg" />
@@ -58,22 +58,26 @@
         <section aria-label="recent writing">
             <h2 class="section-label">recent writing</h2>
 
-            <div class="post-row">
-                <a class="post-title" href="/writing">On learning game development from scratch</a>
-                <time class="post-date" datetime="2026-06-01">jun 2026</time>
-            </div>
-            <div class="post-row">
-                <a class="post-title" href="/writing">What six months of running taught me about shipping software</a>
-                <time class="post-date" datetime="2026-05-01">may 2026</time>
-            </div>
-            <div class="post-row">
-                <a class="post-title" href="/writing">Books i read in early 2026</a>
-                <time class="post-date" datetime="2026-04-01">apr 2026</time>
-            </div>
-            <div class="post-row">
-                <a class="post-title" href="/writing">Notes on building data pipelines at scale</a>
-                <time class="post-date" datetime="2026-03-01">mar 2026</time>
-            </div>
+            <table class="content-table">
+                <tbody>
+                    <tr class="table-row">
+                        <td><a class="table-title" href="/blog/game-dev">on learning game development from scratch</a></td>
+                        <td class="table-date"><time datetime="2026-06-01">jun 2026</time></td>
+                    </tr>
+                    <tr class="table-row">
+                        <td><a class="table-title" href="/blog/running-software">what six months of running taught me about shipping software</a></td>
+                        <td class="table-date"><time datetime="2026-05-01">may 2026</time></td>
+                    </tr>
+                    <tr class="table-row">
+                        <td><a class="table-title" href="/blog/books-early-2026">books i read in early 2026</a></td>
+                        <td class="table-date"><time datetime="2026-04-01">apr 2026</time></td>
+                    </tr>
+                    <tr class="table-row">
+                        <td><a class="table-title" href="/blog/data-pipelines">notes on building data pipelines at scale</a></td>
+                        <td class="table-date"><time datetime="2026-03-01">mar 2026</time></td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
 
         <!-- projects -->

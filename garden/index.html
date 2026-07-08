@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="daniel daum's digital garden - collected things" />
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self';" />
+        content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <link rel="stylesheet" href="/global.css" />
     <link rel="icon" type="image/jpeg" href="/src/assets/favicon/coast.jpeg" />
@@ -49,14 +49,26 @@
             <h1>garden</h1>
             <p class="meta">A collection of things that don't quite fit anywhere else.</p>
         </section>
+
         <section>
-            <div class="section-projects">
-                <div class="proj-row">
-                    <a class="proj-name" href="/garden/styles">styles</a>
-                    <p class="proj-desc">design tokens, typography, and components</p>
-                </div>
-            </div>
+            <table class="content-table">
+                <thead>
+                    <tr>
+                        <th class="col-title">title</th>
+                        <th class="col-desc">description</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr class="table-row">
+                        <td><a class="table-title" href="/garden/styles">styles</a></td>
+                        <td class="table-desc">design tokens, typography, and components</td>
+                    </tr>
+
+                </tbody>
+            </table>
         </section>
+
     </main>
     <footer>
         <hr />
