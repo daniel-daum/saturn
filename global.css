@@ -308,18 +308,6 @@ img {
     margin-inline: auto;
 }
 
-/* full body width, fixed box height — the image is scaled to fit inside that box
-   (object-fit: contain), so it's still uncropped and undistorted, but a portrait
-   photo leaves empty bars on the left/right filled with --accent-muted. trades
-   "no wasted space" for "always spans the full column, same height every time".
-   default box height is 26rem; override with style="--img-box-height: 20rem" */
-.img-letterboxed {
-    width: 100%;
-    height: var(--img-box-height, 26rem);
-    object-fit: contain;
-    background: var(--accent-muted);
-}
-
 figcaption {
     font-size: 0.85rem;
     color: var(--text-secondary);
@@ -486,6 +474,7 @@ s a:hover {
 
 .home-project-card:hover {
     border-color: var(--accent);
+    background: none;
 }
 
 .home-card-title {

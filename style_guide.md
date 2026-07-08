@@ -12,7 +12,7 @@ Full detail lives at `/garden/styles`. Quick reference:
 |---|---|---|
 | `--background-dark` | `#141e15` | page background |
 | `--borders` | `#273028` | hairlines, dividers, card borders |
-| `--accent-muted` | `#354037` | inline code bg, letterboxed image bg |
+| `--accent-muted` | `#354037` | inline code bg |
 | `--text-secondary` | `#a8ad98` | meta, captions, secondary labels |
 | `--text-body` | `#e0e2ce` | paragraph text |
 | `--text-headings` | `#f3f4e2` | h2, inline code text |
@@ -50,13 +50,19 @@ The site mixes two registers on purpose: lowercase **chrome** and properly-cased
 | image captions (`figcaption`) | lowercase | consistent |
 | table tags (`#blog`, `#now`, `#project`), photo names/locations | lowercase | consistent |
 | about bio prose | sentence case, "I" capitalized | correct — treat as the model for prose |
-| now-page prose | fully lowercase, including "i" | **inconsistent** — should move to sentence case |
-| project description prose (`/projects/saturn`) | fully lowercase, including "i" | **inconsistent** — should move to sentence case |
-| homepage hero copy | sentence case | correct |
+| now-page prose | sentence case, "I" capitalized | consistent |
+| project description prose (`/projects/saturn`) | sentence case, "I" capitalized | consistent |
+| homepage `<h1>` (the big bio tagline) | sentence case | correct — the one sanctioned exception to lowercase `<h1>`s, since it reads as a statement rather than a page title |
+| hero `.meta` subtitle beneath the `<h1>` (every page, including homepage) | lowercase | consistent — chrome, regardless of whether that page's `<h1>` is lowercase or (homepage's) sentence case |
 | blog post titles (table rows) | lowercase | **chrome, by design** — titles in listings act like headlines/labels, not prose. Leave lowercase even once linked posts exist. |
 
 ### applying this
 
-- Going forward, write **now-page updates and project description prose in sentence case**, capitalizing "I," sentence starts, and proper nouns.
+- Write **now-page updates and project description prose in sentence case**, capitalizing "I," sentence starts, and proper nouns — this is the standing rule for any new prose added to those pages.
 - Table titles, nav, meta, and labels stay lowercase — don't "fix" these, they're intentional and shouldn't be swept up when doing a prose capitalization pass.
-- When editing an existing lowercase-prose page (now, project descriptions), convert it in full rather than partially — mixed capitalization within one block of prose reads as a typo, not a style choice.
+- The hero `.meta` subtitle right under a page's `<h1>` is always chrome, never prose — lowercase it even on the homepage, even though the homepage `<h1>` itself is the sentence-case exception.
+- When editing an existing prose page, convert it in full rather than partially — mixed capitalization within one block of prose reads as a typo, not a style choice.
+
+## other conventions
+
+- **"last updated" footer line**: only the homepage has one. Every other page's footer omits it — don't add it back to `about.html` or elsewhere.
