@@ -518,7 +518,7 @@ console.log(result); // hello, world!</code></pre>
                         <p class="project-type">JAN '26</p>
                     </div>
                     <div class="project-card-right">
-                        <h1>project title</h1>
+                        <h2>project title</h2>
                         <p>a short description of the project. hover to see the scale + glow effect.</p>
                     </div>
                 </a>
@@ -527,31 +527,36 @@ console.log(result); // hello, world!</code></pre>
             <p class="group-label">project detail layout</p>
 
             <h3>.project-header</h3>
-            <p>Used on individual project pages as the title/description row:</p>
+            <p>Used on individual project pages as the title/description block. Stacks vertically
+                (title, then description) rather than side-by-side, so it holds up at any width:</p>
             <div class="demo-box">
                 <p class="demo-label">.project-header</p>
-                <div class="project-header">
+                <div class="project-header" style="margin-top: 0;">
                     <h1 class="project-header-title">saturn</h1>
                     <p class="project-header-desc">a cozy minimalist personal site</p>
                 </div>
             </div>
 
-            <h3>.project-details</h3>
-            <p>Two-column sidebar layout for project metadata:</p>
+            <h3>.project-stats</h3>
+            <p>
+                A stat strip for project metadata &mdash; label/value pairs left-aligned and
+                bounded top and bottom. The top border doubles as the divider beneath
+                <code>.project-header</code>, so the two are meant to sit back to back with no
+                extra border in between. Wraps to a stacked list below <code>600px</code>. Pair
+                it with a <code>.section-label</code> heading (e.g. "metadata"), same as
+                <code>.content-table</code> sections are introduced:
+            </p>
             <div class="demo-box">
-                <p class="demo-label">.project-details</p>
-                <div class="project-details">
-                    <div class="project-details-left">
-                        <p class="project-details-meta-header">stack</p>
-                        <p class="project-details-meta-bullet">html</p>
-                        <p class="project-details-meta-bullet">css</p>
-                        <p class="project-details-meta-bullet">vite</p>
+                <p class="demo-label">.project-stats</p>
+                <h2 class="section-label" style="margin-top: 0;">metadata</h2>
+                <div class="project-stats" style="margin-bottom: 0;">
+                    <div class="project-stat">
+                        <p class="project-stat-label">stack</p>
+                        <p class="project-stat-value">html, css</p>
                     </div>
-                    <div class="project-details-right">
-                        <p class="project-details-meta-header">source</p>
-                        <div class="project-details-source">
-                            <a href="#">git.danieldaum.net</a>
-                        </div>
+                    <div class="project-stat">
+                        <p class="project-stat-label">source</p>
+                        <p class="project-stat-value"><a href="#">git.danieldaum.net</a></p>
                     </div>
                 </div>
             </div>

@@ -802,9 +802,13 @@ button:focus:not(:focus-visible) {
     will-change: transform;
 }
 
-.project-card h1 {
+/* h2, not h1 — the page already has its own h1, cards shouldn't add a second */
+.project-card h2 {
     padding: 0rem;
     margin: 0rem;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--accent);
 }
 
 .project-card p {
@@ -948,59 +952,58 @@ button:focus:not(:focus-visible) {
 
 .project-header {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid var(--borders);
+    flex-direction: column;
+    gap: 0.35rem;
+    margin-top: 2rem;
 }
 
 .project-header-title {
     all: unset;
     font-size: 2rem;
     font-weight: 700;
+    line-height: 1.2;
     color: var(--accent);
-    margin-right: 5rem;
 }
 
 .project-header-desc {
+    font-size: 0.95rem;
     font-weight: 300;
-    align-self: center;
     color: var(--text-secondary);
 }
 
-.project-details {
+/* stat strip: label/value pairs, bounded top and bottom (the top
+   border doubles as the divider beneath .project-header).
+   gap-based spacing (not per-item dividers) so it wraps cleanly
+   at any width */
+.project-stats {
     display: flex;
-    flex-direction: row;
-    margin-top: 1rem;
+    flex-wrap: wrap;
+    gap: 1.5rem 2.5rem;
+    margin: 0.5rem 0 2.75rem;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--borders);
+    border-bottom: 1px solid var(--borders);
 }
 
-.project-details-left {
-    display: flex;
-    flex-direction: column;
-    padding-right: 1rem;
-    min-width: 12rem;
+.project-stat-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: 0.4rem;
 }
 
-.project-details-right {
-    display: flex;
-    flex-direction: column;
-    padding-left: 1rem;
-}
-
-.project-details-meta-header {
+.project-stat-value {
+    font-size: 0.92rem;
     color: var(--text-headings);
-    font-weight: 700;
 }
 
-.project-details-meta-bullet {
-    color: var(--text-body);
-    font-weight: 300;
-}
-
-.project-details-source {
-    /*border: 1px solid red;*/
-    display: inline;
-    width: max-content;
+@media (max-width: 600px) {
+    .project-stats {
+        flex-direction: column;
+        gap: 1.25rem;
+    }
 }
 
 /*============================*/

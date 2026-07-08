@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="daniel daum's website homepage - oakland based software engineer" />
+    <meta name="description"
+        content="saturn - daniel daum's personal website, a minimalist redesign built with html and css" />
     <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
@@ -18,35 +19,35 @@
 </head>
 
 <body>
-    <section>
-        <header class="site-header">
-            <a class="site-name" href="/index.html" aria-label="return home">
-                daniel daum
+    <header class="site-header">
+        <a class="site-name" href="/index.html" aria-label="return home">
+            daniel daum
+        </a>
+        <nav aria-label="main navigation">
+            <a href="/index.html" aria-label="return home">
+                home
             </a>
-            <nav aria-label="main navigation">
-                <a href="/index.html" aria-label="return home">
-                    home
-                </a>
-                <a href="/about" aria-label="about me">
-                    about
-                </a>
-                <a href="/now" aria-label="now page">
-                    now
-                </a>
-                <a href="/blog" aria-label="blog">
-                    blog
-                </a>
-                <a href="/projects" aria-label="projects">
-                    projects
-                </a>
-                <a href="/garden" aria-label="garden">
-                    garden
-                </a>
-            </nav>
-        </header>
-    </section>
-    <header>
-        <div class="nav-back">← <a href="/projects">back to projects</a></div>
+            <a href="/about" aria-label="about me">
+                about
+            </a>
+            <a href="/now" aria-label="now page">
+                now
+            </a>
+            <a href="/blog" aria-label="blog">
+                blog
+            </a>
+            <a href="/projects" aria-label="projects">
+                projects
+            </a>
+            <a href="/garden" aria-label="garden">
+                garden
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <span class="nav-back"><a href="/projects">← back to projects</a></span>
+
         <section class="project-banner">
             <div class="project-banner-background" aria-hidden="true">
                 <!--svg elements generated with help from warp ai-->
@@ -68,50 +69,67 @@
                     <rect width="100%" height="100%" fill="url(#dots)" opacity="0.15" />
                 </svg>
             </div>
-            <img class="project-banner-img" src="/src/projects/saturn/saturn.png" alt="Saturn project screenshot" />
+            <img class="project-banner-img" src="https://assets.danieldaum.net/img/saturn-project-hero.webp"
+                alt="screenshot of the saturn personal website" />
         </section>
-    </header>
-    <main>
+
         <section class="project-header">
             <h1 class="project-header-title">saturn</h1>
-            <h4 class="project-header-desc">a cozy yet minimalist personal website</h4>
+            <p class="project-header-desc">a cozy yet minimalist personal website</p>
         </section>
 
-        <section class="project-details">
-            <div class="project-details-left">
-                <h4 class="project-details-meta-header">role</h4>
-                <p class="project-details-meta-bullet">developer</p>
-
-                <h4 class="project-details-meta-header">timeline</h4>
-                <p class="project-details-meta-bullet">jan 2026 - ongoing</p>
-
-                <h4 class="project-details-meta-header">tools</h4>
-                <p class="project-details-meta-bullet">html, css</p>
-
-                <h4 class="project-details-meta-header">context</h4>
-                <p class="project-details-meta-bullet">personal project</p>
-
-                <a class="project-details-source" href="https://github.com/daniel-daum/saturn"
-                    aria-label="link to this website's source code, opens in new tab" target="_blank"
-                    rel="noopener noreferrer">source</a>
+        <section aria-label="project metadata">
+            <h2 class="section-label">metadata</h2>
+            <div class="project-stats">
+                <div class="project-stat">
+                    <p class="project-stat-label">role</p>
+                    <p class="project-stat-value">developer</p>
+                </div>
+                <div class="project-stat">
+                    <p class="project-stat-label">timeline</p>
+                    <p class="project-stat-value">jan 2026 &ndash; ongoing</p>
+                </div>
+                <div class="project-stat">
+                    <p class="project-stat-label">stack</p>
+                    <p class="project-stat-value">html, css</p>
+                </div>
+                <div class="project-stat">
+                    <p class="project-stat-label">context</p>
+                    <p class="project-stat-value">personal project</p>
+                </div>
+                <div class="project-stat">
+                    <p class="project-stat-label">source</p>
+                    <p class="project-stat-value">
+                        <a href="https://git.danieldaum.net/daniel-daum/saturn"
+                            aria-label="link to this website's source code, opens in new tab" target="_blank"
+                            rel="noopener noreferrer">git.danieldaum.net/daniel-daum/saturn</a>
+                    </p>
+                </div>
             </div>
-            <div class="project-details-right">
-                <p class="project-details-description">
-                    i have never been satisfied with the look of my websites. in my efforts to improve what i don't
-                    like, i end up re-designing it...over and over
-                </p>
+        </section>
 
-                <p class="project-details-description">
-                    i have always been drawn to simple, minimal sites. i find something elegeant about, less. this
-                    iteration represents my current best attempt at doing less
-                </p>
-                <p>
-                    the implementation is intentionally simple: static html and css, no javascript or framework,
-                    registered and hosted on cloudflare
-                </p>
-            </div>
+        <section aria-label="about this project">
+            <h2 class="section-label">about</h2>
+
+            <p>
+                I have never been completely satisfied with the look of my websites. In my efforts to improve what I
+                don't like, I end up redesigning it - over, and over, and over...
+            </p>
+
+            <p>
+                That being said, simple, minimal sites have always appealed to me. Doing less somehow feels both calming
+                and
+                satisfying, and this
+                version is my closest attempt so far.
+            </p>
+
+            <p>
+                The implementation is deliberatly plain: static HTML and CSS, no JavaScript or
+                framework, registered and hosted on Cloudflare.
+            </p>
         </section>
     </main>
+
     <footer>
         <hr />
         <nav aria-label="site links">
