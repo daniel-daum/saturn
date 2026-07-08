@@ -9,11 +9,11 @@
         content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <link rel="stylesheet" href="/global.css" />
-    <link rel="icon" type="image/jpeg" href="/src/assets/favicon/coast.jpeg" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/src/assets/favicon/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/src/assets/favicon/favicon-16x16.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/src/assets/favicon/apple-touch-icon.png" />
-    <link rel="manifest" href="/src/assets/favicon/site.webmanifest" />
+    <link rel="icon" type="image/jpeg" href="/assets/favicon/coast.jpeg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="/assets/favicon/site.webmanifest" />
     <title>changelog</title>
 </head>
 
@@ -51,6 +51,21 @@
         </section>
         <section>
 
+
+            <h2>v0.3.1 — 2026-07-08 — asset cleanup</h2>
+            <p class="meta">restructured static assets ahead of the cloudflare cdn move</p>
+
+            <h3>changed</h3>
+            <ul>
+                <li>moved /src/assets to top-level /assets</li>
+                <li>updated font and favicon paths across the site to match</li>
+            </ul>
+
+            <h3>removed</h3>
+            <ul>
+                <li>unused projects/saturn/saturn.png</li>
+            </ul>
+            <hr />
 
             <h2>v0.3.0 — 2026-07-06 — site redesign</h2>
             <p class="meta">new pages, visual refresh, real content</p>

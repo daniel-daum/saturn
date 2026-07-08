@@ -66,3 +66,18 @@ The site mixes two registers on purpose: lowercase **chrome** and properly-cased
 ## other conventions
 
 - **"last updated" footer line**: only the homepage has one. Every other page's footer omits it — don't add it back to `about.html` or elsewhere.
+
+## commit conventions
+
+Simple single-line commits, `type: description` — lowercase, no scope, no period:
+
+- `feat:` a new feature
+- `fix:` a bug fix
+- `docs:` documentation only
+- `style:` formatting, no logic change
+- `perf:` performance improvement
+- `test:` adding or fixing tests
+- `build:` build system or dependencies
+- `ci:` ci pipeline or workflows
+- `chore:` maintenance, no src change
+- `revert:` undo a previous commit
