@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="daniel daum's photo wall - a collection of photographs" />
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <link rel="stylesheet" href="/global.css" />
+    <link rel="icon" type="image/jpeg" href="/src/assets/favicon/coast.jpeg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/src/assets/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/src/assets/favicon/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/src/assets/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="/src/assets/favicon/site.webmanifest" />
+    <title>photos — daniel daum</title>
+    <style>
+        /* ===== photos-page-only layout ===== */
+        /* wider body than the rest of the site, just for this page */
+        body.photos-page {
+            max-width: min(100rem, 94vw);
+        }
+
+        /* masonry-style wall via CSS multi-column layout: broad cross-browser
+           support (unlike the still-experimental CSS grid-lanes/masonry specs),
+           and lets each full-size image keep its own aspect ratio uncropped */
+        .photo-wall {
+            columns: 4 18rem;
+            column-gap: 0.85rem;
+        }
+
+        .photo-tile {
+            position: relative;
+            display: block;
+            break-inside: avoid;
+            margin: 0 0 0.85rem;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .photo-tile img {
+            margin: 0;
+        }
+
+        /* the image itself is the link into the lightbox */
+        .photo-link {
+            display: block;
+            border-bottom: none;
+        }
+
+        .photo-link:hover,
+        .photo-link:focus-visible {
+            background: none;
+        }
+
+        .photo-caption {
+            position: absolute;
+            inset: auto 0 0 0;
+            margin: 0;
+            padding: 1.75rem 0.85rem 0.75rem;
+            background: linear-gradient(to top,
+                    rgba(10, 14, 11, 0.92) 0%,
+                    rgba(10, 14, 11, 0.5) 60%,
+                    transparent 100%);
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(3px);
+            color: var(--text-headings);
+            font-size: 0.8rem;
+            line-height: 1.4;
+            opacity: 0;
+            transform: translateY(6px);
+            transition:
+                opacity 200ms ease,
+                transform 200ms ease;
+            pointer-events: none;
+        }
+
+        .photo-tile:hover .photo-caption,
+        .photo-tile:focus-within .photo-caption {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 900px) {
+            .photo-wall {
+                columns: 2 14rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body.photos-page {
+                max-width: 100%;
+            }
+
+            .photo-wall {
+                columns: 1;
+            }
+        }
+
+        /* ===== lightbox (pure CSS, no JS) ===== */
+        /* each lightbox is a fixed overlay toggled on/off via :target,
+           navigated entirely through anchor links (#view-n) */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+        }
+
+        .lightbox:target {
+            display: block;
+        }
+
+        .lightbox-backdrop {
+            position: absolute;
+            inset: 0;
+            background: rgba(10, 14, 11, 0.94);
+            border: none;
+        }
+
+        .lightbox-backdrop:hover,
+        .lightbox-backdrop:focus-visible {
+            background: rgba(10, 14, 11, 0.94);
+        }
+
+        .lightbox-content {
+            position: relative;
+            z-index: 1;
+            margin: 6vh auto 0;
+            max-width: 92vw;
+            max-height: 88vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            pointer-events: none;
+        }
+
+        .lightbox-content>* {
+            pointer-events: auto;
+        }
+
+        .lightbox-content img {
+            max-width: 92vw;
+            max-height: 76vh;
+            width: auto;
+            height: auto;
+            margin: 0;
+        }
+
+        .lightbox-content figcaption {
+            color: var(--text-headings);
+            font-size: 0.85rem;
+            margin-top: 0.85rem;
+        }
+
+        .lightbox-close,
+        .lightbox-nav {
+            position: fixed;
+            color: var(--text-headings);
+            border-bottom: none;
+            text-decoration: none;
+            line-height: 1;
+        }
+
+        .lightbox-close:hover,
+        .lightbox-nav:hover,
+        .lightbox-close:focus-visible,
+        .lightbox-nav:focus-visible {
+            color: var(--accent);
+            background: none;
+        }
+
+        .lightbox-close {
+            top: 1.25rem;
+            right: 1.5rem;
+            font-size: 1.4rem;
+            padding: 0.4rem 0.6rem;
+        }
+
+        .lightbox-nav {
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2.25rem;
+            padding: 0.5rem 0.85rem;
+        }
+
+        .lightbox-prev {
+            left: 0.5rem;
+        }
+
+        .lightbox-next {
+            right: 0.5rem;
+        }
+
+        @media (max-width: 600px) {
+
+            .lightbox-nav {
+                font-size: 1.75rem;
+                padding: 0.4rem 0.6rem;
+            }
+
+            .lightbox-close {
+                top: 0.75rem;
+                right: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="photos-page">
+    <header class="site-header">
+        <a class="site-name" href="/index.html" aria-label="return home">
+            daniel daum
+        </a>
+        <nav aria-label="main navigation">
+            <a href="/index.html" aria-label="return home">
+                home
+            </a>
+            <a href="/about" aria-label="about me">
+                about
+            </a>
+            <a href="/now" aria-label="now page">
+                now
+            </a>
+            <a href="/blog" aria-label="blog">
+                blog
+            </a>
+            <a href="/projects" aria-label="projects">
+                projects
+            </a>
+            <a href="/garden" aria-label="garden">
+                garden
+            </a>
+        </nav>
+    </header>
+    <main>
+        <span class="nav-back"><a href="/garden">← garden</a></span>
+
+        <section>
+            <h1>photos</h1>
+            <p class="meta">a wall of photographs. hover (or tab to) an image for details, click to view full size.
+            </p>
+        </section>
+
+        <section class="photo-wall" aria-label="photo wall">
+            <figure class="photo-tile">
+                <a class="photo-link" href="#view-1" aria-label="view full size: transamerica pyramid — san francisco, california">
+                    <img src="https://assets.danieldaum.net/img/transamerica-pyramid.webp"
+                        alt="the Transamerica Pyramid rising above San Francisco's skyline" loading="lazy" />
+                </a>
+                <figcaption class="photo-caption">transamerica pyramid — san francisco, california</figcaption>
+            </figure>
+
+            <figure class="photo-tile">
+                <a class="photo-link" href="#view-2" aria-label="view full size: wildcat beach — point reyes, california">
+                    <img src="https://assets.danieldaum.net/img/wildcat-beach.webp"
+                        alt="the California coast near Point Reyes seen from Wildcat Beach" loading="lazy" />
+                </a>
+                <figcaption class="photo-caption">wildcat beach — point reyes, california</figcaption>
+            </figure>
+
+            <figure class="photo-tile">
+                <a class="photo-link" href="#view-3" aria-label="view full size: boat on the lake — lake tahoe, california">
+                    <img src="https://assets.danieldaum.net/img/lake-tahoe-boat.webp" alt="a boat crossing Lake Tahoe"
+                        loading="lazy" />
+                </a>
+                <figcaption class="photo-caption">boat on the lake — lake tahoe, california</figcaption>
+            </figure>
+
+            <figure class="photo-tile">
+                <a class="photo-link" href="#view-4" aria-label="view full size: regatta lineup — san francisco bay, california">
+                    <img src="https://assets.danieldaum.net/img/regatta-lineup.webp"
+                        alt="sailboats lined up for a regatta" loading="lazy" />
+                </a>
+                <figcaption class="photo-caption">regatta lineup — san francisco bay, california</figcaption>
+            </figure>
+
+            <figure class="photo-tile">
+                <a class="photo-link" href="#view-5" aria-label="view full size: pines and moon — california">
+                    <img src="https://assets.danieldaum.net/img/pine-trees-and-moon.webp"
+                        alt="the moon rising above a line of pine trees" loading="lazy" />
+                </a>
+                <figcaption class="photo-caption">pines and moon — california</figcaption>
+            </figure>
+
+            <figure class="photo-tile">
+                <a class="photo-link" href="#view-6" aria-label="view full size: white rose — california">
+                    <img src="https://assets.danieldaum.net/img/white-rose.webp" alt="a single white rose in bloom"
+                        loading="lazy" />
+                </a>
+                <figcaption class="photo-caption">white rose — california</figcaption>
+            </figure>
+
+            <figure class="photo-tile">
+                <a class="photo-link" href="#view-7" aria-label="view full size: farm and forest — california">
+                    <img src="https://assets.danieldaum.net/img/farm-forest.webp"
+                        alt="a farm at the edge of a forest" loading="lazy" />
+                </a>
+                <figcaption class="photo-caption">farm and forest — california</figcaption>
+            </figure>
+
+            <figure class="photo-tile">
+                <a class="photo-link" href="#view-8" aria-label="view full size: bart, blurry — oakland, california">
+                    <img src="https://assets.danieldaum.net/img/bart-blurry.webp"
+                        alt="a BART train in motion, blurred" loading="lazy" />
+                </a>
+                <figcaption class="photo-caption">bart, blurry — oakland, california</figcaption>
+            </figure>
+        </section>
+
+        <div class="lightbox" id="view-1" tabindex="-1" aria-label="transamerica pyramid — san francisco, california, full size">
+            <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
+            <a class="lightbox-nav lightbox-prev" href="#view-8" aria-label="previous image">‹</a>
+            <a class="lightbox-close" href="#" aria-label="close full size image">✕</a>
+            <figure class="lightbox-content">
+                <img src="https://assets.danieldaum.net/img/transamerica-pyramid.webp"
+                    alt="the Transamerica Pyramid rising above San Francisco's skyline" />
+                <figcaption>transamerica pyramid — san francisco, california</figcaption>
+            </figure>
+            <a class="lightbox-nav lightbox-next" href="#view-2" aria-label="next image">›</a>
+        </div>
+
+        <div class="lightbox" id="view-2" tabindex="-1" aria-label="wildcat beach — point reyes, california, full size">
+            <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
+            <a class="lightbox-nav lightbox-prev" href="#view-1" aria-label="previous image">‹</a>
+            <a class="lightbox-close" href="#" aria-label="close full size image">✕</a>
+            <figure class="lightbox-content">
+                <img src="https://assets.danieldaum.net/img/wildcat-beach.webp"
+                    alt="the California coast near Point Reyes seen from Wildcat Beach" />
+                <figcaption>wildcat beach — point reyes, california</figcaption>
+            </figure>
+            <a class="lightbox-nav lightbox-next" href="#view-3" aria-label="next image">›</a>
+        </div>
+
+        <div class="lightbox" id="view-3" tabindex="-1" aria-label="boat on the lake — lake tahoe, california, full size">
+            <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
+            <a class="lightbox-nav lightbox-prev" href="#view-2" aria-label="previous image">‹</a>
+            <a class="lightbox-close" href="#" aria-label="close full size image">✕</a>
+            <figure class="lightbox-content">
+                <img src="https://assets.danieldaum.net/img/lake-tahoe-boat.webp" alt="a boat crossing Lake Tahoe" />
+                <figcaption>boat on the lake — lake tahoe, california</figcaption>
+            </figure>
+            <a class="lightbox-nav lightbox-next" href="#view-4" aria-label="next image">›</a>
+        </div>
+
+        <div class="lightbox" id="view-4" tabindex="-1" aria-label="regatta lineup — san francisco bay, california, full size">
+            <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
+            <a class="lightbox-nav lightbox-prev" href="#view-3" aria-label="previous image">‹</a>
+            <a class="lightbox-close" href="#" aria-label="close full size image">✕</a>
+            <figure class="lightbox-content">
+                <img src="https://assets.danieldaum.net/img/regatta-lineup.webp" alt="sailboats lined up for a regatta" />
+                <figcaption>regatta lineup — san francisco bay, california</figcaption>
+            </figure>
+            <a class="lightbox-nav lightbox-next" href="#view-5" aria-label="next image">›</a>
+        </div>
+
+        <div class="lightbox" id="view-5" tabindex="-1" aria-label="pines and moon — california, full size">
+            <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
+            <a class="lightbox-nav lightbox-prev" href="#view-4" aria-label="previous image">‹</a>
+            <a class="lightbox-close" href="#" aria-label="close full size image">✕</a>
+            <figure class="lightbox-content">
+                <img src="https://assets.danieldaum.net/img/pine-trees-and-moon.webp"
+                    alt="the moon rising above a line of pine trees" />
+                <figcaption>pines and moon — california</figcaption>
+            </figure>
+            <a class="lightbox-nav lightbox-next" href="#view-6" aria-label="next image">›</a>
+        </div>
+
+        <div class="lightbox" id="view-6" tabindex="-1" aria-label="white rose — california, full size">
+            <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
+            <a class="lightbox-nav lightbox-prev" href="#view-5" aria-label="previous image">‹</a>
+            <a class="lightbox-close" href="#" aria-label="close full size image">✕</a>
+            <figure class="lightbox-content">
+                <img src="https://assets.danieldaum.net/img/white-rose.webp" alt="a single white rose in bloom" />
+                <figcaption>white rose — california</figcaption>
+            </figure>
+            <a class="lightbox-nav lightbox-next" href="#view-7" aria-label="next image">›</a>
+        </div>
+
+        <div class="lightbox" id="view-7" tabindex="-1" aria-label="farm and forest — california, full size">
+            <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
+            <a class="lightbox-nav lightbox-prev" href="#view-6" aria-label="previous image">‹</a>
+            <a class="lightbox-close" href="#" aria-label="close full size image">✕</a>
+            <figure class="lightbox-content">
+                <img src="https://assets.danieldaum.net/img/farm-forest.webp" alt="a farm at the edge of a forest" />
+                <figcaption>farm and forest — california</figcaption>
+            </figure>
+            <a class="lightbox-nav lightbox-next" href="#view-8" aria-label="next image">›</a>
+        </div>
+
+        <div class="lightbox" id="view-8" tabindex="-1" aria-label="bart, blurry — oakland, california, full size">
+            <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
+            <a class="lightbox-nav lightbox-prev" href="#view-7" aria-label="previous image">‹</a>
+            <a class="lightbox-close" href="#" aria-label="close full size image">✕</a>
+            <figure class="lightbox-content">
+                <img src="https://assets.danieldaum.net/img/bart-blurry.webp" alt="a BART train in motion, blurred" />
+                <figcaption>bart, blurry — oakland, california</figcaption>
+            </figure>
+            <a class="lightbox-nav lightbox-next" href="#view-1" aria-label="next image">›</a>
+        </div>
+    </main>
+    <footer>
+        <hr />
+        <nav aria-label="site links">
+            <p aria-hidden="true">[↗]:</p>
+            <a href="mailto:daniel@danieldaum.net" aria-label="link to send me an email">email</a>
+            <a href="https://git.danieldaum.net/" aria-label="link to my git, opens in new tab" target="_blank"
+                rel="noopener noreferrer">git</a>
+            <a href="/pgp.asc" aria-label="link to my pgp public key (516E97FF)">pgp</a>
+            <a href="/changelog.html">changelog</a>
+        </nav>
+    </footer>
+</body>
+
+</html>

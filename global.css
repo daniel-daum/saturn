@@ -294,6 +294,32 @@ img {
     border-radius: 2px;
 }
 
+/* caps an image's height and lets width follow proportionally (both width and
+   height stay 'auto', clamped by max-width/max-height) — the full image is always
+   shown, never cropped or stretched. landscape photos will naturally still hit
+   close to full column width since their height is already short at that width;
+   vertical photos narrow in just enough to stay under the height cap. default cap
+   is 26rem; override per-image with style="--img-max-height: 20rem" */
+.img-scaled {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: var(--img-max-height, 26rem);
+    margin-inline: auto;
+}
+
+/* full body width, fixed box height — the image is scaled to fit inside that box
+   (object-fit: contain), so it's still uncropped and undistorted, but a portrait
+   photo leaves empty bars on the left/right filled with --accent-muted. trades
+   "no wasted space" for "always spans the full column, same height every time".
+   default box height is 26rem; override with style="--img-box-height: 20rem" */
+.img-letterboxed {
+    width: 100%;
+    height: var(--img-box-height, 26rem);
+    object-fit: contain;
+    background: var(--accent-muted);
+}
+
 figcaption {
     font-size: 0.85rem;
     color: var(--text-secondary);
