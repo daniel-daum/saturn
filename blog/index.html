@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="daniel daum's digital garden - collected things" />
+    <meta name="description" content="daniel daum's blog — everything i write, in one place" />
     <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self';" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
@@ -47,27 +47,54 @@
     <main>
         <section class="hero">
             <h1>blog</h1>
-            <p class="meta">My writing and thoughts</p>
+            <p class="meta">everything i write, in one place &mdash; posts, notes, project logs, and now pages.</p>
         </section>
 
         <section>
             <table class="blog-table">
-                <tr class="blog-table-header">
-                    <th>header 1</th>
-                    <th>header 2</th>
-                    <th>header 3</th>
-                    <th>header 4</th>
-                </tr>
-                <tr class="blog-table-row">
-                    <td>c 1 r 1</td>
-                    <td>c 2 r 1</td>
-                    <td>c 3 r 1</td>
-                    <td>c 4 r 1</td>
-                </tr>
+                <thead>
+                    <tr>
+                        <th class="col-title">title</th>
+                        <th class="col-date">date</th>
+                        <th class="col-tag">tag</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr class="blog-row">
+                        <td><a class="blog-title" href="/blog/game-dev">on learning game development from scratch</a></td>
+                        <td class="blog-date"><time datetime="2026-06-01">jun 2026</time></td>
+                        <td class="blog-tag" data-tag="blog">#blog</td>
+                    </tr>
+                    <tr class="blog-row">
+                        <td><a class="blog-title" href="/blog/running-software">what six months of running taught me about shipping software</a></td>
+                        <td class="blog-date"><time datetime="2026-05-01">may 2026</time></td>
+                        <td class="blog-tag" data-tag="blog">#blog</td>
+                    </tr>
+                    <tr class="blog-row">
+                        <td><a class="blog-title" href="/blog/books-early-2026">books i read in early 2026</a></td>
+                        <td class="blog-date"><time datetime="2026-04-01">apr 2026</time></td>
+                        <td class="blog-tag" data-tag="blog">#blog</td>
+                    </tr>
+                    <tr class="blog-row">
+                        <td><a class="blog-title" href="/blog/data-pipelines">notes on building data pipelines at scale</a></td>
+                        <td class="blog-date"><time datetime="2026-03-01">mar 2026</time></td>
+                        <td class="blog-tag" data-tag="blog">#blog</td>
+                    </tr>
+                    <tr class="blog-row">
+                        <td><a class="blog-title" href="/now">now &mdash; jan 2026</a></td>
+                        <td class="blog-date"><time datetime="2026-01-21">jan 2026</time></td>
+                        <td class="blog-tag" data-tag="now">#now</td>
+                    </tr>
+                    <tr class="blog-row">
+                        <td><a class="blog-title" href="/projects/saturn">saturn &mdash; personal site redesign</a></td>
+                        <td class="blog-date"><time datetime="2026-01-01">jan 2026</time></td>
+                        <td class="blog-tag" data-tag="project">#project</td>
+                    </tr>
+
+                </tbody>
             </table>
         </section>
-
-
     </main>
 
     <footer>

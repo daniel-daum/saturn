@@ -1067,4 +1067,133 @@ button:focus:not(:focus-visible) {
     color: var(--text-secondary);
     font-size: 0.85rem;
     white-space: nowrap;
-}*/
+|}*/
+
+/*============================*/
+/* blog index table */
+/*============================*/
+
+.blog-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    margin-top: 0.5rem;
+}
+
+/* column headers */
+.blog-table thead th {
+    text-align: left;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    padding: 0 1rem 0.6rem 0;
+    border-bottom: 1px solid var(--borders);
+}
+
+.blog-table thead th.col-date {
+    width: 7rem;
+}
+
+.blog-table thead th.col-tag {
+    width: 5.5rem;
+}
+
+/* post rows */
+.blog-row td {
+    padding: 0.75rem 1rem 0.75rem 0;
+    vertical-align: baseline;
+    border-bottom: 1px solid var(--borders);
+}
+
+.blog-row:last-child td {
+    border-bottom: none;
+}
+
+.blog-row:hover {
+    background: rgba(205, 220, 57, 0.04);
+}
+
+/* title link */
+.blog-title {
+    color: var(--text-headings);
+    border-bottom-color: transparent;
+    font-size: 0.9rem;
+}
+
+.blog-title:hover {
+    color: var(--accent);
+    background: none;
+    border-bottom-color: transparent;
+}
+
+.blog-row:hover .blog-title {
+    color: var(--accent);
+}
+
+/* date column */
+.blog-date {
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+    white-space: nowrap;
+}
+
+/* tag column */
+.blog-tag {
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+    white-space: nowrap;
+}
+
+.blog-tag[data-tag="project"] {
+    color: var(--accent);
+}
+
+.blog-tag[data-tag="now"] {
+    color: var(--text-body);
+}
+
+/* mobile: stack title above date + tag */
+@media (max-width: 600px) {
+    .blog-table,
+    .blog-table thead,
+    .blog-table tbody {
+        display: block;
+    }
+
+    .blog-table thead {
+        display: none;
+    }
+
+    .blog-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 0 0.75rem;
+        padding: 0.7rem 0;
+        border-bottom: 1px solid var(--borders);
+    }
+
+    .blog-row:last-child {
+        border-bottom: none;
+    }
+
+    .blog-row td {
+        border-bottom: none;
+        padding: 0;
+    }
+
+    /* title spans full width on its own line */
+    .blog-row td:first-child {
+        flex: 0 0 100%;
+        margin-bottom: 0.25rem;
+    }
+
+    .blog-date,
+    .blog-tag {
+        font-size: 0.78rem;
+    }
+}
+
+
