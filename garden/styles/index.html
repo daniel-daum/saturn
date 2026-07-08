@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="a reference page for all styles, tokens, and components used on this site" />
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self';" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <link rel="stylesheet" href="/global.css" />
+    <link rel="icon" type="image/jpeg" href="/src/assets/favicon/coast.jpeg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/src/assets/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/src/assets/favicon/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/src/assets/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="/src/assets/favicon/site.webmanifest" />
+    <title>styles — daniel daum</title>
+    <style>
+        /* ===== styles-page-only layout helpers ===== */
+        .swatch-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .swatch {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            min-width: 9rem;
+        }
+
+        .swatch-block {
+            width: 100%;
+            height: 3.5rem;
+            border-radius: 6px;
+            border: 1px solid var(--borders);
+        }
+
+        .swatch-name {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .swatch-value {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            margin: 0;
+            opacity: 0.7;
+        }
+
+        .type-scale-row {
+            display: flex;
+            align-items: baseline;
+            gap: 1.5rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--borders);
+        }
+
+        .type-scale-label {
+            font-size: 0.72rem;
+            color: var(--text-secondary);
+            white-space: nowrap;
+            flex-shrink: 0;
+            width: 6rem;
+            margin: 0;
+        }
+
+        .demo-box {
+            border: 1px dashed var(--borders);
+            border-radius: 6px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .demo-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+        }
+
+        /* section dividers */
+        .styles-section {
+            margin-top: 3rem;
+        }
+
+        .styles-section > h2 {
+            margin-bottom: 1.25rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <a class="site-name" href="/index.html" aria-label="return home">
+            daniel daum
+        </a>
+        <nav aria-label="main navigation">
+            <a href="/index.html" aria-label="return home">home</a>
+            <a href="/about" aria-label="about me">about</a>
+            <a href="/now" aria-label="now page">now</a>
+            <a href="/blog" aria-label="blog">blog</a>
+            <a href="/projects" aria-label="projects">projects</a>
+            <a href="/garden" aria-label="garden">garden</a>
+        </nav>
+    </header>
+
+    <main>
+        <span class="nav-back"><a href="/garden">← garden</a></span>
+        <section>
+        <h1>styles</h1>
+        <p class="meta">a living reference for every design token, typographic element, and component class used on this site.</p>
+        </section>
+        <!-- ===================== -->
+        <!-- COLOR TOKENS          -->
+        <!-- ===================== -->
+        <section class="styles-section" aria-label="color tokens">
+            <h2>color tokens</h2>
+
+            <div class="swatch-row">
+                <div class="swatch">
+                    <div class="swatch-block" style="background-color: var(--background-dark);"></div>
+                    <p class="swatch-name">--background-dark</p>
+                    <p class="swatch-value">#141e15</p>
+                </div>
+                <div class="swatch">
+                    <div class="swatch-block" style="background-color: var(--borders);"></div>
+                    <p class="swatch-name">--borders</p>
+                    <p class="swatch-value">#273028</p>
+                </div>
+                <div class="swatch">
+                    <div class="swatch-block" style="background-color: var(--accent-muted);"></div>
+                    <p class="swatch-name">--accent-muted</p>
+                    <p class="swatch-value">#354037</p>
+                </div>
+                <div class="swatch">
+                    <div class="swatch-block" style="background-color: var(--text-secondary);"></div>
+                    <p class="swatch-name">--text-secondary</p>
+                    <p class="swatch-value">#a8ad98</p>
+                </div>
+                <div class="swatch">
+                    <div class="swatch-block" style="background-color: var(--text-body);"></div>
+                    <p class="swatch-name">--text-body</p>
+                    <p class="swatch-value">#e0e2ce</p>
+                </div>
+                <div class="swatch">
+                    <div class="swatch-block" style="background-color: var(--text-headings);"></div>
+                    <p class="swatch-name">--text-headings</p>
+                    <p class="swatch-value">#f3f4e2</p>
+                </div>
+                <div class="swatch">
+                    <div class="swatch-block" style="background-color: var(--accent); border-color: transparent;"></div>
+                    <p class="swatch-name">--accent</p>
+                    <p class="swatch-value">#cddc39</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== -->
+        <!-- TYPOGRAPHY            -->
+        <!-- ===================== -->
+        <section class="styles-section" aria-label="typography">
+            <h2>typography</h2>
+
+            <div class="type-scale-row">
+                <p class="type-scale-label">h1 / 1.75rem</p>
+                <h1 style="margin:0; font-size:1.75rem;">the quick brown fox</h1>
+            </div>
+            <div class="type-scale-row">
+                <p class="type-scale-label">h2 / 1.35rem</p>
+                <h2 style="margin:0; font-size:1.35rem;">the quick brown fox</h2>
+            </div>
+            <div class="type-scale-row">
+                <p class="type-scale-label">h3 / 1.15rem</p>
+                <h3 style="margin:0; font-size:1.15rem;">the quick brown fox</h3>
+            </div>
+            <div class="type-scale-row">
+                <p class="type-scale-label">body / 1rem</p>
+                <p style="margin:0;">the quick brown fox jumps over the lazy dog</p>
+            </div>
+            <div class="type-scale-row">
+                <p class="type-scale-label">small / 0.88rem</p>
+                <p style="margin:0; font-size:0.88rem;">the quick brown fox jumps over the lazy dog</p>
+            </div>
+            <div class="type-scale-row">
+                <p class="type-scale-label">meta / 0.85rem</p>
+                <p class="meta" style="margin:0;">july 8, 2026 &middot; 4 min read</p>
+            </div>
+            <div class="type-scale-row">
+                <p class="type-scale-label">label / 0.78rem</p>
+                <p class="section-label" style="margin:0;">section label</p>
+            </div>
+            <div class="type-scale-row">
+                <p class="type-scale-label">tiny / 0.72rem</p>
+                <p style="margin:0; font-size:0.72rem; color: var(--text-secondary);">caption / tag / badge text</p>
+            </div>
+
+            <br />
+
+            <p>
+                Font family: <strong>Ioskeley Mono</strong> — a monospace typeface loaded at weights
+                <code>300</code>, <code>400</code>, <code>600</code>, and <code>700</code>.
+                Falls back to <code>Geist Mono</code>, <code>SF Mono</code>, and system monospace stacks.
+            </p>
+
+            <p>
+                Body text is set at <code>1rem / 16px</code> with <code>line-height: 1.8</code>.
+                The measure is capped at <code>68ch</code> for comfortable reading.
+            </p>
+
+            <p>
+                Text weights in use: <span style="font-weight:300;">light 300</span>,
+                <span style="font-weight:400;">regular 400</span>,
+                <span style="font-weight:600;">semibold 600</span>,
+                <span style="font-weight:700;">bold 700</span>.
+            </p>
+
+            <p>
+                Italic variants: <em style="font-weight:300;">light italic</em>,
+                <em>regular italic</em>,
+                <em style="font-weight:600;">semibold italic</em>,
+                <em style="font-weight:700;">bold italic</em>.
+            </p>
+        </section>
+
+        <!-- ===================== -->
+        <!-- HEADINGS              -->
+        <!-- ===================== -->
+        <section class="styles-section" aria-label="headings in context">
+            <h2>headings in context</h2>
+
+            <h1>h1 — page title</h1>
+            <p>
+                Used once per page as the primary title. Rendered in <code>var(--accent)</code> at
+                <code>1.75rem</code>, bold. Scales down to <code>1.5rem</code> on mobile.
+            </p>
+
+            <h2>h2 — section heading</h2>
+            <p>
+                Used for major content sections. Rendered in <code>var(--text-headings)</code> at
+                <code>1.35rem</code>, semibold, with <code>2.5rem</code> top margin.
+            </p>
+
+            <h3>h3 — sub-section heading</h3>
+            <p>
+                Used for sub-sections. Rendered in <code>var(--accent)</code> at <code>1.15rem</code>,
+                semibold.
+            </p>
+        </section>
+
+        <!-- ===================== -->
+        <!-- LINKS                 -->
+        <!-- ===================== -->
+        <section class="styles-section" aria-label="links and interactive">
+            <h2>links &amp; interactive</h2>
+
+            <p>
+                Default links are colored <code>var(--accent)</code> with a 1px underline border.
+                On hover, the text flips to white and the background fills with accent:
+                <a href="#">example link</a>.
+            </p>
+
+            <p>
+                Nav links suppress the underline by default and reveal it on hover:
+            </p>
+            <nav aria-label="demo nav" style="margin-bottom:1rem;">
+                <a href="#">home</a>
+                <a href="#">blog</a>
+                <a href="#">projects</a>
+                <a href="#">garden</a>
+            </nav>
+
+            <p>
+                The <code>s a</code> pattern styles links inside a strikethrough as muted/unavailable:
+                <s><a href="#">not ready yet</a></s>.
+            </p>
+
+            <p>
+                Focus styles (keyboard nav): elements receive a <code>2px var(--accent)</code> outline
+                with a <code>2px</code> offset. Try tabbing through this page.
+            </p>
+        </section>
+
+        <!-- ===================== -->
+        <!-- BLOCK ELEMENTS        -->
+        <!-- ===================== -->
+        <section class="styles-section" aria-label="block elements">
+            <h2>block elements</h2>
+
+            <h3>paragraph</h3>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet dignissim elit,
+                non varius nulla. Vestibulum vehicula, velit non consequat faucibus, turpis diam fermentum
+                magna, vestibulum tempor lacus sem eu tortor.
+            </p>
+            <p>
+                A second paragraph. Notice the <code>1.2rem</code> bottom margin creating clear separation
+                between blocks of text.
+            </p>
+
+            <h3>blockquote</h3>
+            <blockquote>
+                This is a blockquote. It has a 3px left border in <code>var(--accent)</code>, italic style,
+                and uses <code>var(--text-secondary)</code> for color. Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit.
+            </blockquote>
+
+            <h3>horizontal rule</h3>
+            <p>A 1px rule in <code>var(--borders)</code>:</p>
+            <hr />
+            <p>Content continues after the rule.</p>
+
+            <h3>unordered list</h3>
+            <ul>
+                <li>first item in the list</li>
+                <li>second item, demonstrating spacing</li>
+                <li>third item with a longer line of text to show how wrapping behaves within list items</li>
+                <li>fourth item</li>
+            </ul>
+
+            <h3>ordered list</h3>
+            <ol>
+                <li>step one</li>
+                <li>step two</li>
+                <li>step three — notice <code>0.5rem</code> vertical spacing between items</li>
+            </ol>
+
+            <h3>inline code</h3>
+            <p>
+                Inline code like <code>const x = 42</code> renders in <code>var(--text-headings)</code>
+                against a <code>var(--accent-muted)</code> background with a subtle border.
+            </p>
+
+            <h3>code block</h3>
+            <pre><code>// a code block uses the full pre + code pattern
+function greet(name) {
+    return `hello, ${name}!`;
+}
+
+const result = greet("world");
+console.log(result); // hello, world!</code></pre>
+
+            <h3>figure &amp; figcaption</h3>
+            <figure>
+                <div style="width:100%; height:8rem; background: var(--accent-muted); border: 1px solid var(--borders); border-radius: 2px; display:flex; align-items:center; justify-content:center;">
+                    <span style="color: var(--text-secondary); font-size:0.85rem;">[image placeholder]</span>
+                </div>
+                <figcaption>a figcaption sits below the image at 0.85rem in <code>var(--text-secondary)</code>.</figcaption>
+            </figure>
+        </section>
+
+        <!-- ===================== -->
+        <!-- UTILITY CLASSES       -->
+        <!-- ===================== -->
+        <section class="styles-section" aria-label="utility classes">
+            <h2>utility classes</h2>
+
+            <h3>.title</h3>
+            <div class="demo-box">
+                <p class="demo-label">.title</p>
+                <h1 class="title">page title at 1.9rem</h1>
+            </div>
+
+            <h3>.meta</h3>
+            <div class="demo-box">
+                <p class="demo-label">.meta</p>
+                <p class="meta">july 8, 2026 &middot; 4 min read &middot; some tag</p>
+            </div>
+
+            <h3>.section-label</h3>
+            <div class="demo-box">
+                <p class="demo-label">.section-label</p>
+                <h2 class="section-label">recent writing</h2>
+            </div>
+
+            <h3>.nav-back</h3>
+            <div class="demo-box">
+                <p class="demo-label">.nav-back</p>
+                <span class="nav-back"><a href="#">← back to garden</a></span>
+            </div>
+        </section>
+
+        <!-- ===================== -->
+        <!-- COMPONENTS            -->
+        <!-- ===================== -->
+        <section class="styles-section" aria-label="components">
+            <h2>components</h2>
+
+            <h3>.post-row</h3>
+            <p>Used on the homepage and blog listing for post entries:</p>
+            <div class="demo-box" style="padding: 0 1.25rem;">
+                <p class="demo-label" style="padding-top:1.25rem;">.post-row</p>
+                <div class="post-row">
+                    <a class="post-title" href="#">On learning game development from scratch</a>
+                    <time class="post-date" datetime="2026-06-01">jun 2026</time>
+                </div>
+                <div class="post-row">
+                    <a class="post-title" href="#">What six months of running taught me about shipping</a>
+                    <time class="post-date" datetime="2026-05-01">may 2026</time>
+                </div>
+                <div class="post-row">
+                    <a class="post-title" href="#">Books I read in early 2026</a>
+                    <time class="post-date" datetime="2026-04-01">apr 2026</time>
+                </div>
+            </div>
+
+            <h3>.proj-row</h3>
+            <p>Used for project list entries with a name and short description:</p>
+            <div class="demo-box" style="padding: 0 1.25rem;">
+                <p class="demo-label" style="padding-top:1.25rem;">.proj-row</p>
+                <div class="section-projects">
+                    <div class="proj-row">
+                        <a class="proj-name" href="#">saturn</a>
+                        <p class="proj-desc">personal website</p>
+                    </div>
+                    <div class="proj-row">
+                        <a class="proj-name" href="#">some other project</a>
+                        <p class="proj-desc">a short description</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3>.home-project-card</h3>
+            <p>Used on the homepage projects grid — a two-column flex grid of cards:</p>
+            <div class="demo-box">
+                <p class="demo-label">.home-project-card / .home-projects-grid</p>
+                <div class="home-projects-grid">
+                    <a class="home-project-card" href="#">
+                        <p class="project-type">JAN '26 &middot; RE-DESIGN</p>
+                        <p class="home-card-title">saturn</p>
+                        <p class="home-card-desc">a cozy yet minimalist personal website</p>
+                    </a>
+                    <a class="home-project-card" href="#">
+                        <p class="project-type">FEB '26 &middot; TOOL</p>
+                        <p class="home-card-title">another project</p>
+                        <p class="home-card-desc">a short description of what it does</p>
+                    </a>
+                    <a class="home-project-card home-project-card--more" href="#">
+                        <p class="home-card-title">all projects &rarr;</p>
+                        <p class="home-card-desc">dashed border, muted opacity variant</p>
+                    </a>
+                </div>
+            </div>
+
+            <h3>.project-card</h3>
+            <p>Used on the projects listing page — a full-width card with hover glow effect:</p>
+            <div class="demo-box">
+                <p class="demo-label">.project-card</p>
+                <a class="project-card" href="#" style="text-decoration:none;">
+                    <div class="project-card-left">
+                        <p class="project-type">JAN '26</p>
+                    </div>
+                    <div class="project-card-right">
+                        <h1>project title</h1>
+                        <p>a short description of the project. hover to see the scale + glow effect.</p>
+                    </div>
+                </a>
+            </div>
+
+            <h3>.project-header</h3>
+            <p>Used on individual project pages as the title/description row:</p>
+            <div class="demo-box">
+                <p class="demo-label">.project-header</p>
+                <div class="project-header">
+                    <h1 class="project-header-title">saturn</h1>
+                    <p class="project-header-desc">a cozy minimalist personal site</p>
+                </div>
+            </div>
+
+            <h3>.project-details</h3>
+            <p>Two-column sidebar layout for project metadata:</p>
+            <div class="demo-box">
+                <p class="demo-label">.project-details</p>
+                <div class="project-details">
+                    <div class="project-details-left">
+                        <p class="project-details-meta-header">stack</p>
+                        <p class="project-details-meta-bullet">html</p>
+                        <p class="project-details-meta-bullet">css</p>
+                        <p class="project-details-meta-bullet">vite</p>
+                    </div>
+                    <div class="project-details-right">
+                        <p class="project-details-meta-header">source</p>
+                        <div class="project-details-source">
+                            <a href="#">git.danieldaum.net</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== -->
+        <!-- SELECTION & FOCUS     -->
+        <!-- ===================== -->
+        <section class="styles-section" aria-label="selection and focus">
+            <h2>selection &amp; focus</h2>
+            <p>
+                Text selection uses <code>::selection</code>: try highlighting this sentence —
+                the selection background becomes <code>var(--accent)</code> with the page background
+                as the text color.
+            </p>
+            <p>
+                Focus ring: keyboard-navigable elements receive a <code>2px solid var(--accent)</code>
+                outline at <code>2px</code> offset. Mouse clicks suppress the outline via
+                <code>:focus:not(:focus-visible)</code>.
+            </p>
+        </section>
+
+        <!-- ===================== -->
+        <!-- RESPONSIVE & A11Y     -->
+        <!-- ===================== -->
+        <section class="styles-section" aria-label="responsive and accessibility">
+            <h2>responsive &amp; accessibility</h2>
+
+            <h3>breakpoints</h3>
+            <ul>
+                <li><code>≤ 480px</code> — mobile: reduced padding, smaller type scale, full-width pre blocks</li>
+                <li><code>≤ 768px</code> — tablet: slightly reduced padding and heading sizes</li>
+            </ul>
+
+            <h3>media query features</h3>
+            <ul>
+                <li><code>prefers-reduced-motion</code> — all transitions/animations set to <code>0.01ms</code></li>
+                <li><code>prefers-contrast: high</code> — higher contrast palette, underlined links, thicker code borders</li>
+                <li><code>print</code> — white background, black text, hidden nav, absolute URLs appended to links</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <footer>
+        <hr />
+        <nav aria-label="site links">
+            <p aria-hidden="true">[↗]:</p>
+            <a href="mailto:daniel@danieldaum.net" aria-label="link to send me an email">email</a>
+            <a href="https://git.danieldaum.net/" aria-label="link to my git, opens in new tab" target="_blank"
+                rel="noopener noreferrer">git</a>
+            <a href="/pgp.asc" aria-label="link to my pgp public key (516E97FF)">pgp</a>
+            <a href="/changelog.html">changelog</a>
+        </nav>
+    </footer>
+</body>
+
+</html>

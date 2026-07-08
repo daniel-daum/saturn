@@ -44,83 +44,93 @@
         </nav>
     </header>
     <main>
-        <h1 class="title">changelog</h1>
-        <h2>v0.3.0 — 2026-07-06 — homepage redesign (wip)</h2>
-        <p class="meta">new homepage layout, typography pass, visual refinements</p>
+        <section class="hero">
+            <h1>changelog</h1>
+            <p class="meta">Tracking the changes to this website</p>
 
-        <h3>added</h3>
-        <ul>
-            <li>new homepage: hero tagline section, recent writing rows, project card grid</li>
-            <li>about page (old homepage content moved to /about)</li>
-            <li>"about" link in site nav</li>
-            <li>homepage section labels (.section-label)</li>
-            <li>homepage writing rows (.post-row) with title/date layout</li>
-            <li>homepage project card grid (.home-projects-grid, .home-project-card) — 2-col, lime border on hover</li>
-            <li>::selection highlight (lime bg, dark text)</li>
-        </ul>
+        </section>
+        <section>
 
-        <h3>changed</h3>
-        <ul>
-            <li>base font-size 15px &rarr; 16px, line-height 1.7 &rarr; 1.8, max-width 75ch &rarr; 68ch</li>
-            <li>h2: removed border-top divider, uses margin for spacing only</li>
-            <li>p: margin-bottom 1rem &rarr; 1.2rem</li>
-            <li>background: #0e140f &rarr; #141e15 (lifted to intentional deep bottle green)</li>
-            <li>footer hr now matches header border-bottom width</li>
-            <li>hero h1 line-height 1.4 and bio text 0.88rem for visual hierarchy</li>
-            <li>project card hover: clean lime border-color transition (no scale or overlay)</li>
-        </ul>
-        <hr>
 
-        <h2>v0.2.0 — 2026-06-10 — clean slate</h2>
-        <p class="meta">polish and foundation</p>
+            <h2>v0.3.0 — 2026-07-06 — homepage redesign (wip)</h2>
+            <p class="meta">new homepage layout, typography pass, visual refinements</p>
 
-        <h3>added</h3>
-        <ul>
-            <li>pgp key in footer</li>
-            <li>aria labels across all pages</li>
-            <li>now/archive page</li>
-            <li>writing and garden stub pages</li>
-            <li>svg favicon</li>
-        </ul>
+            <h3>added</h3>
+            <ul>
+                <li>new homepage: hero tagline section, recent writing rows, project card grid</li>
+                <li>about page (old homepage content moved to /about)</li>
+                <li>"about" link in site nav</li>
+                <li>homepage section labels (.section-label)</li>
+                <li>homepage writing rows (.post-row) with title/date layout</li>
+                <li>homepage project card grid (.home-projects-grid, .home-project-card) — 2-col, lime border on hover
+                </li>
+                <li>::selection highlight (lime bg, dark text)</li>
+            </ul>
 
-        <h3>changed</h3>
-        <ul>
-            <li>font changed from geist mono to ioskeley mono</li>
-            <li>directory structure updated for cleaner url endpoints</li>
-            <li>streamlined css</li>
-            <li>standardized favicon across the site</li>
-            <li>updated element spacing across the site</li>
-            <li>added mise.toml for toolchain config</li>
-            <li>added favicon link to all pages</li>
-            <li>capitalized bio text in index.html</li>
-            <li>cleaned up .gitignore</li>
-            <li>adjusted .project-type font size to 0.7rem</li>
-            <li>added scrollbar-gutter and base font-size to html</li>
-        </ul>
+            <h3>changed</h3>
+            <ul>
+                <li>base font-size 15px &rarr; 16px, line-height 1.7 &rarr; 1.8, max-width 75ch &rarr; 68ch</li>
+                <li>h2: removed border-top divider, uses margin for spacing only</li>
+                <li>p: margin-bottom 1rem &rarr; 1.2rem</li>
+                <li>background: #0e140f &rarr; #141e15 (lifted to intentional deep bottle green)</li>
+                <li>footer hr now matches header border-bottom width</li>
+                <li>hero h1 line-height 1.4 and bio text 0.88rem for visual hierarchy</li>
+                <li>project card hover: clean lime border-color transition (no scale or overlay)</li>
+            </ul>
+            <hr>
 
-        <h3>fixed</h3>
-        <ul>
-            <li>header standardized across all pages</li>
-            <li>footer standardized across all pages</li>
-        </ul>
-        <hr>
+            <h2>v0.2.0 — 2026-06-10 — clean slate</h2>
+            <p class="meta">polish and foundation</p>
 
-        <h2>v0.1.0 — 2026-06-10</h2>
-        <p class="meta">initial release</p>
+            <h3>added</h3>
+            <ul>
+                <li>pgp key in footer</li>
+                <li>aria labels across all pages</li>
+                <li>now/archive page</li>
+                <li>writing and garden stub pages</li>
+                <li>svg favicon</li>
+            </ul>
 
-        <h3>added</h3>
-        <ul>
-            <li>homepage with intro and bio</li>
-            <li>now page</li>
-            <li>projects page</li>
-            <li>404 page</li>
-            <li>changelog page (this page)</li>
-            <li>changelog link in footer</li>
-            <li>geist mono variable font</li>
-            <li>
-                global css with dark theme, responsive layout, print styles
-            </li>
-        </ul>
+            <h3>changed</h3>
+            <ul>
+                <li>font changed from geist mono to ioskeley mono</li>
+                <li>directory structure updated for cleaner url endpoints</li>
+                <li>streamlined css</li>
+                <li>standardized favicon across the site</li>
+                <li>updated element spacing across the site</li>
+                <li>added mise.toml for toolchain config</li>
+                <li>added favicon link to all pages</li>
+                <li>capitalized bio text in index.html</li>
+                <li>cleaned up .gitignore</li>
+                <li>adjusted .project-type font size to 0.7rem</li>
+                <li>added scrollbar-gutter and base font-size to html</li>
+            </ul>
+
+            <h3>fixed</h3>
+            <ul>
+                <li>header standardized across all pages</li>
+                <li>footer standardized across all pages</li>
+            </ul>
+            <hr>
+
+            <h2>v0.1.0 — 2026-06-10</h2>
+            <p class="meta">initial release</p>
+
+            <h3>added</h3>
+            <ul>
+                <li>homepage with intro and bio</li>
+                <li>now page</li>
+                <li>projects page</li>
+                <li>404 page</li>
+                <li>changelog page (this page)</li>
+                <li>changelog link in footer</li>
+                <li>geist mono variable font</li>
+                <li>
+                    global css with dark theme, responsive layout, print styles
+                </li>
+            </ul>
+        </section>
+
     </main>
     <footer>
         <hr />
