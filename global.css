@@ -375,6 +375,19 @@ figure {
     margin: 1.5rem 0;
 }
 
+/* .img-scaled renders narrower than the column, so let the figure (and its
+   figcaption) hug the image's actual rendered width instead of stretching
+   full-width and leaving the caption misaligned under the left edge */
+figure:has(.img-scaled) {
+    width: fit-content;
+    max-width: 100%;
+    margin-inline: auto;
+}
+
+figure:has(.img-scaled) figcaption {
+    text-align: center;
+}
+
 ul,
 ol {
     margin: 0 0 1.2rem 1.5rem;
@@ -548,6 +561,25 @@ footer .meta {
 .nav-back a:hover {
     color: var(--accent-muted);
     background: none;
+}
+
+/* lays two (or more) lists/blocks side by side; wraps to stacked on narrow
+   viewports for free via flex-wrap, no extra media query needed */
+.two-col-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 2.5rem;
+    margin-bottom: 1.2rem;
+}
+
+.two-col-list > div {
+    flex: 1 1 12rem;
+}
+
+/* interests list title styling */
+.interest-title {
+    font-weight: 700;
+    color: var(--text-headings);
 }
 
 /*============================*/
