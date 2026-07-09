@@ -440,7 +440,6 @@ s a:hover {
     border-top: none;
 }
 
-
 /*============================*/
 /* homepage project card grid */
 /*============================*/
@@ -1116,7 +1115,9 @@ button:focus:not(:focus-visible) {
         border-bottom: none;
     }
 
-    .table-row td {
+    .content-table .table-row td,
+    .content-table .table-row:first-child td,
+    .content-table .table-row:last-child td {
         display: block;
         border-bottom: none;
         border-top: none;
