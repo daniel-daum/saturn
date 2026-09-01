@@ -44,13 +44,52 @@
         </section>
 
         <!-- RECENT ACTIVITY -->
+
+
         <section aria-label="recent activity">
             <h2 class="section-label">recent activity</h2>
 
+            <!-- latest micro post. source of truth is /blog/micro/index.html -
+                 this card and the one on /blog are hand-synced copies, so update
+                 all three when posting. -->
 
-            <p>2x new changes/posts?</p>
-            <p>2x new photos?</p>
-            <p>new garden page -> games?</p>
+
+            <!-- icons are plain unicode glyphs from the self-hosted font (no icon lib,
+                 no cdn). full reference table: /garden/styles -> icons -->
+            <ul class="activity-feed">
+                <li class="activity-item">
+                    <span class="activity-icon" aria-hidden="true">&#9635;</span><!-- U+25A3 ▣ photos -->
+                    <a class="activity-link" href="/garden">2 NEW PHOTOS &mdash; FOG OVER THE BAY</a>
+                    <span class="activity-date">30 AUG</span>
+                </li>
+                <li class="activity-item">
+                    <span class="activity-icon" aria-hidden="true">&#182;</span><!-- U+00B6 ¶ writing -->
+                    <a class="activity-link" href="/blog">NEW MICRO POST &mdash; ON SLOW WEBSITES</a>
+                    <span class="activity-date">29 AUG</span>
+                </li>
+                <li class="activity-item">
+                    <span class="activity-icon" aria-hidden="true">&#10047;</span><!-- U+273F ✿ garden -->
+                    <a class="activity-link" href="/garden">NEW GARDEN PAGE &mdash; GAMES</a>
+                    <span class="activity-date">27 AUG</span>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2 class="section-label">recent micro</h2>
+
+            <article class="micro-post micro-featured">
+                <p class="meta">
+                    <span class="micro-at">@danieldaum</span>
+                    <a class="micro-time" href="/blog/micro/index.html#2026-09-01-2">1 SEPTEMBER 2026 &middot; 18:42
+                        PDT</a>
+                </p>
+                <p class="micro-body">
+                    took the osmo out for its first spin around town today. shot this waiting for
+                    BART &mdash; barely any light on the platform and it still caught the motion exactly how it felt.
+                </p>
+            </article>
+
         </section>
 
         <!-- RECENT WRITING -->
@@ -74,25 +113,6 @@
             </blockquote>
         </section>
 
-        <!--
-        <hr>
-        <section aria-label="recent writing">
-            <h2 class="section-label">recent writing</h2>
-
-            <table class="content-table">
-                <tbody>
-                    <tr class="table-row">
-                        <td><a class="table-title" href="/about">about &mdash; daniel daum</a></td>
-                        <td class="table-date"><time datetime="2026-07-08">jul 2026</time></td>
-                    </tr>
-                    <tr class="table-row">
-                        <td><a class="table-title" href="/now">now &mdash; jan 2026</a></td>
-                        <td class="table-date"><time datetime="2026-01-21">jan 2026</time></td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>-->
-
         <!-- PROJECTS -->
         <section aria-label="projects">
             <h2 class="section-label">projects</h2>
@@ -100,11 +120,11 @@
             <div class="home-projects-grid">
                 <a class="home-project-card" href="/projects/saturn">
                     <p class="project-type">JAN '26 &middot; RE-DESIGN</p>
-                    <p class="home-card-title">saturn</p>
-                    <p class="home-card-desc">a cozy yet minimalist personal website</p>
+                    <p class="home-card-title">SATURN</p>
+                    <p class="home-card-desc">A cozy yet minimalist personal website</p>
                 </a>
                 <a class="home-project-card home-project-card--more" href="/projects">
-                    <p class="home-card-title">all projects &rarr;</p>
+                    <p class="home-card-title">All PROJECTS &rarr;</p>
                     <p class="home-card-desc">more coming soon</p>
                 </a>
             </div>
@@ -123,6 +143,39 @@
             </a>
             <a href="/pgp.asc" aria-label="link to my pgp public key (516E97FF)">PGP</a>
             <a href="/changelog.html">CHANGELOG</a>
+            <a href="/privacy">PRIVACY</a>
+
+            <!-- CODING ACTIVITY TICKER - shares the footer nav line, fading in
+                 after the links. second group is an identical copy so the
+                 scroll loops seamlessly. -->
+            <div class="ticker" aria-label="recent coding activity">
+                <div class="ticker-track">
+                    <p class="ticker-group">
+                        <span>pushed 6 commits to <a href="/projects/saturn">saturn</a></span>
+                        <span class="ticker-sep" aria-hidden="true">//</span>
+                        <span>merged branch photo-lightbox</span>
+                        <span class="ticker-sep" aria-hidden="true">//</span>
+                        <span>started garden/games page</span>
+                        <span class="ticker-sep" aria-hidden="true">//</span>
+                        <span>fixed favicon caching bug</span>
+                        <span class="ticker-sep" aria-hidden="true">//</span>
+                        <span>reading: crafting interpreters, ch. 7</span>
+                        <span class="ticker-sep" aria-hidden="true">//</span>
+                    </p>
+                    <p class="ticker-group" aria-hidden="true">
+                        <span>pushed 6 commits to saturn</span>
+                        <span class="ticker-sep">//</span>
+                        <span>merged branch photo-lightbox</span>
+                        <span class="ticker-sep">//</span>
+                        <span>started garden/games page</span>
+                        <span class="ticker-sep">//</span>
+                        <span>fixed favicon caching bug</span>
+                        <span class="ticker-sep">//</span>
+                        <span>reading: crafting interpreters, ch. 7</span>
+                        <span class="ticker-sep">//</span>
+                    </p>
+                </div>
+            </div>
         </nav>
     </footer>
 </body>

@@ -154,15 +154,6 @@ html {
     color-scheme: dark light;
 
     /* dark theme (default) */
-    --background-dark: #141e15;
-    --background-dark: #161916;
-    --borders: #2b332d;
-    --text-headings: #f3f4e2;
-    --text-body: #e0e2ce;
-    --text-secondary: #a8ad98;
-    --accent: #cddc39;
-    --accent-muted: #38423a;
-
     --background-dark: #161916;
     --borders: #2e322e;
     --text-headings: #f3f3ed;
@@ -443,6 +434,43 @@ hr {
     border-top: none;
 }
 
+/* section header row: label on the left, optional "see all" action on the
+   right, sharing one line. keeps a section's heading and its escape hatch
+   from stacking as two separate blocks. wraps on narrow screens. */
+.section-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.35rem 1.5rem;
+    margin: 2.5rem 0 0.75rem;
+}
+
+/* the row owns the spacing now, so the label drops its own margins */
+.section-head .section-label {
+    margin: 0;
+}
+
+/* matches .section-label's type so the two read as one line of the same rank */
+.section-more {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    border-bottom-color: transparent;
+    transition:
+        color 220ms ease 60ms,
+        border-bottom-color 220ms ease 60ms;
+}
+
+.section-more:hover {
+    color: var(--accent);
+    background: none;
+    border-bottom-color: var(--accent);
+}
+
 /*============================*/
 /* homepage - project card grid */
 /*============================*/
@@ -514,10 +542,207 @@ hr {
 }
 
 /*============================*/
+/* homepage - recent activity feed */
+/*============================*/
+
+.activity-feed {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: 1px solid var(--borders);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.activity-item {
+    position: relative; /* containing block for the stretched row link */
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin: 0;
+    padding: 0.6rem 1rem;
+    font-size: 0.82rem;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+/* stretch the row's link across the whole item so the pointer cursor is honest -
+   clicking the icon or the date follows the same link as the title */
+.activity-link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+}
+
+.activity-item + .activity-item {
+    border-top: 1px solid color-mix(in srgb, var(--borders) 60%, transparent);
+}
+
+.activity-item:hover {
+    background-color: color-mix(in srgb, var(--accent-muted) 30%, transparent);
+}
+
+.activity-icon {
+    color: var(--accent);
+    flex-shrink: 0;
+}
+
+.activity-link {
+    color: var(--text-body);
+    border-bottom: none;
+    flex: 1;
+}
+
+.activity-link:hover {
+    color: var(--accent);
+    background: none;
+}
+
+.activity-date {
+    color: var(--text-secondary);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+}
+
+/* reuses .micro-post styles, framed as a card (blog index, homepage) */
+
+.micro-post.micro-featured {
+    gap: 0.5rem;
+    padding: 0.85rem 1.25rem;
+    border: 1px solid var(--borders);
+    border-radius: 10px;
+}
+
+.micro-post.micro-featured:hover {
+    border-color: var(--accent);
+    background: none;
+}
+
+/* homepage: featured post stacked above the activity feed */
+.micro-featured + .activity-feed {
+    margin-top: 0.75rem;
+}
+
+/*============================*/
+/* rolling coding activity ticker (manually updated) */
+/* borderless by design - it sits inline on the footer nav line and should */
+/* read as a continuation of the links, not as a boxed widget */
+/*============================*/
+
+.ticker {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    user-select: none;
+
+    /* soft edges so the text fades in/out of the surrounding footer
+       rather than being clipped against a hard border */
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0,
+        black 14%,
+        black 86%,
+        transparent 100%
+    );
+    mask-image: linear-gradient(
+        to right,
+        transparent 0,
+        black 14%,
+        black 86%,
+        transparent 100%
+    );
+}
+
+/* share the footer nav line: claim the leftover space after the links.
+   min-width:0 lets it shrink below its content width so the links always
+   keep the room they need; when the nav wraps, it drops to its own line. */
+footer .ticker {
+    flex: 1 1 14rem;
+    min-width: 0;
+}
+
+.ticker-track {
+    display: flex;
+    flex-shrink: 0;
+    animation: ticker-scroll 30s linear infinite;
+}
+
+.ticker:hover .ticker-track {
+    animation-play-state: paused;
+}
+
+.ticker-group {
+    display: flex;
+    flex-shrink: 0;
+    gap: 1.25rem;
+    padding-right: 1.25rem;
+    margin: 0;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+
+.ticker-sep {
+    color: var(--accent);
+}
+
+@keyframes ticker-scroll {
+    from {
+        transform: translateX(0);
+    }
+    /* -50%, not -100%: the track holds two identical groups, so shifting by
+       exactly one group width lands the copy where the original started */
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ticker-track {
+        animation: none;
+    }
+
+    .ticker {
+        overflow-x: auto;
+        -webkit-mask-image: none;
+        mask-image: none;
+    }
+}
+
+/*============================*/
 /* targeted class styles */
 /* authored css by me*/
 /*============================*/
 
+.bold {
+    font-weight: 700;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* two (or more) blocks side by side - e.g. a pros/cons pair on the now page.
+   each column keeps a sane minimum and wraps to a stack on narrow viewports. */
+.two-col-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 2.5rem;
+}
+
+.two-col-list > * {
+    flex: 1 1 14rem;
+    min-width: 0;
+}
+
+/* side-by-side images inside a single figure, e.g. about page */
+.figure-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: inherit;
+}
 .title {
     margin: 0 0 0.3rem 0;
     font-weight: 700;
@@ -555,7 +780,7 @@ footer .meta {
 }
 
 /*============================*/
-/* posts */
+/* blog - posts */
 /*============================*/
 
 .post-hero {
@@ -612,6 +837,104 @@ footer .meta {
 .page-nav a:hover {
     color: var(--accent-muted);
     background: none;
+}
+
+/*============================*/
+/* micro - posts */
+/*============================*/
+
+/* feed: centered narrow column, textlog-style whitespace */
+.micro-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 62ch;
+    margin-inline: auto;
+}
+
+.micro-post {
+    position: relative; /* containing block for the stretched permalink */
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    padding: 1.5rem 1.25rem;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+/* the timestamp IS the post's permalink; stretching its ::after over the whole
+   card makes the card clickable without nesting anchors, and keeps the accessible
+   name as just the date instead of the entire post body */
+.micro-post .micro-time::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+}
+
+/* divider only *between* posts, dimmed - never caps the feed */
+.micro-post + .micro-post {
+    border-top: 1px solid color-mix(in srgb, var(--borders) 60%, transparent);
+}
+
+.micro-post:hover {
+    background-color: color-mix(in srgb, var(--accent-muted) 30%, transparent);
+}
+
+.micro-post:target {
+    background-color: color-mix(in srgb, var(--accent-muted) 30%, transparent);
+    box-shadow: inset 2px 0 0 var(--accent);
+}
+
+/* meta row: handle left, timestamp pinned top-right */
+.micro-post .meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    margin: 0;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+}
+
+.micro-at {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.micro-time {
+    color: var(--text-secondary);
+    white-space: nowrap;
+    border-bottom: none;
+}
+
+.micro-time:hover {
+    color: var(--accent);
+    background: none;
+}
+
+.micro-body {
+    font-size: 0.92rem;
+    line-height: 1.8;
+    letter-spacing: 0.01em;
+    margin: 0;
+    text-wrap: pretty;
+}
+
+/* media attachment: sits below the text, bluesky-style */
+.micro-img {
+    width: auto;
+    max-width: 100%;
+    max-height: 24rem;
+    margin-top: 0.35rem;
+    border: 1px solid var(--borders);
+    border-radius: 4px;
+    align-self: flex-start;
+}
+
+@media (max-width: 480px) {
+    .micro-post {
+        padding: 1.25rem 0.75rem;
+    }
 }
 
 /*==================================
@@ -1196,4 +1519,450 @@ button:focus:not(:focus-visible) {
     .table-desc {
         font-size: 0.78rem;
     }
+}
+
+/*============================*/
+/* garden/photos - photo wall */
+/*============================*/
+
+/* wider body than the rest of the site, just for this page */
+body.photos-page {
+    max-width: min(100rem, 94vw);
+}
+
+/* grid (not css columns) so photos flow left->right then top->down:
+   the newest photo in the markup is always top-left.
+   tiles are uniform 4:5 crops; the lightbox shows the full frame. */
+.photo-wall {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.85rem;
+}
+
+.photo-tile {
+    position: relative;
+    margin: 0;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.photo-tile img {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+}
+
+/* the image itself is the link into the lightbox */
+.photo-link {
+    display: block;
+    border-bottom: none;
+}
+
+.photo-link:hover,
+.photo-link:focus-visible {
+    background: none;
+}
+
+.photo-caption {
+    position: absolute;
+    inset: auto 0 0 0;
+    margin: 0;
+    padding: 1.75rem 0.85rem 0.75rem;
+    background: linear-gradient(
+        to top,
+        rgba(10, 14, 11, 0.92) 0%,
+        rgba(10, 14, 11, 0.5) 60%,
+        transparent 100%
+    );
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    font-size: 0.8rem;
+    line-height: 1.4;
+    opacity: 0;
+    transform: translateY(6px);
+    transition:
+        opacity 200ms ease,
+        transform 200ms ease;
+    pointer-events: none;
+}
+
+.photo-tile:hover .photo-caption,
+.photo-tile:focus-within .photo-caption {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* compact hover caption: just name + location, full details live in the lightbox */
+.photo-caption-name {
+    display: block;
+    color: var(--text-headings);
+    font-weight: 600;
+}
+
+.photo-caption-location {
+    display: block;
+    margin-top: 0.15rem;
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+}
+
+.photo-caption-date {
+    display: block;
+    margin-top: 0.15rem;
+    color: var(--text-secondary);
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+}
+
+/* mark a freshly added photo: accent outline on the tile.
+   outline (not border) so the image doesn't shift - drawn over its edge */
+.photo-tile--new {
+    outline: 1px solid var(--accent);
+    outline-offset: -1px;
+}
+
+/* "New!" badge, used in both the hover caption and the lightbox meta */
+.new-tag {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+    .photo-wall {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    body.photos-page {
+        max-width: 100%;
+    }
+
+    .photo-wall {
+        grid-template-columns: 1fr;
+    }
+}
+
+/*============================*/
+/* garden/photos - lightbox */
+/*============================*/
+
+/* each lightbox is a fixed overlay toggled on/off via :target,
+   navigated entirely through anchor links (#view-n) - pure CSS, no JS */
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+}
+
+.lightbox:target {
+    display: block;
+}
+
+.lightbox-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 14, 11, 0.94);
+    border: none;
+}
+
+.lightbox-backdrop:hover,
+.lightbox-backdrop:focus-visible {
+    background: rgba(10, 14, 11, 0.94);
+}
+
+.lightbox-content {
+    position: relative;
+    z-index: 1;
+    margin: 6vh auto 0;
+    max-width: 92vw;
+    max-height: 88vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: none;
+}
+
+.lightbox-content > * {
+    pointer-events: auto;
+}
+
+.lightbox-content img {
+    max-width: 92vw;
+    max-height: 68vh;
+    width: auto;
+    height: auto;
+    margin: 0;
+}
+
+/* full metadata: name, date, location, camera, and mood.app filter */
+.lightbox-meta {
+    margin-top: 0.85rem;
+    text-align: center;
+}
+
+.lightbox-meta-name {
+    margin: 0 0 0.35rem;
+    color: var(--text-headings);
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.lightbox-meta-detail {
+    margin: 0.15rem 0 0;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+}
+
+.lightbox-close,
+.lightbox-nav {
+    position: fixed;
+    color: var(--text-headings);
+    border-bottom: none;
+    text-decoration: none;
+    line-height: 1;
+}
+
+.lightbox-close:hover,
+.lightbox-nav:hover,
+.lightbox-close:focus-visible,
+.lightbox-nav:focus-visible {
+    color: var(--accent);
+    background: none;
+}
+
+.lightbox-close {
+    top: 1.25rem;
+    right: 1.5rem;
+    font-size: 1.4rem;
+    padding: 0.4rem 0.6rem;
+}
+
+.lightbox-nav {
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2.25rem;
+    padding: 0.5rem 0.85rem;
+}
+
+.lightbox-prev {
+    left: 0.5rem;
+}
+
+.lightbox-next {
+    right: 0.5rem;
+}
+
+@media (max-width: 600px) {
+    .lightbox-nav {
+        font-size: 1.75rem;
+        padding: 0.4rem 0.6rem;
+    }
+
+    .lightbox-close {
+        top: 0.75rem;
+        right: 1rem;
+    }
+}
+
+/*============================*/
+/* garden/styles - style guide */
+/*============================*/
+
+/* color swatches */
+.swatch-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.swatch {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    min-width: 9rem;
+}
+
+.swatch-block {
+    width: 100%;
+    height: 3.5rem;
+    border-radius: 6px;
+    border: 1px solid var(--borders);
+}
+
+.swatch-name {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.swatch-value {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    margin: 0;
+    opacity: 0.7;
+}
+
+/* typography scale demo */
+.type-scale-row {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--borders);
+}
+
+.type-scale-label {
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    flex-shrink: 0;
+    width: 6rem;
+    margin: 0;
+}
+
+/* component demo boxes */
+.demo-box {
+    border: 1px dashed var(--borders);
+    border-radius: 6px;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.demo-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+}
+
+/* page scaffolding. three clearly separated ranks, strongest first:
+     .styles-section  - numbered, ruled, widest gap
+     .group-label     - "// " prefixed accent label, no rule
+     h3               - plain sub-heading
+   these used to be ambiguous: sections had no rule while .group-label had a
+   1px border-top, so sub-groups read as bigger breaks than the sections
+   containing them. the rule now belongs to the section only. */
+
+main {
+    counter-reset: styles-section;
+}
+
+.styles-section {
+    margin-top: 5rem;
+    padding-top: 2.25rem;
+    border-top: 2px solid var(--accent-muted);
+    scroll-margin-top: 1.5rem;
+}
+
+.styles-section:first-of-type {
+    margin-top: 3rem;
+}
+
+.styles-section > h2 {
+    margin: 0 0 1.75rem;
+    color: var(--accent);
+    font-size: 1.4rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+/* running section number, so position on a long page stays obvious */
+.styles-section > h2::before {
+    counter-increment: styles-section;
+    content: counter(styles-section, decimal-leading-zero);
+    margin-right: 0.75rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+/* sub-grouping within a section, e.g. splitting components into
+   listings/cards/layout. deliberately lighter than a section break. */
+.group-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 2.75rem 0 1rem;
+    padding: 0;
+    border: none;
+}
+
+.group-label::before {
+    content: "// ";
+    color: var(--text-secondary);
+}
+
+.group-label:first-of-type {
+    margin-top: 1.5rem;
+}
+
+/* index of sections, sits under the page intro */
+.styles-toc {
+    counter-reset: toc-item;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1.5rem;
+    margin: 1.75rem 0 0;
+    padding: 1.25rem 1.5rem;
+    list-style: none;
+    border: 1px solid var(--borders);
+    border-radius: 10px;
+}
+
+.styles-toc li {
+    margin: 0;
+}
+
+.styles-toc a {
+    font-size: 0.76rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    border-bottom-color: transparent;
+}
+
+.styles-toc a::before {
+    counter-increment: toc-item;
+    content: counter(toc-item, decimal-leading-zero) " ";
+    color: var(--accent-muted);
+}
+
+.styles-toc a:hover {
+    color: var(--accent);
+    background: none;
+    border-bottom-color: var(--accent);
+}
+
+.styles-toc a:hover::before {
+    color: var(--accent);
+}
+
+/* icon reference table - rows are reference only, not links */
+.icon-table .table-row:hover {
+    cursor: default;
+}
+
+/* glyph column renders the character itself */
+.icon-glyph {
+    width: 3rem;
+    color: var(--accent);
+    font-size: 1.15rem;
+    line-height: 1;
+    text-align: center;
+}
+
+.icon-code {
+    color: var(--text-secondary);
+    font-size: 0.78rem;
+    white-space: nowrap;
 }

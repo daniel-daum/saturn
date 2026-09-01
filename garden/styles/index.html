@@ -15,101 +15,6 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
     <link rel="manifest" href="/assets/favicon/site.webmanifest" />
     <title>styles — daniel daum</title>
-    <style>
-        /* ===== styles-page-only layout helpers ===== */
-        .swatch-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .swatch {
-            display: flex;
-            flex-direction: column;
-            gap: 0.4rem;
-            min-width: 9rem;
-        }
-
-        .swatch-block {
-            width: 100%;
-            height: 3.5rem;
-            border-radius: 6px;
-            border: 1px solid var(--borders);
-        }
-
-        .swatch-name {
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-            margin: 0;
-        }
-
-        .swatch-value {
-            font-size: 0.7rem;
-            color: var(--text-secondary);
-            margin: 0;
-            opacity: 0.7;
-        }
-
-        .type-scale-row {
-            display: flex;
-            align-items: baseline;
-            gap: 1.5rem;
-            padding: 0.5rem 0;
-            border-bottom: 1px solid var(--borders);
-        }
-
-        .type-scale-label {
-            font-size: 0.72rem;
-            color: var(--text-secondary);
-            white-space: nowrap;
-            flex-shrink: 0;
-            width: 6rem;
-            margin: 0;
-        }
-
-        .demo-box {
-            border: 1px dashed var(--borders);
-            border-radius: 6px;
-            padding: 1.25rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .demo-label {
-            font-size: 0.7rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--text-secondary);
-            margin-bottom: 0.75rem;
-        }
-
-        /* section dividers */
-        .styles-section {
-            margin-top: 3rem;
-        }
-
-        .styles-section>h2 {
-            margin-bottom: 1.25rem;
-        }
-
-        /* sub-grouping within a section, e.g. splitting .components into listings/cards/layout */
-        .group-label {
-            font-size: 0.72rem;
-            font-weight: 600;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin: 2.5rem 0 0.75rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--borders);
-        }
-
-        .group-label:first-of-type {
-            margin-top: 1.25rem;
-            padding-top: 0;
-            border-top: none;
-        }
-    </style>
 </head>
 
 <body>
@@ -126,48 +31,76 @@
     </header>
 
     <main>
-        <span class="nav-back"><a href="/garden">← garden</a></span>
+        <span class="nav-back"><a href="/garden/">GARDEN</a> -> <a href="/garden/styles/">STYLES</a></span>
         <section>
-            <h1>styles</h1>
-            <p class="meta">a living reference for every design token, typographic element, and component class used on
+            <h1>STYLES</h1>
+            <p class="meta">A living reference for every design token, typographic element, and component class used on
                 this site.</p>
+
+            <ul class="styles-toc" aria-label="page contents">
+                <li><a href="#color">color tokens</a></li>
+                <li><a href="#type">typography</a></li>
+                <li><a href="#icons">icons</a></li>
+                <li><a href="#caps">capitalization</a></li>
+                <li><a href="#headings">headings</a></li>
+                <li><a href="#links">links</a></li>
+                <li><a href="#blocks">block elements</a></li>
+                <li><a href="#utility">utility classes</a></li>
+                <li><a href="#layout">page layout</a></li>
+                <li><a href="#components">components</a></li>
+                <li><a href="#micro">micro posts</a></li>
+                <li><a href="#media">media &amp; photos</a></li>
+                <li><a href="#focus">selection &amp; focus</a></li>
+                <li><a href="#responsive">responsive &amp; a11y</a></li>
+            </ul>
         </section>
+
         <!-- ===================== -->
         <!-- COLOR TOKENS          -->
         <!-- ===================== -->
-        <section class="styles-section" aria-label="color tokens">
+        <section class="styles-section" id="color" aria-label="color tokens">
             <h2>color tokens</h2>
+
+            <p>
+                Seven custom properties declared on <code>html</code> in <code>global.css</code>. Every
+                color on the site resolves to one of these &mdash; nothing hard-codes a hex value except
+                a handful of <code>rgba()</code> shadows and the project card glow.
+            </p>
+            <p class="meta">
+                The hex labels below are hand-typed and have drifted from the real values before. If you
+                change a token, change it here too.
+            </p>
 
             <div class="swatch-row">
                 <div class="swatch">
                     <div class="swatch-block" style="background-color: var(--background-dark);"></div>
                     <p class="swatch-name">--background-dark</p>
-                    <p class="swatch-value">#141e15</p>
+                    <p class="swatch-value">#161916</p>
                 </div>
                 <div class="swatch">
                     <div class="swatch-block" style="background-color: var(--borders);"></div>
                     <p class="swatch-name">--borders</p>
-                    <p class="swatch-value">#273028</p>
+                    <p class="swatch-value">#2e322e</p>
                 </div>
                 <div class="swatch">
                     <div class="swatch-block" style="background-color: var(--accent-muted);"></div>
                     <p class="swatch-name">--accent-muted</p>
-                    <p class="swatch-value">#354037</p>
+                    <p class="swatch-value">#3a413b</p>
                 </div>
                 <div class="swatch">
                     <div class="swatch-block" style="background-color: var(--text-secondary);"></div>
                     <p class="swatch-name">--text-secondary</p>
-                    <p class="swatch-value">#a8ad98</p>
+                    <p class="swatch-value">#aaaba3</p>
                 </div>
                 <div class="swatch">
                     <div class="swatch-block" style="background-color: var(--text-body);"></div>
                     <p class="swatch-name">--text-body</p>
-                    <p class="swatch-value">#e0e2ce</p>
+                    <p class="swatch-value">#e1e0d9</p>
                 </div>
                 <div class="swatch">
                     <div class="swatch-block" style="background-color: var(--text-headings);"></div>
                     <p class="swatch-name">--text-headings</p>
-                    <p class="swatch-value">#f3f4e2</p>
+                    <p class="swatch-value">#f3f3ed</p>
                 </div>
                 <div class="swatch">
                     <div class="swatch-block" style="background-color: var(--accent); border-color: transparent;"></div>
@@ -175,12 +108,25 @@
                     <p class="swatch-value">#cddc39</p>
                 </div>
             </div>
+
+            <h3>derived colors</h3>
+            <p>
+                Softer fills are mixed from the tokens at use site rather than being new tokens, so they
+                track the palette automatically:
+            </p>
+            <ul>
+                <li><code>color-mix(in srgb, var(--borders) 60%, transparent)</code> &mdash; dimmed dividers
+                    between feed items</li>
+                <li><code>color-mix(in srgb, var(--accent-muted) 30%, transparent)</code> &mdash; row and
+                    post hover fill</li>
+                <li><code>rgba(205, 220, 57, 0.04)</code> &mdash; table row hover (the one hard-coded accent)</li>
+            </ul>
         </section>
 
         <!-- ===================== -->
         <!-- TYPOGRAPHY            -->
         <!-- ===================== -->
-        <section class="styles-section" aria-label="typography">
+        <section class="styles-section" id="type" aria-label="typography">
             <h2>typography</h2>
 
             <div class="type-scale-row">
@@ -189,7 +135,8 @@
             </div>
             <div class="type-scale-row">
                 <p class="type-scale-label">h2 / 1.35rem</p>
-                <h2 style="margin:0; font-size:1.35rem;">the quick brown fox</h2>
+                <h2 style="margin:0; font-size:1.35rem; color: var(--text-headings); text-transform:none; letter-spacing:0;">
+                    the quick brown fox</h2>
             </div>
             <div class="type-scale-row">
                 <p class="type-scale-label">h3 / 1.15rem</p>
@@ -219,14 +166,17 @@
             <br />
 
             <p>
-                Font family: <strong>Ioskeley Mono</strong> — a monospace typeface loaded at weights
-                <code>300</code>, <code>400</code>, <code>600</code>, and <code>700</code>.
-                Falls back to <code>Geist Mono</code>, <code>SF Mono</code>, and system monospace stacks.
+                Font family: <strong>Ioskeley Mono</strong> &mdash; a monospace typeface self-hosted at
+                <code>/assets/fonts/ioskeleymono/</code> in eight static <code>.woff2</code> files
+                (weights <code>300</code>, <code>400</code>, <code>600</code>, <code>700</code>, each with an
+                italic). No variable font is available. Falls back to <code>Geist Mono</code>,
+                <code>SF Mono</code>, and system monospace stacks.
             </p>
 
             <p>
-                Body text is set at <code>1rem / 16px</code> with <code>line-height: 1.8</code>.
-                The measure is capped at <code>68ch</code> for comfortable reading.
+                Root font size is <code>18px</code>, set on <code>html</code>, so <code>1rem = 18px</code>
+                and every <code>rem</code> value below scales from it. Body line-height is
+                <code>1.5</code>; the measure is capped at <code>90ch</code> on <code>body</code>.
             </p>
 
             <p>
@@ -245,24 +195,205 @@
         </section>
 
         <!-- ===================== -->
+        <!-- ICONS                 -->
+        <!-- ===================== -->
+        <section class="styles-section" id="icons" aria-label="icons">
+            <h2>icons</h2>
+
+            <p>
+                Icons are plain Unicode characters typed as HTML entities and rendered by the self-hosted
+                <strong>Ioskeley Mono</strong> webfont. There is no icon font, no SVG sprite, and no CDN
+                &mdash; they cost zero extra network requests and leak nothing to a third party. Every
+                glyph below was verified to exist in the font at the <code>400</code>, <code>600</code>,
+                and <code>700</code> weights, so they render identically on every machine.
+            </p>
+
+            <p>
+                Use the numeric entity (e.g. <code>&amp;#9635;</code>) rather than pasting the raw
+                character &mdash; it survives copy/paste and encoding changes, and makes the codepoint
+                obvious when reading the source.
+            </p>
+
+            <table class="content-table icon-table">
+                <thead>
+                    <tr>
+                        <th style="width:3rem;">icon</th>
+                        <th style="width:7rem;">entity</th>
+                        <th style="width:6rem;">codepoint</th>
+                        <th>used for</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-row">
+                        <td class="icon-glyph">&#9635;</td>
+                        <td><code>&amp;#9635;</code></td>
+                        <td class="icon-code">U+25A3</td>
+                        <td class="table-desc">photos, media, image posts</td>
+                    </tr>
+                    <tr class="table-row">
+                        <td class="icon-glyph">&#182;</td>
+                        <td><code>&amp;#182;</code></td>
+                        <td class="icon-code">U+00B6</td>
+                        <td class="table-desc">writing &mdash; micro posts, notes</td>
+                    </tr>
+                    <tr class="table-row">
+                        <td class="icon-glyph">&#167;</td>
+                        <td><code>&amp;#167;</code></td>
+                        <td class="icon-code">U+00A7</td>
+                        <td class="table-desc">longform &mdash; essays, blog posts</td>
+                    </tr>
+                    <tr class="table-row">
+                        <td class="icon-glyph">&#10047;</td>
+                        <td><code>&amp;#10047;</code></td>
+                        <td class="icon-code">U+273F</td>
+                        <td class="table-desc">garden pages</td>
+                    </tr>
+                    <tr class="table-row">
+                        <td class="icon-glyph">&#9670;</td>
+                        <td><code>&amp;#9670;</code></td>
+                        <td class="icon-code">U+25C6</td>
+                        <td class="table-desc">projects, builds, releases</td>
+                    </tr>
+                    <tr class="table-row">
+                        <td class="icon-glyph">&#9733;</td>
+                        <td><code>&amp;#9733;</code></td>
+                        <td class="icon-code">U+2605</td>
+                        <td class="table-desc">featured / highlighted item</td>
+                    </tr>
+                    <tr class="table-row">
+                        <td class="icon-glyph">&#9679;</td>
+                        <td><code>&amp;#9679;</code></td>
+                        <td class="icon-code">U+25CF</td>
+                        <td class="table-desc">active status &mdash; now, in progress</td>
+                    </tr>
+                    <tr class="table-row">
+                        <td class="icon-glyph">&#9675;</td>
+                        <td><code>&amp;#9675;</code></td>
+                        <td class="icon-code">U+25CB</td>
+                        <td class="table-desc">inactive status &mdash; planned, todo</td>
+                    </tr>
+                    <tr class="table-row">
+                        <td class="icon-glyph">&#9642;</td>
+                        <td><code>&amp;#9642;</code></td>
+                        <td class="icon-code">U+25AA</td>
+                        <td class="table-desc">generic list marker</td>
+                    </tr>
+                    <tr class="table-row">
+                        <td class="icon-glyph">&#8224;</td>
+                        <td><code>&amp;#8224;</code></td>
+                        <td class="icon-code">U+2020</td>
+                        <td class="table-desc">footnote, aside</td>
+                    </tr>
+                    <tr class="table-row">
+                        <td class="icon-glyph">&#8594;</td>
+                        <td><code>&amp;#8594;</code></td>
+                        <td class="icon-code">U+2192</td>
+                        <td class="table-desc">internal link, "see also"</td>
+                    </tr>
+                    <tr class="table-row">
+                        <td class="icon-glyph">&#8599;</td>
+                        <td><code>&amp;#8599;</code></td>
+                        <td class="icon-code">U+2197</td>
+                        <td class="table-desc">outbound / external link</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>picking a new one</h3>
+            <p>
+                Before adding a glyph, check the font actually contains it. Anything missing falls back to
+                a system font, which breaks the monospace rhythm and can render as a color emoji on some
+                platforms. <code>&amp;#9998;</code> (U+270E, the pencil
+                <span style="color: var(--text-secondary);">&#9998;</span>) is one such miss &mdash; it is
+                <em>not</em> in Ioskeley Mono, which is why writing uses the pilcrow
+                <code>&amp;#182;</code> instead.
+            </p>
+            <p>
+                Safest of all is plain ASCII, which is guaranteed present and suits the terminal tone of
+                the site: <code>+</code> <code>*</code> <code>&gt;</code> <code>~</code> <code>#</code>
+                <code>|</code> <code>/</code>, or bracketed forms like <code>[+]</code> and
+                <code>[*]</code>.
+            </p>
+        </section>
+
+        <!-- ===================== -->
+        <!-- CAPITALIZATION        -->
+        <!-- ===================== -->
+        <section class="styles-section" id="caps" aria-label="capitalization">
+            <h2>capitalization</h2>
+
+            <p>
+                Uppercase text on this site is produced two different ways, and which one you reach for
+                depends on whether the text is <em>content</em> or <em>chrome</em>.
+            </p>
+
+            <p class="group-label">typed in caps in the markup</p>
+            <p>
+                Wayfinding text is written uppercase directly in the HTML. These read as proper names of
+                destinations rather than styled labels:
+            </p>
+            <ul>
+                <li><code>.site-name</code> &mdash; <code>DANIEL DAUM</code></li>
+                <li>main nav &mdash; <code>HOME</code>, <code>ABOUT</code>, <code>NOW</code>,
+                    <code>BLOG</code>, <code>PROJECTS</code>, <code>GARDEN</code></li>
+                <li>footer nav &mdash; <code>EMAIL</code>, <code>GIT</code>, <code>PGP</code>,
+                    <code>CHANGELOG</code>, <code>PRIVACY</code></li>
+                <li><code>.nav-back</code> breadcrumbs &mdash; <code>GARDEN -&gt; STYLES</code></li>
+                <li>page <code>h1</code> &mdash; <code>/BLOG</code>, <code>STYLES</code>,
+                    <code>/MICRO</code></li>
+                <li><code>.post-tag</code> &mdash; <code>#TAG1</code></li>
+            </ul>
+
+            <p class="group-label">uppercased by css</p>
+            <p>
+                Structural labels are written lowercase in the source and uppercased with
+                <code>text-transform: uppercase</code>. The source stays readable and greppable:
+            </p>
+            <ul>
+                <li><code>.section-label</code>, <code>.section-more</code></li>
+                <li><code>.group-label</code>, <code>.demo-label</code></li>
+                <li><code>.project-stat-label</code></li>
+                <li><code>.new-tag</code></li>
+                <li><code>.content-table thead th</code></li>
+                <li><code>.styles-section &gt; h2</code>, <code>.styles-toc a</code></li>
+            </ul>
+
+            <p class="group-label">which to use</p>
+            <p>
+                Prefer the CSS route for anything new. Beyond keeping the markup lowercase and
+                searchable, it means the underlying text stays in normal case for assistive tech &mdash;
+                some screen readers spell out all-caps words letter by letter, so
+                <code>PGP</code> typed literally can be read as "P&nbsp;G&nbsp;P" while a CSS-uppercased
+                <code>pgp</code> is read as a word. The existing typed-caps nav is grandfathered in; it is
+                short and mostly initialisms already, so it is not worth churning.
+            </p>
+        </section>
+
+        <!-- ===================== -->
         <!-- HEADINGS              -->
         <!-- ===================== -->
-        <section class="styles-section" aria-label="headings in context">
+        <section class="styles-section" id="headings" aria-label="headings in context">
             <h2>headings in context</h2>
 
-            <h1>h1 — page title</h1>
+            <p class="meta">
+                Note: on this page <code>h2</code> is restyled by <code>.styles-section &gt; h2</code>
+                (accent, uppercase, auto-numbered). The samples below show the global defaults.
+            </p>
+
+            <h1>h1 &mdash; page title</h1>
             <p>
                 Used once per page as the primary title. Rendered in <code>var(--accent)</code> at
                 <code>1.75rem</code>, bold. Scales down to <code>1.5rem</code> on mobile.
             </p>
 
-            <h2>h2 — section heading</h2>
+            <h2 style="color: var(--text-headings); text-transform:none; letter-spacing:0; font-size:1.35rem; margin: 2.5rem 0 0.6rem;">
+                h2 &mdash; section heading</h2>
             <p>
                 Used for major content sections. Rendered in <code>var(--text-headings)</code> at
                 <code>1.35rem</code>, semibold, with <code>2.5rem</code> top margin.
             </p>
 
-            <h3>h3 — sub-section heading</h3>
+            <h3>h3 &mdash; sub-section heading</h3>
             <p>
                 Used for sub-sections. Rendered in <code>var(--accent)</code> at <code>1.15rem</code>,
                 semibold.
@@ -272,40 +403,53 @@
         <!-- ===================== -->
         <!-- LINKS                 -->
         <!-- ===================== -->
-        <section class="styles-section" aria-label="links and interactive">
+        <section class="styles-section" id="links" aria-label="links and interactive">
             <h2>links &amp; interactive</h2>
 
             <p>
-                Default links are colored <code>var(--accent)</code> with a 1px underline border.
-                On hover, the text flips to white and the background fills with accent:
-                <a href="#">example link</a>.
+                Default links are colored <code>var(--accent)</code> with a 1px underline border. On
+                hover, the text flips to white and the background fills with accent:
+                <a href="#links">example link</a>.
             </p>
 
             <p>
                 Nav links suppress the underline by default and reveal it on hover:
             </p>
             <nav aria-label="demo nav" style="margin-bottom:1rem;">
-                <a href="#">home</a>
-                <a href="#">blog</a>
-                <a href="#">projects</a>
-                <a href="#">garden</a>
+                <a href="#links">HOME</a>
+                <a href="#links">BLOG</a>
+                <a href="#links">PROJECTS</a>
+                <a href="#links">GARDEN</a>
             </nav>
 
             <p>
                 The <code>s a</code> pattern styles links inside a strikethrough as muted/unavailable:
-                <s><a href="#">not ready yet</a></s>.
+                <s><a href="#links">not ready yet</a></s>.
             </p>
 
             <p>
                 Focus styles (keyboard nav): elements receive a <code>2px var(--accent)</code> outline
                 with a <code>2px</code> offset. Try tabbing through this page.
             </p>
+
+            <h3>stretched links</h3>
+            <p>
+                Two components make a whole card or row clickable without nesting anchors: the real link
+                inside gets an <code>::after</code> with <code>position:absolute; inset:0</code>, and the
+                container gets <code>position:relative</code>. Used by <code>.micro-post</code> (via
+                <code>.micro-time</code>) and <code>.activity-item</code> (via <code>.activity-link</code>).
+            </p>
+            <p>
+                This keeps the accessible name short &mdash; a screen reader announces just the date or
+                the title, not the entire post body. The tradeoff is that the transparent overlay sits
+                above the text, so text inside those components is not selectable.
+            </p>
         </section>
 
         <!-- ===================== -->
         <!-- BLOCK ELEMENTS        -->
         <!-- ===================== -->
-        <section class="styles-section" aria-label="block elements">
+        <section class="styles-section" id="blocks" aria-label="block elements">
             <h2>block elements</h2>
 
             <h3>paragraph</h3>
@@ -343,7 +487,7 @@
             <ol>
                 <li>step one</li>
                 <li>step two</li>
-                <li>step three — notice <code>0.5rem</code> vertical spacing between items</li>
+                <li>step three &mdash; notice <code>0.5rem</code> vertical spacing between items</li>
             </ol>
 
             <h3>inline code</h3>
@@ -354,12 +498,12 @@
 
             <h3>code block</h3>
             <pre><code>// a code block uses the full pre + code pattern
-                    function greet(name) {
-                    return `hello, ${name}!`;
-                    }
+function greet(name) {
+    return `hello, ${name}!`;
+}
 
-                    const result = greet("world");
-                    console.log(result); // hello, world!</code></pre>
+const result = greet("world");
+console.log(result); // hello, world!</code></pre>
 
             <h3>figure &amp; figcaption</h3>
             <figure>
@@ -375,7 +519,7 @@
         <!-- ===================== -->
         <!-- UTILITY CLASSES       -->
         <!-- ===================== -->
-        <section class="styles-section" aria-label="utility classes">
+        <section class="styles-section" id="utility" aria-label="utility classes">
             <h2>utility classes</h2>
 
             <h3>.title</h3>
@@ -390,35 +534,31 @@
                 <p class="meta">july 8, 2026 &middot; 4 min read &middot; some tag</p>
             </div>
 
-            <h3>.section-label</h3>
+            <h3>.bold / .text-center</h3>
             <div class="demo-box">
-                <p class="demo-label">.section-label</p>
-                <h2 class="section-label">recent writing</h2>
-            </div>
-
-            <h3>.nav-back</h3>
-            <div class="demo-box">
-                <p class="demo-label">.nav-back</p>
-                <span class="nav-back"><a href="#">← back to garden</a></span>
+                <p class="demo-label">.bold &amp; .text-center</p>
+                <p class="bold">this paragraph uses .bold (font-weight 700)</p>
+                <p class="text-center">this paragraph uses .text-center</p>
             </div>
 
             <h3>.two-col-list</h3>
             <p>
-                Lays two (or more) lists/blocks side by side, wrapping to a stacked layout on
-                narrow viewports. Pair each column with a <code>.section-label</code> for a header.
+                Lays two (or more) lists/blocks side by side, wrapping to a stacked layout on narrow
+                viewports. Pair each column with a <code>.section-label</code> for a header. Used on the
+                now page.
             </p>
             <div class="demo-box">
                 <p class="demo-label">.two-col-list</p>
                 <div class="two-col-list">
                     <div>
-                        <p class="section-label">pros</p>
+                        <p class="section-label" style="margin-top:0;">pros</p>
                         <ul>
                             <li>consistent weather</li>
                             <li>access to national parks</li>
                         </ul>
                     </div>
                     <div>
-                        <p class="section-label">cons</p>
+                        <p class="section-label" style="margin-top:0;">cons</p>
                         <ul>
                             <li>no snow, or fall :(</li>
                             <li>old friends are far away</li>
@@ -426,12 +566,112 @@
                     </div>
                 </div>
             </div>
+
+            <h3>.img-scaled</h3>
+            <p>
+                Constrains an image to <code>max-height: 26rem</code> (override with the
+                <code>--img-max-height</code> custom property) and centers it. A
+                <code>figure:has(.img-scaled)</code> rule shrinks the figure to fit and centers its
+                caption.
+            </p>
+
+            <h3>.figure-row</h3>
+            <p>
+                Puts multiple images side by side inside one <code>&lt;figure&gt;</code>, used on the
+                about page.
+            </p>
+        </section>
+
+        <!-- ===================== -->
+        <!-- PAGE LAYOUT           -->
+        <!-- ===================== -->
+        <section class="styles-section" id="layout" aria-label="page layout">
+            <h2>page layout</h2>
+
+            <p>
+                <code>body</code> is a flex column capped at <code>90ch</code> and centered, with
+                <code>main</code> set to <code>flex: 1</code> so the footer is pushed to the bottom on
+                short pages. The photos page opts out via <code>body.photos-page</code>, which widens the
+                cap to <code>min(100rem, 94vw)</code>.
+            </p>
+
+            <p class="group-label">heroes</p>
+
+            <h3>.hero</h3>
+            <p>Homepage and listing-page intro block &mdash; title plus a <code>.meta</code> line.</p>
+            <div class="demo-box">
+                <p class="demo-label">.hero</p>
+                <section class="hero" style="margin-bottom:0;">
+                    <h1>/BLOG</h1>
+                    <p class="meta">Things I've written &mdash; posts, notes, project logs, and now pages</p>
+                </section>
+            </div>
+
+            <h3>.post-hero</h3>
+            <p>Individual post header &mdash; title, meta line, and an optional tag row.</p>
+            <div class="demo-box">
+                <p class="demo-label">.post-hero / .post-tags / .post-tag</p>
+                <section class="post-hero" style="margin-bottom:0;">
+                    <h1>TITLE OF A POST</h1>
+                    <p class="meta">2387 WORDS | 28 AUGUST 2026</p>
+                    <div class="post-tags">
+                        <p class="post-tag">#TAG1</p>
+                        <p class="post-tag">#TAG2</p>
+                        <p class="post-tag">#TAG3</p>
+                    </div>
+                </section>
+            </div>
+
+            <p class="group-label">section headers</p>
+
+            <h3>.section-label</h3>
+            <p>The standard marker for a group of content. Write it lowercase; CSS uppercases it.</p>
+            <div class="demo-box">
+                <p class="demo-label">.section-label</p>
+                <h2 class="section-label"
+                    style="margin-top:0; color: var(--text-secondary); font-size:0.78rem; letter-spacing:0.12em;">
+                    recent writing</h2>
+            </div>
+
+            <h3>.section-head</h3>
+            <p>
+                A <code>.section-label</code> paired with a right-aligned action link on one line. Use it
+                whenever a section needs a "see all" escape hatch, so the label and the link do not stack
+                as two separate blocks. Wraps on narrow screens.
+            </p>
+            <div class="demo-box">
+                <p class="demo-label">.section-head / .section-label / .section-more</p>
+                <div class="section-head" style="margin-top:0;">
+                    <h2 class="section-label"
+                        style="color: var(--text-secondary); font-size:0.78rem; letter-spacing:0.12em;">micro posts</h2>
+                    <a class="section-more" href="/blog/micro/">all micro posts &rarr;</a>
+                </div>
+            </div>
+
+            <p class="group-label">wayfinding</p>
+
+            <h3>.nav-back</h3>
+            <div class="demo-box">
+                <p class="demo-label">.nav-back</p>
+                <span class="nav-back" style="margin-bottom:0;"><a href="#layout">GARDEN</a> -&gt; <a
+                        href="#layout">STYLES</a></span>
+            </div>
+
+            <h3>.page-nav</h3>
+            <p>Previous/next footer navigation on individual posts, bounded by a top rule.</p>
+            <div class="demo-box">
+                <p class="demo-label">.page-nav</p>
+                <div class="page-nav" style="margin-top:0;">
+                    <a href="#layout">&larr; previous post</a>
+                    <a href="#layout">next post &rarr;</a>
+                </div>
+            </div>
         </section>
 
         <!-- ===================== -->
         <!-- COMPONENTS            -->
         <!-- ===================== -->
-        <section class="styles-section" aria-label="components">
+        <section class="styles-section" id="components" aria-label="components">
             <h2>components</h2>
 
             <p class="group-label">listings</p>
@@ -439,12 +679,12 @@
             <h3>.content-table</h3>
             <p>
                 Used on the homepage, blog, and garden listing pages. The <code>col-date</code> and
-                <code>col-tag</code> columns are optional — the garden listing drops them in favor of a
-                <code>col-desc</code> description column. The whole row highlights and shows a pointer
+                <code>col-tag</code> columns are optional &mdash; the garden listing drops them in favor of
+                a <code>col-desc</code> description column. The whole row highlights and shows a pointer
                 cursor on hover, though only the title text is an actual link.
             </p>
             <div class="demo-box">
-                <p class="demo-label">.content-table — title / date / tag</p>
+                <p class="demo-label">.content-table &mdash; title / date / tag</p>
                 <table class="content-table">
                     <thead>
                         <tr>
@@ -455,12 +695,13 @@
                     </thead>
                     <tbody>
                         <tr class="table-row">
-                            <td><a class="table-title" href="#">on learning game development from scratch</a></td>
+                            <td><a class="table-title" href="#components">on learning game development from scratch</a>
+                            </td>
                             <td class="table-date"><time datetime="2026-06-01">jun 2026</time></td>
                             <td class="table-tag">#blog</td>
                         </tr>
                         <tr class="table-row">
-                            <td><a class="table-title" href="#">saturn &mdash; personal site redesign</a></td>
+                            <td><a class="table-title" href="#components">saturn &mdash; personal site redesign</a></td>
                             <td class="table-date"><time datetime="2026-01-01">jan 2026</time></td>
                             <td class="table-tag">#project</td>
                         </tr>
@@ -469,7 +710,7 @@
             </div>
 
             <div class="demo-box">
-                <p class="demo-label">.content-table — title / description</p>
+                <p class="demo-label">.content-table &mdash; title / description</p>
                 <table class="content-table">
                     <thead>
                         <tr>
@@ -479,31 +720,98 @@
                     </thead>
                     <tbody>
                         <tr class="table-row">
-                            <td><a class="table-title" href="#">styles</a></td>
+                            <td><a class="table-title" href="#components">styles</a></td>
                             <td class="table-desc">design tokens, typography, and components</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
+            <h3>.activity-feed</h3>
+            <p>
+                The homepage "recent activity" list. Each row pairs an
+                <a href="#icons">icon glyph</a> with a link and a date. The entire row is clickable
+                &mdash; <code>.activity-link::after</code> stretches across it &mdash; so the pointer
+                cursor is honest.
+            </p>
+            <div class="demo-box">
+                <p class="demo-label">.activity-feed / .activity-item / .activity-icon / .activity-link / .activity-date
+                </p>
+                <ul class="activity-feed">
+                    <li class="activity-item">
+                        <span class="activity-icon" aria-hidden="true">&#9635;</span>
+                        <a class="activity-link" href="#components">2 NEW PHOTOS &mdash; FOG OVER THE BAY</a>
+                        <span class="activity-date">30 AUG</span>
+                    </li>
+                    <li class="activity-item">
+                        <span class="activity-icon" aria-hidden="true">&#182;</span>
+                        <a class="activity-link" href="#components">NEW MICRO POST &mdash; ON SLOW WEBSITES</a>
+                        <span class="activity-date">29 AUG</span>
+                    </li>
+                    <li class="activity-item">
+                        <span class="activity-icon" aria-hidden="true">&#10047;</span>
+                        <a class="activity-link" href="#components">NEW GARDEN PAGE &mdash; GAMES</a>
+                        <span class="activity-date">27 AUG</span>
+                    </li>
+                </ul>
+            </div>
+
+            <h3>.ticker</h3>
+            <p>
+                A borderless marquee of recent coding activity, updated by hand. It lives inline on the
+                footer nav line of the homepage, where <code>footer .ticker</code> gives it
+                <code>flex: 1 1 14rem</code> so it claims the space left over by the links and drops to
+                its own line when the nav wraps.
+            </p>
+            <p>
+                The track holds <strong>two identical</strong> <code>.ticker-group</code> copies and
+                animates to <code>translateX(-50%)</code>, which lands the second copy exactly where the
+                first began &mdash; that is what makes the loop seamless. A mask fades both edges. It
+                pauses on hover, and <code>prefers-reduced-motion</code> swaps the animation for a
+                horizontal scroll.
+            </p>
+            <div class="demo-box">
+                <p class="demo-label">.ticker / .ticker-track / .ticker-group / .ticker-sep</p>
+                <div class="ticker" aria-label="demo ticker">
+                    <div class="ticker-track">
+                        <p class="ticker-group">
+                            <span>pushed 6 commits to saturn</span>
+                            <span class="ticker-sep" aria-hidden="true">//</span>
+                            <span>merged branch photo-lightbox</span>
+                            <span class="ticker-sep" aria-hidden="true">//</span>
+                            <span>started garden/games page</span>
+                            <span class="ticker-sep" aria-hidden="true">//</span>
+                        </p>
+                        <p class="ticker-group" aria-hidden="true">
+                            <span>pushed 6 commits to saturn</span>
+                            <span class="ticker-sep">//</span>
+                            <span>merged branch photo-lightbox</span>
+                            <span class="ticker-sep">//</span>
+                            <span>started garden/games page</span>
+                            <span class="ticker-sep">//</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
             <p class="group-label">cards</p>
 
             <h3>.home-project-card</h3>
-            <p>Used on the homepage projects grid — a two-column flex grid of cards:</p>
+            <p>Used on the homepage projects grid &mdash; a two-column flex grid of cards:</p>
             <div class="demo-box">
-                <p class="demo-label">.home-project-card / .home-projects-grid</p>
+                <p class="demo-label">.home-projects-grid / .home-project-card / .home-card-title / .home-card-desc</p>
                 <div class="home-projects-grid">
-                    <a class="home-project-card" href="#">
+                    <a class="home-project-card" href="#components">
                         <p class="project-type">JAN '26 &middot; RE-DESIGN</p>
                         <p class="home-card-title">saturn</p>
                         <p class="home-card-desc">a cozy yet minimalist personal website</p>
                     </a>
-                    <a class="home-project-card" href="#">
+                    <a class="home-project-card" href="#components">
                         <p class="project-type">FEB '26 &middot; TOOL</p>
                         <p class="home-card-title">another project</p>
                         <p class="home-card-desc">a short description of what it does</p>
                     </a>
-                    <a class="home-project-card home-project-card--more" href="#">
+                    <a class="home-project-card home-project-card--more" href="#components">
                         <p class="home-card-title">all projects &rarr;</p>
                         <p class="home-card-desc">dashed border, muted opacity variant</p>
                     </a>
@@ -511,15 +819,15 @@
             </div>
 
             <h3>.project-card</h3>
-            <p>Used on the projects listing page — a full-width card with hover glow effect:</p>
+            <p>Used on the projects listing page &mdash; a full-width card with hover glow effect:</p>
             <div class="demo-box">
                 <p class="demo-label">.project-card</p>
-                <a class="project-card" href="#" style="text-decoration:none;">
+                <a class="project-card" href="#components" style="text-decoration:none;">
                     <div class="project-card-left">
                         <p class="project-type">JAN '26</p>
                     </div>
                     <div class="project-card-right">
-                        <h2>project title</h2>
+                        <h2 style="text-transform:none; letter-spacing:0;">project title</h2>
                         <p>a short description of the project. hover to see the scale + glow effect.</p>
                     </div>
                 </a>
@@ -531,7 +839,7 @@
             <p>Used on individual project pages as the title/description block. Stacks vertically
                 (title, then description) rather than side-by-side, so it holds up at any width:</p>
             <div class="demo-box">
-                <p class="demo-label">.project-header</p>
+                <p class="demo-label">.project-header / .project-header-title / .project-header-desc</p>
                 <div class="project-header" style="margin-top: 0;">
                     <h1 class="project-header-title">saturn</h1>
                     <p class="project-header-desc">a cozy minimalist personal site</p>
@@ -540,16 +848,18 @@
 
             <h3>.project-stats</h3>
             <p>
-                A stat strip for project metadata &mdash; label/value pairs left-aligned and
-                bounded top and bottom. The top border doubles as the divider beneath
-                <code>.project-header</code>, so the two are meant to sit back to back with no
-                extra border in between. Wraps to a stacked list below <code>600px</code>. Pair
-                it with a <code>.section-label</code> heading (e.g. "metadata"), same as
+                A stat strip for project metadata &mdash; label/value pairs left-aligned and bounded top
+                and bottom. The top border doubles as the divider beneath
+                <code>.project-header</code>, so the two are meant to sit back to back with no extra
+                border in between. Wraps to a stacked list below <code>600px</code>. Pair it with a
+                <code>.section-label</code> heading (e.g. "metadata"), same as
                 <code>.content-table</code> sections are introduced:
             </p>
             <div class="demo-box">
-                <p class="demo-label">.project-stats</p>
-                <h2 class="section-label" style="margin-top: 0;">metadata</h2>
+                <p class="demo-label">.project-stats / .project-stat-label / .project-stat-value</p>
+                <h2 class="section-label"
+                    style="margin-top: 0; color: var(--text-secondary); font-size:0.78rem; letter-spacing:0.12em;">
+                    metadata</h2>
                 <div class="project-stats" style="margin-bottom: 0;">
                     <div class="project-stat">
                         <p class="project-stat-label">stack</p>
@@ -557,21 +867,203 @@
                     </div>
                     <div class="project-stat">
                         <p class="project-stat-label">source</p>
-                        <p class="project-stat-value"><a href="#">git.danieldaum.net</a></p>
+                        <p class="project-stat-value"><a href="#components">git.danieldaum.net</a></p>
                     </div>
                 </div>
             </div>
+
+            <h3>.project-banner</h3>
+            <p>
+                A tall gradient banner used at the top of a project page, holding an absolutely positioned
+                SVG background (<code>.project-banner-background</code>) and a bordered screenshot
+                (<code>.project-banner-img</code>). Not demoed here &mdash; it is <code>20rem</code> tall
+                and page-specific.
+            </p>
+        </section>
+
+        <!-- ===================== -->
+        <!-- MICRO POSTS           -->
+        <!-- ===================== -->
+        <section class="styles-section" id="micro" aria-label="micro posts">
+            <h2>micro posts</h2>
+
+            <p>
+                The short-form feed at <code>/blog/micro</code>. Posts carry an
+                <code>id</code> using the convention <code>YYYY-MM-DD-N</code>, where <code>N</code> is the
+                post number for that day. The timestamp is the post's permalink, and its
+                <code>::after</code> stretches across the whole post so clicking anywhere follows it.
+            </p>
+
+            <p class="group-label">feed</p>
+
+            <h3>.micro-container / .micro-post</h3>
+            <p>
+                <code>.micro-container</code> is a centered <code>62ch</code> column. Posts are separated
+                by dividers drawn only <em>between</em> siblings
+                (<code>.micro-post + .micro-post</code>), so the feed is never capped by a stray rule.
+                A targeted post (<code>:target</code>) gets a tinted fill and an accent edge.
+            </p>
+            <div class="demo-box">
+                <p class="demo-label">.micro-container / .micro-post / .micro-at / .micro-time / .micro-body</p>
+                <div class="micro-container">
+                    <article class="micro-post">
+                        <p class="meta"><span class="micro-at">@danieldaum</span><a class="micro-time"
+                                href="/blog/micro/">1 SEPTEMBER 2026 &middot; 18:42 PDT</a></p>
+                        <p class="micro-body">took the osmo out for its first spin around town today. shot this waiting
+                            for BART &mdash; barely any light on the platform and it still caught the motion exactly how
+                            it felt.</p>
+                    </article>
+                    <article class="micro-post">
+                        <p class="meta"><span class="micro-at">@danieldaum</span><a class="micro-time"
+                                href="/blog/micro/">31 AUGUST 2026 &middot; 13:07 PDT</a></p>
+                        <p class="micro-body">a second post, showing the divider that is drawn only between siblings.
+                        </p>
+                    </article>
+                </div>
+            </div>
+
+            <h3>.micro-img</h3>
+            <p>
+                An optional image attachment sits below the body text, bluesky-style, capped at
+                <code>24rem</code> tall and left-aligned rather than stretched to full width.
+            </p>
+
+            <p class="group-label">featured</p>
+
+            <h3>.micro-featured</h3>
+            <p>
+                The same post markup framed as a bordered card, used on the homepage and the blog index to
+                surface the newest micro post. Tighter padding and gap than a feed post, and the border
+                turns accent on hover.
+            </p>
+            <div class="demo-box">
+                <p class="demo-label">.micro-post.micro-featured</p>
+                <article class="micro-post micro-featured">
+                    <p class="meta">
+                        <span class="micro-at">@danieldaum</span>
+                        <a class="micro-time" href="/blog/micro/">1 SEPTEMBER 2026 &middot; 18:42 PDT</a>
+                    </p>
+                    <p class="micro-body">
+                        took the osmo out for its first spin around town today. shot this waiting for BART
+                        &mdash; barely any light on the platform and it still caught the motion exactly how it felt.
+                    </p>
+                </article>
+            </div>
+
+            <p class="meta">
+                Note: the featured card is duplicated by hand on the homepage and
+                <code>/blog</code>, with <code>/blog/micro</code> as the source of truth. Update all three
+                when posting.
+            </p>
+        </section>
+
+        <!-- ===================== -->
+        <!-- MEDIA & PHOTOS        -->
+        <!-- ===================== -->
+        <section class="styles-section" id="media" aria-label="media and photos">
+            <h2>media &amp; photos</h2>
+
+            <p class="group-label">photo wall</p>
+
+            <h3>.photo-wall / .photo-tile</h3>
+            <p>
+                A CSS grid (not columns) so photos flow left-to-right then top-down &mdash; the newest
+                photo in the markup is always top-left. Tiles are uniform <code>4:5</code> crops via
+                <code>object-fit: cover</code>; the lightbox shows the full frame. Drops to two columns
+                below <code>900px</code> and one below <code>480px</code>.
+            </p>
+            <p>
+                <code>.photo-caption</code> is hidden until hover or focus-within, then fades up over a
+                gradient scrim. <code>.photo-tile--new</code> marks a fresh photo with an accent outline
+                (an <code>outline</code>, not a border, so the image does not shift).
+            </p>
+            <div class="demo-box">
+                <p class="demo-label">.photo-wall / .photo-tile / .photo-caption &mdash; placeholders, hover a tile</p>
+                <div class="photo-wall">
+                    <figure class="photo-tile photo-tile--new">
+                        <div
+                            style="aspect-ratio:4/5; background:var(--accent-muted); border:1px solid var(--borders);">
+                        </div>
+                        <figcaption class="photo-caption">
+                            <span class="photo-caption-name">Berkeley Aquatic Park <span class="new-tag">New!</span></span>
+                            <span class="photo-caption-location">Berkeley, California</span>
+                            <span class="photo-caption-date">21 AUGUST 2026</span>
+                        </figcaption>
+                    </figure>
+                    <figure class="photo-tile">
+                        <div
+                            style="aspect-ratio:4/5; background:var(--accent-muted); border:1px solid var(--borders);">
+                        </div>
+                        <figcaption class="photo-caption">
+                            <span class="photo-caption-name">Neighbor Snail</span>
+                            <span class="photo-caption-location">Oakland, California</span>
+                            <span class="photo-caption-date">18 AUGUST 2026</span>
+                        </figcaption>
+                    </figure>
+                    <figure class="photo-tile">
+                        <div
+                            style="aspect-ratio:4/5; background:var(--accent-muted); border:1px solid var(--borders);">
+                        </div>
+                        <figcaption class="photo-caption">
+                            <span class="photo-caption-name">Fog Over The Bay</span>
+                            <span class="photo-caption-location">Oakland, California</span>
+                            <span class="photo-caption-date">12 AUGUST 2026</span>
+                        </figcaption>
+                    </figure>
+                    <figure class="photo-tile">
+                        <div
+                            style="aspect-ratio:4/5; background:var(--accent-muted); border:1px solid var(--borders);">
+                        </div>
+                        <figcaption class="photo-caption">
+                            <span class="photo-caption-name">Redwood Trail</span>
+                            <span class="photo-caption-location">Oakland, California</span>
+                            <span class="photo-caption-date">03 AUGUST 2026</span>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <h3>.new-tag</h3>
+            <p>
+                A small accent badge reading <span class="new-tag">New!</span>, used in both the hover
+                caption and the lightbox meta. Uppercased by CSS.
+            </p>
+
+            <p class="group-label">lightbox</p>
+
+            <h3>.lightbox</h3>
+            <p>
+                A fixed overlay toggled entirely by <code>:target</code> &mdash; no JavaScript. Each photo
+                links to <code>#view-n</code>; the matching <code>.lightbox</code> switches from
+                <code>display: none</code> to <code>display: block</code>. Navigation between photos is
+                just more anchors, and the backdrop and close button both link to <code>#</code>.
+            </p>
+            <p class="meta">
+                Not demoed live &mdash; it covers the viewport, which would hijack this page. Markup shape:
+            </p>
+            <pre><code>&lt;div class="lightbox" id="view-14" tabindex="-1" aria-label="..."&gt;
+    &lt;a class="lightbox-backdrop" href="#" aria-label="close full size image"&gt;&lt;/a&gt;
+    &lt;a class="lightbox-nav lightbox-prev" href="#view-1" aria-label="previous image"&gt;&lsaquo;&lt;/a&gt;
+    &lt;a class="lightbox-close" href="#" aria-label="close full size image"&gt;&#10005;&lt;/a&gt;
+    &lt;figure class="lightbox-content"&gt;
+        &lt;img src="..." alt="..." /&gt;
+        &lt;figcaption class="lightbox-meta"&gt;
+            &lt;p class="lightbox-meta-name"&gt;Berkeley Aquatic Park&lt;/p&gt;
+            &lt;p class="lightbox-meta-detail"&gt;August 21, 2026&lt;/p&gt;
+        &lt;/figcaption&gt;
+    &lt;/figure&gt;
+&lt;/div&gt;</code></pre>
         </section>
 
         <!-- ===================== -->
         <!-- SELECTION & FOCUS     -->
         <!-- ===================== -->
-        <section class="styles-section" aria-label="selection and focus">
+        <section class="styles-section" id="focus" aria-label="selection and focus">
             <h2>selection &amp; focus</h2>
             <p>
-                Text selection uses <code>::selection</code>: try highlighting this sentence —
-                the selection background becomes <code>var(--accent)</code> with the page background
-                as the text color.
+                Text selection uses <code>::selection</code>: try highlighting this sentence &mdash; the
+                selection background becomes <code>var(--accent)</code> with the page background as the
+                text color.
             </p>
             <p>
                 Focus ring: keyboard-navigable elements receive a <code>2px solid var(--accent)</code>
@@ -583,21 +1075,27 @@
         <!-- ===================== -->
         <!-- RESPONSIVE & A11Y     -->
         <!-- ===================== -->
-        <section class="styles-section" aria-label="responsive and accessibility">
+        <section class="styles-section" id="responsive" aria-label="responsive and accessibility">
             <h2>responsive &amp; accessibility</h2>
 
             <h3>breakpoints</h3>
             <ul>
-                <li><code>≤ 480px</code> — mobile: reduced padding, smaller type scale, full-width pre blocks</li>
-                <li><code>≤ 768px</code> — tablet: slightly reduced padding and heading sizes</li>
+                <li><code>&le; 480px</code> &mdash; mobile: reduced padding, smaller type scale, full-width pre blocks,
+                    single-column photo wall</li>
+                <li><code>&le; 600px</code> &mdash; content tables stack title above date/tag; project stats stack;
+                    lightbox controls shrink</li>
+                <li><code>&le; 768px</code> &mdash; tablet: slightly reduced padding and heading sizes</li>
+                <li><code>&le; 900px</code> &mdash; photo wall drops to two columns</li>
             </ul>
 
             <h3>media query features</h3>
             <ul>
-                <li><code>prefers-reduced-motion</code> — all transitions/animations set to <code>0.01ms</code></li>
-                <li><code>prefers-contrast: high</code> — higher contrast palette, underlined links, thicker code
+                <li><code>prefers-reduced-motion</code> &mdash; all transitions/animations set to
+                    <code>0.01ms</code>; the ticker stops scrolling and becomes horizontally scrollable</li>
+                <li><code>prefers-contrast: high</code> &mdash; higher contrast palette, underlined links, thicker code
                     borders</li>
-                <li><code>print</code> — white background, black text, hidden nav, absolute URLs appended to links</li>
+                <li><code>print</code> &mdash; white background, black text, hidden nav, absolute URLs appended to links
+                </li>
             </ul>
         </section>
 
@@ -615,6 +1113,7 @@
             </a>
             <a href="/pgp.asc" aria-label="link to my pgp public key (516E97FF)">PGP</a>
             <a href="/changelog.html">CHANGELOG</a>
+            <a href="/privacy">PRIVACY</a>
         </nav>
     </footer>
 </body>
