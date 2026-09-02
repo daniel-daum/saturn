@@ -154,18 +154,69 @@ html {
     color-scheme: dark light;
 
     /* dark theme (default) */
-    --background-dark: #161916;
+    /*--background-dark: #161916;*/
+    --background-dark: #141e15;
     --borders: #2e322e;
     --text-headings: #f3f3ed;
     --text-body: #e1e0d9;
     --text-secondary: #aaaba3;
     --accent: #cddc39;
     --accent-muted: #3a413b;
+
+    /* rating scale (out of 5, half steps allowed) */
+    --rating-terrible: #e86b6b;
+    --rating-below-average: #d9a441;
+    --rating-good: #bdbd7f;
+    --rating-above-average: #a9c94f;
+    --rating-great: #7ec98f;
 }
 
 ::selection {
     background: var(--accent);
     color: var(--background-dark);
+}
+
+/*============================*/
+/* rating scale */
+/* usage: <span class="rating rating--good">(3/5)</span> */
+/* swap the span for an <a> later and the styles still apply */
+/*============================*/
+
+.rating {
+    color: var(--rating-color, var(--text-secondary));
+    white-space: nowrap;
+    font-weight: 600;
+}
+
+a.rating,
+a.rating:visited {
+    color: var(--rating-color, var(--text-secondary));
+    border-bottom: 1px solid transparent;
+}
+
+a.rating:hover,
+a.rating:focus-visible {
+    border-bottom-color: currentColor;
+}
+
+.rating--terrible {
+    --rating-color: var(--rating-terrible);
+}
+
+.rating--below-average {
+    --rating-color: var(--rating-below-average);
+}
+
+.rating--good {
+    --rating-color: var(--rating-good);
+}
+
+.rating--above-average {
+    --rating-color: var(--rating-above-average);
+}
+
+.rating--great {
+    --rating-color: var(--rating-great);
 }
 
 body {
@@ -843,13 +894,11 @@ footer .meta {
 /* micro - posts */
 /*============================*/
 
-/* feed: centered narrow column, textlog-style whitespace */
+/* feed: spans the full body measure, textlog-style whitespace */
 .micro-container {
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 62ch;
-    margin-inline: auto;
 }
 
 .micro-post {
@@ -1030,6 +1079,12 @@ button:focus:not(:focus-visible) {
         --accent: #ffff00;
         --borders: #ffffff;
         --accent-muted: #444444;
+
+        --rating-terrible: #ff9494;
+        --rating-below-average: #ffc24d;
+        --rating-good: #ffffff;
+        --rating-above-average: #d4f06a;
+        --rating-great: #8dffab;
     }
 
     a {
@@ -1768,6 +1823,230 @@ body.photos-page {
     .lightbox-close {
         top: 0.75rem;
         right: 1rem;
+    }
+}
+
+/*============================*/
+/* garden/trackers - media walls */
+/* shared by books / movies / shows / games / music */
+/*============================*/
+
+/* wider body than the rest of the site, same as the photo wall */
+body.tracker-page {
+    max-width: min(100rem, 94vw);
+}
+
+/* one wall per year, under its own h2.
+   auto-fill keeps the cover size stable and reflows the column
+   count on its own - no breakpoints needed for the grid itself. */
+.tracker-wall {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
+    gap: 1.5rem 1.1rem;
+    margin-bottom: 3rem;
+    list-style: none;
+    padding: 0;
+}
+
+/* favorites sit above the year walls: the same tiles, re-linked.
+   a tile is copied up verbatim from its year and both copies point at
+   the same note overlay, so nothing here needs its own markup.
+   the rule below just fences the section off from the years underneath. */
+.tracker-wall--favorites {
+    padding-bottom: 2.75rem;
+    border-bottom: 1px solid var(--borders);
+    margin-bottom: 0.5rem;
+}
+
+.tracker-tile {
+    margin: 0;
+    min-width: 0;
+}
+
+/* the cover is the link into the note overlay */
+.tracker-link {
+    display: block;
+    border-bottom: none;
+}
+
+.tracker-link:hover,
+.tracker-link:focus-visible {
+    background: none;
+}
+
+/* fixed 2:3 box so a missing cover still holds its place in the wall.
+   drop an <img> inside and it fills the box edge to edge. */
+.tracker-cover {
+    position: relative;
+    display: block;
+    aspect-ratio: 2 / 3;
+    border: 1px dashed var(--borders);
+    border-radius: 2px;
+    overflow: hidden;
+    background: var(--accent-muted);
+    transition:
+        outline-color 0.15s ease,
+        opacity 0.15s ease;
+    outline: 1px solid transparent;
+    outline-offset: -1px;
+}
+
+/* placeholder mark, painted over by a real cover */
+.tracker-cover::after {
+    content: "NO COVER";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+}
+
+.tracker-cover:has(img) {
+    border-style: solid;
+}
+
+.tracker-cover:has(img)::after {
+    content: none;
+}
+
+/* album art is square, unlike book / poster / box art */
+.tracker-cover--square {
+    aspect-ratio: 1 / 1;
+}
+
+/* box art is 3:4 - taller than album art, squatter than a poster */
+.tracker-cover--boxart {
+    aspect-ratio: 3 / 4;
+}
+
+.tracker-cover img {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tracker-link:hover .tracker-cover,
+.tracker-link:focus-visible .tracker-cover {
+    outline-color: var(--accent);
+    opacity: 0.85;
+}
+
+/* mark a freshly logged entry: accent frame on the cover, same idea as
+   .photo-tile--new. the border is already in the box, so recoloring it
+   shifts nothing - and hover still adds the outline on top of it. */
+.tracker-tile--new .tracker-cover {
+    border-color: var(--accent);
+}
+
+/* title / date / rating sit under the cover - always visible,
+   unlike the photo wall where the caption is a hover overlay */
+.tracker-caption {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.78rem;
+    line-height: 1.35;
+}
+
+.tracker-caption-title {
+    display: block;
+    color: var(--text-headings);
+    font-weight: 600;
+}
+
+.tracker-link:hover .tracker-caption-title,
+.tracker-link:focus-visible .tracker-caption-title {
+    color: var(--accent);
+}
+
+.tracker-caption-sub {
+    display: block;
+    color: var(--text-secondary);
+    font-size: 0.72rem;
+}
+
+.tracker-caption-line {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.4rem;
+    margin-top: 0.15rem;
+    color: var(--text-secondary);
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+}
+
+/*============================*/
+/* garden/trackers - note overlay */
+/*============================*/
+
+/* same :target overlay as the photo lightbox - the .lightbox shell
+   supplies the backdrop and close button, this is just the card. */
+.tracker-note-card {
+    position: relative;
+    z-index: 1;
+    margin: 10vh auto 0;
+    max-width: 42rem;
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 1.5rem;
+    border: 1px solid var(--borders);
+    border-radius: 2px;
+    background: var(--background-dark);
+}
+
+.tracker-note-title {
+    margin: 0;
+    color: var(--accent);
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+.tracker-note-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 0.35rem 0 1.1rem;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+}
+
+.tracker-note-text {
+    margin: 0 0 1rem;
+    font-size: 0.9rem;
+}
+
+.tracker-note-text:last-child {
+    margin-bottom: 0;
+}
+
+/* link out to the thing's own page - goodreads, letterboxd, bandcamp, etc. */
+.tracker-note-link {
+    margin: 0;
+    padding-top: 0.9rem;
+    border-top: 1px solid var(--borders);
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+}
+
+@media (max-width: 480px) {
+    body.tracker-page {
+        max-width: 100%;
+    }
+
+    .tracker-wall {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .tracker-note-card {
+        margin-top: 4vh;
+        max-height: 88vh;
+        padding: 1.1rem;
     }
 }
 

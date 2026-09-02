@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="daniel daum's rating system - what 1 through 5 mean, and the colors that go with them" />
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <link rel="stylesheet" href="/global.css" />
+    <link rel="icon" type="image/jpeg" href="/assets/favicon/coast.jpeg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+    <title>ratings — daniel daum</title>
+</head>
+
+<body>
+
+    <!--HEADER-->
+    <header class="site-header">
+        <a class="site-name" href="/index.html" aria-label="return home">DANIEL DAUM</a>
+        <nav aria-label="main navigation">
+            <a href="/index.html" aria-label="return home">HOME</a>
+            <a href="/about" aria-label="about me">ABOUT</a>
+            <a href="/now" aria-label="now page">NOW</a>
+            <a href="/blog" aria-label="blog">BLOG</a>
+            <a href="/projects" aria-label="projects">PROJECTS</a>
+            <a href="/garden" aria-label="garden">GARDEN</a>
+        </nav>
+    </header>
+
+    <main>
+        <span class="nav-back"><a href="/garden/">GARDEN</a> -> <a href="/garden/ratings/index.html">RATINGS</a></span>
+
+        <section class="hero">
+            <h1>/RATINGS</h1>
+            <p class="meta">How I score things in the garden. One number, out of five.</p>
+        </section>
+
+        <section class="post-body">
+            <h2>THE SCALE</h2>
+            <p>
+                Every book, film, show, game, and album in the garden gets a single number. I rate on
+                how much I got out of the thing, not on how well made it is - a flawed film I think
+                about for a week beats a competent one I forget by morning.
+            </p>
+
+            <table class="content-table">
+                <thead>
+                    <tr>
+                        <th style="width:5rem;">rating</th>
+                        <th style="width:11rem;">label</th>
+                        <th>what it means</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-row">
+                        <td><span class="rating rating--terrible">(1/5)</span></td>
+                        <td class="table-desc">terrible</td>
+                        <td class="table-desc">Bad enough that I stopped, or wish I had. Most of these are DNFs.</td>
+                    </tr>
+                    <tr class="table-row">
+                        <td><span class="rating rating--below-average">(2/5)</span></td>
+                        <td class="table-desc">below average</td>
+                        <td class="table-desc">I finished it, but it did not earn the time. Something in here does
+                            not work.</td>
+                    </tr>
+                    <tr class="table-row">
+                        <td><span class="rating rating--good">(3/5)</span></td>
+                        <td class="table-desc">average</td>
+                        <td class="table-desc">Fine. Okay. Does what it set out to do and little more. No regrets,
+                            no urgency.</td>
+                    </tr>
+                    <tr class="table-row">
+                        <td><span class="rating rating--above-average">(4/5)</span></td>
+                        <td class="table-desc">above average</td>
+                        <td class="table-desc">Clearly better than most. I would recommend it without hedging.</td>
+                    </tr>
+                    <tr class="table-row">
+                        <td><span class="rating rating--great">(5/5)</span></td>
+                        <td class="table-desc">great</td>
+                        <td class="table-desc">A favorite. It goes on the favorites shelf at the top of its
+                            page and stays there.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p class="meta">
+                Half steps are allowed when I genuinely cannot pick a side. Anything I have logged but
+                not yet scored shows as <span class="rating">(?/5)</span>.
+            </p>
+
+            <h2>THE COLORS</h2>
+            <p>
+                Each step has its own color, so a wall of covers reads at a glance without stopping to
+                parse the numbers. The scale runs warm to cool: warm for the things that did not land,
+                green for the ones that did.
+            </p>
+
+            <div class="swatch-row">
+                <div class="swatch">
+                    <div class="swatch-block" style="background-color: var(--rating-terrible);"></div>
+                    <p class="swatch-name">--rating-terrible</p>
+                    <p class="swatch-value">#e86b6b</p>
+                </div>
+                <div class="swatch">
+                    <div class="swatch-block" style="background-color: var(--rating-below-average);"></div>
+                    <p class="swatch-name">--rating-below-average</p>
+                    <p class="swatch-value">#d9a441</p>
+                </div>
+                <div class="swatch">
+                    <div class="swatch-block" style="background-color: var(--rating-good);"></div>
+                    <p class="swatch-name">--rating-good</p>
+                    <p class="swatch-value">#bdbd7f</p>
+                </div>
+                <div class="swatch">
+                    <div class="swatch-block" style="background-color: var(--rating-above-average);"></div>
+                    <p class="swatch-name">--rating-above-average</p>
+                    <p class="swatch-value">#a9c94f</p>
+                </div>
+                <div class="swatch">
+                    <div class="swatch-block" style="background-color: var(--rating-great);"></div>
+                    <p class="swatch-name">--rating-great</p>
+                    <p class="swatch-value">#7ec98f</p>
+                </div>
+            </div>
+
+            <p class="meta">
+                Color is never the only signal - the number is always there next to it. In high contrast
+                mode the five tokens swap for brighter values, and an unrated entry falls back to
+                <code>--text-secondary</code>.
+            </p>
+
+            <h2>IN MARKUP</h2>
+            <p>
+                One span, two classes. The modifier carries the color through a
+                <code>--rating-color</code> custom property, so the base class is all that needs to
+                match if I ever swap the palette.
+            </p>
+            <pre><code>&lt;span class="rating rating--great"&gt;(5/5)&lt;/span&gt;</code></pre>
+            <p class="meta">
+                Modifiers, 1 to 5: <code>rating--terrible</code>, <code>rating--below-average</code>,
+                <code>rating--good</code>, <code>rating--above-average</code>, <code>rating--great</code>.
+                Drop the modifier for an unrated entry.
+            </p>
+        </section>
+    </main>
+
+    <!--FOOTER-->
+    <footer>
+        <nav aria-label="site links">
+            <p aria-hidden="true">//</p>
+            <a href="mailto:daniel@danieldaum.net" aria-label="link to send me an email">
+                EMAIL
+            </a>
+            <a href="https://git.danieldaum.net/" aria-label="link to my git, opens in new tab" target="_blank"
+                rel="noopener noreferrer">GIT
+            </a>
+            <a href="/pgp.asc" aria-label="link to my pgp public key (516E97FF)">PGP</a>
+            <a href="/changelog.html">CHANGELOG</a>
+        </nav>
+    </footer>
+</body>
+
+</html>

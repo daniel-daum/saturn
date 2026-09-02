@@ -1,0 +1,1508 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="daniel daum's movie tracker - what i've watched, by year, with ratings and notes" />
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <link rel="stylesheet" href="/global.css" />
+    <link rel="icon" type="image/jpeg" href="/assets/favicon/coast.jpeg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+    <title>movies — daniel daum</title>
+</head>
+
+<body class="tracker-page">
+
+    <!--HEADER-->
+    <header class="site-header">
+        <a class="site-name" href="/index.html" aria-label="return home">DANIEL DAUM</a>
+        <nav aria-label="main navigation">
+            <a href="/index.html" aria-label="return home">HOME</a>
+            <a href="/about" aria-label="about me">ABOUT</a>
+            <a href="/now" aria-label="now page">NOW</a>
+            <a href="/blog" aria-label="blog">BLOG</a>
+            <a href="/projects" aria-label="projects">PROJECTS</a>
+            <a href="/garden" aria-label="garden">GARDEN</a>
+        </nav>
+    </header>
+
+
+    <main>
+        <span class="nav-back"><a href="/garden/">GARDEN</a> -> <a href="/garden/movies/index.html">MOVIES</a></span>
+
+        <section>
+            <h1>/MOVIES</h1>
+            <p class="meta">Every film I've watched, newest year first. Click a poster to read my note on it.
+            </p>
+        </section>
+
+        <!-- adding a film:
+             1. drop the poster .webp on the cdn (2:3 crop), then put an <img> inside that entry's
+                <span class="tracker-cover"> - the placeholder disappears on its own.
+             2. copy a .tracker-tile into the right year's wall, newest first.
+             3. copy its note overlay into the note block at the bottom of <main>.
+             4. keep the ids unique and matching: #movie-<year>-<n>, n counting up within the year.
+             5. to flag it as new: add .tracker-tile--new to the <figure> for the accent frame,
+                and drop <span class="new-tag">New!</span> after the title in both the wall
+                caption and the note overlay. strip all three off once it isn't new any more.
+             6. rating it 5/5? add a tile to the favorites wall too. if the film is also logged
+                under a year, point that tile at the year's note (#movie-<year>-<n>) so both
+                share one note; a favorite with no year entry gets its own #movie-fav-<n>,
+                numbered by its place in the favorites list.
+             rating classes, 1-5: terrible / below-average / good / above-average / great. -->
+
+        <h2>FAVORITES</h2>
+        <p class="meta">The 5/5s. Everything here is also filed under its year below.</p>
+
+        <section class="tracker-wall tracker-wall--favorites" aria-label="favorite movies">
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#movie-fav-1" aria-label="read my note on Blade Runner 2049">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/movies/blade-runner-2049.webp"
+                            alt="Blade Runner 2049" loading="lazy" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Blade Runner 2049</span>
+                        <span class="tracker-caption-sub">Director Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating rating--great">(5/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#movie-fav-2" aria-label="read my note on Ratatouille">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/movies/ratatouille.webp" alt="Ratatouille"
+                            loading="lazy" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Ratatouille</span>
+                        <span class="tracker-caption-sub">Director Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating rating--great">(5/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#movie-2026-08" aria-label="read my note on The Thing">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/movies/the-thing.webp" alt="The Thing"
+                            loading="lazy" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">The Thing</span>
+                        <span class="tracker-caption-sub">Director Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating rating--great">(5/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#movie-fav-4" aria-label="read my note on The Incredibles">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/movies/the-incredibles.webp" alt="The Incredibles"
+                            loading="lazy" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">The Incredibles</span>
+                        <span class="tracker-caption-sub">Director Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating rating--great">(5/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#movie-2026-14" aria-label="read my note on Kiki's Delivery Service">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/movies/kikis-delivery-service.webp"
+                            alt="Kiki's Delivery Service" loading="lazy" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Kiki's Delivery Service</span>
+                        <span class="tracker-caption-sub">Director Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating rating--great">(5/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#movie-fav-6" aria-label="read my note on The Prestige">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/movies/the-prestige.webp" alt="The Prestige"
+                            loading="lazy" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">The Prestige</span>
+                        <span class="tracker-caption-sub">Director Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating rating--great">(5/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#movie-fav-7" aria-label="read my note on Spirited Away">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/movies/spirited-away.webp" alt="Spirited Away"
+                            loading="lazy" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Spirited Away</span>
+                        <span class="tracker-caption-sub">Director Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating rating--great">(5/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#movie-fav-8"
+                    aria-label="read my note on Star Wars: Episode III - Revenge of the Sith">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/movies/star-wars-episode-iii-revenge-of-the-sith.jpg"
+                            alt="Star Wars: Episode III - Revenge of the Sith" width="780" height="1170" loading="lazy"
+                            decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Star Wars: Episode III - Revenge of the Sith</span>
+                        <span class="tracker-caption-sub">Director Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating rating--great">(5/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#movie-fav-9" aria-label="read my note on Gladiator">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/movies/gladiator.webp" alt="Gladiator"
+                            loading="lazy" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Gladiator</span>
+                        <span class="tracker-caption-sub">Director Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating rating--great">(5/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+        </section>
+
+        <h2>2026</h2>
+
+        <section class="tracker-wall" aria-label="movies logged in 2026">
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#movie-2026-14" aria-label="read my note on Kiki's Delivery Service">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/movies/kikis-delivery-service.webp"
+                            alt="Kiki's Delivery Service" loading="lazy" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Kiki's Delivery Service</span>
+                        <span class="tracker-caption-sub">Director Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating rating--great">(5/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#movie-2026-13" aria-label="read my note on Ghost in the Shell">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/movies/ghost-in-the-shell.webp"
+                            alt="Ghost in the Shell" loading="lazy" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Ghost in the Shell</span>
+                        <span class="tracker-caption-sub">Director Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#movie-2026-12" aria-label="read my note on Oblivion">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/movies/oblivion.webp" alt="Oblivion"
+                            loading="lazy" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Oblivion</span>
+                        <span class="tracker-caption-sub">Director Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#movie-2026-11"
+                    aria-label="read my note on The Girl with the Dragon Tattoo">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/movies/dragon-tattoo.webp"
+                            alt="The Girl with the Dragon Tattoo" loading="lazy" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">The Girl with the Dragon Tattoo</span>
+                        <span class="tracker-caption-sub">Director Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#movie-2026-10" aria-label="read my note on Project Hail Mary">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/movies/project-hail-mary.webp"
+                            alt="Project Hail Mary" loading="lazy" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Project Hail Mary</span>
+                        <span class="tracker-caption-sub">Director Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#movie-2026-09" aria-label="read my note on Oldboy">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/movies/oldboy.webp" alt="Oldboy" loading="lazy" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Oldboy</span>
+                        <span class="tracker-caption-sub">Director Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#movie-2026-08" aria-label="read my note on The Thing">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/movies/the-thing.webp" alt="The Thing"
+                            loading="lazy" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">The Thing</span>
+                        <span class="tracker-caption-sub">Director Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating rating--great">(5/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#movie-2026-07" aria-label="read my note on Children of Men">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/movies/children-of-men.webp" alt="Children of Men"
+                            loading="lazy" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Children of Men</span>
+                        <span class="tracker-caption-sub">Director Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#movie-2026-06" aria-label="read my note on Starship Troopers">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/movies/starship-troopers.webp"
+                            alt="Starship Troopers" loading="lazy" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Starship Troopers</span>
+                        <span class="tracker-caption-sub">Director Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#movie-2026-05" aria-label="read my note on Vampire Hunter D: Bloodlust">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/movies/vampire-hunter-d.webp"
+                            alt="Vampire Hunter D: Bloodlust" loading="lazy" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Vampire Hunter D: Bloodlust</span>
+                        <span class="tracker-caption-sub">Director Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#movie-2026-04" aria-label="read my note on Tropic Thunder">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/movies/tropic-thunder.webp" alt="Tropic Thunder"
+                            loading="lazy" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Tropic Thunder</span>
+                        <span class="tracker-caption-sub">Director Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#movie-2026-03" aria-label="read my note on The Sheep Detectives">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/movies/the-sheep-detectives.webp"
+                            alt="The Sheep Detectives" loading="lazy" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">The Sheep Detectives</span>
+                        <span class="tracker-caption-sub">Director Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#movie-2026-02" aria-label="read my note on The Rip">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/movies/the-rip.webp" alt="The Rip" loading="lazy" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">The Rip</span>
+                        <span class="tracker-caption-sub">Director Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#movie-2026-01"
+                    aria-label="read my note on Spider-Man: Into the Spider-Verse">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/movies/into-the-spider-verse.webp"
+                            alt="Spider-Man: Into the Spider-Verse" loading="lazy" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Spider-Man: Into the Spider-Verse</span>
+                        <span class="tracker-caption-sub">Director Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+        </section>
+
+        <h2>2025</h2>
+
+        <section class="tracker-wall" aria-label="movies logged in 2025">
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#movie-2025-12" aria-label="read my note on A House of Dynamite">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/movies/a-house-of-dynamite.webp"
+                            alt="A House of Dynamite" loading="lazy" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">A House of Dynamite</span>
+                        <span class="tracker-caption-sub">Director Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#movie-2025-11" aria-label="read my note on Sinners">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/movies/sinners.webp" alt="Sinners" loading="lazy" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Sinners</span>
+                        <span class="tracker-caption-sub">Director Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#movie-2025-10"
+                    aria-label="read my note on Wake Up Dead Man: A Knives Out Mystery">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/movies/wake-up-dead-man.webp"
+                            alt="Wake Up Dead Man: A Knives Out Mystery" loading="lazy" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Wake Up Dead Man: A Knives Out Mystery</span>
+                        <span class="tracker-caption-sub">Director Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#movie-2025-09" aria-label="read my note on Weapons">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/movies/weapons.webp" alt="Weapons" loading="lazy" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Weapons</span>
+                        <span class="tracker-caption-sub">Director Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#movie-2025-08" aria-label="read my note on Alien: Romulus">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/movies/alien-romulus.webp" alt="Alien: Romulus"
+                            loading="lazy" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Alien: Romulus</span>
+                        <span class="tracker-caption-sub">Director Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#movie-2025-07" aria-label="read my note on Smile">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/movies/smile.webp" alt="Smile" loading="lazy" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Smile</span>
+                        <span class="tracker-caption-sub">Director Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#movie-2025-06" aria-label="read my note on F1">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/movies/f1.webp" alt="F1" loading="lazy" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">F1</span>
+                        <span class="tracker-caption-sub">Director Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#movie-2025-05" aria-label="read my note on Longlegs">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/movies/longlegs.webp" alt="Longlegs"
+                            loading="lazy" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Longlegs</span>
+                        <span class="tracker-caption-sub">Director Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#movie-2025-04" aria-label="read my note on Poor Things">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/movies/poor-things.webp" alt="Poor Things"
+                            loading="lazy" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Poor Things</span>
+                        <span class="tracker-caption-sub">Director Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#movie-2025-03" aria-label="read my note on Kinds of Kindness">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/movies/kinds-of-kindness.webp"
+                            alt="Kinds of Kindness" loading="lazy" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Kinds of Kindness</span>
+                        <span class="tracker-caption-sub">Director Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#movie-2025-02" aria-label="read my note on Prey">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/movies/prey.webp" alt="Prey" loading="lazy" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Prey</span>
+                        <span class="tracker-caption-sub">Director Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#movie-2025-01" aria-label="read my note on The Iron Claw">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/movies/the-iron-claw.webp" alt="The Iron Claw"
+                            loading="lazy" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">The Iron Claw</span>
+                        <span class="tracker-caption-sub">Director Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+        </section>
+
+        <!--NOTES-->
+        <!--NOTES-->
+        <!--NOTES-->
+
+        <!-- each note is a :target overlay, hidden until its cover is clicked. one note per
+             entry, shared by the year tile and the favorites tile that both point at it.
+             reuses the photo wall's .lightbox shell for the backdrop and close button. -->
+
+        <div class="lightbox" id="movie-fav-1" tabindex="-1" aria-label="my note on Blade Runner 2049">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Blade Runner 2049</h3>
+                <p class="tracker-note-meta">
+                    <span>Director Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Released 2017</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Watched DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating rating--great">(5/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the film goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://www.imdb.com/title/tt1856101/"
+                        aria-label="Blade Runner 2049 on IMDB, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">IMDB -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="movie-fav-2" tabindex="-1" aria-label="my note on Ratatouille">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Ratatouille</h3>
+                <p class="tracker-note-meta">
+                    <span>Director Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Released 2007</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Watched DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating rating--great">(5/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the film goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://www.imdb.com/title/tt0382932/" aria-label="Ratatouille on IMDB, opens in new tab"
+                        target="_blank" rel="noopener noreferrer">IMDB -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="movie-fav-4" tabindex="-1" aria-label="my note on The Incredibles">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">The Incredibles</h3>
+                <p class="tracker-note-meta">
+                    <span>Director Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Released 2004</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Watched DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating rating--great">(5/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the film goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://www.imdb.com/title/tt0317705/"
+                        aria-label="The Incredibles on IMDB, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">IMDB -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="movie-fav-6" tabindex="-1" aria-label="my note on The Prestige">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">The Prestige</h3>
+                <p class="tracker-note-meta">
+                    <span>Director Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Released 2006</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Watched DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating rating--great">(5/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the film goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://www.imdb.com/title/tt0482571/" aria-label="The Prestige on IMDB, opens in new tab"
+                        target="_blank" rel="noopener noreferrer">IMDB -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="movie-fav-7" tabindex="-1" aria-label="my note on Spirited Away">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Spirited Away</h3>
+                <p class="tracker-note-meta">
+                    <span>Director Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Released 2001</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Watched DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating rating--great">(5/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the film goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://www.imdb.com/title/tt0245429/" aria-label="Spirited Away on IMDB, opens in new tab"
+                        target="_blank" rel="noopener noreferrer">IMDB -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="movie-fav-8" tabindex="-1"
+            aria-label="my note on Star Wars: Episode III - Revenge of the Sith">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Star Wars: Episode III - Revenge of the Sith</h3>
+                <p class="tracker-note-meta">
+                    <span>Director Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Released 2005</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Watched DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating rating--great">(5/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the film goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://www.imdb.com/title/tt0121766/"
+                        aria-label="Star Wars: Episode III - Revenge of the Sith on IMDB, opens in new tab"
+                        target="_blank" rel="noopener noreferrer">IMDB -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="movie-fav-9" tabindex="-1" aria-label="my note on Gladiator">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Gladiator</h3>
+                <p class="tracker-note-meta">
+                    <span>Director Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Released 2000</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Watched DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating rating--great">(5/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the film goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://www.imdb.com/title/tt0172495/" aria-label="Gladiator on IMDB, opens in new tab"
+                        target="_blank" rel="noopener noreferrer">IMDB -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="movie-2026-14" tabindex="-1" aria-label="my note on Kiki's Delivery Service">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Kiki's Delivery Service</h3>
+                <p class="tracker-note-meta">
+                    <span>Director Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Released 1989</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Watched DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating rating--great">(5/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the film goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://www.imdb.com/title/tt0097814/"
+                        aria-label="Kiki's Delivery Service on IMDB, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">IMDB -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="movie-2026-13" tabindex="-1" aria-label="my note on Ghost in the Shell">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Ghost in the Shell</h3>
+                <p class="tracker-note-meta">
+                    <span>Director Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Released 1995</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Watched DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating">(?/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the film goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://www.imdb.com/title/tt0113568/"
+                        aria-label="Ghost in the Shell on IMDB, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">IMDB -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="movie-2026-12" tabindex="-1" aria-label="my note on Oblivion">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Oblivion</h3>
+                <p class="tracker-note-meta">
+                    <span>Director Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Released 2013</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Watched DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating">(?/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the film goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://www.imdb.com/title/tt1483013/" aria-label="Oblivion on IMDB, opens in new tab"
+                        target="_blank" rel="noopener noreferrer">IMDB -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="movie-2026-11" tabindex="-1" aria-label="my note on The Girl with the Dragon Tattoo">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">The Girl with the Dragon Tattoo</h3>
+                <p class="tracker-note-meta">
+                    <span>Director Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Released 2011</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Watched DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating">(?/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the film goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://www.imdb.com/title/tt1568346/"
+                        aria-label="The Girl with the Dragon Tattoo on IMDB, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">IMDB -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="movie-2026-10" tabindex="-1" aria-label="my note on Project Hail Mary">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Project Hail Mary</h3>
+                <p class="tracker-note-meta">
+                    <span>Director Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Released 2026</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Watched DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating">(?/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the film goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://www.imdb.com/title/tt12042730/"
+                        aria-label="Project Hail Mary on IMDB, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">IMDB -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="movie-2026-09" tabindex="-1" aria-label="my note on Oldboy">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Oldboy</h3>
+                <p class="tracker-note-meta">
+                    <span>Director Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Released 2003</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Watched DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating">(?/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the film goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://www.imdb.com/title/tt0364569/" aria-label="Oldboy on IMDB, opens in new tab"
+                        target="_blank" rel="noopener noreferrer">IMDB -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="movie-2026-08" tabindex="-1" aria-label="my note on The Thing">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">The Thing</h3>
+                <p class="tracker-note-meta">
+                    <span>Director Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Released 1982</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Watched DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating rating--great">(5/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the film goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://www.imdb.com/title/tt0084787/" aria-label="The Thing on IMDB, opens in new tab"
+                        target="_blank" rel="noopener noreferrer">IMDB -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="movie-2026-07" tabindex="-1" aria-label="my note on Children of Men">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Children of Men</h3>
+                <p class="tracker-note-meta">
+                    <span>Director Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Released 2006</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Watched DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating">(?/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the film goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://www.imdb.com/title/tt0206634/"
+                        aria-label="Children of Men on IMDB, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">IMDB -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="movie-2026-06" tabindex="-1" aria-label="my note on Starship Troopers">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Starship Troopers</h3>
+                <p class="tracker-note-meta">
+                    <span>Director Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Released 1997</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Watched DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating">(?/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the film goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://www.imdb.com/title/tt0120201/"
+                        aria-label="Starship Troopers on IMDB, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">IMDB -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="movie-2026-05" tabindex="-1" aria-label="my note on Vampire Hunter D: Bloodlust">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Vampire Hunter D: Bloodlust</h3>
+                <p class="tracker-note-meta">
+                    <span>Director Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Released 2001</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Watched DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating">(?/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the film goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://www.imdb.com/title/tt0216651/"
+                        aria-label="Vampire Hunter D: Bloodlust on IMDB, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">IMDB -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="movie-2026-04" tabindex="-1" aria-label="my note on Tropic Thunder">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Tropic Thunder</h3>
+                <p class="tracker-note-meta">
+                    <span>Director Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Released 2008</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Watched DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating">(?/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the film goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://www.imdb.com/title/tt0942385/"
+                        aria-label="Tropic Thunder on IMDB, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">IMDB -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="movie-2026-03" tabindex="-1" aria-label="my note on The Sheep Detectives">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">The Sheep Detectives</h3>
+                <p class="tracker-note-meta">
+                    <span>Director Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Released 2026</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Watched DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating">(?/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the film goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://www.imdb.com/title/tt32565993/"
+                        aria-label="The Sheep Detectives on IMDB, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">IMDB -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="movie-2026-02" tabindex="-1" aria-label="my note on The Rip">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">The Rip</h3>
+                <p class="tracker-note-meta">
+                    <span>Director Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Released 2026</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Watched DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating">(?/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the film goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://www.imdb.com/title/tt32642706/" aria-label="The Rip on IMDB, opens in new tab"
+                        target="_blank" rel="noopener noreferrer">IMDB -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="movie-2026-01" tabindex="-1"
+            aria-label="my note on Spider-Man: Into the Spider-Verse">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Spider-Man: Into the Spider-Verse</h3>
+                <p class="tracker-note-meta">
+                    <span>Director Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Released 2018</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Watched DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating">(?/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the film goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://www.imdb.com/title/tt4633694/"
+                        aria-label="Spider-Man: Into the Spider-Verse on IMDB, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">IMDB -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="movie-2025-12" tabindex="-1" aria-label="my note on A House of Dynamite">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">A House of Dynamite</h3>
+                <p class="tracker-note-meta">
+                    <span>Director Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Released 2025</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Watched DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating">(?/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the film goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://www.imdb.com/title/tt32376165/"
+                        aria-label="A House of Dynamite on IMDB, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">IMDB -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="movie-2025-11" tabindex="-1" aria-label="my note on Sinners">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Sinners</h3>
+                <p class="tracker-note-meta">
+                    <span>Director Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Released 2025</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Watched DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating">(?/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the film goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://www.imdb.com/title/tt31193180/" aria-label="Sinners on IMDB, opens in new tab"
+                        target="_blank" rel="noopener noreferrer">IMDB -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="movie-2025-10" tabindex="-1"
+            aria-label="my note on Wake Up Dead Man: A Knives Out Mystery">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Wake Up Dead Man: A Knives Out Mystery</h3>
+                <p class="tracker-note-meta">
+                    <span>Director Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Released 2025</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Watched DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating">(?/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the film goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://www.imdb.com/title/tt14364480/"
+                        aria-label="Wake Up Dead Man: A Knives Out Mystery on IMDB, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">IMDB -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="movie-2025-09" tabindex="-1" aria-label="my note on Weapons">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Weapons</h3>
+                <p class="tracker-note-meta">
+                    <span>Director Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Released 2025</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Watched DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating">(?/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the film goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://www.imdb.com/title/tt26581740/" aria-label="Weapons on IMDB, opens in new tab"
+                        target="_blank" rel="noopener noreferrer">IMDB -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="movie-2025-08" tabindex="-1" aria-label="my note on Alien: Romulus">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Alien: Romulus</h3>
+                <p class="tracker-note-meta">
+                    <span>Director Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Released 2024</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Watched DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating">(?/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the film goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://www.imdb.com/title/tt18412256/"
+                        aria-label="Alien: Romulus on IMDB, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">IMDB -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="movie-2025-07" tabindex="-1" aria-label="my note on Smile">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Smile</h3>
+                <p class="tracker-note-meta">
+                    <span>Director Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Released 2022</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Watched DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating">(?/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the film goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://www.imdb.com/title/tt15474916/" aria-label="Smile on IMDB, opens in new tab"
+                        target="_blank" rel="noopener noreferrer">IMDB -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="movie-2025-06" tabindex="-1" aria-label="my note on F1">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">F1</h3>
+                <p class="tracker-note-meta">
+                    <span>Director Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Released 2025</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Watched DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating">(?/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the film goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://www.imdb.com/title/tt16311594/" aria-label="F1 on IMDB, opens in new tab"
+                        target="_blank" rel="noopener noreferrer">IMDB -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="movie-2025-05" tabindex="-1" aria-label="my note on Longlegs">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Longlegs</h3>
+                <p class="tracker-note-meta">
+                    <span>Director Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Released 2024</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Watched DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating">(?/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the film goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://www.imdb.com/title/tt23468450/" aria-label="Longlegs on IMDB, opens in new tab"
+                        target="_blank" rel="noopener noreferrer">IMDB -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="movie-2025-04" tabindex="-1" aria-label="my note on Poor Things">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Poor Things</h3>
+                <p class="tracker-note-meta">
+                    <span>Director Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Released 2023</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Watched DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating">(?/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the film goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://www.imdb.com/title/tt14230458/" aria-label="Poor Things on IMDB, opens in new tab"
+                        target="_blank" rel="noopener noreferrer">IMDB -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="movie-2025-03" tabindex="-1" aria-label="my note on Kinds of Kindness">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Kinds of Kindness</h3>
+                <p class="tracker-note-meta">
+                    <span>Director Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Released 2024</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Watched DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating">(?/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the film goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://www.imdb.com/title/tt22408160/"
+                        aria-label="Kinds of Kindness on IMDB, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">IMDB -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="movie-2025-02" tabindex="-1" aria-label="my note on Prey">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Prey</h3>
+                <p class="tracker-note-meta">
+                    <span>Director Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Released 2022</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Watched DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating">(?/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the film goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://www.imdb.com/title/tt11866324/" aria-label="Prey on IMDB, opens in new tab"
+                        target="_blank" rel="noopener noreferrer">IMDB -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="movie-2025-01" tabindex="-1" aria-label="my note on The Iron Claw">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">The Iron Claw</h3>
+                <p class="tracker-note-meta">
+                    <span>Director Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Released 2023</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Watched DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating">(?/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the film goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://www.imdb.com/title/tt21064584/"
+                        aria-label="The Iron Claw on IMDB, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">IMDB -></a>
+                </p>
+            </article>
+        </div>
+    </main>
+
+    <!--FOOTER-->
+    <footer>
+        <nav aria-label="site links">
+            <p aria-hidden="true">//</p>
+            <a href="mailto:daniel@danieldaum.net" aria-label="link to send me an email">
+                EMAIL
+            </a>
+            <a href="https://git.danieldaum.net/" aria-label="link to my git, opens in new tab" target="_blank"
+                rel="noopener noreferrer">GIT
+            </a>
+            <a href="/pgp.asc" aria-label="link to my pgp public key (516E97FF)">PGP</a>
+            <a href="/changelog.html">CHANGELOG</a>
+        </nav>
+    </footer>
+</body>
+
+</html>

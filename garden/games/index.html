@@ -1,0 +1,1512 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="daniel daum's game tracker - what i've played, by year, with ratings and notes" />
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <link rel="stylesheet" href="/global.css" />
+    <link rel="icon" type="image/jpeg" href="/assets/favicon/coast.jpeg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+    <title>games — daniel daum</title>
+</head>
+
+<body class="tracker-page">
+
+    <!--HEADER-->
+    <header class="site-header">
+        <a class="site-name" href="/index.html" aria-label="return home">DANIEL DAUM</a>
+        <nav aria-label="main navigation">
+            <a href="/index.html" aria-label="return home">HOME</a>
+            <a href="/about" aria-label="about me">ABOUT</a>
+            <a href="/now" aria-label="now page">NOW</a>
+            <a href="/blog" aria-label="blog">BLOG</a>
+            <a href="/projects" aria-label="projects">PROJECTS</a>
+            <a href="/garden" aria-label="garden">GARDEN</a>
+        </nav>
+    </header>
+
+
+    <main>
+        <span class="nav-back"><a href="/garden/">GARDEN</a> -> <a href="/garden/games/index.html">GAMES</a></span>
+
+        <section>
+            <h1>/GAMES</h1>
+            <p class="meta">Every game I've played through, newest year first. Click a cover to read my note on it.
+            </p>
+        </section>
+
+        <!-- adding a game:
+             1. drop the box art .webp on the cdn (3:4 crop), then put an <img> inside that entry's
+                <span class="tracker-cover"> - the placeholder disappears on its own.
+             2. copy a .tracker-tile into the right year's wall, newest first.
+             3. copy its note overlay into the note block at the bottom of <main>.
+             4. keep the ids unique and matching: #game-<year>-<n>, n counting up within the year.
+             5. to flag it as new: add .tracker-tile--new to the <figure> for the accent frame,
+                and drop <span class="new-tag">New!</span> after the title in both the wall
+                caption and the note overlay. strip all three off once it isn't new any more.
+             6. rating it 5/5? add a tile to the favorites wall too. if the game is also logged
+                under a year, point that tile at the year's note (#game-<year>-<n>) so both
+                share one note; a favorite with no year entry gets its own #game-fav-<n>,
+                numbered by its place in the favorites list.
+             rating classes, 1-5: terrible / below-average / good / above-average / great. -->
+
+        <h2>FAVORITES</h2>
+        <p class="meta">The 5/5s. Everything here is also filed under its year below.</p>
+
+        <section class="tracker-wall tracker-wall--favorites" aria-label="favorite games">
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#game-fav-1" aria-label="read my note on Star Wars: Knights of the Old Republic">
+                    <span class="tracker-cover tracker-cover--boxart">
+                        <img src="https://assets.danieldaum.net/img/games/star-wars-knights-of-the-old-republic.webp"
+                            alt="Star Wars: Knights of the Old Republic" width="528" height="704" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Star Wars: Knights of the Old Republic</span>
+                        <span class="tracker-caption-sub">Studio Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating rating--great">(5/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#game-fav-2" aria-label="read my note on KOTOR II: The Sith Lords">
+                    <span class="tracker-cover tracker-cover--boxart">
+                        <img src="https://assets.danieldaum.net/img/games/star-wars-knights-of-the-old-republic-ii-the-sith-lords.webp"
+                            alt="KOTOR II: The Sith Lords" width="528" height="704" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">KOTOR II: The Sith Lords</span>
+                        <span class="tracker-caption-sub">Studio Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating rating--great">(5/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#game-fav-3" aria-label="read my note on Star Wars: The Old Republic">
+                    <span class="tracker-cover tracker-cover--boxart">
+                        <img src="https://assets.danieldaum.net/img/games/star-wars-the-old-republic.webp"
+                            alt="Star Wars: The Old Republic" width="528" height="704" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Star Wars: The Old Republic</span>
+                        <span class="tracker-caption-sub">Studio Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating rating--great">(5/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#game-fav-4" aria-label="read my note on Pokémon Emerald">
+                    <span class="tracker-cover tracker-cover--boxart">
+                        <img src="https://assets.danieldaum.net/img/games/pokemon-emerald-version.webp"
+                            alt="Pokémon Emerald" width="528" height="704" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Pokémon Emerald</span>
+                        <span class="tracker-caption-sub">Studio Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating rating--great">(5/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#game-fav-5" aria-label="read my note on The Last of Us Part I">
+                    <span class="tracker-cover tracker-cover--boxart">
+                        <img src="https://assets.danieldaum.net/img/games/the-last-of-us-part-i.webp"
+                            alt="The Last of Us Part I" width="528" height="704" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">The Last of Us Part I</span>
+                        <span class="tracker-caption-sub">Studio Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating rating--great">(5/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#game-fav-6" aria-label="read my note on The Last of Us Part II">
+                    <span class="tracker-cover tracker-cover--boxart">
+                        <img src="https://assets.danieldaum.net/img/games/the-last-of-us-part-ii.webp"
+                            alt="The Last of Us Part II" width="528" height="704" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">The Last of Us Part II</span>
+                        <span class="tracker-caption-sub">Studio Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating rating--great">(5/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#game-fav-7" aria-label="read my note on Halo 2">
+                    <span class="tracker-cover tracker-cover--boxart">
+                        <img src="https://assets.danieldaum.net/img/games/halo-2.webp"
+                            alt="Halo 2" width="528" height="704" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Halo 2</span>
+                        <span class="tracker-caption-sub">Studio Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating rating--great">(5/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#game-fav-8" aria-label="read my note on Halo: Reach">
+                    <span class="tracker-cover tracker-cover--boxart">
+                        <img src="https://assets.danieldaum.net/img/games/halo-reach.webp"
+                            alt="Halo: Reach" width="528" height="704" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Halo: Reach</span>
+                        <span class="tracker-caption-sub">Studio Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating rating--great">(5/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#game-fav-9" aria-label="read my note on Baldur's Gate 3">
+                    <span class="tracker-cover tracker-cover--boxart">
+                        <img src="https://assets.danieldaum.net/img/games/baldurs-gate-3.webp"
+                            alt="Baldur's Gate 3" width="528" height="704" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Baldur's Gate 3</span>
+                        <span class="tracker-caption-sub">Studio Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating rating--great">(5/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#game-fav-10" aria-label="read my note on Mass Effect 2">
+                    <span class="tracker-cover tracker-cover--boxart">
+                        <img src="https://assets.danieldaum.net/img/games/mass-effect-2.webp"
+                            alt="Mass Effect 2" width="528" height="704" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Mass Effect 2</span>
+                        <span class="tracker-caption-sub">Studio Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating rating--great">(5/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#game-fav-11" aria-label="read my note on Stardew Valley">
+                    <span class="tracker-cover tracker-cover--boxart">
+                        <img src="https://assets.danieldaum.net/img/games/stardew-valley.webp"
+                            alt="Stardew Valley" width="528" height="704" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Stardew Valley</span>
+                        <span class="tracker-caption-sub">Studio Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating rating--great">(5/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#game-fav-12" aria-label="read my note on Returnal">
+                    <span class="tracker-cover tracker-cover--boxart">
+                        <img src="https://assets.danieldaum.net/img/games/returnal.webp"
+                            alt="Returnal" width="528" height="704" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Returnal</span>
+                        <span class="tracker-caption-sub">Studio Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating rating--great">(5/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#game-fav-13" aria-label="read my note on Star Wars: Republic Commando">
+                    <span class="tracker-cover tracker-cover--boxart">
+                        <img src="https://assets.danieldaum.net/img/games/star-wars-republic-commando.webp"
+                            alt="Star Wars: Republic Commando" width="528" height="704" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Star Wars: Republic Commando</span>
+                        <span class="tracker-caption-sub">Studio Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating rating--great">(5/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#game-fav-14" aria-label="read my note on Age of Mythology">
+                    <span class="tracker-cover tracker-cover--boxart">
+                        <img src="https://assets.danieldaum.net/img/games/age-of-mythology.webp"
+                            alt="Age of Mythology" width="528" height="704" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Age of Mythology</span>
+                        <span class="tracker-caption-sub">Studio Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating rating--great">(5/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#game-2025-08" aria-label="read my note on The Callisto Protocol">
+                    <span class="tracker-cover tracker-cover--boxart">
+                        <img src="https://assets.danieldaum.net/img/games/the-callisto-protocol.webp"
+                            alt="The Callisto Protocol" width="528" height="704" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">The Callisto Protocol</span>
+                        <span class="tracker-caption-sub">Studio Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating rating--great">(5/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#game-fav-16" aria-label="read my note on Star Wars: Battlefront II (2005)">
+                    <span class="tracker-cover tracker-cover--boxart">
+                        <img src="https://assets.danieldaum.net/img/games/star-wars-battlefront-ii-2005.webp"
+                            alt="Star Wars: Battlefront II (2005)" width="528" height="704" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Star Wars: Battlefront II (2005)</span>
+                        <span class="tracker-caption-sub">Studio Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating rating--great">(5/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#game-fav-17" aria-label="read my note on Call of Duty: Modern Warfare 2 (2009)">
+                    <span class="tracker-cover tracker-cover--boxart">
+                        <img src="https://assets.danieldaum.net/img/games/call-of-duty-modern-warfare-2.webp"
+                            alt="Call of Duty: Modern Warfare 2 (2009)" width="528" height="704" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Call of Duty: Modern Warfare 2 (2009)</span>
+                        <span class="tracker-caption-sub">Studio Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating rating--great">(5/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+        </section>
+
+        <h2>2026</h2>
+
+        <section class="tracker-wall" aria-label="games logged in 2026">
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#game-2026-08" aria-label="read my note on Replaced">
+                    <span class="tracker-cover tracker-cover--boxart">
+                        <img src="https://assets.danieldaum.net/img/games/replaced.webp"
+                            alt="Replaced" width="528" height="704" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Replaced</span>
+                        <span class="tracker-caption-sub">Studio Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#game-2026-07" aria-label="read my note on Vampire Survivors">
+                    <span class="tracker-cover tracker-cover--boxart">
+                        <img src="https://assets.danieldaum.net/img/games/vampire-survivors.webp"
+                            alt="Vampire Survivors" width="528" height="704" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Vampire Survivors</span>
+                        <span class="tracker-caption-sub">Studio Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#game-2026-06" aria-label="read my note on South of Midnight">
+                    <span class="tracker-cover tracker-cover--boxart">
+                        <img src="https://assets.danieldaum.net/img/games/south-of-midnight.webp"
+                            alt="South of Midnight" width="528" height="704" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">South of Midnight</span>
+                        <span class="tracker-caption-sub">Studio Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#game-2026-05" aria-label="read my note on Dispatch">
+                    <span class="tracker-cover tracker-cover--boxart">
+                        <img src="https://assets.danieldaum.net/img/games/dispatch.webp"
+                            alt="Dispatch" width="528" height="704" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Dispatch</span>
+                        <span class="tracker-caption-sub">Studio Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#game-2026-04" aria-label="read my note on Battlefield 6">
+                    <span class="tracker-cover tracker-cover--boxart">
+                        <img src="https://assets.danieldaum.net/img/games/battlefield-6.webp"
+                            alt="Battlefield 6" width="528" height="704" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Battlefield 6</span>
+                        <span class="tracker-caption-sub">Studio Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#game-2026-03" aria-label="read my note on Journey">
+                    <span class="tracker-cover tracker-cover--boxart">
+                        <img src="https://assets.danieldaum.net/img/games/journey.webp"
+                            alt="Journey" width="528" height="704" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Journey</span>
+                        <span class="tracker-caption-sub">Studio Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#game-2026-02" aria-label="read my note on Marathon">
+                    <span class="tracker-cover tracker-cover--boxart">
+                        <img src="https://assets.danieldaum.net/img/games/marathon-2026.webp"
+                            alt="Marathon" width="528" height="704" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Marathon</span>
+                        <span class="tracker-caption-sub">Studio Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#game-2026-01" aria-label="read my note on V Rising">
+                    <span class="tracker-cover tracker-cover--boxart">
+                        <img src="https://assets.danieldaum.net/img/games/v-rising.webp"
+                            alt="V Rising" width="528" height="704" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">V Rising</span>
+                        <span class="tracker-caption-sub">Studio Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+        </section>
+
+        <h2>2025</h2>
+
+        <section class="tracker-wall" aria-label="games logged in 2025">
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#game-2025-10" aria-label="read my note on Kingdom Come: Deliverance II">
+                    <span class="tracker-cover tracker-cover--boxart">
+                        <img src="https://assets.danieldaum.net/img/games/kingdom-come-deliverance-2.webp"
+                            alt="Kingdom Come: Deliverance II" width="528" height="704" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Kingdom Come: Deliverance II</span>
+                        <span class="tracker-caption-sub">Studio Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#game-2025-09" aria-label="read my note on Vampire: The Masquerade - Bloodlines 2">
+                    <span class="tracker-cover tracker-cover--boxart">
+                        <img src="https://assets.danieldaum.net/img/games/vampire-the-masquerade-bloodlines-2.webp"
+                            alt="Vampire: The Masquerade - Bloodlines 2" width="528" height="704" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Vampire: The Masquerade - Bloodlines 2</span>
+                        <span class="tracker-caption-sub">Studio Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#game-2025-08" aria-label="read my note on The Callisto Protocol">
+                    <span class="tracker-cover tracker-cover--boxart">
+                        <img src="https://assets.danieldaum.net/img/games/the-callisto-protocol.webp"
+                            alt="The Callisto Protocol" width="528" height="704" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">The Callisto Protocol</span>
+                        <span class="tracker-caption-sub">Studio Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating rating--great">(5/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#game-2025-07" aria-label="read my note on Star Wars Outlaws">
+                    <span class="tracker-cover tracker-cover--boxart">
+                        <img src="https://assets.danieldaum.net/img/games/star-wars-outlaws.webp"
+                            alt="Star Wars Outlaws" width="528" height="704" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Star Wars Outlaws</span>
+                        <span class="tracker-caption-sub">Studio Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#game-2025-06" aria-label="read my note on Warhammer 40,000: Space Marine II">
+                    <span class="tracker-cover tracker-cover--boxart">
+                        <img src="https://assets.danieldaum.net/img/games/warhammer-40000-space-marine-2.webp"
+                            alt="Warhammer 40,000: Space Marine II" width="528" height="704" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Warhammer 40,000: Space Marine II</span>
+                        <span class="tracker-caption-sub">Studio Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#game-2025-05" aria-label="read my note on Demonschool">
+                    <span class="tracker-cover tracker-cover--boxart">
+                        <img src="https://assets.danieldaum.net/img/games/demonschool.webp"
+                            alt="Demonschool" width="528" height="704" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Demonschool</span>
+                        <span class="tracker-caption-sub">Studio Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#game-2025-04" aria-label="read my note on Indika">
+                    <span class="tracker-cover tracker-cover--boxart">
+                        <img src="https://assets.danieldaum.net/img/games/indika.webp"
+                            alt="Indika" width="528" height="704" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Indika</span>
+                        <span class="tracker-caption-sub">Studio Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#game-2025-03" aria-label="read my note on The Quarry">
+                    <span class="tracker-cover tracker-cover--boxart">
+                        <img src="https://assets.danieldaum.net/img/games/the-quarry.webp"
+                            alt="The Quarry" width="528" height="704" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">The Quarry</span>
+                        <span class="tracker-caption-sub">Studio Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#game-2025-02" aria-label="read my note on Starfield">
+                    <span class="tracker-cover tracker-cover--boxart">
+                        <img src="https://assets.danieldaum.net/img/games/starfield.webp"
+                            alt="Starfield" width="528" height="704" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Starfield</span>
+                        <span class="tracker-caption-sub">Studio Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#game-2025-01" aria-label="read my note on Clair Obscur: Expedition 33">
+                    <span class="tracker-cover tracker-cover--boxart">
+                        <img src="https://assets.danieldaum.net/img/games/clair-obscur-expedition-33.webp"
+                            alt="Clair Obscur: Expedition 33" width="528" height="704" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Clair Obscur: Expedition 33</span>
+                        <span class="tracker-caption-sub">Studio Name</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+        </section>
+
+        <!--NOTES-->
+        <!--NOTES-->
+        <!--NOTES-->
+
+        <!-- each note is a :target overlay, hidden until its cover is clicked. one note per
+             entry, shared by the year tile and the favorites tile that both point at it.
+             reuses the photo wall's .lightbox shell for the backdrop and close button. -->
+
+        <div class="lightbox" id="game-fav-1" tabindex="-1" aria-label="my note on Star Wars: Knights of the Old Republic">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Star Wars: Knights of the Old Republic</h3>
+                <p class="tracker-note-meta">
+                    <span>Studio Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Finished DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Platform</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating rating--great">(5/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the game goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://store.steampowered.com/" aria-label="Star Wars: Knights of the Old Republic on STEAM, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">STEAM -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="game-fav-2" tabindex="-1" aria-label="my note on KOTOR II: The Sith Lords">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">KOTOR II: The Sith Lords</h3>
+                <p class="tracker-note-meta">
+                    <span>Studio Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Finished DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Platform</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating rating--great">(5/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the game goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://store.steampowered.com/" aria-label="KOTOR II: The Sith Lords on STEAM, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">STEAM -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="game-fav-3" tabindex="-1" aria-label="my note on Star Wars: The Old Republic">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Star Wars: The Old Republic</h3>
+                <p class="tracker-note-meta">
+                    <span>Studio Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Finished DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Platform</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating rating--great">(5/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the game goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://store.steampowered.com/" aria-label="Star Wars: The Old Republic on STEAM, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">STEAM -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="game-fav-4" tabindex="-1" aria-label="my note on Pokémon Emerald">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Pokémon Emerald</h3>
+                <p class="tracker-note-meta">
+                    <span>Studio Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Finished DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Platform</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating rating--great">(5/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the game goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://store.steampowered.com/" aria-label="Pokémon Emerald on STEAM, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">STEAM -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="game-fav-5" tabindex="-1" aria-label="my note on The Last of Us Part I">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">The Last of Us Part I</h3>
+                <p class="tracker-note-meta">
+                    <span>Studio Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Finished DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Platform</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating rating--great">(5/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the game goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://store.steampowered.com/" aria-label="The Last of Us Part I on STEAM, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">STEAM -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="game-fav-6" tabindex="-1" aria-label="my note on The Last of Us Part II">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">The Last of Us Part II</h3>
+                <p class="tracker-note-meta">
+                    <span>Studio Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Finished DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Platform</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating rating--great">(5/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the game goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://store.steampowered.com/" aria-label="The Last of Us Part II on STEAM, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">STEAM -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="game-fav-7" tabindex="-1" aria-label="my note on Halo 2">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Halo 2</h3>
+                <p class="tracker-note-meta">
+                    <span>Studio Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Finished DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Platform</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating rating--great">(5/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the game goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://store.steampowered.com/" aria-label="Halo 2 on STEAM, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">STEAM -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="game-fav-8" tabindex="-1" aria-label="my note on Halo: Reach">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Halo: Reach</h3>
+                <p class="tracker-note-meta">
+                    <span>Studio Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Finished DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Platform</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating rating--great">(5/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the game goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://store.steampowered.com/" aria-label="Halo: Reach on STEAM, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">STEAM -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="game-fav-9" tabindex="-1" aria-label="my note on Baldur's Gate 3">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Baldur's Gate 3</h3>
+                <p class="tracker-note-meta">
+                    <span>Studio Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Finished DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Platform</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating rating--great">(5/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the game goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://store.steampowered.com/" aria-label="Baldur's Gate 3 on STEAM, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">STEAM -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="game-fav-10" tabindex="-1" aria-label="my note on Mass Effect 2">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Mass Effect 2</h3>
+                <p class="tracker-note-meta">
+                    <span>Studio Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Finished DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Platform</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating rating--great">(5/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the game goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://store.steampowered.com/" aria-label="Mass Effect 2 on STEAM, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">STEAM -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="game-fav-11" tabindex="-1" aria-label="my note on Stardew Valley">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Stardew Valley</h3>
+                <p class="tracker-note-meta">
+                    <span>Studio Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Finished DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Platform</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating rating--great">(5/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the game goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://store.steampowered.com/" aria-label="Stardew Valley on STEAM, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">STEAM -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="game-fav-12" tabindex="-1" aria-label="my note on Returnal">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Returnal</h3>
+                <p class="tracker-note-meta">
+                    <span>Studio Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Finished DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Platform</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating rating--great">(5/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the game goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://store.steampowered.com/" aria-label="Returnal on STEAM, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">STEAM -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="game-fav-13" tabindex="-1" aria-label="my note on Star Wars: Republic Commando">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Star Wars: Republic Commando</h3>
+                <p class="tracker-note-meta">
+                    <span>Studio Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Finished DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Platform</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating rating--great">(5/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the game goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://store.steampowered.com/" aria-label="Star Wars: Republic Commando on STEAM, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">STEAM -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="game-fav-14" tabindex="-1" aria-label="my note on Age of Mythology">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Age of Mythology</h3>
+                <p class="tracker-note-meta">
+                    <span>Studio Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Finished DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Platform</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating rating--great">(5/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the game goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://store.steampowered.com/" aria-label="Age of Mythology on STEAM, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">STEAM -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="game-fav-16" tabindex="-1" aria-label="my note on Star Wars: Battlefront II (2005)">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Star Wars: Battlefront II (2005)</h3>
+                <p class="tracker-note-meta">
+                    <span>Studio Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Finished DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Platform</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating rating--great">(5/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the game goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://store.steampowered.com/" aria-label="Star Wars: Battlefront II (2005) on STEAM, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">STEAM -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="game-fav-17" tabindex="-1" aria-label="my note on Call of Duty: Modern Warfare 2 (2009)">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Call of Duty: Modern Warfare 2 (2009)</h3>
+                <p class="tracker-note-meta">
+                    <span>Studio Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Finished DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Platform</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating rating--great">(5/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the game goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://store.steampowered.com/" aria-label="Call of Duty: Modern Warfare 2 (2009) on STEAM, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">STEAM -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="game-2026-08" tabindex="-1" aria-label="my note on Replaced">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Replaced</h3>
+                <p class="tracker-note-meta">
+                    <span>Studio Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Finished DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Platform</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating">(?/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the game goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://store.steampowered.com/" aria-label="Replaced on STEAM, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">STEAM -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="game-2026-07" tabindex="-1" aria-label="my note on Vampire Survivors">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Vampire Survivors</h3>
+                <p class="tracker-note-meta">
+                    <span>Studio Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Finished DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Platform</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating">(?/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the game goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://store.steampowered.com/" aria-label="Vampire Survivors on STEAM, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">STEAM -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="game-2026-06" tabindex="-1" aria-label="my note on South of Midnight">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">South of Midnight</h3>
+                <p class="tracker-note-meta">
+                    <span>Studio Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Finished DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Platform</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating">(?/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the game goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://store.steampowered.com/" aria-label="South of Midnight on STEAM, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">STEAM -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="game-2026-05" tabindex="-1" aria-label="my note on Dispatch">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Dispatch</h3>
+                <p class="tracker-note-meta">
+                    <span>Studio Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Finished DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Platform</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating">(?/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the game goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://store.steampowered.com/" aria-label="Dispatch on STEAM, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">STEAM -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="game-2026-04" tabindex="-1" aria-label="my note on Battlefield 6">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Battlefield 6</h3>
+                <p class="tracker-note-meta">
+                    <span>Studio Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Finished DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Platform</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating">(?/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the game goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://store.steampowered.com/" aria-label="Battlefield 6 on STEAM, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">STEAM -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="game-2026-03" tabindex="-1" aria-label="my note on Journey">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Journey</h3>
+                <p class="tracker-note-meta">
+                    <span>Studio Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Finished DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Platform</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating">(?/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the game goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://store.steampowered.com/" aria-label="Journey on STEAM, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">STEAM -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="game-2026-02" tabindex="-1" aria-label="my note on Marathon">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Marathon</h3>
+                <p class="tracker-note-meta">
+                    <span>Studio Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Finished DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Platform</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating">(?/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the game goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://store.steampowered.com/" aria-label="Marathon on STEAM, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">STEAM -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="game-2026-01" tabindex="-1" aria-label="my note on V Rising">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">V Rising</h3>
+                <p class="tracker-note-meta">
+                    <span>Studio Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Finished DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Platform</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating">(?/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the game goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://store.steampowered.com/" aria-label="V Rising on STEAM, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">STEAM -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="game-2025-10" tabindex="-1" aria-label="my note on Kingdom Come: Deliverance II">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Kingdom Come: Deliverance II</h3>
+                <p class="tracker-note-meta">
+                    <span>Studio Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Finished DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Platform</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating">(?/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the game goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://store.steampowered.com/" aria-label="Kingdom Come: Deliverance II on STEAM, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">STEAM -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="game-2025-09" tabindex="-1" aria-label="my note on Vampire: The Masquerade - Bloodlines 2">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Vampire: The Masquerade - Bloodlines 2</h3>
+                <p class="tracker-note-meta">
+                    <span>Studio Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Finished DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Platform</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating">(?/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the game goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://store.steampowered.com/" aria-label="Vampire: The Masquerade - Bloodlines 2 on STEAM, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">STEAM -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="game-2025-08" tabindex="-1" aria-label="my note on The Callisto Protocol">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">The Callisto Protocol</h3>
+                <p class="tracker-note-meta">
+                    <span>Studio Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Finished DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Platform</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating rating--great">(5/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the game goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://store.steampowered.com/" aria-label="The Callisto Protocol on STEAM, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">STEAM -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="game-2025-07" tabindex="-1" aria-label="my note on Star Wars Outlaws">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Star Wars Outlaws</h3>
+                <p class="tracker-note-meta">
+                    <span>Studio Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Finished DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Platform</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating">(?/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the game goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://store.steampowered.com/" aria-label="Star Wars Outlaws on STEAM, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">STEAM -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="game-2025-06" tabindex="-1" aria-label="my note on Warhammer 40,000: Space Marine II">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Warhammer 40,000: Space Marine II</h3>
+                <p class="tracker-note-meta">
+                    <span>Studio Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Finished DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Platform</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating">(?/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the game goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://store.steampowered.com/" aria-label="Warhammer 40,000: Space Marine II on STEAM, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">STEAM -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="game-2025-05" tabindex="-1" aria-label="my note on Demonschool">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Demonschool</h3>
+                <p class="tracker-note-meta">
+                    <span>Studio Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Finished DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Platform</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating">(?/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the game goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://store.steampowered.com/" aria-label="Demonschool on STEAM, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">STEAM -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="game-2025-04" tabindex="-1" aria-label="my note on Indika">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Indika</h3>
+                <p class="tracker-note-meta">
+                    <span>Studio Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Finished DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Platform</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating">(?/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the game goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://store.steampowered.com/" aria-label="Indika on STEAM, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">STEAM -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="game-2025-03" tabindex="-1" aria-label="my note on The Quarry">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">The Quarry</h3>
+                <p class="tracker-note-meta">
+                    <span>Studio Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Finished DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Platform</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating">(?/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the game goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://store.steampowered.com/" aria-label="The Quarry on STEAM, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">STEAM -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="game-2025-02" tabindex="-1" aria-label="my note on Starfield">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Starfield</h3>
+                <p class="tracker-note-meta">
+                    <span>Studio Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Finished DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Platform</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating">(?/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the game goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://store.steampowered.com/" aria-label="Starfield on STEAM, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">STEAM -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="game-2025-01" tabindex="-1" aria-label="my note on Clair Obscur: Expedition 33">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Clair Obscur: Expedition 33</h3>
+                <p class="tracker-note-meta">
+                    <span>Studio Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Finished DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Platform</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="rating">(?/5)</span>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the game goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://store.steampowered.com/" aria-label="Clair Obscur: Expedition 33 on STEAM, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">STEAM -></a>
+                </p>
+            </article>
+        </div>
+    </main>
+
+    <!--FOOTER-->
+    <footer>
+        <nav aria-label="site links">
+            <p aria-hidden="true">//</p>
+            <a href="mailto:daniel@danieldaum.net" aria-label="link to send me an email">
+                EMAIL
+            </a>
+            <a href="https://git.danieldaum.net/" aria-label="link to my git, opens in new tab" target="_blank"
+                rel="noopener noreferrer">GIT
+            </a>
+            <a href="/pgp.asc" aria-label="link to my pgp public key (516E97FF)">PGP</a>
+            <a href="/changelog.html">CHANGELOG</a>
+        </nav>
+    </footer>
+</body>
+
+</html>
