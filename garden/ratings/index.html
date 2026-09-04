@@ -14,6 +14,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
     <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+    <link rel="alternate" type="application/atom+xml" title="daniel daum" href="https://danieldaum.net/feed.xml" />
     <title>ratings — daniel daum</title>
 </head>
 
@@ -21,9 +22,9 @@
 
     <!--HEADER-->
     <header class="site-header">
-        <a class="site-name" href="/index.html" aria-label="return home">DANIEL DAUM</a>
+        <a class="site-name" href="/" aria-label="return home">DANIEL DAUM</a>
         <nav aria-label="main navigation">
-            <a href="/index.html" aria-label="return home">HOME</a>
+            <a href="/" aria-label="return home">HOME</a>
             <a href="/about" aria-label="about me">ABOUT</a>
             <a href="/now" aria-label="now page">NOW</a>
             <a href="/blog" aria-label="blog">BLOG</a>
@@ -33,7 +34,7 @@
     </header>
 
     <main>
-        <span class="nav-back"><a href="/garden/">GARDEN</a> -> <a href="/garden/ratings/index.html">RATINGS</a></span>
+        <span class="nav-back"><a href="/garden">GARDEN</a> -> <a href="/garden/ratings">RATINGS</a></span>
 
         <section class="hero">
             <h1>/RATINGS</h1>
@@ -136,15 +137,33 @@
 
             <h2>IN MARKUP</h2>
             <p>
-                One span, two classes. The modifier carries the color through a
+                One element, two classes. The modifier carries the color through a
                 <code>--rating-color</code> custom property, so the base class is all that needs to
                 match if I ever swap the palette.
             </p>
-            <pre><code>&lt;span class="rating rating--great"&gt;(5/5)&lt;/span&gt;</code></pre>
+            <p>
+                Ratings link back to this page, so anyone who hits a bare
+                <span class="rating rating--good">(3/5)</span> mid-sentence can find out what I meant
+                by it. The underline is transparent until hover, which keeps a wall of covers quiet.
+            </p>
+            <pre><code>&lt;a class="rating rating--great" href="/garden/ratings"&gt;(5/5)&lt;/a&gt;</code></pre>
             <p class="meta">
                 Modifiers, 1 to 5: <code>rating--terrible</code>, <code>rating--below-average</code>,
                 <code>rating--good</code>, <code>rating--above-average</code>, <code>rating--great</code>.
                 Drop the modifier for an unrated entry.
+            </p>
+
+            <p>
+                The one exception is a rating already inside a link - the caption on a tracker tile,
+                which is wrapped in an <code>&lt;a class="tracker-link"&gt;</code> pointing at that
+                entry's note. Nested anchors are invalid, and a browser will close the outer one early
+                and break the tile. Those stay spans:
+            </p>
+            <pre><code>&lt;span class="rating rating--great"&gt;(5/5)&lt;/span&gt;</code></pre>
+            <p class="meta">
+                Both forms render identically at rest, so the two can sit next to each other without
+                the seam showing. The rating in a tile's note card is a link; the one on the tile
+                itself is not.
             </p>
         </section>
     </main>
@@ -160,7 +179,9 @@
                 rel="noopener noreferrer">GIT
             </a>
             <a href="/pgp.asc" aria-label="link to my pgp public key (516E97FF)">PGP</a>
-            <a href="/changelog.html">CHANGELOG</a>
+            <a href="/changelog">CHANGELOG</a>
+            <a href="/privacy">PRIVACY</a>
+            <a href="/feed.xml">FEED</a>
         </nav>
     </footer>
 </body>

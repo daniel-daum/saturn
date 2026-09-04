@@ -14,15 +14,16 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
     <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+    <link rel="alternate" type="application/atom+xml" title="daniel daum" href="https://danieldaum.net/feed.xml" />
     <title>daniel daum</title>
 </head>
 
 <body>
     <!--HEADER-->
     <header class="site-header">
-        <a class="site-name" href="/index.html" aria-label="return home">DANIEL DAUM</a>
+        <a class="site-name" href="/" aria-label="return home">DANIEL DAUM</a>
         <nav aria-label="main navigation">
-            <a href="/index.html" aria-label="return home">HOME</a>
+            <a href="/" aria-label="return home">HOME</a>
             <a href="/about" aria-label="about me">ABOUT</a>
             <a href="/now" aria-label="now page">NOW</a>
             <a href="/blog" aria-label="blog">BLOG</a>
@@ -58,30 +59,31 @@
                  no cdn). full reference table: /garden/styles -> icons -->
             <ul class="activity-feed">
                 <li class="activity-item">
-                    <span class="activity-icon" aria-hidden="true">&#9635;</span><!-- U+25A3 ▣ photos -->
-                    <a class="activity-link" href="/garden">2 NEW PHOTOS &mdash; FOG OVER THE BAY</a>
-                    <span class="activity-date">30 AUG</span>
-                </li>
-                <li class="activity-item">
                     <span class="activity-icon" aria-hidden="true">&#182;</span><!-- U+00B6 ¶ writing -->
-                    <a class="activity-link" href="/blog">NEW MICRO POST &mdash; ON SLOW WEBSITES</a>
-                    <span class="activity-date">29 AUG</span>
+                    <a class="activity-link" href="/blog/micro">NEW MICRO POST &mdash; FIRST SPIN WITH THE OSMO</a>
+                    <span class="activity-date">1 SEP</span>
                 </li>
                 <li class="activity-item">
                     <span class="activity-icon" aria-hidden="true">&#10047;</span><!-- U+273F ✿ garden -->
-                    <a class="activity-link" href="/garden">NEW GARDEN PAGE &mdash; GAMES</a>
-                    <span class="activity-date">27 AUG</span>
+                    <a class="activity-link" href="/garden/games/">NEW GARDEN PAGE &mdash; GAMES</a>
+                    <span class="activity-date">1 SEP</span>
+                </li>
+                <li class="activity-item">
+                    <span class="activity-icon" aria-hidden="true">&#9635;</span><!-- U+25A3 ▣ photos -->
+                    <a class="activity-link" href="/garden/photos/">7 NEW PHOTOS &mdash; CHECK OUT MY SNAIL
+                        NEIGHBOR!</a>
+                    <span class="activity-date">21 AUG</span>
                 </li>
             </ul>
         </section>
 
         <section>
-            <h2 class="section-label">recent micro</h2>
+            <h2 class="section-label">recent post</h2>
 
             <article class="micro-post micro-featured">
                 <p class="meta">
                     <span class="micro-at">@danieldaum</span>
-                    <a class="micro-time" href="/blog/micro/index.html#2026-09-01-2">1 SEPTEMBER 2026 &middot; 18:42
+                    <a class="micro-time" href="/blog/micro#2026-09-01-2">1 SEPTEMBER 2026 &middot; 18:42
                         PDT</a>
                 </p>
                 <p class="micro-body">
@@ -96,21 +98,31 @@
         <section aria-label="recent writing">
             <h2 class="section-label">recent writing</h2>
 
-            <blockquote class="post-container">
-                <a href="/about">
-                    <div class="">GAMING</div>
-                    <div class="">FIVE GAMES TO KNOW ME</div>
-                    <div class="">1387 WORDS | 1 SEPTEMBER 2026</div>
-                </a>
-            </blockquote>
+            <!-- stacked list. the title link is
+                 stretched over the whole item, so the tag and meta are clickable too. -->
+            <ol class="recent-writing-list">
+                <li class="recent-writing-item">
+                    <p class="recent-writing-tag">#NOW</p>
+                    <h3 class="recent-writing-title">
+                        <a href="/now/sep-2026/">WAKE ME UP WHEN SEPTEMBER ENDS</a>
+                    </h3>
+                    <ul class="recent-writing-meta">
+                        <li>438 WORDS</li>
+                        <li><time datetime="2026-09-03">3 SEPTEMBER 2026</time></li>
+                    </ul>
+                </li>
 
-            <blockquote class="">
-                <a href="">
-                    <div class="">ABOUT</div>
-                    <div class="">LET ME INTRODUCE MYSELF</div>
-                    <div class="">300 WORDS | 28 AUGUST 2026</div>
-                </a>
-            </blockquote>
+                <li class="recent-writing-item">
+                    <p class="recent-writing-tag">#ABOUT</p>
+                    <h3 class="recent-writing-title">
+                        <a href="/about">LET ME INTRODUCE MYSELF</a>
+                    </h3>
+                    <ul class="recent-writing-meta">
+                        <li>317 WORDS</li>
+                        <li><time datetime="2026-08-28">28 AUGUST 2026</time></li>
+                    </ul>
+                </li>
+            </ol>
         </section>
 
         <!-- PROJECTS -->
@@ -119,7 +131,7 @@
 
             <div class="home-projects-grid">
                 <a class="home-project-card" href="/projects/saturn">
-                    <p class="project-type">JAN '26 &middot; RE-DESIGN</p>
+                    <p class="project-type">JAN '26 &ndash; SEP '26 &middot; RE-DESIGN</p>
                     <p class="home-card-title">SATURN</p>
                     <p class="home-card-desc">A cozy yet minimalist personal website</p>
                 </a>
@@ -142,9 +154,10 @@
                 rel="noopener noreferrer">GIT
             </a>
             <a href="/pgp.asc" aria-label="link to my pgp public key (516E97FF)">PGP</a>
-            <a href="/changelog.html">CHANGELOG</a>
+            <a href="/changelog">CHANGELOG</a>
             <a href="/privacy">PRIVACY</a>
-            <div class="ticker" aria-label="recent coding activity">
+            <a href="/feed.xml">FEED</a>
+            <!--<div class="ticker" aria-label="recent coding activity">
                 <div class="ticker-track">
                     <p class="ticker-group">
                         <span>pushed 6 commits to <a href="/projects/saturn">saturn</a></span>
@@ -171,7 +184,7 @@
                         <span class="ticker-sep">//</span>
                     </p>
                 </div>
-            </div>
+            </div>-->
         </nav>
     </footer>
 </body>

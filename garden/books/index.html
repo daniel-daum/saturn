@@ -14,6 +14,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
     <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+    <link rel="alternate" type="application/atom+xml" title="daniel daum" href="https://danieldaum.net/feed.xml" />
     <title>books — daniel daum</title>
 </head>
 
@@ -21,9 +22,9 @@
 
     <!--HEADER-->
     <header class="site-header">
-        <a class="site-name" href="/index.html" aria-label="return home">DANIEL DAUM</a>
+        <a class="site-name" href="/" aria-label="return home">DANIEL DAUM</a>
         <nav aria-label="main navigation">
-            <a href="/index.html" aria-label="return home">HOME</a>
+            <a href="/" aria-label="return home">HOME</a>
             <a href="/about" aria-label="about me">ABOUT</a>
             <a href="/now" aria-label="now page">NOW</a>
             <a href="/blog" aria-label="blog">BLOG</a>
@@ -34,37 +35,26 @@
 
 
     <main>
-        <span class="nav-back"><a href="/garden/">GARDEN</a> -> <a href="/garden/books/index.html">BOOKS</a></span>
+        <span class="nav-back"><a href="/garden">GARDEN</a> -> <a href="/garden/books">BOOKS</a></span>
 
         <section>
             <h1>/BOOKS</h1>
-            <p class="meta">Everything I've read, newest year first. Click a cover to read my note on it.
+            <p class="meta">The books I've read. Click a cover to read my note on it.
             </p>
         </section>
 
-        <!-- adding a book:
-             1. drop the cover .webp on the cdn (2:3 crop), then put an <img> inside that entry's
-                <span class="tracker-cover"> - the placeholder disappears on its own.
-             2. copy a .tracker-tile into the right year's wall, newest first.
-             3. copy its note overlay into the note block at the bottom of <main>.
-             4. keep the ids unique and matching: #book-<year>-<n>, n counting up within the year.
-             5. to flag it as new: add .tracker-tile--new to the <figure> for the accent frame,
-                and drop <span class="new-tag">New!</span> after the title in both the wall
-                caption and the note overlay. strip all three off once it isn't new any more.
-             6. rating it 5/5? copy the whole <figure> verbatim into the favorites wall too.
-                both copies point at the same note overlay, so there is nothing else to add.
-             rating classes, 1-5: terrible / below-average / good / above-average / great. -->
 
-        <h2>FAVORITES</h2>
-        <p class="meta">The 5/5s. Everything here is also filed under its year below.</p>
+        <!--<h2>FAVORITES</h2>-->
 
-        <section class="tracker-wall tracker-wall--favorites" aria-label="favorite books">
+        <!--<section class="tracker-wall tracker-wall--favorites" aria-label="favorite books">
 
             <figure class="tracker-tile">
-                <a class="tracker-link" href="#book-fav-1" aria-label="read my note on Do Androids Dream of Electric Sheep?">
+                <a class="tracker-link" href="#book-fav-1"
+                    aria-label="read my note on Do Androids Dream of Electric Sheep?">
                     <span class="tracker-cover">
                         <img src="https://assets.danieldaum.net/img/books/electric-sheep.webp"
-                            alt="cover of Do Androids Dream of Electric Sheep?" width="375" height="500" loading="lazy" decoding="async" />
+                            alt="cover of Do Androids Dream of Electric Sheep?" width="375" height="500" loading="lazy"
+                            decoding="async" />
                     </span>
                     <span class="tracker-caption">
                         <span class="tracker-caption-title">Do Androids Dream of Electric Sheep?</span>
@@ -80,8 +70,8 @@
             <figure class="tracker-tile">
                 <a class="tracker-link" href="#book-fav-2" aria-label="read my note on I, Robot">
                     <span class="tracker-cover">
-                        <img src="https://assets.danieldaum.net/img/books/i-robot.webp"
-                            alt="cover of I, Robot" width="257" height="388" loading="lazy" decoding="async" />
+                        <img src="https://assets.danieldaum.net/img/books/i-robot.webp" alt="cover of I, Robot"
+                            width="257" height="388" loading="lazy" decoding="async" />
                     </span>
                     <span class="tracker-caption">
                         <span class="tracker-caption-title">I, Robot</span>
@@ -93,14 +83,15 @@
                     </span>
                 </a>
             </figure>
-        </section>
+        </section>-->
 
         <h2>2026</h2>
 
         <section class="tracker-wall" aria-label="books logged in 2026">
 
             <figure class="tracker-tile">
-                <a class="tracker-link" href="#book-2026-09" aria-label="read my note on Hard-Boiled Wonderland and the End of the World">
+                <a class="tracker-link" href="#book-2026-09"
+                    aria-label="read my note on Hard-Boiled Wonderland and the End of the World">
                     <span class="tracker-cover">
                         <img src="https://assets.danieldaum.net/img/books/hard-boiled-wonderland.webp"
                             alt="cover of Hard-Boiled Wonderland and the End of the World" loading="lazy" />
@@ -119,8 +110,8 @@
             <figure class="tracker-tile">
                 <a class="tracker-link" href="#book-2026-08" aria-label="read my note on Furnace">
                     <span class="tracker-cover">
-                        <img src="https://assets.danieldaum.net/img/books/the-furnace.webp"
-                            alt="cover of Furnace" width="324" height="500" loading="lazy" decoding="async" />
+                        <img src="https://assets.danieldaum.net/img/books/the-furnace.webp" alt="cover of Furnace"
+                            width="324" height="500" loading="lazy" decoding="async" />
                     </span>
                     <span class="tracker-caption">
                         <span class="tracker-caption-title">Furnace</span>
@@ -136,8 +127,8 @@
             <figure class="tracker-tile">
                 <a class="tracker-link" href="#book-2026-07" aria-label="read my note on Carmilla">
                     <span class="tracker-cover">
-                        <img src="https://assets.danieldaum.net/img/books/carmilla.webp"
-                            alt="cover of Carmilla" loading="lazy" />
+                        <img src="https://assets.danieldaum.net/img/books/carmilla.webp" alt="cover of Carmilla"
+                            loading="lazy" />
                     </span>
                     <span class="tracker-caption">
                         <span class="tracker-caption-title">Carmilla</span>
@@ -236,7 +227,8 @@
             </figure>
 
             <figure class="tracker-tile">
-                <a class="tracker-link" href="#book-2026-01" aria-label="read my note on Tomorrow, and Tomorrow, and Tomorrow">
+                <a class="tracker-link" href="#book-2026-01"
+                    aria-label="read my note on Tomorrow, and Tomorrow, and Tomorrow">
                     <span class="tracker-cover">
                         <img src="https://assets.danieldaum.net/img/books/tomorrow-and-tomorrow-and-tomorrow.webp"
                             alt="cover of Tomorrow, and Tomorrow, and Tomorrow" loading="lazy" />
@@ -397,7 +389,8 @@
                 <a class="tracker-link" href="#book-2025-04" aria-label="read my note on The Caves of Steel">
                     <span class="tracker-cover">
                         <img src="https://assets.danieldaum.net/img/books/the-caves-of-steel.webp"
-                            alt="cover of The Caves of Steel" width="290" height="500" loading="lazy" decoding="async" />
+                            alt="cover of The Caves of Steel" width="290" height="500" loading="lazy"
+                            decoding="async" />
                     </span>
                     <span class="tracker-caption">
                         <span class="tracker-caption-title">The Caves of Steel</span>
@@ -430,8 +423,8 @@
             <figure class="tracker-tile">
                 <a class="tracker-link" href="#book-2025-02" aria-label="read my note on Dark Age">
                     <span class="tracker-cover">
-                        <img src="https://assets.danieldaum.net/img/books/dark-age.webp"
-                            alt="cover of Dark Age" loading="lazy" />
+                        <img src="https://assets.danieldaum.net/img/books/dark-age.webp" alt="cover of Dark Age"
+                            loading="lazy" />
                     </span>
                     <span class="tracker-caption">
                         <span class="tracker-caption-title">Dark Age</span>
@@ -447,8 +440,8 @@
             <figure class="tracker-tile">
                 <a class="tracker-link" href="#book-2025-01" aria-label="read my note on Iron Gold">
                     <span class="tracker-cover">
-                        <img src="https://assets.danieldaum.net/img/books/iron-gold.webp"
-                            alt="cover of Iron Gold" loading="lazy" />
+                        <img src="https://assets.danieldaum.net/img/books/iron-gold.webp" alt="cover of Iron Gold"
+                            loading="lazy" />
                     </span>
                     <span class="tracker-caption">
                         <span class="tracker-caption-title">Iron Gold</span>
@@ -470,7 +463,8 @@
              entry, shared by the year tile and the favorites tile that both point at it.
              reuses the photo wall's .lightbox shell for the backdrop and close button. -->
 
-        <div class="lightbox" id="book-fav-1" tabindex="-1" aria-label="my note on Do Androids Dream of Electric Sheep?">
+        <div class="lightbox" id="book-fav-1" tabindex="-1"
+            aria-label="my note on Do Androids Dream of Electric Sheep?">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -482,14 +476,15 @@
                     <span aria-hidden="true">·</span>
                     <span>Finished DATE</span>
                     <span aria-hidden="true">·</span>
-                    <span class="rating rating--great">(5/5)</span>
+                    <a class="rating rating--great" href="/garden/ratings" aria-label="rated 5 out of 5, see my rating scale">(5/5)</a>
                 </p>
                 <p class="tracker-note-text">
                     A short note about the book goes here.
                 </p>
                 <p class="tracker-note-link">
-                    <a href="https://hardcover.app/books/electric-sheep" aria-label="Do Androids Dream of Electric Sheep? on HARDCOVER, opens in new tab"
-                        target="_blank" rel="noopener noreferrer">HARDCOVER -></a>
+                    <a href="https://hardcover.app/books/electric-sheep"
+                        aria-label="Do Androids Dream of Electric Sheep? on HARDCOVER, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">HARDCOVER -></a>
                 </p>
             </article>
         </div>
@@ -508,7 +503,7 @@
                     <span aria-hidden="true">·</span>
                     <span>Finished DATE</span>
                     <span aria-hidden="true">·</span>
-                    <span class="rating rating--great">(5/5)</span>
+                    <a class="rating rating--great" href="/garden/ratings" aria-label="rated 5 out of 5, see my rating scale">(5/5)</a>
                 </p>
                 <p class="tracker-note-text">
                     A short note about the book goes here.
@@ -520,7 +515,8 @@
             </article>
         </div>
 
-        <div class="lightbox" id="book-2026-09" tabindex="-1" aria-label="my note on Hard-Boiled Wonderland and the End of the World">
+        <div class="lightbox" id="book-2026-09" tabindex="-1"
+            aria-label="my note on Hard-Boiled Wonderland and the End of the World">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -532,13 +528,14 @@
                     <span aria-hidden="true">·</span>
                     <span>Finished 6 August 2026</span>
                     <span aria-hidden="true">·</span>
-                    <span class="rating">(?/5)</span>
+                    <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
                     A short note about the book goes here.
                 </p>
                 <p class="tracker-note-link">
-                    <a href="https://hardcover.app/books/hard-boiled-wonderland" aria-label="Hard-Boiled Wonderland and the End of the World on HARDCOVER, opens in new tab"
+                    <a href="https://hardcover.app/books/hard-boiled-wonderland"
+                        aria-label="Hard-Boiled Wonderland and the End of the World on HARDCOVER, opens in new tab"
                         target="_blank" rel="noopener noreferrer">HARDCOVER -></a>
                 </p>
             </article>
@@ -556,14 +553,15 @@
                     <span aria-hidden="true">·</span>
                     <span>Finished 8 July 2026</span>
                     <span aria-hidden="true">·</span>
-                    <span class="rating">(?/5)</span>
+                    <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
                     A short note about the book goes here.
                 </p>
                 <p class="tracker-note-link">
-                    <a href="https://hardcover.app/books/the-furnace" aria-label="Furnace on HARDCOVER, opens in new tab"
-                        target="_blank" rel="noopener noreferrer">HARDCOVER -></a>
+                    <a href="https://hardcover.app/books/the-furnace"
+                        aria-label="Furnace on HARDCOVER, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">HARDCOVER -></a>
                 </p>
             </article>
         </div>
@@ -580,7 +578,7 @@
                     <span aria-hidden="true">·</span>
                     <span>Finished 2 July 2026</span>
                     <span aria-hidden="true">·</span>
-                    <span class="rating">(?/5)</span>
+                    <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
                     A short note about the book goes here.
@@ -606,14 +604,15 @@
                     <span aria-hidden="true">·</span>
                     <span>Finished 5 June 2026</span>
                     <span aria-hidden="true">·</span>
-                    <span class="rating">(?/5)</span>
+                    <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
                     A short note about the book goes here.
                 </p>
                 <p class="tracker-note-link">
-                    <a href="https://hardcover.app/books/the-strength-of-the-few" aria-label="The Strength of the Few on HARDCOVER, opens in new tab"
-                        target="_blank" rel="noopener noreferrer">HARDCOVER -></a>
+                    <a href="https://hardcover.app/books/the-strength-of-the-few"
+                        aria-label="The Strength of the Few on HARDCOVER, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">HARDCOVER -></a>
                 </p>
             </article>
         </div>
@@ -630,14 +629,15 @@
                     <span aria-hidden="true">·</span>
                     <span>Finished 6 May 2026</span>
                     <span aria-hidden="true">·</span>
-                    <span class="rating">(?/5)</span>
+                    <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
                     A short note about the book goes here.
                 </p>
                 <p class="tracker-note-link">
-                    <a href="https://hardcover.app/books/tender-is-the-flesh" aria-label="Tender Is the Flesh on HARDCOVER, opens in new tab"
-                        target="_blank" rel="noopener noreferrer">HARDCOVER -></a>
+                    <a href="https://hardcover.app/books/tender-is-the-flesh"
+                        aria-label="Tender Is the Flesh on HARDCOVER, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">HARDCOVER -></a>
                 </p>
             </article>
         </div>
@@ -654,14 +654,15 @@
                     <span aria-hidden="true">·</span>
                     <span>Finished 7 April 2026</span>
                     <span aria-hidden="true">·</span>
-                    <span class="rating">(?/5)</span>
+                    <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
                     A short note about the book goes here.
                 </p>
                 <p class="tracker-note-link">
-                    <a href="https://hardcover.app/books/where-the-axe-is-buried" aria-label="Where the Axe Is Buried on HARDCOVER, opens in new tab"
-                        target="_blank" rel="noopener noreferrer">HARDCOVER -></a>
+                    <a href="https://hardcover.app/books/where-the-axe-is-buried"
+                        aria-label="Where the Axe Is Buried on HARDCOVER, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">HARDCOVER -></a>
                 </p>
             </article>
         </div>
@@ -680,14 +681,15 @@
                     <span aria-hidden="true">·</span>
                     <span>Finished 14 March 2026</span>
                     <span aria-hidden="true">·</span>
-                    <span class="rating">(?/5)</span>
+                    <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
                     A short note about the book goes here.
                 </p>
                 <p class="tracker-note-link">
-                    <a href="https://hardcover.app/books/the-left-hand-of-darkness" aria-label="The Left Hand of Darkness on HARDCOVER, opens in new tab"
-                        target="_blank" rel="noopener noreferrer">HARDCOVER -></a>
+                    <a href="https://hardcover.app/books/the-left-hand-of-darkness"
+                        aria-label="The Left Hand of Darkness on HARDCOVER, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">HARDCOVER -></a>
                 </p>
             </article>
         </div>
@@ -706,19 +708,21 @@
                     <span aria-hidden="true">·</span>
                     <span>Finished 3 February 2026</span>
                     <span aria-hidden="true">·</span>
-                    <span class="rating">(?/5)</span>
+                    <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
                     A short note about the book goes here.
                 </p>
                 <p class="tracker-note-link">
-                    <a href="https://hardcover.app/books/a-court-of-mist-and-fury" aria-label="A Court of Mist and Fury on HARDCOVER, opens in new tab"
-                        target="_blank" rel="noopener noreferrer">HARDCOVER -></a>
+                    <a href="https://hardcover.app/books/a-court-of-mist-and-fury"
+                        aria-label="A Court of Mist and Fury on HARDCOVER, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">HARDCOVER -></a>
                 </p>
             </article>
         </div>
 
-        <div class="lightbox" id="book-2026-01" tabindex="-1" aria-label="my note on Tomorrow, and Tomorrow, and Tomorrow">
+        <div class="lightbox" id="book-2026-01" tabindex="-1"
+            aria-label="my note on Tomorrow, and Tomorrow, and Tomorrow">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -730,14 +734,15 @@
                     <span aria-hidden="true">·</span>
                     <span>Finished 13 January 2026</span>
                     <span aria-hidden="true">·</span>
-                    <span class="rating">(?/5)</span>
+                    <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
                     A short note about the book goes here.
                 </p>
                 <p class="tracker-note-link">
-                    <a href="https://hardcover.app/books/tomorrow-and-tomorrow-and-tomorrow" aria-label="Tomorrow, and Tomorrow, and Tomorrow on HARDCOVER, opens in new tab"
-                        target="_blank" rel="noopener noreferrer">HARDCOVER -></a>
+                    <a href="https://hardcover.app/books/tomorrow-and-tomorrow-and-tomorrow"
+                        aria-label="Tomorrow, and Tomorrow, and Tomorrow on HARDCOVER, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">HARDCOVER -></a>
                 </p>
             </article>
         </div>
@@ -756,14 +761,15 @@
                     <span aria-hidden="true">·</span>
                     <span>Finished 6 December 2025</span>
                     <span aria-hidden="true">·</span>
-                    <span class="rating">(?/5)</span>
+                    <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
                     A short note about the book goes here.
                 </p>
                 <p class="tracker-note-link">
-                    <a href="https://hardcover.app/books/the-will-of-the-many-2023" aria-label="The Will of the Many on HARDCOVER, opens in new tab"
-                        target="_blank" rel="noopener noreferrer">HARDCOVER -></a>
+                    <a href="https://hardcover.app/books/the-will-of-the-many-2023"
+                        aria-label="The Will of the Many on HARDCOVER, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">HARDCOVER -></a>
                 </p>
             </article>
         </div>
@@ -782,14 +788,15 @@
                     <span aria-hidden="true">·</span>
                     <span>Finished 10 November 2025</span>
                     <span aria-hidden="true">·</span>
-                    <span class="rating">(?/5)</span>
+                    <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
                     A short note about the book goes here.
                 </p>
                 <p class="tracker-note-link">
-                    <a href="https://hardcover.app/books/all-systems-red" aria-label="All Systems Red on HARDCOVER, opens in new tab"
-                        target="_blank" rel="noopener noreferrer">HARDCOVER -></a>
+                    <a href="https://hardcover.app/books/all-systems-red"
+                        aria-label="All Systems Red on HARDCOVER, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">HARDCOVER -></a>
                 </p>
             </article>
         </div>
@@ -808,14 +815,15 @@
                     <span aria-hidden="true">·</span>
                     <span>Finished 5 October 2025</span>
                     <span aria-hidden="true">·</span>
-                    <span class="rating">(?/5)</span>
+                    <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
                     A short note about the book goes here.
                 </p>
                 <p class="tracker-note-link">
-                    <a href="https://hardcover.app/books/a-court-of-thorns-and-roses" aria-label="A Court of Thorns and Roses on HARDCOVER, opens in new tab"
-                        target="_blank" rel="noopener noreferrer">HARDCOVER -></a>
+                    <a href="https://hardcover.app/books/a-court-of-thorns-and-roses"
+                        aria-label="A Court of Thorns and Roses on HARDCOVER, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">HARDCOVER -></a>
                 </p>
             </article>
         </div>
@@ -832,14 +840,15 @@
                     <span aria-hidden="true">·</span>
                     <span>Finished 5 September 2025</span>
                     <span aria-hidden="true">·</span>
-                    <span class="rating">(?/5)</span>
+                    <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
                     A short note about the book goes here.
                 </p>
                 <p class="tracker-note-link">
-                    <a href="https://hardcover.app/books/a-head-full-of-ghosts" aria-label="A Head Full of Ghosts on HARDCOVER, opens in new tab"
-                        target="_blank" rel="noopener noreferrer">HARDCOVER -></a>
+                    <a href="https://hardcover.app/books/a-head-full-of-ghosts"
+                        aria-label="A Head Full of Ghosts on HARDCOVER, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">HARDCOVER -></a>
                 </p>
             </article>
         </div>
@@ -856,14 +865,15 @@
                     <span aria-hidden="true">·</span>
                     <span>Finished 9 August 2025</span>
                     <span aria-hidden="true">·</span>
-                    <span class="rating">(?/5)</span>
+                    <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
                     A short note about the book goes here.
                 </p>
                 <p class="tracker-note-link">
-                    <a href="https://hardcover.app/books/careless-people-2025" aria-label="Careless People on HARDCOVER, opens in new tab"
-                        target="_blank" rel="noopener noreferrer">HARDCOVER -></a>
+                    <a href="https://hardcover.app/books/careless-people-2025"
+                        aria-label="Careless People on HARDCOVER, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">HARDCOVER -></a>
                 </p>
             </article>
         </div>
@@ -880,14 +890,15 @@
                     <span aria-hidden="true">·</span>
                     <span>Finished 11 July 2025</span>
                     <span aria-hidden="true">·</span>
-                    <span class="rating">(?/5)</span>
+                    <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
                     A short note about the book goes here.
                 </p>
                 <p class="tracker-note-link">
-                    <a href="https://hardcover.app/books/project-hail-mary" aria-label="Project Hail Mary on HARDCOVER, opens in new tab"
-                        target="_blank" rel="noopener noreferrer">HARDCOVER -></a>
+                    <a href="https://hardcover.app/books/project-hail-mary"
+                        aria-label="Project Hail Mary on HARDCOVER, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">HARDCOVER -></a>
                 </p>
             </article>
         </div>
@@ -904,14 +915,15 @@
                     <span aria-hidden="true">·</span>
                     <span>Finished 12 June 2025</span>
                     <span aria-hidden="true">·</span>
-                    <span class="rating">(?/5)</span>
+                    <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
                     A short note about the book goes here.
                 </p>
                 <p class="tracker-note-link">
-                    <a href="https://hardcover.app/books/when-the-wolf-comes-home" aria-label="When the Wolf Comes Home on HARDCOVER, opens in new tab"
-                        target="_blank" rel="noopener noreferrer">HARDCOVER -></a>
+                    <a href="https://hardcover.app/books/when-the-wolf-comes-home"
+                        aria-label="When the Wolf Comes Home on HARDCOVER, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">HARDCOVER -></a>
                 </p>
             </article>
         </div>
@@ -930,14 +942,15 @@
                     <span aria-hidden="true">·</span>
                     <span>Finished 9 May 2025</span>
                     <span aria-hidden="true">·</span>
-                    <span class="rating">(?/5)</span>
+                    <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
                     A short note about the book goes here.
                 </p>
                 <p class="tracker-note-link">
-                    <a href="https://hardcover.app/books/light-bringer" aria-label="Light Bringer on HARDCOVER, opens in new tab"
-                        target="_blank" rel="noopener noreferrer">HARDCOVER -></a>
+                    <a href="https://hardcover.app/books/light-bringer"
+                        aria-label="Light Bringer on HARDCOVER, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">HARDCOVER -></a>
                 </p>
             </article>
         </div>
@@ -956,14 +969,15 @@
                     <span aria-hidden="true">·</span>
                     <span>Finished 14 April 2025</span>
                     <span aria-hidden="true">·</span>
-                    <span class="rating">(?/5)</span>
+                    <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
                     A short note about the book goes here.
                 </p>
                 <p class="tracker-note-link">
-                    <a href="https://hardcover.app/books/the-caves-of-steel" aria-label="The Caves of Steel on HARDCOVER, opens in new tab"
-                        target="_blank" rel="noopener noreferrer">HARDCOVER -></a>
+                    <a href="https://hardcover.app/books/the-caves-of-steel"
+                        aria-label="The Caves of Steel on HARDCOVER, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">HARDCOVER -></a>
                 </p>
             </article>
         </div>
@@ -980,14 +994,15 @@
                     <span aria-hidden="true">·</span>
                     <span>Finished 1 March 2025</span>
                     <span aria-hidden="true">·</span>
-                    <span class="rating">(?/5)</span>
+                    <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
                     A short note about the book goes here.
                 </p>
                 <p class="tracker-note-link">
-                    <a href="https://hardcover.app/books/we-used-to-live-here-2024" aria-label="We Used to Live Here on HARDCOVER, opens in new tab"
-                        target="_blank" rel="noopener noreferrer">HARDCOVER -></a>
+                    <a href="https://hardcover.app/books/we-used-to-live-here-2024"
+                        aria-label="We Used to Live Here on HARDCOVER, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">HARDCOVER -></a>
                 </p>
             </article>
         </div>
@@ -1006,7 +1021,7 @@
                     <span aria-hidden="true">·</span>
                     <span>Finished 8 February 2025</span>
                     <span aria-hidden="true">·</span>
-                    <span class="rating">(?/5)</span>
+                    <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
                     A short note about the book goes here.
@@ -1032,14 +1047,15 @@
                     <span aria-hidden="true">·</span>
                     <span>Finished 13 January 2025</span>
                     <span aria-hidden="true">·</span>
-                    <span class="rating">(?/5)</span>
+                    <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
                     A short note about the book goes here.
                 </p>
                 <p class="tracker-note-link">
-                    <a href="https://hardcover.app/books/iron-gold" aria-label="Iron Gold on HARDCOVER, opens in new tab"
-                        target="_blank" rel="noopener noreferrer">HARDCOVER -></a>
+                    <a href="https://hardcover.app/books/iron-gold"
+                        aria-label="Iron Gold on HARDCOVER, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">HARDCOVER -></a>
                 </p>
             </article>
         </div>
@@ -1056,7 +1072,9 @@
                 rel="noopener noreferrer">GIT
             </a>
             <a href="/pgp.asc" aria-label="link to my pgp public key (516E97FF)">PGP</a>
-            <a href="/changelog.html">CHANGELOG</a>
+            <a href="/changelog">CHANGELOG</a>
+            <a href="/privacy">PRIVACY</a>
+            <a href="/feed.xml">FEED</a>
         </nav>
     </footer>
 </body>

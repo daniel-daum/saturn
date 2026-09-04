@@ -1,2 +1,5 @@
 /.well-known/atproto-did
   Content-Type: text/plain
+
+/feed.xml
+  Content-Type: application/atom+xml; charset=utf-8

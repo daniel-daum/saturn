@@ -163,6 +163,13 @@ html {
     --accent: #cddc39;
     --accent-muted: #3a413b;
 
+    /* project status tags. green is the same mint as --rating-great, the
+       orange is tuned to sit between --rating-terrible and
+       --rating-below-average in hue so the warm end of the palette stays
+       coherent */
+    --status-completed: #7ec98f;
+    --status-in-development: #e89b52;
+
     /* rating scale (out of 5, half steps allowed) */
     --rating-terrible: #e86b6b;
     --rating-below-average: #d9a441;
@@ -178,8 +185,10 @@ html {
 
 /*============================*/
 /* rating scale */
-/* usage: <span class="rating rating--good">(3/5)</span> */
-/* swap the span for an <a> later and the styles still apply */
+/* usage: <a class="rating rating--good" href="/garden/ratings">(3/5)</a> */
+/* the <a> and <span> forms are visually identical at rest, so ratings that */
+/* sit inside another link (the tracker tiles) can stay spans without the */
+/* seam showing */
 /*============================*/
 
 .rating {
@@ -188,15 +197,32 @@ html {
     font-weight: 600;
 }
 
+/* transparent underline at rest so the link occupies the same box as the
+   span and only announces itself on hover */
 a.rating,
 a.rating:visited {
     color: var(--rating-color, var(--text-secondary));
     border-bottom: 1px solid transparent;
 }
 
+/* the global a:hover paints a lime fill with white text, which would bury
+   the rating color. same specificity as a.rating but declared later, so it
+   has to be turned off explicitly here rather than just left unset.
+   currentColor on the underline resolves to the rating color set just above,
+   so the number and its underline can never drift apart */
 a.rating:hover,
 a.rating:focus-visible {
+    color: var(--rating-color, var(--text-secondary));
+    background: none;
     border-bottom-color: currentColor;
+}
+
+/* the global a:focus-visible rings in --accent, which puts a lime box around
+   a number whose whole job is to be read as a color. ring in the rating's own
+   color instead - only the color is overridden, so the 2px solid and the
+   offset still come from the global rule */
+a.rating:focus-visible {
+    outline-color: var(--rating-color, var(--text-secondary));
 }
 
 .rating--terrible {
@@ -470,8 +496,104 @@ hr {
 }
 
 /*============================*/
-/* homepage - Recent writing section */
+/* homepage - recent writing */
+/* accent rule down the left, borrowed from the base blockquote treatment. */
+/* tag, title and meta all sit muted at rest and light up together on hover. */
 /*============================*/
+
+.recent-writing-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.35rem;
+    margin: 0;
+    padding: 0;
+}
+
+.recent-writing-item {
+    position: relative; /* containing block for the stretched title link */
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    margin: 0;
+    /* matches the base blockquote rule so the two read as the same device */
+    padding-left: 1.2rem;
+    border-left: 3px solid var(--accent);
+    cursor: pointer;
+}
+
+.recent-writing-tag {
+    margin: 0;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+    transition: color 150ms ease;
+}
+
+.recent-writing-title {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.recent-writing-title a {
+    color: var(--text-headings);
+    border-bottom: none;
+}
+
+/* stretch the link across the whole item so the tag and meta are clickable too -
+   same trick as .activity-link */
+.recent-writing-title a::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+}
+
+.recent-writing-meta {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 0;
+    padding: 0;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    color: var(--text-secondary);
+    transition: color 150ms ease;
+}
+
+.recent-writing-meta li {
+    margin: 0;
+}
+
+/* inherits the meta colour (so it follows the hover) but sits back a little */
+.recent-writing-meta li + li::before {
+    content: "|";
+    margin-right: 0.4rem;
+    opacity: 0.5;
+}
+
+/* all three lines go accent together. the title selector also has to beat the
+   global a:hover, which would otherwise block-fill it with the accent colour. */
+.recent-writing-item:hover .recent-writing-tag,
+.recent-writing-item:hover .recent-writing-title a,
+.recent-writing-item:hover .recent-writing-meta {
+    color: var(--accent);
+    background: none;
+}
+
+/* move the focus ring onto the stretched pseudo-element so it frames the whole
+   item instead of just the title text */
+.recent-writing-title a:focus-visible {
+    outline: none;
+}
+
+.recent-writing-title a:focus-visible::after {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+    border-radius: 2px;
+}
 
 .section-label {
     font-size: 0.78rem;
@@ -485,9 +607,6 @@ hr {
     border-top: none;
 }
 
-/* section header row: label on the left, optional "see all" action on the
-   right, sharing one line. keeps a section's heading and its escape hatch
-   from stacking as two separate blocks. wraps on narrow screens. */
 .section-head {
     display: flex;
     flex-wrap: wrap;
@@ -497,12 +616,10 @@ hr {
     margin: 2.5rem 0 0.75rem;
 }
 
-/* the row owns the spacing now, so the label drops its own margins */
 .section-head .section-label {
     margin: 0;
 }
 
-/* matches .section-label's type so the two read as one line of the same rank */
 .section-more {
     font-size: 0.72rem;
     font-weight: 600;
@@ -870,14 +987,23 @@ footer .meta {
     margin: 0;
 }
 
+/* bottom-of-page pager for blog posts and now pages: a centered
+   PREVIOUS | NEXT pair over a top rule. labels are written lowercase in the
+   source and uppercased here, per the convention in /garden/styles.
+   at the ends of a run, swap the missing side for .page-nav-disabled so the
+   pair stays balanced instead of offering a dead link. */
 .page-nav {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
+    gap: 0.5rem 0.9rem;
     margin-top: 3rem;
     padding-top: 1.5rem;
     border-top: 1px solid var(--borders);
     font-size: 0.9rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
 }
 
 .page-nav a {
@@ -886,8 +1012,31 @@ footer .meta {
 }
 
 .page-nav a:hover {
-    color: var(--accent-muted);
+    color: var(--accent);
     background: none;
+    border-bottom-color: var(--accent);
+}
+
+/* decorative divider - aria-hidden in the markup, same idiom as .ticker-sep */
+.page-nav-sep {
+    color: var(--borders);
+}
+
+.page-nav-disabled {
+    color: var(--text-secondary);
+    opacity: 0.4;
+}
+
+/* stack rather than wrap awkwardly around the divider */
+@media (max-width: 480px) {
+    .page-nav {
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+
+    .page-nav-sep {
+        display: none;
+    }
 }
 
 /*============================*/
@@ -1190,8 +1339,16 @@ button:focus:not(:focus-visible) {
         color: #666;
     }
 
-    .nav-back {
+    .nav-back,
+    .page-nav {
         display: none;
+    }
+
+    /* tinted fills don't survive printing; keep the outline and the text */
+    .status-tag {
+        background: none;
+        border-color: black;
+        color: black;
     }
 }
 
@@ -1431,6 +1588,58 @@ button:focus:not(:focus-visible) {
         flex-direction: column;
         gap: 1.25rem;
     }
+}
+
+/*============================*/
+/* project status tag */
+/* usage: <span class="status-tag status-tag--completed">completed</span> */
+/* --status-color is the single knob: set it on a modifier and the dot, */
+/* text, border and fill all follow */
+/*============================*/
+
+.status-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+
+    padding: 0.15rem 0.6rem;
+    border: 1px solid color-mix(in srgb, var(--status-color) 45%, transparent);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--status-color) 12%, transparent);
+
+    color: var(--status-color);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    line-height: 1.6;
+    white-space: nowrap;
+}
+
+/* status dot */
+.status-tag::before {
+    content: "";
+    width: 0.4rem;
+    height: 0.4rem;
+    flex: none;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+.status-tag--completed {
+    --status-color: var(--status-completed);
+}
+
+.status-tag--in-development {
+    --status-color: var(--status-in-development);
+}
+
+/* the card's top row stacks the type line above the tag */
+.project-card-left-top {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
 }
 
 /*============================*/

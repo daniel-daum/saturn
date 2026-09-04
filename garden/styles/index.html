@@ -14,14 +14,15 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
     <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+    <link rel="alternate" type="application/atom+xml" title="daniel daum" href="https://danieldaum.net/feed.xml" />
     <title>styles — daniel daum</title>
 </head>
 
 <body>
     <header class="site-header">
-        <a class="site-name" href="/index.html" aria-label="return home">DANIEL DAUM</a>
+        <a class="site-name" href="/" aria-label="return home">DANIEL DAUM</a>
         <nav aria-label="main navigation">
-            <a href="/index.html" aria-label="return home">HOME</a>
+            <a href="/" aria-label="return home">HOME</a>
             <a href="/about" aria-label="about me">ABOUT</a>
             <a href="/now" aria-label="now page">NOW</a>
             <a href="/blog" aria-label="blog">BLOG</a>
@@ -31,7 +32,7 @@
     </header>
 
     <main>
-        <span class="nav-back"><a href="/garden/">GARDEN</a> -> <a href="/garden/styles/">STYLES</a></span>
+        <span class="nav-back"><a href="/garden">GARDEN</a> -> <a href="/garden/styles">STYLES</a></span>
         <section>
             <h1>STYLES</h1>
             <p class="meta">A living reference for every design token, typographic element, and component class used on
@@ -644,7 +645,7 @@ console.log(result); // hello, world!</code></pre>
                 <div class="section-head" style="margin-top:0;">
                     <h2 class="section-label"
                         style="color: var(--text-secondary); font-size:0.78rem; letter-spacing:0.12em;">micro posts</h2>
-                    <a class="section-more" href="/blog/micro/">all micro posts &rarr;</a>
+                    <a class="section-more" href="/blog/micro">all micro posts &rarr;</a>
                 </div>
             </div>
 
@@ -658,13 +659,29 @@ console.log(result); // hello, world!</code></pre>
             </div>
 
             <h3>.page-nav</h3>
-            <p>Previous/next footer navigation on individual posts, bounded by a top rule.</p>
+            <p>
+                Previous/next footer navigation for blog posts and now pages, centered over a
+                top rule. Labels are written lowercase in the source and uppercased by css.
+                At the ends of a run, swap the missing side for
+                <code>.page-nav-disabled</code> so the pair stays balanced rather than
+                offering a dead link.
+            </p>
             <div class="demo-box">
                 <p class="demo-label">.page-nav</p>
-                <div class="page-nav" style="margin-top:0;">
-                    <a href="#layout">&larr; previous post</a>
-                    <a href="#layout">next post &rarr;</a>
-                </div>
+                <nav class="page-nav" style="margin-top:0;" aria-label="page navigation demo">
+                    <a href="#layout" rel="prev">&larr; previous</a>
+                    <span class="page-nav-sep" aria-hidden="true">|</span>
+                    <a href="#layout" rel="next">next &rarr;</a>
+                </nav>
+            </div>
+
+            <div class="demo-box">
+                <p class="demo-label">.page-nav &mdash; end of a run</p>
+                <nav class="page-nav" style="margin-top:0;" aria-label="page navigation demo">
+                    <a href="#layout" rel="prev">&larr; previous</a>
+                    <span class="page-nav-sep" aria-hidden="true">|</span>
+                    <span class="page-nav-disabled">next &rarr;</span>
+                </nav>
             </div>
         </section>
 
@@ -908,14 +925,14 @@ console.log(result); // hello, world!</code></pre>
                 <div class="micro-container">
                     <article class="micro-post">
                         <p class="meta"><span class="micro-at">@danieldaum</span><a class="micro-time"
-                                href="/blog/micro/">1 SEPTEMBER 2026 &middot; 18:42 PDT</a></p>
+                                href="/blog/micro">1 SEPTEMBER 2026 &middot; 18:42 PDT</a></p>
                         <p class="micro-body">took the osmo out for its first spin around town today. shot this waiting
                             for BART &mdash; barely any light on the platform and it still caught the motion exactly how
                             it felt.</p>
                     </article>
                     <article class="micro-post">
                         <p class="meta"><span class="micro-at">@danieldaum</span><a class="micro-time"
-                                href="/blog/micro/">31 AUGUST 2026 &middot; 13:07 PDT</a></p>
+                                href="/blog/micro">31 AUGUST 2026 &middot; 13:07 PDT</a></p>
                         <p class="micro-body">a second post, showing the divider that is drawn only between siblings.
                         </p>
                     </article>
@@ -941,7 +958,7 @@ console.log(result); // hello, world!</code></pre>
                 <article class="micro-post micro-featured">
                     <p class="meta">
                         <span class="micro-at">@danieldaum</span>
-                        <a class="micro-time" href="/blog/micro/">1 SEPTEMBER 2026 &middot; 18:42 PDT</a>
+                        <a class="micro-time" href="/blog/micro">1 SEPTEMBER 2026 &middot; 18:42 PDT</a>
                     </p>
                     <p class="micro-body">
                         took the osmo out for its first spin around town today. shot this waiting for BART
@@ -1112,8 +1129,9 @@ console.log(result); // hello, world!</code></pre>
                 rel="noopener noreferrer">GIT
             </a>
             <a href="/pgp.asc" aria-label="link to my pgp public key (516E97FF)">PGP</a>
-            <a href="/changelog.html">CHANGELOG</a>
+            <a href="/changelog">CHANGELOG</a>
             <a href="/privacy">PRIVACY</a>
+            <a href="/feed.xml">FEED</a>
         </nav>
     </footer>
 </body>
