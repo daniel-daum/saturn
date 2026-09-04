@@ -1135,6 +1135,157 @@ footer .meta {
     }
 }
 
+/*============================*/
+/* blog - likes and replies */
+/*============================*/
+
+/* sits under .post-body on every blog post; the middleware fills the two
+   placeholders inside it (see SOCIAL.md). same visual language as the micro
+   feed: small uppercase meta lines, accent name, muted timestamp. */
+.post-social {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--borders);
+}
+
+.post-social .meta {
+    margin: 0;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+}
+
+/* the like button is a plain text link, no box, no radius. it carries no
+   transition on purpose (prefers-reduced-motion never needs to undo one) */
+.like-form {
+    margin-bottom: 2rem;
+}
+
+.like-button,
+.moderate-button {
+    padding: 0;
+    border: none;
+    border-bottom: 1px solid var(--accent);
+    border-radius: 0;
+    background: none;
+    color: var(--accent);
+    font-size: 0.9rem;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    transition: none;
+}
+
+.like-button:hover,
+.moderate-button:hover {
+    color: #fff;
+    background-color: var(--accent);
+}
+
+/* disabled means "you already liked this": a state, not an error, so it keeps
+   full opacity and simply stops reacting */
+.like-button:disabled,
+.like-button:disabled:hover {
+    opacity: 1;
+    color: var(--accent);
+    background: none;
+    cursor: default;
+}
+
+.moderate-form {
+    margin-top: 1.5rem;
+}
+
+/* count on the left, mailto on the right, like the micro meta row */
+.reply-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.reply-link {
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+}
+
+.reply-thread {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* nested replies indent under a left rule, the blockquote treatment */
+.reply-thread .reply-thread {
+    margin-top: 0.5rem;
+    padding-left: 1rem;
+    border-left: 1px solid var(--borders);
+}
+
+.reply {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    padding: 1.25rem 0;
+}
+
+.reply-thread > li + li > .reply {
+    border-top: 1px solid color-mix(in srgb, var(--borders) 60%, transparent);
+}
+
+.reply:target {
+    background-color: color-mix(in srgb, var(--accent-muted) 30%, transparent);
+    box-shadow: inset 2px 0 0 var(--accent);
+    padding-left: 0.75rem;
+}
+
+/* meta row: name left, timestamp pinned right */
+.reply .meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    margin: 0;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+}
+
+.reply-name {
+    color: var(--accent);
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+.reply-time {
+    color: var(--text-secondary);
+    white-space: nowrap;
+    border-bottom: none;
+}
+
+.reply-time:hover {
+    color: var(--accent);
+    background: none;
+}
+
+.reply-body {
+    font-size: 0.92rem;
+    line-height: 1.8;
+    letter-spacing: 0.01em;
+    margin: 0;
+    text-wrap: pretty;
+}
+
+.reply > .reply-link {
+    align-self: flex-start;
+}
+
+@media (max-width: 480px) {
+    .reply-head {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
 /*==================================
 ==================================
 ==================================

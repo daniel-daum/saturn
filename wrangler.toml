@@ -1,0 +1,8 @@
+name = "saturn"
+pages_build_output_dir = "."
+compatibility_date = "2026-09-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "saturn-social"
+database_id = "2cc8bddd-d422-4d1e-8480-c1c75c8d02b0"

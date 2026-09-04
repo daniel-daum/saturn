@@ -4,3 +4,10 @@
 
 # wrangler (mise run preview)
 .wrangler/
+
+# secrets for local dev (mise run preview, mise run replies-dev)
+.dev.vars
+
+# email worker (workers/replies-inbound)
+workers/*/node_modules/
+workers/*/.wrangler/

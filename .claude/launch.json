@@ -7,6 +7,18 @@
       "runtimeArgs": ["exec", "--", "vite"],
       "port": 5173,
       "autoPort": true
+    },
+    {
+      "name": "preview",
+      "runtimeExecutable": "mise",
+      "runtimeArgs": ["run", "preview"],
+      "port": 8788
+    },
+    {
+      "name": "replies-dev",
+      "runtimeExecutable": "mise",
+      "runtimeArgs": ["run", "replies-dev"],
+      "port": 8787
     }
   ]
 }

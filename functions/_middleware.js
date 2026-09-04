@@ -1,5 +1,12 @@
 // Cloudflare Pages Functions middleware: injects Bluesky posts from my PDS
 // into the static pages at the edge. See MICRO.md for the full write-up.
+//
+// Blog post pages get a different treatment: like counts and the reply thread
+// are read from D1 and rendered into their data-likes / data-replies
+// placeholders. See SOCIAL.md. The two paths never overlap: a blog post never
+// triggers a PDS request, and a micro page never touches D1.
+
+import { isBlogPost, voterId } from "./_lib/social.js";
 
 const PDS_HOST = "https://atproto.danieldaum.net";
 const REPO_DID = "did:plc:be2e4qfe6docqcysyxxwvsor";
@@ -24,32 +31,72 @@ const ALLOWED_PATHS = new Set([
 
 const ACTIVITY_SNIPPET_LENGTH = 48;
 
+// Blog post likes and replies. Blog post pages match isBlogPost() rather than
+// ALLOWED_PATHS, so a new post needs no change here: only the placeholder
+// markup in the page (see SOCIAL.md).
+const SITE_URL = "https://danieldaum.net";
+const REPLY_ADDRESS = "reply@replies.danieldaum.net";
+const MAX_THREAD_DEPTH = 6;
+
 export async function onRequest(context) {
     const { pathname } = new URL(context.request.url);
-    if (!ALLOWED_PATHS.has(pathname)) {
+    if (!ALLOWED_PATHS.has(pathname) && !isBlogPost(pathname)) {
         return context.next();
     }
 
-    const response = await context.next();
+    let response = await context.next();
     const contentType = response.headers.get("content-type") || "";
     if (!contentType.includes("text/html")) {
         return response;
     }
 
-    const posts = await fetchPosts();
-    if (!posts) {
-        // PDS unreachable, errored, or has no posts: leave the static fallback
-        // markup ("NO POSTS YET") exactly as written in the HTML.
-        return response;
+    let posts = null;
+    let social = null;
+    if (isBlogPost(pathname)) {
+        social = await loadSocial(context, pathname);
+        if (!social) {
+            // D1 unreachable, errored, or the secret is missing: leave the
+            // static fallback markup ("LIKES UNAVAILABLE") exactly as written.
+            return response;
+        }
+        // The like count and liked-state are per visitor and change the moment
+        // the form is submitted, so the browser must not serve this page from
+        // its cache on back navigation.
+        response = new Response(response.body, response);
+        response.headers.set("Cache-Control", "private, no-cache");
+    } else {
+        posts = await fetchPosts();
+        if (!posts) {
+            // PDS unreachable, errored, or has no posts: leave the static fallback
+            // markup ("NO POSTS YET") exactly as written in the HTML.
+            return response;
+        }
     }
 
     return new HTMLRewriter()
         .on("[data-micro]", {
             element(el) {
+                if (!posts) {
+                    return;
+                }
                 const mode = el.getAttribute("data-micro");
                 const html = render(mode, posts);
                 if (html !== null) {
                     el.setInnerContent(html, { html: true });
+                }
+            },
+        })
+        .on("[data-likes]", {
+            element(el) {
+                if (social) {
+                    el.setInnerContent(renderLikes(social), { html: true });
+                }
+            },
+        })
+        .on("[data-replies]", {
+            element(el) {
+                if (social) {
+                    el.setInnerContent(renderReplies(social), { html: true });
                 }
             },
         })
@@ -91,6 +138,33 @@ async function fetchPosts() {
         .sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt));
 
     return posts.length > 0 ? posts : null;
+}
+
+// Like count, whether this visitor already liked today, and the live reply
+// rows for one blog post. Returns null on any failure so the page is served
+// with its fallback markup: D1 must never break a page.
+async function loadSocial(context, pathname) {
+    const { env, request } = context;
+    try {
+        const voter = await voterId(env.SOCIAL_SECRET, request);
+        const [likes, liked, replies] = await env.DB.batch([
+            env.DB.prepare("SELECT count FROM Likes WHERE page = ?").bind(pathname),
+            env.DB.prepare("SELECT 1 FROM LikeVoters WHERE page = ? AND voter = ?").bind(pathname, voter),
+            env.DB
+                .prepare(
+                    "SELECT guid, parent, name, message, created_at FROM Replies WHERE url = ? AND approved = 1 AND deleted_at IS NULL ORDER BY created_at ASC"
+                )
+                .bind(pathname),
+        ]);
+        return {
+            path: pathname,
+            count: Number(likes.results[0]?.count ?? 0),
+            liked: liked.results.length > 0,
+            replies: replies.results,
+        };
+    } catch {
+        return null;
+    }
 }
 
 function rkeyFromUri(uri) {
@@ -164,6 +238,118 @@ function blobUrl(cid) {
     url.searchParams.set("did", REPO_DID);
     url.searchParams.set("cid", cid);
     return escapeHtml(url.toString());
+}
+
+// ---------------------------------------------------------------------------
+// rendering: likes and replies
+
+function renderLikes({ path, count, liked }) {
+    const heart = liked ? "&#9829;" : "&#9825;";
+    const state = liked ? ` disabled aria-pressed="true"` : "";
+    return [
+        `<form class="like-form" method="POST" action="/api/like">`,
+        `    <input type="hidden" name="path" value="${escapeHtml(path)}" />`,
+        `    <button type="submit" class="like-button" aria-label="like this post"${state}>${heart} <span class="like-count">${count}</span></button>`,
+        `</form>`,
+    ].join("\n");
+}
+
+function renderReplies({ path, replies }) {
+    const n = replies.length;
+    const label = n === 0 ? "NO REPLIES YET" : n === 1 ? "1 REPLY" : `${n} REPLIES`;
+    const head = [
+        `<div class="reply-head">`,
+        `    <p class="meta">${label}</p>`,
+        `    <a class="reply-link" href="${replyHref(path, null)}">REPLY BY EMAIL &rarr;</a>`,
+        `</div>`,
+    ];
+    if (n === 0) {
+        return head.join("\n");
+    }
+    const byParent = groupByParent(replies);
+    return head.concat(renderThread(byParent, null, path, 0, new Set(), "")).join("\n");
+}
+
+// Children keyed by parent guid. A reply whose parent is gone (deleted, or
+// never existed) is re-parented to the top level rather than dropped.
+function groupByParent(replies) {
+    const live = new Set(replies.map((r) => r.guid));
+    const byParent = new Map();
+    for (const r of replies) {
+        const key = r.parent && live.has(r.parent) ? r.parent : null;
+        if (!byParent.has(key)) {
+            byParent.set(key, []);
+        }
+        byParent.get(key).push(r);
+    }
+    return byParent;
+}
+
+// One <ol class="reply-thread"> for the children of `parent`. Nesting stops at
+// MAX_THREAD_DEPTH: anything deeper is flattened into the list at that depth
+// so it still renders. `visited` guards against cycles in the parent column.
+function renderThread(byParent, parent, path, depth, visited, indent) {
+    const flatten = depth >= MAX_THREAD_DEPTH;
+    const items = (flatten ? descendants(byParent, parent, visited) : byParent.get(parent) || []).filter(
+        (r) => !visited.has(r.guid)
+    );
+    if (items.length === 0) {
+        return [];
+    }
+    const lines = [`${indent}<ol class="reply-thread">`];
+    for (const r of items) {
+        visited.add(r.guid);
+        const id = `reply-${escapeHtml(r.guid)}`;
+        const children = flatten ? [] : renderThread(byParent, r.guid, path, depth + 1, visited, `${indent}        `);
+        lines.push(
+            `${indent}    <li>`,
+            `${indent}        <article id="${id}" class="reply">`,
+            `${indent}            <p class="meta">`,
+            `${indent}                <span class="reply-name">${escapeHtml(r.name)}</span>`,
+            `${indent}                <a class="reply-time" href="#${id}"><time datetime="${escapeHtml(r.created_at)}">${formatTimestamp(r.created_at)}</time></a>`,
+            `${indent}            </p>`,
+            `${indent}            <p class="reply-body">${formatBody(r.message)}</p>`,
+            `${indent}            <a class="reply-link" href="${replyHref(path, r.guid)}">REPLY &rarr;</a>`,
+            ...children,
+            `${indent}        </article>`,
+            `${indent}    </li>`
+        );
+    }
+    lines.push(`${indent}</ol>`);
+    return lines;
+}
+
+// Every reply below `parent`, depth first, in thread order.
+function descendants(byParent, parent, visited) {
+    const out = [];
+    const stack = [...(byParent.get(parent) || [])].reverse();
+    const seen = new Set(visited);
+    while (stack.length > 0) {
+        const r = stack.pop();
+        if (seen.has(r.guid)) {
+            continue;
+        }
+        seen.add(r.guid);
+        out.push(r);
+        const kids = byParent.get(r.guid) || [];
+        for (let i = kids.length - 1; i >= 0; i--) {
+            stack.push(kids[i]);
+        }
+    }
+    return out;
+}
+
+// mailto: link with the post URL as the subject. Replying to a specific reply
+// carries its guid as a URL fragment in the subject; the inbound email worker
+// parses it back out to thread the comment.
+function replyHref(path, parentGuid) {
+    // path is /blog/<slug>/ and the guid is a UUID, so neither needs encoding;
+    // only the space and the "#" do.
+    let href = `mailto:${REPLY_ADDRESS}?subject=re:%20${SITE_URL}${path}`;
+    if (parentGuid) {
+        href += `%23${parentGuid}`;
+    }
+    return escapeHtml(href);
 }
 
 // ---------------------------------------------------------------------------

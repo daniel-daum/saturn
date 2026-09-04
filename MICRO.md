@@ -56,6 +56,9 @@ The allowlist is checked before anything is fetched, so a page that is not on
 it is served exactly as written and never causes a PDS request. Forgetting step
 2 means the placeholder stays as the fallback text forever.
 
+Blog post pages are not on the allowlist and never will be; their `data-likes`
+and `data-replies` injection is a separate path, documented in `SOCIAL.md`.
+
 If the new page needs images, add `https://atproto.danieldaum.net` to
 `img-src` in that page's CSP meta tag. Only the three pages listed above have
 that today.

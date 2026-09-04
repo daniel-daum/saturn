@@ -9,9 +9,11 @@ Crawl-delay: 10
 # Allow search engines
 User-agent: Googlebot
 Allow: /
+Disallow: /api/
 
 User-agent: Bingbot
 Allow: /
+Disallow: /api/
 
 # Block AI bots
 User-agent: CCBot

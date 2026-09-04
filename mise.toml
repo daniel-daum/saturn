@@ -9,3 +9,15 @@ description = "Start Vite dev server"
 [tasks.preview]
 run = "npx wrangler pages dev ."
 description = "Preview with Pages Functions (microblog injection)"
+
+[tasks.db-local]
+run = "npx wrangler d1 execute saturn-social --local --file=schema.sql"
+description = "Apply schema.sql to the local D1 database (likes and replies)"
+
+[tasks.db-remote]
+run = "npx wrangler d1 execute saturn-social --remote --file=schema.sql"
+description = "Apply schema.sql to the production D1 database"
+
+[tasks.replies-dev]
+run = "cd workers/replies-inbound && npx wrangler dev --persist-to ../../.wrangler/state"
+description = "Run the reply-by-email worker locally, sharing the local D1 with mise run preview"
