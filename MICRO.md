@@ -31,7 +31,7 @@ replaces its inner HTML. The attribute value picks what gets rendered:
 
 | Mode | Renders | Used on |
 |---|---|---|
-| `latest-activity` | one row's worth of content for an `<li class="activity-item">`: icon, `NEW MICRO POST &mdash; <excerpt>` link, and a `1 SEP` style date | `/` (activity feed) |
+| `latest-activity` | one row's worth of content for an `<li class="activity-item">`: icon, `NEW MICRO POST &mdash; <text>` link (or `3 NEW MICRO POSTS` when several landed on the same Pacific day), and a `1 SEP` style date. The text is capped at 140 characters server-side; the row never wraps and css fades whatever does not fit | `/` (activity feed) |
 | `latest-featured` | one `<article class="micro-post micro-featured">` for the newest post, timestamp linking to its anchor on `/blog/micro/`, images included | `/` (recent post card), `/blog` |
 | `all` | every post as `<article class="micro-post">`, newest first, each with an `id` anchor, images included | `/blog/micro/` |
 
@@ -45,12 +45,15 @@ presentable markup, not an empty div.
 
 ## Adding a new injection point
 
-Two steps, both required:
+Three steps, all required:
 
 1. Add an element with `data-micro="<mode>"` and fallback content to the page.
 2. Add every path form the page can be requested at to `ALLOWED_PATHS` in
    `functions/_middleware.js` (for a directory page that means `/foo`,
    `/foo/`, and `/foo/index.html`).
+3. Make sure `_routes.json` at the repo root routes the path through
+   Functions. Anything not listed in its `include` array is served straight
+   from the static asset store and never reaches the middleware.
 
 The allowlist is checked before anything is fetched, so a page that is not on
 it is served exactly as written and never causes a PDS request. Forgetting step

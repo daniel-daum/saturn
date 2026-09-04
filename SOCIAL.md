@@ -65,7 +65,7 @@ The like button is a plain form:
 ```html
 <form class="like-form" method="POST" action="/api/like">
     <input type="hidden" name="path" value="/blog/SLUG/" />
-    <button type="submit" class="like-button" aria-label="like this post">&#9825; <span class="like-count">0</span></button>
+    <button type="submit" class="like-button" aria-label="like this post, 0 likes">&#9825; <span class="like-count">0</span></button>
 </form>
 ```
 
@@ -99,7 +99,9 @@ are purged after two days on every call to `/api/like`.
 
 The middleware computes the same key for the current request to decide whether
 to render the button as already-liked (filled heart, `disabled`,
-`aria-pressed="true"`). Both sides call `voterId()` in `_lib/social.js` so they
+`aria-pressed="true"`, and an `aria-label` that says "you liked this post"
+rather than "like this post"). The label always carries the count, since the
+visible label is only a heart and a number. Both sides call `voterId()` in `_lib/social.js` so they
 cannot drift.
 
 ## Replies
@@ -199,6 +201,7 @@ is written inside them is the fallback: it is what visitors see if D1 throws,
 the secret is missing, or anything else goes wrong. The middleware never
 touches the page in that case (same rule as the PDS fallback in `MICRO.md`).
 There is no allowlist to update: any path matching `isBlogPost()` is handled.
+`_routes.json` already sends all of `/blog/*` and `/api/*` through Functions.
 
 Transformed blog post responses carry `Cache-Control: private, no-cache` so
 the back button after a like does not show a stale count.

@@ -8,38 +8,42 @@
     <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Bold.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/global.css" />
-    <link rel="icon" type="image/jpeg" href="/assets/favicon/coast.jpeg" />
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
     <link rel="manifest" href="/assets/favicon/site.webmanifest" />
     <link rel="alternate" type="application/atom+xml" title="daniel daum" href="https://danieldaum.net/feed.xml" />
-    <title>shows — daniel daum</title>
+    <title>daniel daum - shows</title>
 </head>
 
 <body class="tracker-page">
+    <a class="skip-link" href="#main">SKIP TO CONTENT</a>
 
     <!--HEADER-->
     <header class="site-header">
-        <a class="site-name" href="/" aria-label="return home">DANIEL DAUM</a>
+        <a class="site-name" href="/">DANIEL DAUM</a>
         <nav aria-label="main navigation">
-            <a href="/" aria-label="return home">HOME</a>
-            <a href="/about" aria-label="about me">ABOUT</a>
-            <a href="/now" aria-label="now page">NOW</a>
-            <a href="/blog" aria-label="blog">BLOG</a>
-            <a href="/projects" aria-label="projects">PROJECTS</a>
-            <a href="/garden" aria-label="garden">GARDEN</a>
+            <a href="/">HOME</a>
+            <a href="/about">ABOUT</a>
+            <a href="/now">NOW</a>
+            <a href="/blog">BLOG</a>
+            <a href="/projects">PROJECTS</a>
+            <a href="/garden">GARDEN</a>
         </nav>
     </header>
 
 
-    <main>
-        <span class="nav-back"><a href="/garden">GARDEN</a> -> <a href="/garden/shows">SHOWS</a></span>
+    <main id="main">
+        <span class="nav-back"><a href="/garden">GARDEN</a> <span aria-hidden="true">-></span> <a href="/garden/shows">SHOWS</a></span>
 
         <section>
             <h1>/SHOWS</h1>
-            <p class="meta">The shows I've watched, newest year first. Click a cover to read my note on it.
+            <p class="meta">The shows I've watched, newest year first. Click a cover to read my note on it.<br />
+                Ratings are a work in progress.
             </p>
         </section>
 
@@ -332,7 +336,7 @@
              entry, shared by the year tile and the favorites tile that both point at it.
              reuses the photo wall's .lightbox shell for the backdrop and close button. -->
 
-        <div class="lightbox" id="show-fav-2" tabindex="-1" aria-label="my note on Pluribus">
+        <div class="lightbox" role="dialog" id="show-fav-2" tabindex="-1" aria-label="my note on Pluribus">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -345,7 +349,7 @@
                     <a class="rating rating--great" href="/garden/ratings" aria-label="rated 5 out of 5, see my rating scale">(5/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the show goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
                     <a href="https://trakt.tv/" aria-label="Pluribus on TRAKT, opens in new tab" target="_blank"
@@ -354,7 +358,7 @@
             </article>
         </div>
 
-        <div class="lightbox" id="show-2026-06" tabindex="-1" aria-label="my note on Widow's Bay">
+        <div class="lightbox" role="dialog" id="show-2026-06" tabindex="-1" aria-label="my note on Widow's Bay">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -369,7 +373,7 @@
                     <a class="rating rating--great" href="/garden/ratings" aria-label="rated 5 out of 5, see my rating scale">(5/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the show goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
                     <a href="https://trakt.tv/" aria-label="Widow's Bay on TRAKT, opens in new tab" target="_blank"
@@ -378,7 +382,7 @@
             </article>
         </div>
 
-        <div class="lightbox" id="show-2026-05" tabindex="-1" aria-label="my note on Batman: Caped Crusader">
+        <div class="lightbox" role="dialog" id="show-2026-05" tabindex="-1" aria-label="my note on Batman: Caped Crusader">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -393,7 +397,7 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the show goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
                     <a href="https://trakt.tv/" aria-label="Batman: Caped Crusader on TRAKT, opens in new tab"
@@ -402,7 +406,7 @@
             </article>
         </div>
 
-        <div class="lightbox" id="show-2026-04" tabindex="-1" aria-label="my note on Invincible">
+        <div class="lightbox" role="dialog" id="show-2026-04" tabindex="-1" aria-label="my note on Invincible">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -417,7 +421,7 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the show goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
                     <a href="https://trakt.tv/" aria-label="Invincible on TRAKT, opens in new tab" target="_blank"
@@ -426,7 +430,7 @@
             </article>
         </div>
 
-        <div class="lightbox" id="show-2026-03" tabindex="-1" aria-label="my note on Slow Horses">
+        <div class="lightbox" role="dialog" id="show-2026-03" tabindex="-1" aria-label="my note on Slow Horses">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -441,7 +445,7 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the show goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
                     <a href="https://trakt.tv/" aria-label="Slow Horses on TRAKT, opens in new tab" target="_blank"
@@ -450,7 +454,7 @@
             </article>
         </div>
 
-        <div class="lightbox" id="show-2026-02" tabindex="-1"
+        <div class="lightbox" role="dialog" id="show-2026-02" tabindex="-1"
             aria-label="my note on Ghost in the Shell: Stand Alone Complex">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
@@ -466,7 +470,7 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the show goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
                     <a href="https://trakt.tv/"
@@ -476,7 +480,7 @@
             </article>
         </div>
 
-        <div class="lightbox" id="show-2026-01" tabindex="-1" aria-label="my note on Frieren: Beyond Journey's End">
+        <div class="lightbox" role="dialog" id="show-2026-01" tabindex="-1" aria-label="my note on Frieren: Beyond Journey's End">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -491,7 +495,7 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the show goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
                     <a href="https://trakt.tv/" aria-label="Frieren: Beyond Journey's End on TRAKT, opens in new tab"
@@ -500,7 +504,7 @@
             </article>
         </div>
 
-        <div class="lightbox" id="show-2025-06" tabindex="-1" aria-label="my note on Batman: Caped Crusader">
+        <div class="lightbox" role="dialog" id="show-2025-06" tabindex="-1" aria-label="my note on Batman: Caped Crusader">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -515,7 +519,7 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the show goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
                     <a href="https://trakt.tv/" aria-label="Batman: Caped Crusader on TRAKT, opens in new tab"
@@ -524,7 +528,7 @@
             </article>
         </div>
 
-        <div class="lightbox" id="show-2025-05" tabindex="-1" aria-label="my note on Pantheon">
+        <div class="lightbox" role="dialog" id="show-2025-05" tabindex="-1" aria-label="my note on Pantheon">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -537,7 +541,7 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the show goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
                     <a href="https://trakt.tv/" aria-label="Pantheon on TRAKT, opens in new tab" target="_blank"
@@ -546,7 +550,7 @@
             </article>
         </div>
 
-        <div class="lightbox" id="show-2025-04" tabindex="-1" aria-label="my note on Common Side Effects">
+        <div class="lightbox" role="dialog" id="show-2025-04" tabindex="-1" aria-label="my note on Common Side Effects">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -559,7 +563,7 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the show goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
                     <a href="https://trakt.tv/" aria-label="Common Side Effects on TRAKT, opens in new tab"
@@ -568,7 +572,7 @@
             </article>
         </div>
 
-        <div class="lightbox" id="show-2025-03" tabindex="-1" aria-label="my note on All Her Fault">
+        <div class="lightbox" role="dialog" id="show-2025-03" tabindex="-1" aria-label="my note on All Her Fault">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -581,7 +585,7 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the show goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
                     <a href="https://trakt.tv/" aria-label="All Her Fault on TRAKT, opens in new tab" target="_blank"
@@ -590,7 +594,7 @@
             </article>
         </div>
 
-        <div class="lightbox" id="show-2025-02" tabindex="-1" aria-label="my note on Severance">
+        <div class="lightbox" role="dialog" id="show-2025-02" tabindex="-1" aria-label="my note on Severance">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -603,7 +607,7 @@
                     <a class="rating rating--great" href="/garden/ratings" aria-label="rated 5 out of 5, see my rating scale">(5/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the show goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
                     <a href="https://trakt.tv/" aria-label="Severance on TRAKT, opens in new tab" target="_blank"
@@ -612,7 +616,7 @@
             </article>
         </div>
 
-        <div class="lightbox" id="show-2025-01" tabindex="-1" aria-label="my note on Neon Genesis Evangelion">
+        <div class="lightbox" role="dialog" id="show-2025-01" tabindex="-1" aria-label="my note on Neon Genesis Evangelion">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -625,7 +629,7 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the show goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
                     <a href="https://trakt.tv/" aria-label="Neon Genesis Evangelion on TRAKT, opens in new tab"

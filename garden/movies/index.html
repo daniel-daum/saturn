@@ -9,38 +9,42 @@
     <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Bold.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/global.css" />
-    <link rel="icon" type="image/jpeg" href="/assets/favicon/coast.jpeg" />
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
     <link rel="manifest" href="/assets/favicon/site.webmanifest" />
     <link rel="alternate" type="application/atom+xml" title="daniel daum" href="https://danieldaum.net/feed.xml" />
-    <title>movies — daniel daum</title>
+    <title>daniel daum - movies</title>
 </head>
 
 <body class="tracker-page">
+    <a class="skip-link" href="#main">SKIP TO CONTENT</a>
 
     <!--HEADER-->
     <header class="site-header">
-        <a class="site-name" href="/" aria-label="return home">DANIEL DAUM</a>
+        <a class="site-name" href="/">DANIEL DAUM</a>
         <nav aria-label="main navigation">
-            <a href="/" aria-label="return home">HOME</a>
-            <a href="/about" aria-label="about me">ABOUT</a>
-            <a href="/now" aria-label="now page">NOW</a>
-            <a href="/blog" aria-label="blog">BLOG</a>
-            <a href="/projects" aria-label="projects">PROJECTS</a>
-            <a href="/garden" aria-label="garden">GARDEN</a>
+            <a href="/">HOME</a>
+            <a href="/about">ABOUT</a>
+            <a href="/now">NOW</a>
+            <a href="/blog">BLOG</a>
+            <a href="/projects">PROJECTS</a>
+            <a href="/garden">GARDEN</a>
         </nav>
     </header>
 
 
-    <main>
-        <span class="nav-back"><a href="/garden">GARDEN</a> -> <a href="/garden/movies">MOVIES</a></span>
+    <main id="main">
+        <span class="nav-back"><a href="/garden">GARDEN</a> <span aria-hidden="true">-></span> <a href="/garden/movies">MOVIES</a></span>
 
         <section>
             <h1>/MOVIES</h1>
-            <p class="meta">The movies I've seen. Click a poster to read my note on it.
+            <p class="meta">The movies I've seen. Click a poster to read my note on it.<br />
+                Ratings are a work in progress.
             </p>
         </section>
 
@@ -675,7 +679,7 @@
              entry, shared by the year tile and the favorites tile that both point at it.
              reuses the photo wall's .lightbox shell for the backdrop and close button. -->
 
-        <div class="lightbox" id="movie-fav-1" tabindex="-1" aria-label="my note on Blade Runner 2049">
+        <div class="lightbox" role="dialog" id="movie-fav-1" tabindex="-1" aria-label="my note on Blade Runner 2049">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -690,7 +694,7 @@
                     <a class="rating rating--great" href="/garden/ratings" aria-label="rated 5 out of 5, see my rating scale">(5/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the film goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
                     <a href="https://www.imdb.com/title/tt1856101/"
@@ -700,7 +704,7 @@
             </article>
         </div>
 
-        <div class="lightbox" id="movie-fav-2" tabindex="-1" aria-label="my note on Ratatouille">
+        <div class="lightbox" role="dialog" id="movie-fav-2" tabindex="-1" aria-label="my note on Ratatouille">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -715,7 +719,7 @@
                     <a class="rating rating--great" href="/garden/ratings" aria-label="rated 5 out of 5, see my rating scale">(5/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the film goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
                     <a href="https://www.imdb.com/title/tt0382932/" aria-label="Ratatouille on IMDB, opens in new tab"
@@ -724,7 +728,7 @@
             </article>
         </div>
 
-        <div class="lightbox" id="movie-fav-4" tabindex="-1" aria-label="my note on The Incredibles">
+        <div class="lightbox" role="dialog" id="movie-fav-4" tabindex="-1" aria-label="my note on The Incredibles">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -739,7 +743,7 @@
                     <a class="rating rating--great" href="/garden/ratings" aria-label="rated 5 out of 5, see my rating scale">(5/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the film goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
                     <a href="https://www.imdb.com/title/tt0317705/"
@@ -749,7 +753,7 @@
             </article>
         </div>
 
-        <div class="lightbox" id="movie-fav-6" tabindex="-1" aria-label="my note on The Prestige">
+        <div class="lightbox" role="dialog" id="movie-fav-6" tabindex="-1" aria-label="my note on The Prestige">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -764,7 +768,7 @@
                     <a class="rating rating--great" href="/garden/ratings" aria-label="rated 5 out of 5, see my rating scale">(5/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the film goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
                     <a href="https://www.imdb.com/title/tt0482571/" aria-label="The Prestige on IMDB, opens in new tab"
@@ -773,7 +777,7 @@
             </article>
         </div>
 
-        <div class="lightbox" id="movie-fav-7" tabindex="-1" aria-label="my note on Spirited Away">
+        <div class="lightbox" role="dialog" id="movie-fav-7" tabindex="-1" aria-label="my note on Spirited Away">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -788,7 +792,7 @@
                     <a class="rating rating--great" href="/garden/ratings" aria-label="rated 5 out of 5, see my rating scale">(5/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the film goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
                     <a href="https://www.imdb.com/title/tt0245429/" aria-label="Spirited Away on IMDB, opens in new tab"
@@ -797,7 +801,7 @@
             </article>
         </div>
 
-        <div class="lightbox" id="movie-fav-8" tabindex="-1"
+        <div class="lightbox" role="dialog" id="movie-fav-8" tabindex="-1"
             aria-label="my note on Star Wars: Episode III - Revenge of the Sith">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
@@ -813,7 +817,7 @@
                     <a class="rating rating--great" href="/garden/ratings" aria-label="rated 5 out of 5, see my rating scale">(5/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the film goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
                     <a href="https://www.imdb.com/title/tt0121766/"
@@ -823,7 +827,7 @@
             </article>
         </div>
 
-        <div class="lightbox" id="movie-fav-9" tabindex="-1" aria-label="my note on Gladiator">
+        <div class="lightbox" role="dialog" id="movie-fav-9" tabindex="-1" aria-label="my note on Gladiator">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -838,7 +842,7 @@
                     <a class="rating rating--great" href="/garden/ratings" aria-label="rated 5 out of 5, see my rating scale">(5/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the film goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
                     <a href="https://www.imdb.com/title/tt0172495/" aria-label="Gladiator on IMDB, opens in new tab"
@@ -847,7 +851,7 @@
             </article>
         </div>
 
-        <div class="lightbox" id="movie-2026-14" tabindex="-1" aria-label="my note on Kiki's Delivery Service">
+        <div class="lightbox" role="dialog" id="movie-2026-14" tabindex="-1" aria-label="my note on Kiki's Delivery Service">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -862,7 +866,7 @@
                     <a class="rating rating--great" href="/garden/ratings" aria-label="rated 5 out of 5, see my rating scale">(5/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the film goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
                     <a href="https://www.imdb.com/title/tt0097814/"
@@ -872,7 +876,7 @@
             </article>
         </div>
 
-        <div class="lightbox" id="movie-2026-13" tabindex="-1" aria-label="my note on Ghost in the Shell">
+        <div class="lightbox" role="dialog" id="movie-2026-13" tabindex="-1" aria-label="my note on Ghost in the Shell">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -887,7 +891,7 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the film goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
                     <a href="https://www.imdb.com/title/tt0113568/"
@@ -897,7 +901,7 @@
             </article>
         </div>
 
-        <div class="lightbox" id="movie-2026-12" tabindex="-1" aria-label="my note on Oblivion">
+        <div class="lightbox" role="dialog" id="movie-2026-12" tabindex="-1" aria-label="my note on Oblivion">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -912,7 +916,7 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the film goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
                     <a href="https://www.imdb.com/title/tt1483013/" aria-label="Oblivion on IMDB, opens in new tab"
@@ -921,7 +925,7 @@
             </article>
         </div>
 
-        <div class="lightbox" id="movie-2026-11" tabindex="-1" aria-label="my note on The Girl with the Dragon Tattoo">
+        <div class="lightbox" role="dialog" id="movie-2026-11" tabindex="-1" aria-label="my note on The Girl with the Dragon Tattoo">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -936,7 +940,7 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the film goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
                     <a href="https://www.imdb.com/title/tt1568346/"
@@ -946,7 +950,7 @@
             </article>
         </div>
 
-        <div class="lightbox" id="movie-2026-10" tabindex="-1" aria-label="my note on Project Hail Mary">
+        <div class="lightbox" role="dialog" id="movie-2026-10" tabindex="-1" aria-label="my note on Project Hail Mary">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -961,7 +965,7 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the film goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
                     <a href="https://www.imdb.com/title/tt12042730/"
@@ -971,7 +975,7 @@
             </article>
         </div>
 
-        <div class="lightbox" id="movie-2026-09" tabindex="-1" aria-label="my note on Oldboy">
+        <div class="lightbox" role="dialog" id="movie-2026-09" tabindex="-1" aria-label="my note on Oldboy">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -986,7 +990,7 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the film goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
                     <a href="https://www.imdb.com/title/tt0364569/" aria-label="Oldboy on IMDB, opens in new tab"
@@ -995,7 +999,7 @@
             </article>
         </div>
 
-        <div class="lightbox" id="movie-2026-08" tabindex="-1" aria-label="my note on The Thing">
+        <div class="lightbox" role="dialog" id="movie-2026-08" tabindex="-1" aria-label="my note on The Thing">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -1010,7 +1014,7 @@
                     <a class="rating rating--great" href="/garden/ratings" aria-label="rated 5 out of 5, see my rating scale">(5/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the film goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
                     <a href="https://www.imdb.com/title/tt0084787/" aria-label="The Thing on IMDB, opens in new tab"
@@ -1019,7 +1023,7 @@
             </article>
         </div>
 
-        <div class="lightbox" id="movie-2026-07" tabindex="-1" aria-label="my note on Children of Men">
+        <div class="lightbox" role="dialog" id="movie-2026-07" tabindex="-1" aria-label="my note on Children of Men">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -1034,7 +1038,7 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the film goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
                     <a href="https://www.imdb.com/title/tt0206634/"
@@ -1044,7 +1048,7 @@
             </article>
         </div>
 
-        <div class="lightbox" id="movie-2026-06" tabindex="-1" aria-label="my note on Starship Troopers">
+        <div class="lightbox" role="dialog" id="movie-2026-06" tabindex="-1" aria-label="my note on Starship Troopers">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -1059,7 +1063,7 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the film goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
                     <a href="https://www.imdb.com/title/tt0120201/"
@@ -1069,7 +1073,7 @@
             </article>
         </div>
 
-        <div class="lightbox" id="movie-2026-05" tabindex="-1" aria-label="my note on Vampire Hunter D: Bloodlust">
+        <div class="lightbox" role="dialog" id="movie-2026-05" tabindex="-1" aria-label="my note on Vampire Hunter D: Bloodlust">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -1084,7 +1088,7 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the film goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
                     <a href="https://www.imdb.com/title/tt0216651/"
@@ -1094,7 +1098,7 @@
             </article>
         </div>
 
-        <div class="lightbox" id="movie-2026-04" tabindex="-1" aria-label="my note on Tropic Thunder">
+        <div class="lightbox" role="dialog" id="movie-2026-04" tabindex="-1" aria-label="my note on Tropic Thunder">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -1109,7 +1113,7 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the film goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
                     <a href="https://www.imdb.com/title/tt0942385/"
@@ -1119,7 +1123,7 @@
             </article>
         </div>
 
-        <div class="lightbox" id="movie-2026-03" tabindex="-1" aria-label="my note on The Sheep Detectives">
+        <div class="lightbox" role="dialog" id="movie-2026-03" tabindex="-1" aria-label="my note on The Sheep Detectives">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -1134,7 +1138,7 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the film goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
                     <a href="https://www.imdb.com/title/tt32565993/"
@@ -1144,7 +1148,7 @@
             </article>
         </div>
 
-        <div class="lightbox" id="movie-2026-02" tabindex="-1" aria-label="my note on The Rip">
+        <div class="lightbox" role="dialog" id="movie-2026-02" tabindex="-1" aria-label="my note on The Rip">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -1159,7 +1163,7 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the film goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
                     <a href="https://www.imdb.com/title/tt32642706/" aria-label="The Rip on IMDB, opens in new tab"
@@ -1168,7 +1172,7 @@
             </article>
         </div>
 
-        <div class="lightbox" id="movie-2026-01" tabindex="-1"
+        <div class="lightbox" role="dialog" id="movie-2026-01" tabindex="-1"
             aria-label="my note on Spider-Man: Into the Spider-Verse">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
@@ -1184,7 +1188,7 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the film goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
                     <a href="https://www.imdb.com/title/tt4633694/"
@@ -1194,7 +1198,7 @@
             </article>
         </div>
 
-        <div class="lightbox" id="movie-2025-12" tabindex="-1" aria-label="my note on A House of Dynamite">
+        <div class="lightbox" role="dialog" id="movie-2025-12" tabindex="-1" aria-label="my note on A House of Dynamite">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -1209,7 +1213,7 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the film goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
                     <a href="https://www.imdb.com/title/tt32376165/"
@@ -1219,7 +1223,7 @@
             </article>
         </div>
 
-        <div class="lightbox" id="movie-2025-11" tabindex="-1" aria-label="my note on Sinners">
+        <div class="lightbox" role="dialog" id="movie-2025-11" tabindex="-1" aria-label="my note on Sinners">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -1234,7 +1238,7 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the film goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
                     <a href="https://www.imdb.com/title/tt31193180/" aria-label="Sinners on IMDB, opens in new tab"
@@ -1243,7 +1247,7 @@
             </article>
         </div>
 
-        <div class="lightbox" id="movie-2025-10" tabindex="-1"
+        <div class="lightbox" role="dialog" id="movie-2025-10" tabindex="-1"
             aria-label="my note on Wake Up Dead Man: A Knives Out Mystery">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
@@ -1259,7 +1263,7 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the film goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
                     <a href="https://www.imdb.com/title/tt14364480/"
@@ -1269,7 +1273,7 @@
             </article>
         </div>
 
-        <div class="lightbox" id="movie-2025-09" tabindex="-1" aria-label="my note on Weapons">
+        <div class="lightbox" role="dialog" id="movie-2025-09" tabindex="-1" aria-label="my note on Weapons">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -1284,7 +1288,7 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the film goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
                     <a href="https://www.imdb.com/title/tt26581740/" aria-label="Weapons on IMDB, opens in new tab"
@@ -1293,7 +1297,7 @@
             </article>
         </div>
 
-        <div class="lightbox" id="movie-2025-08" tabindex="-1" aria-label="my note on Alien: Romulus">
+        <div class="lightbox" role="dialog" id="movie-2025-08" tabindex="-1" aria-label="my note on Alien: Romulus">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -1308,7 +1312,7 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the film goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
                     <a href="https://www.imdb.com/title/tt18412256/"
@@ -1318,7 +1322,7 @@
             </article>
         </div>
 
-        <div class="lightbox" id="movie-2025-07" tabindex="-1" aria-label="my note on Smile">
+        <div class="lightbox" role="dialog" id="movie-2025-07" tabindex="-1" aria-label="my note on Smile">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -1333,7 +1337,7 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the film goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
                     <a href="https://www.imdb.com/title/tt15474916/" aria-label="Smile on IMDB, opens in new tab"
@@ -1342,7 +1346,7 @@
             </article>
         </div>
 
-        <div class="lightbox" id="movie-2025-06" tabindex="-1" aria-label="my note on F1">
+        <div class="lightbox" role="dialog" id="movie-2025-06" tabindex="-1" aria-label="my note on F1">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -1357,7 +1361,7 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the film goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
                     <a href="https://www.imdb.com/title/tt16311594/" aria-label="F1 on IMDB, opens in new tab"
@@ -1366,7 +1370,7 @@
             </article>
         </div>
 
-        <div class="lightbox" id="movie-2025-05" tabindex="-1" aria-label="my note on Longlegs">
+        <div class="lightbox" role="dialog" id="movie-2025-05" tabindex="-1" aria-label="my note on Longlegs">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -1381,7 +1385,7 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the film goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
                     <a href="https://www.imdb.com/title/tt23468450/" aria-label="Longlegs on IMDB, opens in new tab"
@@ -1390,7 +1394,7 @@
             </article>
         </div>
 
-        <div class="lightbox" id="movie-2025-04" tabindex="-1" aria-label="my note on Poor Things">
+        <div class="lightbox" role="dialog" id="movie-2025-04" tabindex="-1" aria-label="my note on Poor Things">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -1405,7 +1409,7 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the film goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
                     <a href="https://www.imdb.com/title/tt14230458/" aria-label="Poor Things on IMDB, opens in new tab"
@@ -1414,7 +1418,7 @@
             </article>
         </div>
 
-        <div class="lightbox" id="movie-2025-03" tabindex="-1" aria-label="my note on Kinds of Kindness">
+        <div class="lightbox" role="dialog" id="movie-2025-03" tabindex="-1" aria-label="my note on Kinds of Kindness">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -1429,7 +1433,7 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the film goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
                     <a href="https://www.imdb.com/title/tt22408160/"
@@ -1439,7 +1443,7 @@
             </article>
         </div>
 
-        <div class="lightbox" id="movie-2025-02" tabindex="-1" aria-label="my note on Prey">
+        <div class="lightbox" role="dialog" id="movie-2025-02" tabindex="-1" aria-label="my note on Prey">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -1454,7 +1458,7 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the film goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
                     <a href="https://www.imdb.com/title/tt11866324/" aria-label="Prey on IMDB, opens in new tab"
@@ -1463,7 +1467,7 @@
             </article>
         </div>
 
-        <div class="lightbox" id="movie-2025-01" tabindex="-1" aria-label="my note on The Iron Claw">
+        <div class="lightbox" role="dialog" id="movie-2025-01" tabindex="-1" aria-label="my note on The Iron Claw">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -1478,7 +1482,7 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the film goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
                     <a href="https://www.imdb.com/title/tt21064584/"

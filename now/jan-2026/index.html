@@ -8,8 +8,10 @@
     <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Bold.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/global.css" />
-    <link rel="icon" type="image/jpeg" href="/assets/favicon/coast.jpeg" />
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
@@ -19,24 +21,25 @@
 </head>
 
 <body>
+    <a class="skip-link" href="#main">SKIP TO CONTENT</a>
     <!--HEADER-->
     <header class="site-header">
-        <a class="site-name" href="/" aria-label="return home">DANIEL DAUM</a>
+        <a class="site-name" href="/">DANIEL DAUM</a>
         <nav aria-label="main navigation">
-            <a href="/" aria-label="return home">HOME</a>
-            <a href="/about" aria-label="about me">ABOUT</a>
-            <a href="/now" aria-label="now page">NOW</a>
-            <a href="/blog" aria-label="blog">BLOG</a>
-            <a href="/projects" aria-label="projects">PROJECTS</a>
-            <a href="/garden" aria-label="garden">GARDEN</a>
+            <a href="/">HOME</a>
+            <a href="/about">ABOUT</a>
+            <a href="/now">NOW</a>
+            <a href="/blog">BLOG</a>
+            <a href="/projects">PROJECTS</a>
+            <a href="/garden">GARDEN</a>
         </nav>
     </header>
 
-    <main>
+    <main id="main">
 
         <section class="hero">
             <h1>/NOW</h1>
-            <p class="meta">MY FIRST NOW PAGE | 21 JANUARY 2026</p>
+            <p class="meta meta-split"><span>MY FIRST NOW PAGE</span><span class="meta-sep" aria-hidden="true">|</span><span>21 JANUARY 2026</span></p>
 
         </section>
 
@@ -173,12 +176,11 @@
                         rel="noopener noreferrer">indika by odd meter</a> <a class="rating rating--good" href="/garden/ratings" aria-label="rated 3 out of 5, see my rating scale">(3/5)</a></li>
             </ul>
         </section>
-
-        <!-- oldest now page, so there is no earlier one to link to -->
-        <nav class="page-nav" aria-label="now page navigation">
-            <span class="page-nav-disabled">&larr; previous</span>
+        <!-- pager follows the writing table on /blog, oldest at the bottom: jan-2026 now, about, sep-2026 now -->
+        <nav class="page-nav" aria-label="post navigation">
+            <span class="page-nav-disabled">&larr; <span class="page-nav-text">previous</span></span>
             <span class="page-nav-sep" aria-hidden="true">|</span>
-            <a href="/now" rel="next">next &rarr;</a>
+            <a href="/about" rel="next" aria-label="next"><span class="page-nav-text">next</span> &rarr;</a>
         </nav>
     </main>
     <!--FOOTER-->

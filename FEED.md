@@ -170,11 +170,15 @@ When you write the next now page:
 1. Copy the *current* `now/index.html` to `now/MONTH-YEAR/index.html` — this
    freezes the outgoing edition at a permanent URL.
 2. In that new archive copy, change the blockquote to point readers at `/now` for
-   the current edition, and set the `page-nav` `next` link to `/now`.
-3. In the *previous* archive, change its `page-nav` `next` link from `/now` to the
-   archive you just created.
-4. Now overwrite `now/index.html` with the new edition, and set its `page-nav`
-   `prev` to the archive you just created.
+   the current edition.
+3. Fix the `page-nav` pagers. The pager is not now-page specific: it walks the
+   writing table on `/blog` from the oldest entry (bottom) to the newest (top),
+   and every page in that table carries one. So the archive you just created
+   gets `next` pointing at the new edition's archive URL, the new
+   `now/index.html` (and its archive twin) gets `prev` pointing at the archive
+   you just created and a disabled `next`, and any page between them in the
+   table (an `/about` rewrite, a blog post) links to its neighbours.
+4. Now overwrite `now/index.html` with the new edition.
 5. Add a feed entry pointing at the **archive** URL, e.g.
    `https://danieldaum.net/now/oct-2026/`.
 6. Repoint the two listing links at the new archive, so they keep pointing at the

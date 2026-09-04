@@ -5,7 +5,7 @@
 // and link scanners prefetch URLs. Only the POST from the confirm page's form
 // performs the delete. Both require a valid signature over the reply guid.
 
-import { hmacHex, safeEqual } from "../_lib/social.js";
+import { escapeHtml, hmacHex, safeEqual } from "../_lib/social.js";
 
 const GUID_RE = /^[0-9a-f-]{36}$/;
 const PREVIEW_LENGTH = 200;
@@ -118,28 +118,32 @@ function page(title, lines) {
     <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Bold.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/global.css" />
-    <link rel="icon" type="image/jpeg" href="/assets/favicon/coast.jpeg" />
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="/assets/favicon/site.webmanifest" />
     <title>daniel daum - ${escapeHtml(title.toLowerCase())}</title>
 </head>
 
 <body>
+    <a class="skip-link" href="#main">SKIP TO CONTENT</a>
     <header class="site-header">
-        <a class="site-name" href="/" aria-label="return home">DANIEL DAUM</a>
+        <a class="site-name" href="/">DANIEL DAUM</a>
         <nav aria-label="main navigation">
-            <a href="/" aria-label="return home">HOME</a>
-            <a href="/about" aria-label="about me">ABOUT</a>
-            <a href="/now" aria-label="now page">NOW</a>
-            <a href="/blog" aria-label="blog">BLOG</a>
-            <a href="/projects" aria-label="projects">PROJECTS</a>
-            <a href="/garden" aria-label="garden">GARDEN</a>
+            <a href="/">HOME</a>
+            <a href="/about">ABOUT</a>
+            <a href="/now">NOW</a>
+            <a href="/blog">BLOG</a>
+            <a href="/projects">PROJECTS</a>
+            <a href="/garden">GARDEN</a>
         </nav>
     </header>
 
-    <main>
+    <main id="main">
         <section class="hero">
             <h1>/${escapeHtml(title)}</h1>
         </section>
@@ -158,12 +162,4 @@ function page(title, lines) {
             "Cache-Control": "private, no-store",
         },
     });
-}
-
-function escapeHtml(str) {
-    return String(str)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;");
 }

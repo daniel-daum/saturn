@@ -8,31 +8,34 @@
     <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://assets.danieldaum.net https://atproto.danieldaum.net; media-src 'self' https://assets.danieldaum.net;" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Bold.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/global.css" />
-    <link rel="icon" type="image/jpeg" href="/assets/favicon/coast.jpeg" />
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
     <link rel="manifest" href="/assets/favicon/site.webmanifest" />
     <link rel="alternate" type="application/atom+xml" title="daniel daum" href="https://danieldaum.net/feed.xml" />
-    <title>blog</title>
+    <title>daniel daum - blog</title>
 </head>
 
 <body>
+    <a class="skip-link" href="#main">SKIP TO CONTENT</a>
     <!--HEADER-->
     <header class="site-header">
-        <a class="site-name" href="/" aria-label="return home">DANIEL DAUM</a>
+        <a class="site-name" href="/">DANIEL DAUM</a>
         <nav aria-label="main navigation">
-            <a href="/" aria-label="return home">HOME</a>
-            <a href="/about" aria-label="about me">ABOUT</a>
-            <a href="/now" aria-label="now page">NOW</a>
-            <a href="/blog" aria-label="blog">BLOG</a>
-            <a href="/projects" aria-label="projects">PROJECTS</a>
-            <a href="/garden" aria-label="garden">GARDEN</a>
+            <a href="/">HOME</a>
+            <a href="/about">ABOUT</a>
+            <a href="/now">NOW</a>
+            <a href="/blog">BLOG</a>
+            <a href="/projects">PROJECTS</a>
+            <a href="/garden">GARDEN</a>
         </nav>
     </header>
 
-    <main>
+    <main id="main">
         <section class="hero">
             <h1>/BLOG</h1>
             <p class="meta">Things I've written &mdash; posts, notes, project logs, and now pages</p>
@@ -57,12 +60,13 @@
             <table class="content-table">
                 <thead>
                     <tr>
-                        <th class="col-title">title</th>
-                        <th class="col-date">date</th>
-                        <th class="col-tag">tags</th>
+                        <th scope="col" class="col-title">title</th>
+                        <th scope="col" class="col-date">date</th>
+                        <th scope="col" class="col-tag">tags</th>
                     </tr>
                 </thead>
                 <tbody>
+
                     <tr class="table-row">
                         <td><a class="table-title" href="/now/sep-2026/">WAKE ME UP WHEN SEPTEMBER ENDS</a></td>
                         <td class="table-date"><time datetime="2026-09-03">3 SEPTEMBER 2026</time></td>

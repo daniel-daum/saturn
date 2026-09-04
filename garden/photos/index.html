@@ -8,34 +8,37 @@
     <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Bold.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/global.css" />
-    <link rel="icon" type="image/jpeg" href="/assets/favicon/coast.jpeg" />
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
     <link rel="manifest" href="/assets/favicon/site.webmanifest" />
     <link rel="alternate" type="application/atom+xml" title="daniel daum" href="https://danieldaum.net/feed.xml" />
-    <title>photos — daniel daum</title>
+    <title>daniel daum - photos</title>
 </head>
 
 <body class="photos-page">
+    <a class="skip-link" href="#main">SKIP TO CONTENT</a>
 
     <!--HEADER-->
     <header class="site-header">
-        <a class="site-name" href="/" aria-label="return home">DANIEL DAUM</a>
+        <a class="site-name" href="/">DANIEL DAUM</a>
         <nav aria-label="main navigation">
-            <a href="/" aria-label="return home">HOME</a>
-            <a href="/about" aria-label="about me">ABOUT</a>
-            <a href="/now" aria-label="now page">NOW</a>
-            <a href="/blog" aria-label="blog">BLOG</a>
-            <a href="/projects" aria-label="projects">PROJECTS</a>
-            <a href="/garden" aria-label="garden">GARDEN</a>
+            <a href="/">HOME</a>
+            <a href="/about">ABOUT</a>
+            <a href="/now">NOW</a>
+            <a href="/blog">BLOG</a>
+            <a href="/projects">PROJECTS</a>
+            <a href="/garden">GARDEN</a>
         </nav>
     </header>
 
 
-    <main>
-        <span class="nav-back"><a href="/garden">GARDEN</a> -> <a href="/garden/photos">PHOTOS</a></span>
+    <main id="main">
+        <span class="nav-back"><a href="/garden">GARDEN</a> <span aria-hidden="true">-></span> <a href="/garden/photos">PHOTOS</a></span>
 
         <section>
             <h1>/PHOTOS</h1>
@@ -225,7 +228,7 @@
         <!--LIGHTBOX-->
         <!--LIGHTBOX-->
 
-        <div class="lightbox" id="view-14" tabindex="-1"
+        <div class="lightbox" role="dialog" id="view-14" tabindex="-1"
             aria-label="Berkeley Aquatic Park — Berkeley, California, full size">
             <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
             <a class="lightbox-nav lightbox-prev" href="#view-1" aria-label="previous image">‹</a>
@@ -244,7 +247,7 @@
             <a class="lightbox-nav lightbox-next" href="#view-13" aria-label="next image">›</a>
         </div>
 
-        <div class="lightbox" id="view-13" tabindex="-1" aria-label="Neighbor Snail — Oakland, California, full size">
+        <div class="lightbox" role="dialog" id="view-13" tabindex="-1" aria-label="Neighbor Snail — Oakland, California, full size">
             <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
             <a class="lightbox-nav lightbox-prev" href="#view-14" aria-label="previous image">‹</a>
             <a class="lightbox-close" href="#" aria-label="close full size image">✕</a>
@@ -262,7 +265,7 @@
             <a class="lightbox-nav lightbox-next" href="#view-12" aria-label="next image">›</a>
         </div>
 
-        <div class="lightbox" id="view-12" tabindex="-1" aria-label="Fire Truck — San Francisco, California, full size">
+        <div class="lightbox" role="dialog" id="view-12" tabindex="-1" aria-label="Fire Truck — San Francisco, California, full size">
             <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
             <a class="lightbox-nav lightbox-prev" href="#view-13" aria-label="previous image">‹</a>
             <a class="lightbox-close" href="#" aria-label="close full size image">✕</a>
@@ -280,7 +283,7 @@
             <a class="lightbox-nav lightbox-next" href="#view-11" aria-label="next image">›</a>
         </div>
 
-        <div class="lightbox" id="view-11" tabindex="-1"
+        <div class="lightbox" role="dialog" id="view-11" tabindex="-1"
             aria-label="Oracle Park — San Francisco, California, full size">
             <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
             <a class="lightbox-nav lightbox-prev" href="#view-12" aria-label="previous image">‹</a>
@@ -298,7 +301,7 @@
             <a class="lightbox-nav lightbox-next" href="#view-10" aria-label="next image">›</a>
         </div>
 
-        <div class="lightbox" id="view-10" tabindex="-1" aria-label="Swim Prep — Lake Michigan, full size">
+        <div class="lightbox" role="dialog" id="view-10" tabindex="-1" aria-label="Swim Prep — Lake Michigan, full size">
             <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
             <a class="lightbox-nav lightbox-prev" href="#view-11" aria-label="previous image">‹</a>
             <a class="lightbox-close" href="#" aria-label="close full size image">✕</a>
@@ -316,7 +319,7 @@
             <a class="lightbox-nav lightbox-next" href="#view-9" aria-label="next image">›</a>
         </div>
 
-        <div class="lightbox" id="view-9" tabindex="-1" aria-label="Blond Racoon — Oakland, California, full size">
+        <div class="lightbox" role="dialog" id="view-9" tabindex="-1" aria-label="Blond Racoon — Oakland, California, full size">
             <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
             <a class="lightbox-nav lightbox-prev" href="#view-10" aria-label="previous image">‹</a>
             <a class="lightbox-close" href="#" aria-label="close full size image">✕</a>
@@ -334,7 +337,7 @@
             <a class="lightbox-nav lightbox-next" href="#view-8" aria-label="next image">›</a>
         </div>
 
-        <div class="lightbox" id="view-8" tabindex="-1"
+        <div class="lightbox" role="dialog" id="view-8" tabindex="-1"
             aria-label="Transamerica Pyramid — San Francisco, California, full size">
             <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
             <a class="lightbox-nav lightbox-prev" href="#view-9" aria-label="previous image">‹</a>
@@ -353,7 +356,7 @@
             <a class="lightbox-nav lightbox-next" href="#view-7" aria-label="next image">›</a>
         </div>
 
-        <div class="lightbox" id="view-7" tabindex="-1" aria-label="Wildcat Beach — Point Reyes, California, full size">
+        <div class="lightbox" role="dialog" id="view-7" tabindex="-1" aria-label="Wildcat Beach — Point Reyes, California, full size">
             <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
             <a class="lightbox-nav lightbox-prev" href="#view-8" aria-label="previous image">‹</a>
             <a class="lightbox-close" href="#" aria-label="close full size image">✕</a>
@@ -371,7 +374,7 @@
             <a class="lightbox-nav lightbox-next" href="#view-6" aria-label="next image">›</a>
         </div>
 
-        <div class="lightbox" id="view-6" tabindex="-1"
+        <div class="lightbox" role="dialog" id="view-6" tabindex="-1"
             aria-label="Boat on Lake Tahoe — Lake Tahoe, California, full size">
             <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
             <a class="lightbox-nav lightbox-prev" href="#view-7" aria-label="previous image">‹</a>
@@ -390,7 +393,7 @@
             <a class="lightbox-nav lightbox-next" href="#view-5" aria-label="next image">›</a>
         </div>
 
-        <div class="lightbox" id="view-5" tabindex="-1"
+        <div class="lightbox" role="dialog" id="view-5" tabindex="-1"
             aria-label="Regatta Lineup — West Sacramento, California, full size">
             <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
             <a class="lightbox-nav lightbox-prev" href="#view-6" aria-label="previous image">‹</a>
@@ -409,7 +412,7 @@
             <a class="lightbox-nav lightbox-next" href="#view-4" aria-label="next image">›</a>
         </div>
 
-        <div class="lightbox" id="view-4" tabindex="-1" aria-label="Pines and Moon — California, full size">
+        <div class="lightbox" role="dialog" id="view-4" tabindex="-1" aria-label="Pines and Moon — California, full size">
             <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
             <a class="lightbox-nav lightbox-prev" href="#view-5" aria-label="previous image">‹</a>
             <a class="lightbox-close" href="#" aria-label="close full size image">✕</a>
@@ -427,7 +430,7 @@
             <a class="lightbox-nav lightbox-next" href="#view-3" aria-label="next image">›</a>
         </div>
 
-        <div class="lightbox" id="view-3" tabindex="-1" aria-label="White Rose — California, full size">
+        <div class="lightbox" role="dialog" id="view-3" tabindex="-1" aria-label="White Rose — California, full size">
             <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
             <a class="lightbox-nav lightbox-prev" href="#view-4" aria-label="previous image">‹</a>
             <a class="lightbox-close" href="#" aria-label="close full size image">✕</a>
@@ -445,7 +448,7 @@
             <a class="lightbox-nav lightbox-next" href="#view-2" aria-label="next image">›</a>
         </div>
 
-        <div class="lightbox" id="view-2" tabindex="-1" aria-label="Farm and Forest — California, full size">
+        <div class="lightbox" role="dialog" id="view-2" tabindex="-1" aria-label="Farm and Forest — California, full size">
             <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
             <a class="lightbox-nav lightbox-prev" href="#view-3" aria-label="previous image">‹</a>
             <a class="lightbox-close" href="#" aria-label="close full size image">✕</a>
@@ -463,7 +466,7 @@
             <a class="lightbox-nav lightbox-next" href="#view-1" aria-label="next image">›</a>
         </div>
 
-        <div class="lightbox" id="view-1" tabindex="-1" aria-label="BART, Blurry — Oakland, California, full size">
+        <div class="lightbox" role="dialog" id="view-1" tabindex="-1" aria-label="BART, Blurry — Oakland, California, full size">
             <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
             <a class="lightbox-nav lightbox-prev" href="#view-2" aria-label="previous image">‹</a>
             <!-- next wraps to the newest photo -->

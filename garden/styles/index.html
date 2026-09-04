@@ -8,31 +8,34 @@
     <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Bold.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/global.css" />
-    <link rel="icon" type="image/jpeg" href="/assets/favicon/coast.jpeg" />
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
     <link rel="manifest" href="/assets/favicon/site.webmanifest" />
     <link rel="alternate" type="application/atom+xml" title="daniel daum" href="https://danieldaum.net/feed.xml" />
-    <title>styles — daniel daum</title>
+    <title>daniel daum - styles</title>
 </head>
 
 <body>
+    <a class="skip-link" href="#main">SKIP TO CONTENT</a>
     <header class="site-header">
-        <a class="site-name" href="/" aria-label="return home">DANIEL DAUM</a>
+        <a class="site-name" href="/">DANIEL DAUM</a>
         <nav aria-label="main navigation">
-            <a href="/" aria-label="return home">HOME</a>
-            <a href="/about" aria-label="about me">ABOUT</a>
-            <a href="/now" aria-label="now page">NOW</a>
-            <a href="/blog" aria-label="blog">BLOG</a>
-            <a href="/projects" aria-label="projects">PROJECTS</a>
-            <a href="/garden" aria-label="garden">GARDEN</a>
+            <a href="/">HOME</a>
+            <a href="/about">ABOUT</a>
+            <a href="/now">NOW</a>
+            <a href="/blog">BLOG</a>
+            <a href="/projects">PROJECTS</a>
+            <a href="/garden">GARDEN</a>
         </nav>
     </header>
 
-    <main>
-        <span class="nav-back"><a href="/garden">GARDEN</a> -> <a href="/garden/styles">STYLES</a></span>
+    <main id="main">
+        <span class="nav-back"><a href="/garden">GARDEN</a> <span aria-hidden="true">-></span> <a href="/garden/styles">STYLES</a></span>
         <section>
             <h1>STYLES</h1>
             <p class="meta">A living reference for every design token, typographic element, and component class used on
@@ -170,8 +173,7 @@
                 Font family: <strong>Ioskeley Mono</strong> &mdash; a monospace typeface self-hosted at
                 <code>/assets/fonts/ioskeleymono/</code> in eight static <code>.woff2</code> files
                 (weights <code>300</code>, <code>400</code>, <code>600</code>, <code>700</code>, each with an
-                italic). No variable font is available. Falls back to <code>Geist Mono</code>,
-                <code>SF Mono</code>, and system monospace stacks.
+                italic). No variable font is available. The regular, semibold and bold faces are preloaded from every page's <code>&lt;head&gt;</code>; the fallback stack is <code>ui-monospace</code>, <code>SF Mono</code>, <code>Menlo</code>, <code>Consolas</code>, then generic monospace.
             </p>
 
             <p>
@@ -218,10 +220,10 @@
             <table class="content-table icon-table">
                 <thead>
                     <tr>
-                        <th style="width:3rem;">icon</th>
-                        <th style="width:7rem;">entity</th>
-                        <th style="width:6rem;">codepoint</th>
-                        <th>used for</th>
+                        <th scope="col" style="width:3rem;">icon</th>
+                        <th scope="col" style="width:7rem;">entity</th>
+                        <th scope="col" style="width:6rem;">codepoint</th>
+                        <th scope="col">used for</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -230,12 +232,6 @@
                         <td><code>&amp;#9635;</code></td>
                         <td class="icon-code">U+25A3</td>
                         <td class="table-desc">photos, media, image posts</td>
-                    </tr>
-                    <tr class="table-row">
-                        <td class="icon-glyph">&#182;</td>
-                        <td><code>&amp;#182;</code></td>
-                        <td class="icon-code">U+00B6</td>
-                        <td class="table-desc">writing &mdash; micro posts, notes</td>
                     </tr>
                     <tr class="table-row">
                         <td class="icon-glyph">&#167;</td>
@@ -253,7 +249,7 @@
                         <td class="icon-glyph">&#9670;</td>
                         <td><code>&amp;#9670;</code></td>
                         <td class="icon-code">U+25C6</td>
-                        <td class="table-desc">projects, builds, releases</td>
+                        <td class="table-desc">micro posts, notes &mdash; also projects, builds, releases</td>
                     </tr>
                     <tr class="table-row">
                         <td class="icon-glyph">&#9733;</td>
@@ -306,8 +302,7 @@
                 a system font, which breaks the monospace rhythm and can render as a color emoji on some
                 platforms. <code>&amp;#9998;</code> (U+270E, the pencil
                 <span style="color: var(--text-secondary);">&#9998;</span>) is one such miss &mdash; it is
-                <em>not</em> in Ioskeley Mono, which is why writing uses the pilcrow
-                <code>&amp;#182;</code> instead.
+                <em>not</em> in Ioskeley Mono, which is why it is not used anywhere on the site.
             </p>
             <p>
                 Safest of all is plain ASCII, which is guaranteed present and suits the terminal tone of
@@ -523,12 +518,6 @@ console.log(result); // hello, world!</code></pre>
         <section class="styles-section" id="utility" aria-label="utility classes">
             <h2>utility classes</h2>
 
-            <h3>.title</h3>
-            <div class="demo-box">
-                <p class="demo-label">.title</p>
-                <h1 class="title">page title at 1.9rem</h1>
-            </div>
-
             <h3>.meta</h3>
             <div class="demo-box">
                 <p class="demo-label">.meta</p>
@@ -540,6 +529,18 @@ console.log(result); // hello, world!</code></pre>
                 <p class="demo-label">.bold &amp; .text-center</p>
                 <p class="bold">this paragraph uses .bold (font-weight 700)</p>
                 <p class="text-center">this paragraph uses .text-center</p>
+            </div>
+
+            <h3>.meta-split</h3>
+            <p>
+                A <code>.meta</code> line made of two halves and a divider, used under page titles for
+                "TITLE | DATE". Below 600px the divider is hidden and the second half drops onto its own
+                line, so a long title never wraps mid-phrase around the bar.
+            </p>
+            <div class="demo-box">
+                <p class="demo-label">.meta.meta-split / .meta-sep</p>
+                <p class="meta meta-split"><span>LET ME INTRODUCE MYSELF</span><span class="meta-sep"
+                        aria-hidden="true">|</span><span>28 AUGUST 2026</span></p>
             </div>
 
             <h3>.two-col-list</h3>
@@ -614,7 +615,7 @@ console.log(result); // hello, world!</code></pre>
                 <p class="demo-label">.post-hero / .post-tags / .post-tag</p>
                 <section class="post-hero" style="margin-bottom:0;">
                     <h1>TITLE OF A POST</h1>
-                    <p class="meta">2387 WORDS | 28 AUGUST 2026</p>
+                    <p class="meta meta-split"><span>2387 WORDS</span><span class="meta-sep" aria-hidden="true">|</span><span>28 AUGUST 2026</span></p>
                     <div class="post-tags">
                         <p class="post-tag">#TAG1</p>
                         <p class="post-tag">#TAG2</p>
@@ -654,11 +655,16 @@ console.log(result); // hello, world!</code></pre>
             <h3>.nav-back</h3>
             <div class="demo-box">
                 <p class="demo-label">.nav-back</p>
-                <span class="nav-back" style="margin-bottom:0;"><a href="#layout">GARDEN</a> -&gt; <a
+                <span class="nav-back" style="margin-bottom:0;"><a href="#layout">GARDEN</a> <span aria-hidden="true">-&gt;</span> <a
                         href="#layout">STYLES</a></span>
             </div>
 
             <h3>.page-nav</h3>
+            <p class="meta">
+                The words sit in <code>.page-nav-text</code>. Below 480px they are hidden and only the arrows
+                show; each link keeps an <code>aria-label</code> so it still has a name. The pager walks the
+                writing table on /blog, oldest at the bottom.
+            </p>
             <p>
                 Previous/next footer navigation for blog posts and now pages, centered over a
                 top rule. Labels are written lowercase in the source and uppercased by css.
@@ -669,18 +675,18 @@ console.log(result); // hello, world!</code></pre>
             <div class="demo-box">
                 <p class="demo-label">.page-nav</p>
                 <nav class="page-nav" style="margin-top:0;" aria-label="page navigation demo">
-                    <a href="#layout" rel="prev">&larr; previous</a>
+                    <a href="#layout" rel="prev" aria-label="previous">&larr; <span class="page-nav-text">previous</span></a>
                     <span class="page-nav-sep" aria-hidden="true">|</span>
-                    <a href="#layout" rel="next">next &rarr;</a>
+                    <a href="#layout" rel="next" aria-label="next"><span class="page-nav-text">next</span> &rarr;</a>
                 </nav>
             </div>
 
             <div class="demo-box">
                 <p class="demo-label">.page-nav &mdash; end of a run</p>
                 <nav class="page-nav" style="margin-top:0;" aria-label="page navigation demo">
-                    <a href="#layout" rel="prev">&larr; previous</a>
+                    <a href="#layout" rel="prev" aria-label="previous">&larr; <span class="page-nav-text">previous</span></a>
                     <span class="page-nav-sep" aria-hidden="true">|</span>
-                    <span class="page-nav-disabled">next &rarr;</span>
+                    <span class="page-nav-disabled"><span class="page-nav-text">next</span> &rarr;</span>
                 </nav>
             </div>
         </section>
@@ -705,9 +711,9 @@ console.log(result); // hello, world!</code></pre>
                 <table class="content-table">
                     <thead>
                         <tr>
-                            <th class="col-title">title</th>
-                            <th class="col-date">date</th>
-                            <th class="col-tag">tag</th>
+                            <th scope="col" class="col-title">title</th>
+                            <th scope="col" class="col-date">date</th>
+                            <th scope="col" class="col-tag">tag</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -731,8 +737,8 @@ console.log(result); // hello, world!</code></pre>
                 <table class="content-table">
                     <thead>
                         <tr>
-                            <th class="col-title">title</th>
-                            <th class="col-desc">description</th>
+                            <th scope="col" class="col-title">title</th>
+                            <th scope="col" class="col-desc">description</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -749,7 +755,8 @@ console.log(result); // hello, world!</code></pre>
                 The homepage "recent activity" list. Each row pairs an
                 <a href="#icons">icon glyph</a> with a link and a date. The entire row is clickable
                 &mdash; <code>.activity-link::after</code> stretches across it &mdash; so the pointer
-                cursor is honest.
+                cursor is honest. The link never wraps: text that does not fit fades out under a
+                mask, so the date stays on the same line at any width.
             </p>
             <div class="demo-box">
                 <p class="demo-label">.activity-feed / .activity-item / .activity-icon / .activity-link / .activity-date
@@ -761,8 +768,8 @@ console.log(result); // hello, world!</code></pre>
                         <span class="activity-date">30 AUG</span>
                     </li>
                     <li class="activity-item">
-                        <span class="activity-icon" aria-hidden="true">&#182;</span>
-                        <a class="activity-link" href="#components">NEW MICRO POST &mdash; ON SLOW WEBSITES</a>
+                        <span class="activity-icon" aria-hidden="true">&#9670;</span>
+                        <a class="activity-link" href="#components">NEW MICRO POST &mdash; A LONGER POST THAT RUNS PAST THE END OF THE ROW SO YOU CAN SEE THE TEXT FADE OUT INSTEAD OF WRAPPING ONTO A SECOND LINE</a>
                         <span class="activity-date">29 AUG</span>
                     </li>
                     <li class="activity-item">
@@ -773,42 +780,42 @@ console.log(result); // hello, world!</code></pre>
                 </ul>
             </div>
 
-            <h3>.ticker</h3>
+            <h3>.recent-writing-list</h3>
             <p>
-                A borderless marquee of recent coding activity, updated by hand. It lives inline on the
-                footer nav line of the homepage, where <code>footer .ticker</code> gives it
-                <code>flex: 1 1 14rem</code> so it claims the space left over by the links and drops to
-                its own line when the nav wraps.
-            </p>
-            <p>
-                The track holds <strong>two identical</strong> <code>.ticker-group</code> copies and
-                animates to <code>translateX(-50%)</code>, which lands the second copy exactly where the
-                first began &mdash; that is what makes the loop seamless. A mask fades both edges. It
-                pauses on hover, and <code>prefers-reduced-motion</code> swaps the animation for a
-                horizontal scroll.
+                The homepage "recent writing" stack. Tag, title and meta sit muted at rest and light up
+                together on hover; the title link is stretched over the whole item.
             </p>
             <div class="demo-box">
-                <p class="demo-label">.ticker / .ticker-track / .ticker-group / .ticker-sep</p>
-                <div class="ticker" aria-label="demo ticker">
-                    <div class="ticker-track">
-                        <p class="ticker-group">
-                            <span>pushed 6 commits to saturn</span>
-                            <span class="ticker-sep" aria-hidden="true">//</span>
-                            <span>merged branch photo-lightbox</span>
-                            <span class="ticker-sep" aria-hidden="true">//</span>
-                            <span>started garden/games page</span>
-                            <span class="ticker-sep" aria-hidden="true">//</span>
-                        </p>
-                        <p class="ticker-group" aria-hidden="true">
-                            <span>pushed 6 commits to saturn</span>
-                            <span class="ticker-sep">//</span>
-                            <span>merged branch photo-lightbox</span>
-                            <span class="ticker-sep">//</span>
-                            <span>started garden/games page</span>
-                            <span class="ticker-sep">//</span>
-                        </p>
-                    </div>
-                </div>
+                <p class="demo-label">.recent-writing-list / -item / -tag / -title / -meta</p>
+                <ol class="recent-writing-list">
+                    <li class="recent-writing-item">
+                        <p class="recent-writing-tag">#NOW</p>
+                        <h3 class="recent-writing-title"><a href="#components">WAKE ME UP WHEN SEPTEMBER ENDS</a></h3>
+                        <ul class="recent-writing-meta">
+                            <li>438 WORDS</li>
+                            <li><time datetime="2026-09-03">3 SEPTEMBER 2026</time></li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
+            <p class="group-label">ratings</p>
+
+            <h3>.rating</h3>
+            <p>
+                One number out of five with a colour per step. The modifier sets <code>--rating-color</code>;
+                leave it off for an unrated entry. Full write-up on <a href="/garden/ratings">/garden/ratings</a>.
+            </p>
+            <div class="demo-box">
+                <p class="demo-label">.rating / .rating--terrible ... .rating--great</p>
+                <p>
+                    <span class="rating rating--terrible">(1/5)</span>
+                    <span class="rating rating--below-average">(2/5)</span>
+                    <span class="rating rating--good">(3/5)</span>
+                    <span class="rating rating--above-average">(4/5)</span>
+                    <span class="rating rating--great">(5/5)</span>
+                    <span class="rating">(?/5)</span>
+                </p>
             </div>
 
             <p class="group-label">cards</p>
@@ -972,6 +979,40 @@ console.log(result); // hello, world!</code></pre>
                 <code>/blog</code>, with <code>/blog/micro</code> as the source of truth. Update all three
                 when posting.
             </p>
+
+            <p class="group-label">likes &amp; replies</p>
+
+            <h3>.post-social</h3>
+            <p>
+                Sits under <code>.post-body</code> on every blog post. The middleware fills the like form and
+                the reply thread at the edge (see SOCIAL.md); the static page only carries the fallback text.
+                The like button is a plain text link, the reply affordance is a <code>mailto:</code>.
+            </p>
+            <div class="demo-box">
+                <p class="demo-label">.post-social / .like-form / .like-button / .reply-head / .reply-thread / .reply</p>
+                <section class="post-social" style="margin-top:0; padding-top:0; border-top:none;">
+                    <form class="like-form" action="#components" method="get">
+                        <button type="submit" class="like-button" aria-label="like this post, 3 likes">&#9825; <span
+                                class="like-count">3</span></button>
+                    </form>
+                    <div class="reply-head">
+                        <p class="meta">1 REPLY</p>
+                        <a class="reply-link" href="#components">REPLY BY EMAIL &rarr;</a>
+                    </div>
+                    <ol class="reply-thread">
+                        <li>
+                            <article class="reply">
+                                <p class="meta">
+                                    <span class="reply-name">someone</span>
+                                    <a class="reply-time" href="#components"><time datetime="2026-09-03">3 SEPTEMBER 2026 &middot; 18:42 PDT</time></a>
+                                </p>
+                                <p class="reply-body">A reply, rendered from D1. Nested replies indent under a left rule.</p>
+                                <a class="reply-link" href="#components">REPLY &rarr;</a>
+                            </article>
+                        </li>
+                    </ol>
+                </section>
+            </div>
         </section>
 
         <!-- ===================== -->
@@ -1046,6 +1087,50 @@ console.log(result); // hello, world!</code></pre>
                 caption and the lightbox meta. Uppercased by CSS.
             </p>
 
+            <p class="group-label">tracker walls</p>
+
+            <h3>.tracker-wall / .tracker-tile</h3>
+            <p>
+                Books, movies, shows, games and music share one wall: an auto-fill grid of covers with the
+                title, date and rating always visible beneath. <code>.tracker-cover</code> is a fixed 2:3 box
+                (<code>--square</code> for album art, <code>--boxart</code> for 3:4 games) that shows
+                "NO COVER" until an <code>&lt;img&gt;</code> is dropped in. <code>.tracker-tile--new</code>
+                frames a fresh entry in the accent. Clicking a cover opens a <code>.tracker-note-card</code>
+                inside the same <code>.lightbox</code> shell the photo wall uses.
+                <code>body.tracker-page</code> widens the page the same way <code>.photos-page</code> does.
+            </p>
+            <div class="demo-box">
+                <p class="demo-label">.tracker-wall / .tracker-tile / .tracker-cover / .tracker-caption</p>
+                <section class="tracker-wall" style="margin-bottom:0;" aria-label="demo tracker wall">
+                    <figure class="tracker-tile">
+                        <a class="tracker-link" href="#media">
+                            <span class="tracker-cover"></span>
+                            <span class="tracker-caption">
+                                <span class="tracker-caption-title">Book Title</span>
+                                <span class="tracker-caption-sub">Author Name</span>
+                                <span class="tracker-caption-line">
+                                    <span>1 JANUARY 2026</span>
+                                    <span class="rating rating--great">(5/5)</span>
+                                </span>
+                            </span>
+                        </a>
+                    </figure>
+                    <figure class="tracker-tile tracker-tile--new">
+                        <a class="tracker-link" href="#media">
+                            <span class="tracker-cover tracker-cover--square"></span>
+                            <span class="tracker-caption">
+                                <span class="tracker-caption-title">Album Title <span class="new-tag">New!</span></span>
+                                <span class="tracker-caption-sub">Artist Name</span>
+                                <span class="tracker-caption-line">
+                                    <span>1 JANUARY 2026</span>
+                                    <span class="rating">(?/5)</span>
+                                </span>
+                            </span>
+                        </a>
+                    </figure>
+                </section>
+            </div>
+
             <p class="group-label">lightbox</p>
 
             <h3>.lightbox</h3>
@@ -1097,18 +1182,29 @@ console.log(result); // hello, world!</code></pre>
 
             <h3>breakpoints</h3>
             <ul>
-                <li><code>&le; 480px</code> &mdash; mobile: reduced padding, smaller type scale, full-width pre blocks,
-                    single-column photo wall</li>
-                <li><code>&le; 600px</code> &mdash; content tables stack title above date/tag; project stats stack;
-                    lightbox controls shrink</li>
-                <li><code>&le; 768px</code> &mdash; tablet: slightly reduced padding and heading sizes</li>
+                <li><code>&le; 480px</code> &mdash; mobile: reduced padding and type scale, full-width pre
+                    blocks, single-column photo wall, two-column tracker walls, pager shows arrows only,
+                    micro and reply meta rows stack, footer also drops CHANGELOG</li>
+                <li><code>&le; 600px</code> &mdash; header stacks the name over a 3 &times; 2 nav grid;
+                    <code>.meta-split</code> stacks; content tables stack title above date/tag; project stats
+                    stack; the about-page <code>.figure-row</code> keeps only its middle photo; footer drops
+                    the <code>//</code> marker and PGP; lightbox controls shrink</li>
+                <li><code>&le; 768px</code> &mdash; tablet: slightly reduced padding and heading sizes;
+                    <code>.project-card</code> stacks image under text; <code>text-wrap: pretty</code> is off</li>
                 <li><code>&le; 900px</code> &mdash; photo wall drops to two columns</li>
             </ul>
+
+            <h3>.skip-link</h3>
+            <p>
+                First focusable element on every page. Parked above the viewport until it takes keyboard
+                focus, then drops in at the top-left and jumps to <code>#main</code>. Press Tab on any page
+                to see it.
+            </p>
 
             <h3>media query features</h3>
             <ul>
                 <li><code>prefers-reduced-motion</code> &mdash; all transitions/animations set to
-                    <code>0.01ms</code>; the ticker stops scrolling and becomes horizontally scrollable</li>
+                    <code>0.01ms</code></li>
                 <li><code>prefers-contrast: high</code> &mdash; higher contrast palette, underlined links, thicker code
                     borders</li>
                 <li><code>print</code> &mdash; white background, black text, hidden nav, absolute URLs appended to links

@@ -6,7 +6,7 @@
 // placeholders. See SOCIAL.md. The two paths never overlap: a blog post never
 // triggers a PDS request, and a micro page never touches D1.
 
-import { isBlogPost, voterId } from "./_lib/social.js";
+import { escapeHtml, isBlogPost, voterId } from "./_lib/social.js";
 
 const PDS_HOST = "https://atproto.danieldaum.net";
 const REPO_DID = "did:plc:be2e4qfe6docqcysyxxwvsor";
@@ -29,7 +29,9 @@ const ALLOWED_PATHS = new Set([
     "/blog/micro/index.html",
 ]);
 
-const ACTIVITY_SNIPPET_LENGTH = 48;
+// The activity row never wraps: css fades the text out at the right edge, so
+// this only caps what is sent, it is not the visible cut.
+const ACTIVITY_SNIPPET_LENGTH = 140;
 
 // Blog post likes and replies. Blog post pages match isBlogPost() rather than
 // ALLOWED_PATHS, so a new post needs no change here: only the placeholder
@@ -43,6 +45,10 @@ export async function onRequest(context) {
     if (!ALLOWED_PATHS.has(pathname) && !isBlogPost(pathname)) {
         return context.next();
     }
+
+    // Kick the PDS request off before waiting on the asset so the two round
+    // trips overlap instead of queueing.
+    const pending = isBlogPost(pathname) ? null : fetchPosts();
 
     let response = await context.next();
     const contentType = response.headers.get("content-type") || "";
@@ -65,7 +71,7 @@ export async function onRequest(context) {
         response = new Response(response.body, response);
         response.headers.set("Cache-Control", "private, no-cache");
     } else {
-        posts = await fetchPosts();
+        posts = await pending;
         if (!posts) {
             // PDS unreachable, errored, or has no posts: leave the static fallback
             // markup ("NO POSTS YET") exactly as written in the HTML.
@@ -192,7 +198,7 @@ function render(mode, posts) {
         case "latest-featured":
             return renderArticle(posts[0], { featured: true });
         case "latest-activity":
-            return renderActivityItem(posts[0]);
+            return renderActivityItem(posts);
         default:
             return null;
     }
@@ -224,11 +230,17 @@ function renderArticle(post, { featured }) {
         .join("\n");
 }
 
-function renderActivityItem(post) {
+// One row for the newest post. When several posts landed on the same
+// (Pacific) day the label counts them; the text is always the newest one.
+function renderActivityItem(posts) {
+    const post = posts[0];
+    const day = dayKey(post.createdAt);
+    const sameDay = posts.filter((p) => dayKey(p.createdAt) === day).length;
+    const label = sameDay > 1 ? `${sameDay} NEW MICRO POSTS` : "NEW MICRO POST";
     const href = `/blog/micro/#${escapeHtml(post.rkey)}`;
     return [
-        `<span class="activity-icon" aria-hidden="true">&#182;</span>`,
-        `<a class="activity-link" href="${href}">NEW MICRO POST &mdash; ${snippet(post.text)}</a>`,
+        `<span class="activity-icon" aria-hidden="true">&#9670;</span>`,
+        `<a class="activity-link" href="${href}">${label} &mdash; ${snippet(post.text)}</a>`,
         `<span class="activity-date">${formatActivityDate(post.createdAt)}</span>`,
     ].join("\n");
 }
@@ -246,10 +258,14 @@ function blobUrl(cid) {
 function renderLikes({ path, count, liked }) {
     const heart = liked ? "&#9829;" : "&#9825;";
     const state = liked ? ` disabled aria-pressed="true"` : "";
+    // the visible label is a heart and a number, so spell it out for
+    // screen readers, count included
+    const likes = count === 1 ? "1 like" : `${count} likes`;
+    const label = liked ? `you liked this post, ${likes}` : `like this post, ${likes}`;
     return [
         `<form class="like-form" method="POST" action="/api/like">`,
         `    <input type="hidden" name="path" value="${escapeHtml(path)}" />`,
-        `    <button type="submit" class="like-button" aria-label="like this post"${state}>${heart} <span class="like-count">${count}</span></button>`,
+        `    <button type="submit" class="like-button" aria-label="${label}"${state}>${heart} <span class="like-count">${count}</span></button>`,
         `</form>`,
     ].join("\n");
 }
@@ -355,14 +371,6 @@ function replyHref(path, parentGuid) {
 // ---------------------------------------------------------------------------
 // text helpers
 
-function escapeHtml(str) {
-    return String(str)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;");
-}
-
 // Post text is plain text with real newlines; keep them.
 function formatBody(text) {
     return escapeHtml(text).replace(/\r?\n/g, "<br />\n");
@@ -416,6 +424,19 @@ function formatActivityDate(iso) {
         date
     );
     return `${parts.day} ${parts.month.toUpperCase()}`;
+}
+
+// "2026-09-03" in the site's time zone, for grouping posts by day.
+function dayKey(iso) {
+    const date = new Date(iso);
+    if (Number.isNaN(date.getTime())) {
+        return "";
+    }
+    const parts = partsOf(
+        new Intl.DateTimeFormat("en-US", { timeZone: TZ, year: "numeric", month: "2-digit", day: "2-digit" }),
+        date
+    );
+    return `${parts.year}-${parts.month}-${parts.day}`;
 }
 
 function partsOf(formatter, date) {

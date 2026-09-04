@@ -9,6 +9,16 @@
 
 const BLOG_POST_RE = /^\/blog\/[a-z0-9-]+\/$/;
 
+// Every string that came from the PDS, D1 or a request goes through this
+// before it is written into a page.
+export function escapeHtml(str) {
+    return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+}
+
 // Blog post pages are the only pages that carry likes and replies. The micro
 // feed lives at /blog/micro/ and is excluded on purpose.
 export function isBlogPost(pathname) {

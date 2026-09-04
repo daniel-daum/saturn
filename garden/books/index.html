@@ -8,38 +8,42 @@
     <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Bold.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/global.css" />
-    <link rel="icon" type="image/jpeg" href="/assets/favicon/coast.jpeg" />
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
     <link rel="manifest" href="/assets/favicon/site.webmanifest" />
     <link rel="alternate" type="application/atom+xml" title="daniel daum" href="https://danieldaum.net/feed.xml" />
-    <title>books — daniel daum</title>
+    <title>daniel daum - books</title>
 </head>
 
 <body class="tracker-page">
+    <a class="skip-link" href="#main">SKIP TO CONTENT</a>
 
     <!--HEADER-->
     <header class="site-header">
-        <a class="site-name" href="/" aria-label="return home">DANIEL DAUM</a>
+        <a class="site-name" href="/">DANIEL DAUM</a>
         <nav aria-label="main navigation">
-            <a href="/" aria-label="return home">HOME</a>
-            <a href="/about" aria-label="about me">ABOUT</a>
-            <a href="/now" aria-label="now page">NOW</a>
-            <a href="/blog" aria-label="blog">BLOG</a>
-            <a href="/projects" aria-label="projects">PROJECTS</a>
-            <a href="/garden" aria-label="garden">GARDEN</a>
+            <a href="/">HOME</a>
+            <a href="/about">ABOUT</a>
+            <a href="/now">NOW</a>
+            <a href="/blog">BLOG</a>
+            <a href="/projects">PROJECTS</a>
+            <a href="/garden">GARDEN</a>
         </nav>
     </header>
 
 
-    <main>
-        <span class="nav-back"><a href="/garden">GARDEN</a> -> <a href="/garden/books">BOOKS</a></span>
+    <main id="main">
+        <span class="nav-back"><a href="/garden">GARDEN</a> <span aria-hidden="true">-></span> <a href="/garden/books">BOOKS</a></span>
 
         <section>
             <h1>/BOOKS</h1>
-            <p class="meta">The books I've read. Click a cover to read my note on it.
+            <p class="meta">The books I've read. Click a cover to read my note on it.<br />
+                Ratings are a work in progress.
             </p>
         </section>
 
@@ -463,7 +467,7 @@
              entry, shared by the year tile and the favorites tile that both point at it.
              reuses the photo wall's .lightbox shell for the backdrop and close button. -->
 
-        <div class="lightbox" id="book-fav-1" tabindex="-1"
+        <div class="lightbox" role="dialog" id="book-fav-1" tabindex="-1"
             aria-label="my note on Do Androids Dream of Electric Sheep?">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
@@ -479,17 +483,17 @@
                     <a class="rating rating--great" href="/garden/ratings" aria-label="rated 5 out of 5, see my rating scale">(5/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the book goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
-                    <a href="https://hardcover.app/books/electric-sheep"
-                        aria-label="Do Androids Dream of Electric Sheep? on HARDCOVER, opens in new tab" target="_blank"
-                        rel="noopener noreferrer">HARDCOVER -></a>
+                    <a href="https://www.goodreads.com/book/show/36402034-do-androids-dream-of-electric-sheep"
+                        aria-label="Do Androids Dream of Electric Sheep? on GOODREADS, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">GOODREADS -></a>
                 </p>
             </article>
         </div>
 
-        <div class="lightbox" id="book-fav-2" tabindex="-1" aria-label="my note on I, Robot">
+        <div class="lightbox" role="dialog" id="book-fav-2" tabindex="-1" aria-label="my note on I, Robot">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -506,16 +510,16 @@
                     <a class="rating rating--great" href="/garden/ratings" aria-label="rated 5 out of 5, see my rating scale">(5/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the book goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
-                    <a href="https://hardcover.app/books/i-robot" aria-label="I, Robot on HARDCOVER, opens in new tab"
-                        target="_blank" rel="noopener noreferrer">HARDCOVER -></a>
+                    <a href="https://www.goodreads.com/book/show/41804.I_Robot" aria-label="I, Robot on GOODREADS, opens in new tab"
+                        target="_blank" rel="noopener noreferrer">GOODREADS -></a>
                 </p>
             </article>
         </div>
 
-        <div class="lightbox" id="book-2026-09" tabindex="-1"
+        <div class="lightbox" role="dialog" id="book-2026-09" tabindex="-1"
             aria-label="my note on Hard-Boiled Wonderland and the End of the World">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
@@ -531,17 +535,17 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the book goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
-                    <a href="https://hardcover.app/books/hard-boiled-wonderland"
-                        aria-label="Hard-Boiled Wonderland and the End of the World on HARDCOVER, opens in new tab"
-                        target="_blank" rel="noopener noreferrer">HARDCOVER -></a>
+                    <a href="https://www.goodreads.com/book/show/10374.Hard_boiled_Wonderland_and_the_End_of_the_World"
+                        aria-label="Hard-Boiled Wonderland and the End of the World on GOODREADS, opens in new tab"
+                        target="_blank" rel="noopener noreferrer">GOODREADS -></a>
                 </p>
             </article>
         </div>
 
-        <div class="lightbox" id="book-2026-08" tabindex="-1" aria-label="my note on Furnace">
+        <div class="lightbox" role="dialog" id="book-2026-08" tabindex="-1" aria-label="my note on Furnace">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -556,17 +560,17 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the book goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
-                    <a href="https://hardcover.app/books/the-furnace"
-                        aria-label="Furnace on HARDCOVER, opens in new tab" target="_blank"
-                        rel="noopener noreferrer">HARDCOVER -></a>
+                    <a href="https://www.goodreads.com/book/show/28815195-furnace"
+                        aria-label="Furnace on GOODREADS, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">GOODREADS -></a>
                 </p>
             </article>
         </div>
 
-        <div class="lightbox" id="book-2026-07" tabindex="-1" aria-label="my note on Carmilla">
+        <div class="lightbox" role="dialog" id="book-2026-07" tabindex="-1" aria-label="my note on Carmilla">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -581,16 +585,16 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the book goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
-                    <a href="https://hardcover.app/books/carmilla" aria-label="Carmilla on HARDCOVER, opens in new tab"
-                        target="_blank" rel="noopener noreferrer">HARDCOVER -></a>
+                    <a href="https://www.goodreads.com/book/show/48037.Carmilla" aria-label="Carmilla on GOODREADS, opens in new tab"
+                        target="_blank" rel="noopener noreferrer">GOODREADS -></a>
                 </p>
             </article>
         </div>
 
-        <div class="lightbox" id="book-2026-06" tabindex="-1" aria-label="my note on The Strength of the Few">
+        <div class="lightbox" role="dialog" id="book-2026-06" tabindex="-1" aria-label="my note on The Strength of the Few">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -607,17 +611,17 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the book goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
-                    <a href="https://hardcover.app/books/the-strength-of-the-few"
-                        aria-label="The Strength of the Few on HARDCOVER, opens in new tab" target="_blank"
-                        rel="noopener noreferrer">HARDCOVER -></a>
+                    <a href="https://www.goodreads.com/book/show/169485073-the-strength-of-the-few"
+                        aria-label="The Strength of the Few on GOODREADS, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">GOODREADS -></a>
                 </p>
             </article>
         </div>
 
-        <div class="lightbox" id="book-2026-05" tabindex="-1" aria-label="my note on Tender Is the Flesh">
+        <div class="lightbox" role="dialog" id="book-2026-05" tabindex="-1" aria-label="my note on Tender Is the Flesh">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -632,17 +636,17 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the book goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
-                    <a href="https://hardcover.app/books/tender-is-the-flesh"
-                        aria-label="Tender Is the Flesh on HARDCOVER, opens in new tab" target="_blank"
-                        rel="noopener noreferrer">HARDCOVER -></a>
+                    <a href="https://www.goodreads.com/book/show/240139608-tender-is-the-flesh"
+                        aria-label="Tender Is the Flesh on GOODREADS, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">GOODREADS -></a>
                 </p>
             </article>
         </div>
 
-        <div class="lightbox" id="book-2026-04" tabindex="-1" aria-label="my note on Where the Axe Is Buried">
+        <div class="lightbox" role="dialog" id="book-2026-04" tabindex="-1" aria-label="my note on Where the Axe Is Buried">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -657,17 +661,17 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the book goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
-                    <a href="https://hardcover.app/books/where-the-axe-is-buried"
-                        aria-label="Where the Axe Is Buried on HARDCOVER, opens in new tab" target="_blank"
-                        rel="noopener noreferrer">HARDCOVER -></a>
+                    <a href="https://www.goodreads.com/book/show/211934965-where-the-axe-is-buried"
+                        aria-label="Where the Axe Is Buried on GOODREADS, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">GOODREADS -></a>
                 </p>
             </article>
         </div>
 
-        <div class="lightbox" id="book-2026-03" tabindex="-1" aria-label="my note on The Left Hand of Darkness">
+        <div class="lightbox" role="dialog" id="book-2026-03" tabindex="-1" aria-label="my note on The Left Hand of Darkness">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -684,17 +688,17 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the book goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
-                    <a href="https://hardcover.app/books/the-left-hand-of-darkness"
-                        aria-label="The Left Hand of Darkness on HARDCOVER, opens in new tab" target="_blank"
-                        rel="noopener noreferrer">HARDCOVER -></a>
+                    <a href="https://www.goodreads.com/book/show/18423.The_Left_Hand_of_Darkness"
+                        aria-label="The Left Hand of Darkness on GOODREADS, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">GOODREADS -></a>
                 </p>
             </article>
         </div>
 
-        <div class="lightbox" id="book-2026-02" tabindex="-1" aria-label="my note on A Court of Mist and Fury">
+        <div class="lightbox" role="dialog" id="book-2026-02" tabindex="-1" aria-label="my note on A Court of Mist and Fury">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -711,17 +715,17 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the book goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
-                    <a href="https://hardcover.app/books/a-court-of-mist-and-fury"
-                        aria-label="A Court of Mist and Fury on HARDCOVER, opens in new tab" target="_blank"
-                        rel="noopener noreferrer">HARDCOVER -></a>
+                    <a href="https://www.goodreads.com/book/show/50659468-a-court-of-mist-and-fury"
+                        aria-label="A Court of Mist and Fury on GOODREADS, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">GOODREADS -></a>
                 </p>
             </article>
         </div>
 
-        <div class="lightbox" id="book-2026-01" tabindex="-1"
+        <div class="lightbox" role="dialog" id="book-2026-01" tabindex="-1"
             aria-label="my note on Tomorrow, and Tomorrow, and Tomorrow">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
@@ -737,17 +741,17 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the book goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
-                    <a href="https://hardcover.app/books/tomorrow-and-tomorrow-and-tomorrow"
-                        aria-label="Tomorrow, and Tomorrow, and Tomorrow on HARDCOVER, opens in new tab" target="_blank"
-                        rel="noopener noreferrer">HARDCOVER -></a>
+                    <a href="https://www.goodreads.com/book/show/58784475-tomorrow-and-tomorrow-and-tomorrow"
+                        aria-label="Tomorrow, and Tomorrow, and Tomorrow on GOODREADS, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">GOODREADS -></a>
                 </p>
             </article>
         </div>
 
-        <div class="lightbox" id="book-2025-12" tabindex="-1" aria-label="my note on The Will of the Many">
+        <div class="lightbox" role="dialog" id="book-2025-12" tabindex="-1" aria-label="my note on The Will of the Many">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -764,17 +768,17 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the book goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
-                    <a href="https://hardcover.app/books/the-will-of-the-many-2023"
-                        aria-label="The Will of the Many on HARDCOVER, opens in new tab" target="_blank"
-                        rel="noopener noreferrer">HARDCOVER -></a>
+                    <a href="https://www.goodreads.com/book/show/58416952-the-will-of-the-many"
+                        aria-label="The Will of the Many on GOODREADS, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">GOODREADS -></a>
                 </p>
             </article>
         </div>
 
-        <div class="lightbox" id="book-2025-11" tabindex="-1" aria-label="my note on All Systems Red">
+        <div class="lightbox" role="dialog" id="book-2025-11" tabindex="-1" aria-label="my note on All Systems Red">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -791,17 +795,17 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the book goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
-                    <a href="https://hardcover.app/books/all-systems-red"
-                        aria-label="All Systems Red on HARDCOVER, opens in new tab" target="_blank"
-                        rel="noopener noreferrer">HARDCOVER -></a>
+                    <a href="https://www.goodreads.com/book/show/32758901-all-systems-red"
+                        aria-label="All Systems Red on GOODREADS, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">GOODREADS -></a>
                 </p>
             </article>
         </div>
 
-        <div class="lightbox" id="book-2025-10" tabindex="-1" aria-label="my note on A Court of Thorns and Roses">
+        <div class="lightbox" role="dialog" id="book-2025-10" tabindex="-1" aria-label="my note on A Court of Thorns and Roses">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -818,17 +822,17 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the book goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
-                    <a href="https://hardcover.app/books/a-court-of-thorns-and-roses"
-                        aria-label="A Court of Thorns and Roses on HARDCOVER, opens in new tab" target="_blank"
-                        rel="noopener noreferrer">HARDCOVER -></a>
+                    <a href="https://www.goodreads.com/book/show/50659467-a-court-of-thorns-and-roses"
+                        aria-label="A Court of Thorns and Roses on GOODREADS, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">GOODREADS -></a>
                 </p>
             </article>
         </div>
 
-        <div class="lightbox" id="book-2025-09" tabindex="-1" aria-label="my note on A Head Full of Ghosts">
+        <div class="lightbox" role="dialog" id="book-2025-09" tabindex="-1" aria-label="my note on A Head Full of Ghosts">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -843,17 +847,17 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the book goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
-                    <a href="https://hardcover.app/books/a-head-full-of-ghosts"
-                        aria-label="A Head Full of Ghosts on HARDCOVER, opens in new tab" target="_blank"
-                        rel="noopener noreferrer">HARDCOVER -></a>
+                    <a href="https://www.goodreads.com/book/show/23019294-a-head-full-of-ghosts"
+                        aria-label="A Head Full of Ghosts on GOODREADS, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">GOODREADS -></a>
                 </p>
             </article>
         </div>
 
-        <div class="lightbox" id="book-2025-08" tabindex="-1" aria-label="my note on Careless People">
+        <div class="lightbox" role="dialog" id="book-2025-08" tabindex="-1" aria-label="my note on Careless People">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -868,17 +872,17 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the book goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
-                    <a href="https://hardcover.app/books/careless-people-2025"
-                        aria-label="Careless People on HARDCOVER, opens in new tab" target="_blank"
-                        rel="noopener noreferrer">HARDCOVER -></a>
+                    <a href="https://www.goodreads.com/book/show/223436601-careless-people"
+                        aria-label="Careless People on GOODREADS, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">GOODREADS -></a>
                 </p>
             </article>
         </div>
 
-        <div class="lightbox" id="book-2025-07" tabindex="-1" aria-label="my note on Project Hail Mary">
+        <div class="lightbox" role="dialog" id="book-2025-07" tabindex="-1" aria-label="my note on Project Hail Mary">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -893,17 +897,17 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the book goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
-                    <a href="https://hardcover.app/books/project-hail-mary"
-                        aria-label="Project Hail Mary on HARDCOVER, opens in new tab" target="_blank"
-                        rel="noopener noreferrer">HARDCOVER -></a>
+                    <a href="https://www.goodreads.com/book/show/54493401-project-hail-mary"
+                        aria-label="Project Hail Mary on GOODREADS, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">GOODREADS -></a>
                 </p>
             </article>
         </div>
 
-        <div class="lightbox" id="book-2025-06" tabindex="-1" aria-label="my note on When the Wolf Comes Home">
+        <div class="lightbox" role="dialog" id="book-2025-06" tabindex="-1" aria-label="my note on When the Wolf Comes Home">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -918,17 +922,17 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the book goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
-                    <a href="https://hardcover.app/books/when-the-wolf-comes-home"
-                        aria-label="When the Wolf Comes Home on HARDCOVER, opens in new tab" target="_blank"
-                        rel="noopener noreferrer">HARDCOVER -></a>
+                    <a href="https://www.goodreads.com/book/show/211004893-when-the-wolf-comes-home"
+                        aria-label="When the Wolf Comes Home on GOODREADS, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">GOODREADS -></a>
                 </p>
             </article>
         </div>
 
-        <div class="lightbox" id="book-2025-05" tabindex="-1" aria-label="my note on Light Bringer">
+        <div class="lightbox" role="dialog" id="book-2025-05" tabindex="-1" aria-label="my note on Light Bringer">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -945,17 +949,17 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the book goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
-                    <a href="https://hardcover.app/books/light-bringer"
-                        aria-label="Light Bringer on HARDCOVER, opens in new tab" target="_blank"
-                        rel="noopener noreferrer">HARDCOVER -></a>
+                    <a href="https://www.goodreads.com/book/show/29227774-light-bringer"
+                        aria-label="Light Bringer on GOODREADS, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">GOODREADS -></a>
                 </p>
             </article>
         </div>
 
-        <div class="lightbox" id="book-2025-04" tabindex="-1" aria-label="my note on The Caves of Steel">
+        <div class="lightbox" role="dialog" id="book-2025-04" tabindex="-1" aria-label="my note on The Caves of Steel">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -972,17 +976,17 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the book goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
-                    <a href="https://hardcover.app/books/the-caves-of-steel"
-                        aria-label="The Caves of Steel on HARDCOVER, opens in new tab" target="_blank"
-                        rel="noopener noreferrer">HARDCOVER -></a>
+                    <a href="https://www.goodreads.com/book/show/41811.The_Caves_of_Steel"
+                        aria-label="The Caves of Steel on GOODREADS, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">GOODREADS -></a>
                 </p>
             </article>
         </div>
 
-        <div class="lightbox" id="book-2025-03" tabindex="-1" aria-label="my note on We Used to Live Here">
+        <div class="lightbox" role="dialog" id="book-2025-03" tabindex="-1" aria-label="my note on We Used to Live Here">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -997,17 +1001,17 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the book goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
-                    <a href="https://hardcover.app/books/we-used-to-live-here-2024"
-                        aria-label="We Used to Live Here on HARDCOVER, opens in new tab" target="_blank"
-                        rel="noopener noreferrer">HARDCOVER -></a>
+                    <a href="https://www.goodreads.com/book/show/199798006-we-used-to-live-here"
+                        aria-label="We Used to Live Here on GOODREADS, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">GOODREADS -></a>
                 </p>
             </article>
         </div>
 
-        <div class="lightbox" id="book-2025-02" tabindex="-1" aria-label="my note on Dark Age">
+        <div class="lightbox" role="dialog" id="book-2025-02" tabindex="-1" aria-label="my note on Dark Age">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -1024,16 +1028,16 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the book goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
-                    <a href="https://hardcover.app/books/dark-age" aria-label="Dark Age on HARDCOVER, opens in new tab"
-                        target="_blank" rel="noopener noreferrer">HARDCOVER -></a>
+                    <a href="https://www.goodreads.com/book/show/29226553-dark-age" aria-label="Dark Age on GOODREADS, opens in new tab"
+                        target="_blank" rel="noopener noreferrer">GOODREADS -></a>
                 </p>
             </article>
         </div>
 
-        <div class="lightbox" id="book-2025-01" tabindex="-1" aria-label="my note on Iron Gold">
+        <div class="lightbox" role="dialog" id="book-2025-01" tabindex="-1" aria-label="my note on Iron Gold">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
             <a class="lightbox-close" href="#" aria-label="close note">✕</a>
             <article class="tracker-note-card">
@@ -1050,12 +1054,12 @@
                     <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
                 </p>
                 <p class="tracker-note-text">
-                    A short note about the book goes here.
+                    Review coming soon.
                 </p>
                 <p class="tracker-note-link">
-                    <a href="https://hardcover.app/books/iron-gold"
-                        aria-label="Iron Gold on HARDCOVER, opens in new tab" target="_blank"
-                        rel="noopener noreferrer">HARDCOVER -></a>
+                    <a href="https://www.goodreads.com/book/show/33257757-iron-gold"
+                        aria-label="Iron Gold on GOODREADS, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">GOODREADS -></a>
                 </p>
             </article>
         </div>

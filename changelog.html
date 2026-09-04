@@ -8,35 +8,68 @@
     <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Bold.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/global.css" />
-    <link rel="icon" type="image/jpeg" href="/assets/favicon/coast.jpeg" />
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
     <link rel="manifest" href="/assets/favicon/site.webmanifest" />
     <link rel="alternate" type="application/atom+xml" title="daniel daum" href="https://danieldaum.net/feed.xml" />
-    <title>changelog</title>
+    <title>daniel daum - changelog</title>
 </head>
 
 <body>
+    <a class="skip-link" href="#main">SKIP TO CONTENT</a>
     <header class="site-header">
-        <a class="site-name" href="/" aria-label="return home">DANIEL DAUM</a>
+        <a class="site-name" href="/">DANIEL DAUM</a>
         <nav aria-label="main navigation">
-            <a href="/" aria-label="return home">HOME</a>
-            <a href="/about" aria-label="about me">ABOUT</a>
-            <a href="/now" aria-label="now page">NOW</a>
-            <a href="/blog" aria-label="blog">BLOG</a>
-            <a href="/projects" aria-label="projects">PROJECTS</a>
-            <a href="/garden" aria-label="garden">GARDEN</a>
+            <a href="/">HOME</a>
+            <a href="/about">ABOUT</a>
+            <a href="/now">NOW</a>
+            <a href="/blog">BLOG</a>
+            <a href="/projects">PROJECTS</a>
+            <a href="/garden">GARDEN</a>
         </nav>
     </header>
-    <main>
+    <main id="main">
         <section class="hero">
             <h1>/CHANGELOG</h1>
             <p class="meta">Tracking the changes to this website</p>
 
         </section>
         <section>
+            <blockquote>
+                <h2>v0.4.0 — 2026-09-03 — blog redesign</h2>
+                <p class="meta">micro posts, likes, replies, and a feed</p>
+
+                <h3>added</h3>
+                <ul>
+                    <li>micro posts pulled from my bluesky pds and injected at the edge (/blog/micro)</li>
+                    <li>likes and reply-by-email comments on blog posts, backed by d1 and an email worker</li>
+                    <li>atom feed (/feed.xml) and autodiscovery links on every page</li>
+                    <li>now page archive (/now/jan-2026, /now/sep-2026)</li>
+                    <li>garden trackers: books, movies, shows, games, music, and the ratings scale</li>
+                    <li>privacy page</li>
+                    <li>skip-to-content link on every page</li>
+                </ul>
+
+                <h3>changed</h3>
+                <ul>
+                    <li>homepage: recent activity feed, featured post, and recent writing list</li>
+                    <li>blog index: featured micro post plus a table of longform writing</li>
+                    <li>footer links: privacy and feed</li>
+                    <li>link hover text uses the page background colour instead of white for contrast</li>
+                </ul>
+
+                <h3>removed</h3>
+                <ul>
+                    <li>unused footer ticker, project status tags, and leftover reset rules from global.css</li>
+                    <li>the jpeg favicon link (the png set and manifest remain)</li>
+                </ul>
+            </blockquote>
+            <hr>
             <blockquote>
                 <h2>v0.3.2 — 2026-07-09 — fix table</h2>
                 <p class="meta">update table css for responsive borders</p>

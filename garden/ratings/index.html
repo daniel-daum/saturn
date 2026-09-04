@@ -8,97 +8,95 @@
     <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Bold.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/global.css" />
-    <link rel="icon" type="image/jpeg" href="/assets/favicon/coast.jpeg" />
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
     <link rel="manifest" href="/assets/favicon/site.webmanifest" />
     <link rel="alternate" type="application/atom+xml" title="daniel daum" href="https://danieldaum.net/feed.xml" />
-    <title>ratings — daniel daum</title>
+    <title>daniel daum - ratings</title>
 </head>
 
 <body>
+    <a class="skip-link" href="#main">SKIP TO CONTENT</a>
 
     <!--HEADER-->
     <header class="site-header">
-        <a class="site-name" href="/" aria-label="return home">DANIEL DAUM</a>
+        <a class="site-name" href="/">DANIEL DAUM</a>
         <nav aria-label="main navigation">
-            <a href="/" aria-label="return home">HOME</a>
-            <a href="/about" aria-label="about me">ABOUT</a>
-            <a href="/now" aria-label="now page">NOW</a>
-            <a href="/blog" aria-label="blog">BLOG</a>
-            <a href="/projects" aria-label="projects">PROJECTS</a>
-            <a href="/garden" aria-label="garden">GARDEN</a>
+            <a href="/">HOME</a>
+            <a href="/about">ABOUT</a>
+            <a href="/now">NOW</a>
+            <a href="/blog">BLOG</a>
+            <a href="/projects">PROJECTS</a>
+            <a href="/garden">GARDEN</a>
         </nav>
     </header>
 
-    <main>
-        <span class="nav-back"><a href="/garden">GARDEN</a> -> <a href="/garden/ratings">RATINGS</a></span>
+    <main id="main">
+        <span class="nav-back"><a href="/garden">GARDEN</a> <span aria-hidden="true">-></span> <a href="/garden/ratings">RATINGS</a></span>
 
         <section class="hero">
             <h1>/RATINGS</h1>
-            <p class="meta">How I score things in the garden. One number, out of five.</p>
+            <p class="meta">How I score things in the garden. One number out of five.</p>
         </section>
 
         <section class="post-body">
             <h2>THE SCALE</h2>
             <p>
-                Every book, film, show, game, and album in the garden gets a single number. I rate on
-                how much I got out of the thing, not on how well made it is - a flawed film I think
-                about for a week beats a competent one I forget by morning.
+                Everything in the garden gets one score out of five. The score is about how much I enjoyed it,
+                not how well made it is.
             </p>
 
             <table class="content-table">
                 <thead>
                     <tr>
-                        <th style="width:5rem;">rating</th>
-                        <th style="width:11rem;">label</th>
-                        <th>what it means</th>
+                        <th scope="col" style="width:5rem;">rating</th>
+                        <th scope="col" style="width:11rem;">label</th>
+                        <th scope="col">what it means</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr class="table-row">
                         <td><span class="rating rating--terrible">(1/5)</span></td>
                         <td class="table-desc">terrible</td>
-                        <td class="table-desc">Bad enough that I stopped, or wish I had. Most of these are DNFs.</td>
+                        <td class="table-desc">Didn't finish it, or wish I hadn't.</td>
                     </tr>
                     <tr class="table-row">
                         <td><span class="rating rating--below-average">(2/5)</span></td>
                         <td class="table-desc">below average</td>
-                        <td class="table-desc">I finished it, but it did not earn the time. Something in here does
-                            not work.</td>
+                        <td class="table-desc">Finished it, but wouldn't recommend it.</td>
                     </tr>
                     <tr class="table-row">
                         <td><span class="rating rating--good">(3/5)</span></td>
                         <td class="table-desc">average</td>
-                        <td class="table-desc">Fine. Okay. Does what it set out to do and little more. No regrets,
-                            no urgency.</td>
+                        <td class="table-desc">Fine. No regrets, no strong feelings.</td>
                     </tr>
                     <tr class="table-row">
                         <td><span class="rating rating--above-average">(4/5)</span></td>
                         <td class="table-desc">above average</td>
-                        <td class="table-desc">Clearly better than most. I would recommend it without hedging.</td>
+                        <td class="table-desc">Really liked it. Would recommend.</td>
                     </tr>
                     <tr class="table-row">
                         <td><span class="rating rating--great">(5/5)</span></td>
                         <td class="table-desc">great</td>
-                        <td class="table-desc">A favorite. It goes on the favorites shelf at the top of its
-                            page and stays there.</td>
+                        <td class="table-desc">A favorite. It goes on the favorites shelf at the top of its page.</td>
                     </tr>
                 </tbody>
             </table>
 
             <p class="meta">
-                Half steps are allowed when I genuinely cannot pick a side. Anything I have logged but
-                not yet scored shows as <span class="rating">(?/5)</span>.
+                Half points are allowed. Anything I haven't scored yet shows as
+                <span class="rating">(?/5)</span>.
             </p>
 
             <h2>THE COLORS</h2>
             <p>
-                Each step has its own color, so a wall of covers reads at a glance without stopping to
-                parse the numbers. The scale runs warm to cool: warm for the things that did not land,
-                green for the ones that did.
+                Each score has its own color so a wall of covers is easy to scan. Red for the low end, green for
+                the high end.
             </p>
 
             <div class="swatch-row">
@@ -130,41 +128,25 @@
             </div>
 
             <p class="meta">
-                Color is never the only signal - the number is always there next to it. In high contrast
-                mode the five tokens swap for brighter values, and an unrated entry falls back to
-                <code>--text-secondary</code>.
+                The number is always shown next to the color. In high contrast mode the colors get brighter.
             </p>
 
             <h2>IN MARKUP</h2>
             <p>
-                One element, two classes. The modifier carries the color through a
-                <code>--rating-color</code> custom property, so the base class is all that needs to
-                match if I ever swap the palette.
-            </p>
-            <p>
-                Ratings link back to this page, so anyone who hits a bare
-                <span class="rating rating--good">(3/5)</span> mid-sentence can find out what I meant
-                by it. The underline is transparent until hover, which keeps a wall of covers quiet.
+                A rating is one element with two classes. The modifier sets the color, and the link goes back to
+                this page.
             </p>
             <pre><code>&lt;a class="rating rating--great" href="/garden/ratings"&gt;(5/5)&lt;/a&gt;</code></pre>
             <p class="meta">
                 Modifiers, 1 to 5: <code>rating--terrible</code>, <code>rating--below-average</code>,
                 <code>rating--good</code>, <code>rating--above-average</code>, <code>rating--great</code>.
-                Drop the modifier for an unrated entry.
+                Leave the modifier off for an unrated entry.
             </p>
-
             <p>
-                The one exception is a rating already inside a link - the caption on a tracker tile,
-                which is wrapped in an <code>&lt;a class="tracker-link"&gt;</code> pointing at that
-                entry's note. Nested anchors are invalid, and a browser will close the outer one early
-                and break the tile. Those stay spans:
+                On a tracker tile the caption is already a link, so the rating there is a span instead of a
+                second link. It looks the same.
             </p>
             <pre><code>&lt;span class="rating rating--great"&gt;(5/5)&lt;/span&gt;</code></pre>
-            <p class="meta">
-                Both forms render identically at rest, so the two can sit next to each other without
-                the seam showing. The rating in a tile's note card is a link; the one on the tile
-                itself is not.
-            </p>
         </section>
     </main>
 
