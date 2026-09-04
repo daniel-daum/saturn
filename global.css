@@ -256,30 +256,6 @@ body {
 }
 
 /*============================*/
-/* cross site - skip link */
-/* first focusable thing on every page; parked off-screen until it takes */
-/* keyboard focus, then drops in at the top-left */
-/*============================*/
-.skip-link {
-    position: absolute;
-    top: 0.5rem;
-    left: 0.5rem;
-    z-index: 200;
-    padding: 0.4rem 0.75rem;
-    background: var(--background-dark);
-    color: var(--accent);
-    font-size: 0.82rem;
-    letter-spacing: 0.06em;
-    border: 1px solid var(--accent);
-    border-radius: 2px;
-    transform: translateY(-200%);
-}
-
-.skip-link:focus-visible {
-    transform: none;
-}
-
-/*============================*/
 /* cross site - header styles */
 /*============================*/
 .site-header {

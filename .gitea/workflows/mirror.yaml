@@ -24,10 +24,30 @@ jobs:
                   git push github --tags --force
 
             - name: Set up SSH for Tangled
+              env:
+                  TANGLED_SSH_KEY: ${{ secrets.TANGLED_SSH_KEY }}
+                  # Public half of the deploy key registered on Tangled as "gitea-ci-mirror".
+                  EXPECTED_PUBKEY: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDNl8WEwlLHsqWi15NNoZCqkDG2/GjiGgthdIYVm8kNM
               run: |
                   mkdir -p ~/.ssh && chmod 700 ~/.ssh
-                  printf '%s\n' "${{ secrets.TANGLED_SSH_KEY }}" > ~/.ssh/tangled_ci
+                  if [ -z "$TANGLED_SSH_KEY" ]; then
+                      echo "::error::secret TANGLED_SSH_KEY is empty or not visible to this workflow"
+                      exit 1
+                  fi
+                  # Strip CRs (pasted from Windows/clipboard) and guarantee a trailing newline.
+                  printf '%s\n' "$TANGLED_SSH_KEY" | tr -d '\r' > ~/.ssh/tangled_ci
                   chmod 600 ~/.ssh/tangled_ci
+                  echo "key file: $(wc -l < ~/.ssh/tangled_ci) lines, first line: $(head -n1 ~/.ssh/tangled_ci)"
+                  # Derive the public key; this fails loudly if the private key is malformed.
+                  if ! actual=$(ssh-keygen -y -f ~/.ssh/tangled_ci); then
+                      echo "::error::TANGLED_SSH_KEY is not a valid private key (check it is the PRIVATE key, all lines intact)"
+                      exit 1
+                  fi
+                  echo "derived pubkey: $actual"
+                  if [ "$(echo "$actual" | cut -d' ' -f1,2)" != "$EXPECTED_PUBKEY" ]; then
+                      echo "::error::TANGLED_SSH_KEY does not match the gitea-ci-mirror key registered on Tangled"
+                      exit 1
+                  fi
                   ssh-keyscan -t ed25519 -p "$TANGLED_SSH_PORT" knot.danieldaum.net >> ~/.ssh/known_hosts
 
             - name: Push to Tangled

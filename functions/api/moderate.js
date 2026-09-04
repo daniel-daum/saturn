@@ -130,7 +130,6 @@ function page(title, lines) {
 </head>
 
 <body>
-    <a class="skip-link" href="#main">SKIP TO CONTENT</a>
     <header class="site-header">
         <a class="site-name" href="/">DANIEL DAUM</a>
         <nav aria-label="main navigation">
