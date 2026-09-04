@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="daniel daum - software engineer based in oakland, ca" />
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;" />
+        content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://assets.danieldaum.net https://atproto.danieldaum.net; media-src 'self' https://assets.danieldaum.net;" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <link rel="stylesheet" href="/global.css" />
     <link rel="icon" type="image/jpeg" href="/assets/favicon/coast.jpeg" />
@@ -50,18 +50,12 @@
         <section aria-label="recent activity">
             <h2 class="section-label">recent activity</h2>
 
-            <!-- latest micro post. source of truth is /blog/micro/index.html -
-                 this card and the one on /blog are hand-synced copies, so update
-                 all three when posting. -->
-
-
             <!-- icons are plain unicode glyphs from the self-hosted font (no icon lib,
                  no cdn). full reference table: /garden/styles -> icons -->
             <ul class="activity-feed">
-                <li class="activity-item">
-                    <span class="activity-icon" aria-hidden="true">&#182;</span><!-- U+00B6 ¶ writing -->
-                    <a class="activity-link" href="/blog/micro">NEW MICRO POST &mdash; FIRST SPIN WITH THE OSMO</a>
-                    <span class="activity-date">1 SEP</span>
+                <li class="activity-item" data-micro="latest-activity">
+                    <span class="activity-icon" aria-hidden="true">&#182;</span>
+                    <span class="activity-link">NO POSTS YET</span>
                 </li>
                 <li class="activity-item">
                     <span class="activity-icon" aria-hidden="true">&#10047;</span><!-- U+273F ✿ garden -->
@@ -80,17 +74,9 @@
         <section>
             <h2 class="section-label">recent post</h2>
 
-            <article class="micro-post micro-featured">
-                <p class="meta">
-                    <span class="micro-at">@danieldaum</span>
-                    <a class="micro-time" href="/blog/micro#2026-09-01-2">1 SEPTEMBER 2026 &middot; 18:42
-                        PDT</a>
-                </p>
-                <p class="micro-body">
-                    took the osmo out for its first spin around town today. shot this waiting for
-                    BART &mdash; barely any light on the platform and it still caught the motion exactly how it felt.
-                </p>
-            </article>
+            <div data-micro="latest-featured">
+                <p class="meta">NO POSTS YET</p>
+            </div>
 
         </section>
 

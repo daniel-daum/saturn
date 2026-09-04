@@ -1,3 +1,6 @@
 # misc
 .DS_Store
 *.vite
+
+# wrangler (mise run preview)
+.wrangler/

@@ -5,3 +5,7 @@ node = "lts"
 [tasks.dev]
 run = "vite"
 description = "Start Vite dev server"
+
+[tasks.preview]
+run = "npx wrangler pages dev ."
+description = "Preview with Pages Functions (microblog injection)"

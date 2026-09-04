@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="daniel daum - software engineer based in oakland, ca" />
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;" />
+        content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://assets.danieldaum.net https://atproto.danieldaum.net; media-src 'self' https://assets.danieldaum.net;" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <link rel="stylesheet" href="/global.css" />
     <link rel="icon" type="image/jpeg" href="/assets/favicon/coast.jpeg" />
@@ -43,50 +43,11 @@
         </section>
 
         <!--MICRO BLOG-->
-        <!-- post id convention: YYYY-MM-DD-N, where N is the post number for that day (1 = first post) -->
+        <!-- posts are injected at the edge from my PDS; anchor ids are record keys. see /MICRO.md -->
         <section class="micro-container">
-            <article id="2026-09-01-2" class="micro-post">
-                <p class="meta"><span class="micro-at">@danieldaum</span><a class="micro-time" href="#2026-09-01-2">1
-                        SEPTEMBER 2026 &middot; 18:42 PDT</a></p>
-                <p class="micro-body">took the osmo out for its first spin around town today. shot this waiting for
-                    BART — barely any light on the platform and it still caught the motion exactly how it felt.</p>
-                <img class="micro-img" src="https://assets.danieldaum.net/img/bart-blurry.webp"
-                    alt="a BART train in motion, blurred" loading="lazy" />
-            </article>
-            <article id="2026-09-01-1" class="micro-post">
-                <p class="meta"><span class="micro-at">@danieldaum</span><a class="micro-time" href="#2026-09-01-1">1
-                        SEPTEMBER 2026 &middot; 09:15 PDT</a></p>
-                <p class="micro-body">I got my dream camera yesterday!! My Dad and I have discussed getting a camera for
-                    a long time, comparing notes and specs. We settled on the DJI Pocket Osmo 4, and it's soo cute and
-                    tiny, it's a vlog stick camera. I'm so attached to this thing I feel like a toddler with a new toy,
-                    I carry it everywhere, I constantly pick it up to admire it, can't believe it's mine now uwu</p>
-            </article>
-            <article id="2026-08-31-1" class="micro-post">
-                <p class="meta"><span class="micro-at">@danieldaum</span><a class="micro-time" href="#2026-08-31-1">31
-                        AUGUST 2026 &middot; 13:07 PDT</a></p>
-                <p class="micro-body">I finished the book "An island to oneself" last night, such a good read. It's a
-                    true story about a guy who pursues the dream we all think of, running off to a deserted island and
-                    living there alone. The book came to my attention since I met his granddaughter (and coincidentally
-                    she dated my brother lol), and she gave me the signed copy to read. I was 11 back then and I only
-                    got halfway through before wanting fiction books again. This time though, I really enjoyed the whole
-                    read and felt a sense of sadness when it ended and knowing that the man (Tom Neale) is dead. We
-                    really can do crazy things in life. I stayed up till about 5am last night, couldn't sleep with the
-                    sniffles haha.</p>
-            </article>
-            <article id="2026-08-30-1" class="micro-post">
-                <p class="meta"><span class="micro-at">@danieldaum</span><a class="micro-time" href="#2026-08-30-1">30
-                        AUGUST 2026 &middot; 22:19 PDT</a></p>
-                <p class="micro-body">The song "Sex" by The 1975 is an absolute banger, it's like I crave the song all
-                    the time. Don't judge by the title!! It's such a good song imo, I remember my older brother playing
-                    it when I was a kid, that's where the nostalgia is from lol.</p>
-            </article>
-            <article id="2026-08-28-1" class="micro-post">
-                <p class="meta"><span class="micro-at">@danieldaum</span><a class="micro-time" href="#2026-08-28-1">28
-                        AUGUST 2026 &middot; 16:33 PDT</a></p>
-                <p class="micro-body">does anyone else wonder if cloudflare uses its vast array of distributed network
-                    hardware to run ddos attacks against midsized companies to get them to buy ddos protection in a sort
-                    of corporate protection racket, or is that just me</p>
-            </article>
+            <div data-micro="all">
+                <p class="meta">NO POSTS YET</p>
+            </div>
         </section>
 
 
