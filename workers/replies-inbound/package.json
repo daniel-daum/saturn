@@ -1,0 +1,10 @@
+{
+    "name": "saturn-replies-inbound",
+    "version": "1.0.0",
+    "private": true,
+    "type": "module",
+    "description": "Email worker for reply-by-email comments on danieldaum.net. See ../../SOCIAL.md.",
+    "dependencies": {
+        "postal-mime": "^2.4.3"
+    }
+}

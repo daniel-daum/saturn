@@ -1,14 +1,19 @@
 # Default
+# the feed is the one thing open to everyone - pollers that respect
+# robots.txt (annot.at, feed readers) need to reach it.
 User-agent: *
+Allow: /feed.xml
 Disallow: /
 Crawl-delay: 10
 
 # Allow search engines
 User-agent: Googlebot
 Allow: /
+Disallow: /api/
 
 User-agent: Bingbot
 Allow: /
+Disallow: /api/
 
 # Block AI bots
 User-agent: CCBot

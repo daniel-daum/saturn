@@ -1,10 +1,10 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="daniel daum - 404, page not found" />
+    <meta name="description" content="likes and reply-by-email comments on this site, with no javascript" />
     <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
@@ -15,7 +15,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
     <link rel="manifest" href="/assets/favicon/site.webmanifest" />
     <link rel="alternate" type="application/atom+xml" title="daniel daum" href="https://danieldaum.net/feed.xml" />
-    <title>daniel daum - 404 page not found</title>
+    <title>daniel daum - hello, comments</title>
 </head>
 
 <body>
@@ -30,20 +30,48 @@
             <a href="/garden" aria-label="garden">GARDEN</a>
         </nav>
     </header>
-    <main>
 
-        <section class="hero text-center">
-            <h1>404</h1>
-            <p class="meta">this page doesn't exist</p>
+    <main>
+        <span class="nav-back"><a href="/blog">BLOG</a> -> <a href="/blog/hello-comments">HELLO, COMMENTS</a></span>
+
+        <section class="post-hero">
+            <h1>HELLO, COMMENTS</h1>
+            <p class="meta"> 126 WORDS | 3 SEPTEMBER 2026</p>
+            <div class="post-tags">
+                <p class="post-tag">#meta</p>
+            </div>
         </section>
 
-        <figure>
-            <img class="img-scaled" src="https://assets.danieldaum.net/gif/hk47.webp"
-                alt="HK-47 from Star Wars: Knights of the Old Republic" style="--img-max-height: 24rem;" />
-            <figcaption>return <a href="/" aria-label="return home">home</a></figcaption>
-        </figure>
+        <section class="post-body">
+            <h2>NO SCRIPTS, JUST FORMS</h2>
+            <p>
+                This site now has likes and replies, and there is still not a single line of JavaScript on it. The
+                heart below is a plain HTML form. Pressing it sends one request, the server counts it, and you land
+                right back here. You can like a post once a day; nothing about you is stored to enforce that, only a
+                hash that stops matching tomorrow.
+            </p>
+            <p>
+                Replies arrive by email. The link at the bottom opens your mail client with the subject already
+                filled in. Send the message, and it appears on the post a moment later with your display name and
+                the time. Your address is never stored and never shown. To answer someone, use the reply link under
+                their comment and the thread nests itself.
+            </p>
+        </section>
 
+        <!-- required on every blog post. the middleware fills both placeholders
+             with the like form and the reply thread at the edge; what is written
+             here is the fallback if the database is unreachable. see SOCIAL.md. -->
+        <section class="post-social" aria-label="likes and replies">
+            <div id="likes" data-likes>
+                <p class="meta">LIKES UNAVAILABLE</p>
+            </div>
+            <div id="replies" data-replies>
+                <p class="meta">REPLIES UNAVAILABLE</p>
+            </div>
+        </section>
     </main>
+
+    <!--FOOTER-->
     <footer>
         <nav aria-label="site links">
             <p aria-hidden="true">//</p>

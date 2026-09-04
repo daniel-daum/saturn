@@ -1,0 +1,656 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="daniel daum's tv tracker - what i've watched, by year, with ratings and notes" />
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <link rel="stylesheet" href="/global.css" />
+    <link rel="icon" type="image/jpeg" href="/assets/favicon/coast.jpeg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+    <link rel="alternate" type="application/atom+xml" title="daniel daum" href="https://danieldaum.net/feed.xml" />
+    <title>shows — daniel daum</title>
+</head>
+
+<body class="tracker-page">
+
+    <!--HEADER-->
+    <header class="site-header">
+        <a class="site-name" href="/" aria-label="return home">DANIEL DAUM</a>
+        <nav aria-label="main navigation">
+            <a href="/" aria-label="return home">HOME</a>
+            <a href="/about" aria-label="about me">ABOUT</a>
+            <a href="/now" aria-label="now page">NOW</a>
+            <a href="/blog" aria-label="blog">BLOG</a>
+            <a href="/projects" aria-label="projects">PROJECTS</a>
+            <a href="/garden" aria-label="garden">GARDEN</a>
+        </nav>
+    </header>
+
+
+    <main>
+        <span class="nav-back"><a href="/garden">GARDEN</a> -> <a href="/garden/shows">SHOWS</a></span>
+
+        <section>
+            <h1>/SHOWS</h1>
+            <p class="meta">The shows I've watched, newest year first. Click a cover to read my note on it.
+            </p>
+        </section>
+
+        <!-- adding a show:
+             1. drop the poster .webp on the cdn (2:3 crop), then put an <img> inside that entry's
+                <span class="tracker-cover"> - the placeholder disappears on its own.
+             2. copy a .tracker-tile into the right year's wall, newest first.
+             3. copy its note overlay into the note block at the bottom of <main>.
+             4. keep the ids unique and matching: #show-<year>-<n>, n counting up within the year.
+             5. to flag it as new: add .tracker-tile--new to the <figure> for the accent frame,
+                and drop <span class="new-tag">New!</span> after the title in both the wall
+                caption and the note overlay. strip all three off once it isn't new any more.
+             6. rating it 5/5? add a tile to the favorites wall too. if the show is also logged
+                under a year, point that tile at the year's note (#show-<year>-<n>) so both
+                share one note; a favorite with no year entry gets its own #show-fav-<n>,
+                numbered by its place in the favorites list. separate seasons of one show stay
+                separate entries with their own notes.
+             rating classes, 1-5: terrible / below-average / good / above-average / great. -->
+
+        <h2>MY FAVORITES</h2>
+
+        <section class="tracker-wall tracker-wall--favorites" aria-label="favorite shows">
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#show-2025-02" aria-label="read my note on Severance">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/shows/severance.webp" alt="Severance" width="1000"
+                            height="1500" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Severance</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating rating--great">(5/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#show-fav-2" aria-label="read my note on Pluribus">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/shows/pluribus.webp" alt="Pluribus" width="1000"
+                            height="1500" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Pluribus</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating rating--great">(5/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#show-2026-06" aria-label="read my note on Widow's Bay">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/shows/widows-bay.webp" alt="Widow's Bay"
+                            width="1000" height="1500" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Widow's Bay</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating rating--great">(5/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+        </section>
+
+        <h2>2026</h2>
+
+        <section class="tracker-wall" aria-label="shows logged in 2026">
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#show-2026-06" aria-label="read my note on Widow's Bay">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/shows/widows-bay.webp" alt="Widow's Bay"
+                            width="1000" height="1500" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Widow's Bay</span>
+                        <span class="tracker-caption-sub">s1</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating rating--great">(5/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#show-2026-05" aria-label="read my note on Batman: Caped Crusader">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/shows/batman-caped-crusader.webp"
+                            alt="Batman: Caped Crusader" width="1000" height="1500" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Batman: Caped Crusader</span>
+                        <span class="tracker-caption-sub">s2</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#show-2026-04" aria-label="read my note on Invincible">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/shows/invincible.webp" alt="Invincible" width="1000"
+                            height="1500" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Invincible</span>
+                        <span class="tracker-caption-sub">s4</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#show-2026-03" aria-label="read my note on Slow Horses">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/shows/slow-horses.webp" alt="Slow Horses"
+                            width="1000" height="1500" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Slow Horses</span>
+                        <span class="tracker-caption-sub">s1</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#show-2026-02"
+                    aria-label="read my note on Ghost in the Shell: Stand Alone Complex">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/shows/ghost-in-the-shell-stand-alone-complex.webp"
+                            alt="Ghost in the Shell: Stand Alone Complex" width="1000" height="1500" loading="lazy"
+                            decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Ghost in the Shell: Stand Alone Complex</span>
+                        <span class="tracker-caption-sub">s1</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#show-2026-01" aria-label="read my note on Frieren: Beyond Journey's End">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/shows/frieren-beyond-journeys-end.webp"
+                            alt="Frieren: Beyond Journey's End" width="1000" height="1500" loading="lazy"
+                            decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Frieren: Beyond Journey's End</span>
+                        <span class="tracker-caption-sub">s1</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+        </section>
+
+        <h2>2025</h2>
+
+        <section class="tracker-wall" aria-label="shows logged in 2025">
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#show-2025-06" aria-label="read my note on Batman: Caped Crusader">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/shows/batman-caped-crusader.webp"
+                            alt="Batman: Caped Crusader" width="1000" height="1500" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Batman: Caped Crusader</span>
+                        <span class="tracker-caption-sub">s1</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#show-2025-05" aria-label="read my note on Pantheon">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/shows/pantheon.webp" alt="Pantheon" width="1000"
+                            height="1500" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Pantheon</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#show-2025-04" aria-label="read my note on Common Side Effects">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/shows/common-side-effects.webp"
+                            alt="Common Side Effects" width="1000" height="1500" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Common Side Effects</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#show-2025-03" aria-label="read my note on All Her Fault">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/shows/all-her-fault.webp" alt="All Her Fault"
+                            width="1000" height="1500" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">All Her Fault</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#show-2025-02" aria-label="read my note on Severance">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/shows/severance.webp" alt="Severance" width="1000"
+                            height="1500" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Severance</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating rating--great">(5/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+
+            <figure class="tracker-tile">
+                <a class="tracker-link" href="#show-2025-01" aria-label="read my note on Neon Genesis Evangelion">
+                    <span class="tracker-cover">
+                        <img src="https://assets.danieldaum.net/img/shows/neon-genesis-evangelion.webp"
+                            alt="Neon Genesis Evangelion" width="1000" height="1500" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="tracker-caption">
+                        <span class="tracker-caption-title">Neon Genesis Evangelion</span>
+                        <span class="tracker-caption-line">
+                            <span>DATE</span>
+                            <span class="rating">(?/5)</span>
+                        </span>
+                    </span>
+                </a>
+            </figure>
+        </section>
+
+        <!--NOTES-->
+        <!--NOTES-->
+        <!--NOTES-->
+
+        <!-- each note is a :target overlay, hidden until its cover is clicked. one note per
+             entry, shared by the year tile and the favorites tile that both point at it.
+             reuses the photo wall's .lightbox shell for the backdrop and close button. -->
+
+        <div class="lightbox" id="show-fav-2" tabindex="-1" aria-label="my note on Pluribus">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Pluribus</h3>
+                <p class="tracker-note-meta">
+                    <span>Creator Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Finished DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <a class="rating rating--great" href="/garden/ratings" aria-label="rated 5 out of 5, see my rating scale">(5/5)</a>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the show goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://trakt.tv/" aria-label="Pluribus on TRAKT, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">TRAKT -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="show-2026-06" tabindex="-1" aria-label="my note on Widow's Bay">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Widow's Bay</h3>
+                <p class="tracker-note-meta">
+                    <span>Creator Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Finished DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Season 1</span>
+                    <span aria-hidden="true">·</span>
+                    <a class="rating rating--great" href="/garden/ratings" aria-label="rated 5 out of 5, see my rating scale">(5/5)</a>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the show goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://trakt.tv/" aria-label="Widow's Bay on TRAKT, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">TRAKT -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="show-2026-05" tabindex="-1" aria-label="my note on Batman: Caped Crusader">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Batman: Caped Crusader</h3>
+                <p class="tracker-note-meta">
+                    <span>Creator Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Finished DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Season 2</span>
+                    <span aria-hidden="true">·</span>
+                    <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the show goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://trakt.tv/" aria-label="Batman: Caped Crusader on TRAKT, opens in new tab"
+                        target="_blank" rel="noopener noreferrer">TRAKT -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="show-2026-04" tabindex="-1" aria-label="my note on Invincible">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Invincible</h3>
+                <p class="tracker-note-meta">
+                    <span>Creator Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Finished DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Season 4</span>
+                    <span aria-hidden="true">·</span>
+                    <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the show goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://trakt.tv/" aria-label="Invincible on TRAKT, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">TRAKT -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="show-2026-03" tabindex="-1" aria-label="my note on Slow Horses">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Slow Horses</h3>
+                <p class="tracker-note-meta">
+                    <span>Creator Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Finished DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Season 1</span>
+                    <span aria-hidden="true">·</span>
+                    <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the show goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://trakt.tv/" aria-label="Slow Horses on TRAKT, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">TRAKT -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="show-2026-02" tabindex="-1"
+            aria-label="my note on Ghost in the Shell: Stand Alone Complex">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Ghost in the Shell: Stand Alone Complex</h3>
+                <p class="tracker-note-meta">
+                    <span>Creator Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Finished DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Season 1</span>
+                    <span aria-hidden="true">·</span>
+                    <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the show goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://trakt.tv/"
+                        aria-label="Ghost in the Shell: Stand Alone Complex on TRAKT, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">TRAKT -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="show-2026-01" tabindex="-1" aria-label="my note on Frieren: Beyond Journey's End">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Frieren: Beyond Journey's End</h3>
+                <p class="tracker-note-meta">
+                    <span>Creator Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Finished DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Season 1</span>
+                    <span aria-hidden="true">·</span>
+                    <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the show goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://trakt.tv/" aria-label="Frieren: Beyond Journey's End on TRAKT, opens in new tab"
+                        target="_blank" rel="noopener noreferrer">TRAKT -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="show-2025-06" tabindex="-1" aria-label="my note on Batman: Caped Crusader">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Batman: Caped Crusader</h3>
+                <p class="tracker-note-meta">
+                    <span>Creator Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Finished DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Season 1</span>
+                    <span aria-hidden="true">·</span>
+                    <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the show goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://trakt.tv/" aria-label="Batman: Caped Crusader on TRAKT, opens in new tab"
+                        target="_blank" rel="noopener noreferrer">TRAKT -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="show-2025-05" tabindex="-1" aria-label="my note on Pantheon">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Pantheon</h3>
+                <p class="tracker-note-meta">
+                    <span>Creator Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Finished DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the show goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://trakt.tv/" aria-label="Pantheon on TRAKT, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">TRAKT -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="show-2025-04" tabindex="-1" aria-label="my note on Common Side Effects">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Common Side Effects</h3>
+                <p class="tracker-note-meta">
+                    <span>Creator Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Finished DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the show goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://trakt.tv/" aria-label="Common Side Effects on TRAKT, opens in new tab"
+                        target="_blank" rel="noopener noreferrer">TRAKT -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="show-2025-03" tabindex="-1" aria-label="my note on All Her Fault">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">All Her Fault</h3>
+                <p class="tracker-note-meta">
+                    <span>Creator Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Finished DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the show goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://trakt.tv/" aria-label="All Her Fault on TRAKT, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">TRAKT -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="show-2025-02" tabindex="-1" aria-label="my note on Severance">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Severance</h3>
+                <p class="tracker-note-meta">
+                    <span>Creator Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Finished DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <a class="rating rating--great" href="/garden/ratings" aria-label="rated 5 out of 5, see my rating scale">(5/5)</a>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the show goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://trakt.tv/" aria-label="Severance on TRAKT, opens in new tab" target="_blank"
+                        rel="noopener noreferrer">TRAKT -></a>
+                </p>
+            </article>
+        </div>
+
+        <div class="lightbox" id="show-2025-01" tabindex="-1" aria-label="my note on Neon Genesis Evangelion">
+            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
+            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
+            <article class="tracker-note-card">
+                <h3 class="tracker-note-title">Neon Genesis Evangelion</h3>
+                <p class="tracker-note-meta">
+                    <span>Creator Name</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Finished DATE</span>
+                    <span aria-hidden="true">·</span>
+                    <a class="rating" href="/garden/ratings" aria-label="not yet rated, see my rating scale">(?/5)</a>
+                </p>
+                <p class="tracker-note-text">
+                    A short note about the show goes here.
+                </p>
+                <p class="tracker-note-link">
+                    <a href="https://trakt.tv/" aria-label="Neon Genesis Evangelion on TRAKT, opens in new tab"
+                        target="_blank" rel="noopener noreferrer">TRAKT -></a>
+                </p>
+            </article>
+        </div>
+    </main>
+
+    <!--FOOTER-->
+    <footer>
+        <nav aria-label="site links">
+            <p aria-hidden="true">//</p>
+            <a href="mailto:daniel@danieldaum.net" aria-label="link to send me an email">
+                EMAIL
+            </a>
+            <a href="https://git.danieldaum.net/" aria-label="link to my git, opens in new tab" target="_blank"
+                rel="noopener noreferrer">GIT
+            </a>
+            <a href="/pgp.asc" aria-label="link to my pgp public key (516E97FF)">PGP</a>
+            <a href="/changelog">CHANGELOG</a>
+            <a href="/privacy">PRIVACY</a>
+            <a href="/feed.xml">FEED</a>
+        </nav>
+    </footer>
+</body>
+
+</html>

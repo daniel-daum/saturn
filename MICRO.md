@@ -1,0 +1,92 @@
+# Micro posts
+
+Micro posts on this site are Bluesky posts, pulled from my own PDS and injected
+into the static HTML at the Cloudflare edge. Nothing about them lives in this
+repo except the placeholders and the middleware that fills them.
+
+## Where posts come from
+
+I post from the Bluesky iOS app. Each post is an `app.bsky.feed.post` record in
+my repo on my PDS:
+
+- DID: `did:plc:be2e4qfe6docqcysyxxwvsor`
+- PDS: `https://atproto.danieldaum.net`
+- Handle: `danieldaum.net`
+
+`functions/_middleware.js` calls `com.atproto.repo.listRecords` on the PDS,
+drops replies, sorts by `createdAt` descending, and renders the result into
+the page. Replies are never shown.
+
+## The 300 grapheme limit
+
+Bluesky caps a post at 300 graphemes. That is a hard constraint on how I write
+here: a micro post is at most 300 characters, full stop. Anything longer is a
+longform post and belongs under `/blog` or `/now` with an entry in `feed.xml`
+(see `FEED.md`).
+
+## The `data-micro` modes
+
+The middleware looks for any element carrying a `data-micro` attribute and
+replaces its inner HTML. The attribute value picks what gets rendered:
+
+| Mode | Renders | Used on |
+|---|---|---|
+| `latest-activity` | one row's worth of content for an `<li class="activity-item">`: icon, `NEW MICRO POST &mdash; <excerpt>` link, and a `1 SEP` style date | `/` (activity feed) |
+| `latest-featured` | one `<article class="micro-post micro-featured">` for the newest post, timestamp linking to its anchor on `/blog/micro/`, images included | `/` (recent post card), `/blog` |
+| `all` | every post as `<article class="micro-post">`, newest first, each with an `id` anchor, images included | `/blog/micro/` |
+
+Anchor ids are the record key (the last path segment of the `at://` URI, a
+TID). The old `YYYY-MM-DD-N` convention is gone.
+
+Whatever is inside the `data-micro` element in the HTML is the fallback. It is
+what visitors see when the PDS is down, returns an error, or has no posts. The
+middleware never touches a page in that case, so the fallback must be real,
+presentable markup, not an empty div.
+
+## Adding a new injection point
+
+Two steps, both required:
+
+1. Add an element with `data-micro="<mode>"` and fallback content to the page.
+2. Add every path form the page can be requested at to `ALLOWED_PATHS` in
+   `functions/_middleware.js` (for a directory page that means `/foo`,
+   `/foo/`, and `/foo/index.html`).
+
+The allowlist is checked before anything is fetched, so a page that is not on
+it is served exactly as written and never causes a PDS request. Forgetting step
+2 means the placeholder stays as the fallback text forever.
+
+Blog post pages are not on the allowlist and never will be; their `data-likes`
+and `data-replies` injection is a separate path, documented in `SOCIAL.md`.
+
+If the new page needs images, add `https://atproto.danieldaum.net` to
+`img-src` in that page's CSP meta tag. Only the three pages listed above have
+that today.
+
+## Local dev
+
+- `mise run dev` runs Vite. Vite does not run Pages Functions, so every
+  `data-micro` element shows its fallback ("NO POSTS YET").
+- `mise run preview` runs `wrangler pages dev .`, which does run the
+  middleware and shows real posts from the PDS. Its default port is 8788.
+  Wrangler writes its state to `.wrangler/`, which is gitignored.
+
+No `package.json`, no dependencies. `npx` fetches wrangler on demand.
+
+## Caching
+
+The PDS fetch is made with a 60 second edge cache (`cf.cacheTtl`), so each
+Cloudflare PoP asks the PDS at most once a minute regardless of traffic. A new
+post can take up to a minute to appear on the site. Deleting a post on Bluesky
+takes the same minute to disappear.
+
+## Not implemented
+
+Deliberately left out of this pass. Everything below renders as plain text or
+is ignored:
+
+- rich text facets: links, mentions and hashtags are not linkified
+- quote posts and quote-with-media: the quoted record is dropped, only my text shows
+- external link cards
+- video embeds
+- threading: replies are filtered out entirely, and thread structure is ignored

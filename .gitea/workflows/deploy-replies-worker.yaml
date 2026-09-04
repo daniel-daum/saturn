@@ -1,0 +1,30 @@
+# .gitea/workflows/deploy-replies-worker.yaml
+name: Deploy replies worker
+
+on:
+    push:
+        branches:
+            - main
+        paths:
+            - "workers/replies-inbound/**"
+    workflow_dispatch:
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+
+            - name: Install dependencies
+              run: npm ci
+              working-directory: workers/replies-inbound
+
+            - name: Deploy to Cloudflare Workers
+              uses: cloudflare/wrangler-action@v3
+              with:
+                  apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+                  accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+                  workingDirectory: workers/replies-inbound
+                  command: deploy

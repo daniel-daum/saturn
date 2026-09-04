@@ -15,42 +15,28 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
     <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+    <link rel="alternate" type="application/atom+xml" title="daniel daum" href="https://danieldaum.net/feed.xml" />
     <title>daniel daum - saturn</title>
 </head>
 
 <body>
     <header class="site-header">
-        <a class="site-name" href="/index.html" aria-label="return home">
-            daniel daum
-        </a>
+        <a class="site-name" href="/" aria-label="return home">DANIEL DAUM</a>
         <nav aria-label="main navigation">
-            <a href="/index.html" aria-label="return home">
-                home
-            </a>
-            <a href="/about" aria-label="about me">
-                about
-            </a>
-            <a href="/now" aria-label="now page">
-                now
-            </a>
-            <a href="/blog" aria-label="blog">
-                blog
-            </a>
-            <a href="/projects" aria-label="projects">
-                projects
-            </a>
-            <a href="/garden" aria-label="garden">
-                garden
-            </a>
+            <a href="/" aria-label="return home">HOME</a>
+            <a href="/about" aria-label="about me">ABOUT</a>
+            <a href="/now" aria-label="now page">NOW</a>
+            <a href="/blog" aria-label="blog">BLOG</a>
+            <a href="/projects" aria-label="projects">PROJECTS</a>
+            <a href="/garden" aria-label="garden">GARDEN</a>
         </nav>
     </header>
 
     <main>
-        <span class="nav-back"><a href="/projects">← back to projects</a></span>
-
+        <span class="nav-back"><a href="/projects">PROJECTS</a> -> <a
+                href="/projects/saturn">SATURN</a></span>
         <section class="project-banner">
             <div class="project-banner-background" aria-hidden="true">
-                <!--svg elements generated with help from warp ai-->
                 <svg width="100%" height="100%" preserveAspectRatio="xMinYMin">
                     <defs>
                         <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
@@ -69,33 +55,39 @@
                     <rect width="100%" height="100%" fill="url(#dots)" opacity="0.15" />
                 </svg>
             </div>
-            <img class="project-banner-img" src="https://assets.danieldaum.net/img/saturn-project-hero.webp"
+            <img class="project-banner-img" src="https://assets.danieldaum.net/img/misc/saturn-project-hero.webp"
                 alt="screenshot of the saturn personal website" />
         </section>
 
         <section class="project-header">
-            <h1 class="project-header-title">saturn</h1>
-            <p class="project-header-desc">a cozy yet minimalist personal website</p>
+            <h1 class="project-header-title">SATURN</h1>
+            <p class="project-header-desc">A cozy yet minimalist personal website</p>
         </section>
 
         <section aria-label="project metadata">
             <h2 class="section-label">metadata</h2>
             <div class="project-stats">
                 <div class="project-stat">
+                    <p class="project-stat-label">status</p>
+                    <p class="project-stat-value">
+                        <span class="status-tag status-tag--completed">completed</span>
+                    </p>
+                </div>
+                <div class="project-stat">
                     <p class="project-stat-label">role</p>
-                    <p class="project-stat-value">developer</p>
+                    <p class="project-stat-value">DEVELOPER</p>
                 </div>
                 <div class="project-stat">
                     <p class="project-stat-label">timeline</p>
-                    <p class="project-stat-value">jan 2026 &ndash; ongoing</p>
+                    <p class="project-stat-value">JANUARY 2026 &ndash; SEPTEMBER 2026</p>
                 </div>
                 <div class="project-stat">
                     <p class="project-stat-label">stack</p>
-                    <p class="project-stat-value">html, css</p>
+                    <p class="project-stat-value">HTML, CSS</p>
                 </div>
                 <div class="project-stat">
                     <p class="project-stat-label">context</p>
-                    <p class="project-stat-value">personal project</p>
+                    <p class="project-stat-value">PERSONAL PROJECT</p>
                 </div>
                 <div class="project-stat">
                     <p class="project-stat-label">source</p>
@@ -105,18 +97,20 @@
                             rel="noopener noreferrer">git.danieldaum.net/daniel-daum/saturn</a>
                     </p>
                 </div>
+                <div>
+                    <p class="project-stat-label">MADE WHILE LISTENING TO:</p>
+                    <p class="project-stat-value">WOR$ST GIRL IN AMERICA - Slayyyter</p>
+                </div>
             </div>
         </section>
 
         <section aria-label="about this project">
-            <h2 class="section-label">about</h2>
+            <h2 class="section-label">about | how its made</h2>
 
             <p>
                 I have never been completely satisfied with the look of my websites. In my efforts to improve what I
-                don't like, I end up redesigning it - over, and over, and over...
-            </p>
+                don't like, I end up redesigning it - over, and over, and over.
 
-            <p>
                 That being said, simple, minimal sites have always appealed to me. Doing less somehow feels both calming
                 and
                 satisfying, and this
@@ -125,20 +119,30 @@
 
             <p>
                 The implementation is deliberately plain: static HTML and CSS, no JavaScript or
-                framework, registered and hosted on Cloudflare.
+                framework, registered and hosted on Cloudflare. I write HTML & CSS locally on my machine, and when
+                changes hit main my self-hosted gitea runners push the changes to cloudflare pages.
             </p>
+
+            <blockquote>As of september 2026, I think I've finally become happy with the overall look and feel of the
+                site, enough to call it 'complete', at least stylistically. :)</blockquote>
         </section>
+
     </main>
 
+    <!--FOOTER-->
     <footer>
-        <hr />
         <nav aria-label="site links">
-            <p aria-hidden="true">[↗]:</p>
-            <a href="mailto:daniel@danieldaum.net" aria-label="link to send me an email">email</a>
+            <p aria-hidden="true">//</p>
+            <a href="mailto:daniel@danieldaum.net" aria-label="link to send me an email">
+                EMAIL
+            </a>
             <a href="https://git.danieldaum.net/" aria-label="link to my git, opens in new tab" target="_blank"
-                rel="noopener noreferrer">git</a>
-            <a href="/pgp.asc" aria-label="link to my pgp public key (516E97FF)">pgp</a>
-            <a href="/changelog.html">changelog</a>
+                rel="noopener noreferrer">GIT
+            </a>
+            <a href="/pgp.asc" aria-label="link to my pgp public key (516E97FF)">PGP</a>
+            <a href="/changelog">CHANGELOG</a>
+            <a href="/privacy">PRIVACY</a>
+            <a href="/feed.xml">FEED</a>
         </nav>
     </footer>
 </body>

@@ -1,10 +1,10 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="daniel daum - 404, page not found" />
+    <meta name="description" content="ONE SENTENCE SUMMARY - copy this verbatim into the feed entry summary" />
     <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
@@ -15,7 +15,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
     <link rel="manifest" href="/assets/favicon/site.webmanifest" />
     <link rel="alternate" type="application/atom+xml" title="daniel daum" href="https://danieldaum.net/feed.xml" />
-    <title>daniel daum - 404 page not found</title>
+    <title>daniel daum - POST TITLE</title>
 </head>
 
 <body>
@@ -30,20 +30,40 @@
             <a href="/garden" aria-label="garden">GARDEN</a>
         </nav>
     </header>
-    <main>
 
-        <section class="hero text-center">
-            <h1>404</h1>
-            <p class="meta">this page doesn't exist</p>
+    <main>
+        <!-- SLUG must match the directory name. never change it after publishing. -->
+        <span class="nav-back"><a href="/blog">BLOG</a> -> <a href="/blog/SLUG">POST TITLE</a></span>
+
+        <section class="post-hero">
+            <h1>POST TITLE</h1>
+            <p class="meta"> 000 WORDS | 1 JANUARY 2026</p>
+            <div class="post-tags">
+                <p class="post-tag">#TAG1</p>
+            </div>
         </section>
 
-        <figure>
-            <img class="img-scaled" src="https://assets.danieldaum.net/gif/hk47.webp"
-                alt="HK-47 from Star Wars: Knights of the Old Republic" style="--img-max-height: 24rem;" />
-            <figcaption>return <a href="/" aria-label="return home">home</a></figcaption>
-        </figure>
+        <section class="post-body">
+            <h2>FIRST SECTION</h2>
+            <p>
+                Body copy goes here.
+            </p>
+        </section>
 
+        <!-- required on every blog post. the middleware fills both placeholders
+             with the like form and the reply thread at the edge; what is written
+             here is the fallback if the database is unreachable. see SOCIAL.md. -->
+        <section class="post-social" aria-label="likes and replies">
+            <div id="likes" data-likes>
+                <p class="meta">LIKES UNAVAILABLE</p>
+            </div>
+            <div id="replies" data-replies>
+                <p class="meta">REPLIES UNAVAILABLE</p>
+            </div>
+        </section>
     </main>
+
+    <!--FOOTER-->
     <footer>
         <nav aria-label="site links">
             <p aria-hidden="true">//</p>

@@ -1,0 +1,39 @@
+name: mirror
+on:
+    push:
+        branches: [main]
+    workflow_dispatch:
+
+env:
+    TANGLED_SSH_PORT: "2222"
+    TANGLED_REMOTE: "ssh://git@knot.danieldaum.net:2222/danieldaum.net/saturn"
+
+jobs:
+    mirror:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+
+            - name: Push to GitHub
+              run: |
+                  git remote add github https://x-access-token:${{ secrets.GH_MIRROR_TOKEN }}@github.com/daniel-daum/saturn.git
+                  git push github main --force
+                  git push github --tags --force
+
+            - name: Set up SSH for Tangled
+              run: |
+                  mkdir -p ~/.ssh && chmod 700 ~/.ssh
+                  printf '%s\n' "${{ secrets.TANGLED_SSH_KEY }}" > ~/.ssh/tangled_ci
+                  chmod 600 ~/.ssh/tangled_ci
+                  ssh-keyscan -t ed25519 -p "$TANGLED_SSH_PORT" knot.danieldaum.net >> ~/.ssh/known_hosts
+
+            - name: Push to Tangled
+              env:
+                  GIT_SSH_COMMAND: ssh -i ~/.ssh/tangled_ci -o IdentitiesOnly=yes -o UserKnownHostsFile=~/.ssh/known_hosts
+              run: |
+                  git remote add tangled "$TANGLED_REMOTE"
+                  git push tangled main --force
+                  git push tangled --tags --force

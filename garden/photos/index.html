@@ -14,504 +14,489 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
     <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+    <link rel="alternate" type="application/atom+xml" title="daniel daum" href="https://danieldaum.net/feed.xml" />
     <title>photos — daniel daum</title>
-    <style>
-        /* ===== photos-page-only layout ===== */
-        /* wider body than the rest of the site, just for this page */
-        body.photos-page {
-            max-width: min(100rem, 94vw);
-        }
-
-        .photo-wall {
-            columns: 4 18rem;
-            column-gap: 0.85rem;
-        }
-
-        .photo-tile {
-            position: relative;
-            display: block;
-            break-inside: avoid;
-            margin: 0 0 0.85rem;
-            border-radius: 2px;
-            overflow: hidden;
-        }
-
-        .photo-tile img {
-            margin: 0;
-        }
-
-        /* the image itself is the link into the lightbox */
-        .photo-link {
-            display: block;
-            border-bottom: none;
-        }
-
-        .photo-link:hover,
-        .photo-link:focus-visible {
-            background: none;
-        }
-
-        .photo-caption {
-            position: absolute;
-            inset: auto 0 0 0;
-            margin: 0;
-            padding: 1.75rem 0.85rem 0.75rem;
-            background: linear-gradient(to top,
-                    rgba(10, 14, 11, 0.92) 0%,
-                    rgba(10, 14, 11, 0.5) 60%,
-                    transparent 100%);
-            backdrop-filter: blur(3px);
-            -webkit-backdrop-filter: blur(3px);
-            font-size: 0.8rem;
-            line-height: 1.4;
-            opacity: 0;
-            transform: translateY(6px);
-            transition:
-                opacity 200ms ease,
-                transform 200ms ease;
-            pointer-events: none;
-        }
-
-        .photo-tile:hover .photo-caption,
-        .photo-tile:focus-within .photo-caption {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* compact hover caption: just name + location, full details live in the lightbox */
-        .photo-caption-name {
-            display: block;
-            color: var(--text-headings);
-            font-weight: 600;
-        }
-
-        .photo-caption-location {
-            display: block;
-            margin-top: 0.15rem;
-            color: var(--text-secondary);
-            font-size: 0.75rem;
-        }
-
-        @media (max-width: 900px) {
-            .photo-wall {
-                columns: 2 14rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            body.photos-page {
-                max-width: 100%;
-            }
-
-            .photo-wall {
-                columns: 1;
-            }
-        }
-
-        /* ===== lightbox (pure CSS, no JS) ===== */
-        /* each lightbox is a fixed overlay toggled on/off via :target,
-           navigated entirely through anchor links (#view-n) */
-        .lightbox {
-            display: none;
-            position: fixed;
-            inset: 0;
-            z-index: 100;
-        }
-
-        .lightbox:target {
-            display: block;
-        }
-
-        .lightbox-backdrop {
-            position: absolute;
-            inset: 0;
-            background: rgba(10, 14, 11, 0.94);
-            border: none;
-        }
-
-        .lightbox-backdrop:hover,
-        .lightbox-backdrop:focus-visible {
-            background: rgba(10, 14, 11, 0.94);
-        }
-
-        .lightbox-content {
-            position: relative;
-            z-index: 1;
-            margin: 6vh auto 0;
-            max-width: 92vw;
-            max-height: 88vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            pointer-events: none;
-        }
-
-        .lightbox-content>* {
-            pointer-events: auto;
-        }
-
-        .lightbox-content img {
-            max-width: 92vw;
-            max-height: 68vh;
-            width: auto;
-            height: auto;
-            margin: 0;
-        }
-
-        /* full metadata: name, date, location, camera, and mood.app filter */
-        .lightbox-meta {
-            margin-top: 0.85rem;
-            text-align: center;
-        }
-
-        .lightbox-meta-name {
-            margin: 0 0 0.35rem;
-            color: var(--text-headings);
-            font-size: 0.95rem;
-            font-weight: 600;
-        }
-
-        .lightbox-meta-detail {
-            margin: 0.15rem 0 0;
-            color: var(--text-secondary);
-            font-size: 0.8rem;
-        }
-
-        .lightbox-close,
-        .lightbox-nav {
-            position: fixed;
-            color: var(--text-headings);
-            border-bottom: none;
-            text-decoration: none;
-            line-height: 1;
-        }
-
-        .lightbox-close:hover,
-        .lightbox-nav:hover,
-        .lightbox-close:focus-visible,
-        .lightbox-nav:focus-visible {
-            color: var(--accent);
-            background: none;
-        }
-
-        .lightbox-close {
-            top: 1.25rem;
-            right: 1.5rem;
-            font-size: 1.4rem;
-            padding: 0.4rem 0.6rem;
-        }
-
-        .lightbox-nav {
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 2.25rem;
-            padding: 0.5rem 0.85rem;
-        }
-
-        .lightbox-prev {
-            left: 0.5rem;
-        }
-
-        .lightbox-next {
-            right: 0.5rem;
-        }
-
-        @media (max-width: 600px) {
-
-            .lightbox-nav {
-                font-size: 1.75rem;
-                padding: 0.4rem 0.6rem;
-            }
-
-            .lightbox-close {
-                top: 0.75rem;
-                right: 1rem;
-            }
-        }
-    </style>
 </head>
 
 <body class="photos-page">
+
+    <!--HEADER-->
     <header class="site-header">
-        <a class="site-name" href="/index.html" aria-label="return home">
-            daniel daum
-        </a>
+        <a class="site-name" href="/" aria-label="return home">DANIEL DAUM</a>
         <nav aria-label="main navigation">
-            <a href="/index.html" aria-label="return home">
-                home
-            </a>
-            <a href="/about" aria-label="about me">
-                about
-            </a>
-            <a href="/now" aria-label="now page">
-                now
-            </a>
-            <a href="/blog" aria-label="blog">
-                blog
-            </a>
-            <a href="/projects" aria-label="projects">
-                projects
-            </a>
-            <a href="/garden" aria-label="garden">
-                garden
-            </a>
+            <a href="/" aria-label="return home">HOME</a>
+            <a href="/about" aria-label="about me">ABOUT</a>
+            <a href="/now" aria-label="now page">NOW</a>
+            <a href="/blog" aria-label="blog">BLOG</a>
+            <a href="/projects" aria-label="projects">PROJECTS</a>
+            <a href="/garden" aria-label="garden">GARDEN</a>
         </nav>
     </header>
+
+
     <main>
-        <span class="nav-back"><a href="/garden">← garden</a></span>
+        <span class="nav-back"><a href="/garden">GARDEN</a> -> <a href="/garden/photos">PHOTOS</a></span>
 
         <section>
-            <h1>photos</h1>
-            <p class="meta">a wall of photographs. hover (or tab to) an image for details, click to view full size.
+            <h1>/PHOTOS</h1>
+            <p class="meta">My favorite pictures. Hover over an image for details, click to view full size.
             </p>
         </section>
 
         <section class="photo-wall" aria-label="photo wall">
+
+            <figure class="photo-tile photo-tile--new">
+                <a class="photo-link" href="#view-14"
+                    aria-label="view full size: Berkeley Aquatic Park — Berkeley, California">
+                    <img src="https://assets.danieldaum.net/img/photos/berkeley-aquatic-park.webp"
+                        alt="berkeley aquatic park" loading="lazy" />
+                </a>
+                <figcaption class="photo-caption">
+                    <span class="photo-caption-name">Berkeley Aquatic Park <span class="new-tag">New!</span></span>
+                    <span class="photo-caption-location">Berkeley, California</span>
+                    <span class="photo-caption-date">21 AUGUST 2026</span>
+                </figcaption>
+            </figure>
+
+            <figure class="photo-tile photo-tile--new">
+                <a class="photo-link" href="#view-13" aria-label="view full size: Neighbor Snail — Oakland, California">
+                    <img src="https://assets.danieldaum.net/img/photos/neighbor-snail.webp"
+                        alt="a blue snail in my neighborhood on a plant" loading="lazy" />
+                </a>
+                <figcaption class="photo-caption">
+                    <span class="photo-caption-name">Neighbor Snail <span class="new-tag">New!</span></span>
+                    <span class="photo-caption-location">Oakland, California</span>
+                    <span class="photo-caption-date">14 AUGUST 2026</span>
+                </figcaption>
+            </figure>
+
+            <figure class="photo-tile photo-tile--new">
+                <a class="photo-link" href="#view-12"
+                    aria-label="view full size: Fire Truck — San Francisco, California">
+                    <img src="https://assets.danieldaum.net/img/photos/fire-truck.webp"
+                        alt="a fire truck at night in san francisco" loading="lazy" />
+                </a>
+                <figcaption class="photo-caption">
+                    <span class="photo-caption-name">Fire Truck <span class="new-tag">New!</span></span>
+                    <span class="photo-caption-location">San Francisco, California</span>
+                    <span class="photo-caption-date">12 AUGUST 2026</span>
+                </figcaption>
+            </figure>
+
+            <figure class="photo-tile photo-tile--new">
+                <a class="photo-link" href="#view-11"
+                    aria-label="view full size: Oracle Park — San Francisco, California">
+                    <img src="https://assets.danieldaum.net/img/photos/oracle-park-night.webp"
+                        alt="oracle park at night" loading="lazy" />
+                </a>
+                <figcaption class="photo-caption">
+                    <span class="photo-caption-name">Oracle Park <span class="new-tag">New!</span></span>
+                    <span class="photo-caption-location">San Francisco, California</span>
+                    <span class="photo-caption-date">12 AUGUST 2026</span>
+                </figcaption>
+            </figure>
+
+            <figure class="photo-tile photo-tile--new">
+                <a class="photo-link" href="#view-10" aria-label="view full size: Swim Prep — Lake Michigan">
+                    <img src="https://assets.danieldaum.net/img/photos/lake-michigan-swim.webp"
+                        alt="getting ready for a swim in lake michigan" loading="lazy" />
+                </a>
+                <figcaption class="photo-caption">
+                    <span class="photo-caption-name">Swim Prep <span class="new-tag">New!</span></span>
+                    <span class="photo-caption-location">Lake Michigan</span>
+                    <span class="photo-caption-date">4 AUGUST 2026</span>
+                </figcaption>
+            </figure>
+
+            <figure class="photo-tile photo-tile--new">
+                <a class="photo-link" href="#view-9" aria-label="view full size: Blond Racoon — Oakland, California">
+                    <img src="https://assets.danieldaum.net/img/photos/blond-raccoon.webp"
+                        alt="a blond racoon eating chips on doorsteps in oakland" loading="lazy" />
+                </a>
+                <figcaption class="photo-caption">
+                    <span class="photo-caption-name">Blond Racoon <span class="new-tag">New!</span></span>
+                    <span class="photo-caption-location">Oakland, California</span>
+                    <span class="photo-caption-date">10 JULY 2026</span>
+                </figcaption>
+            </figure>
+
             <figure class="photo-tile">
-                <a class="photo-link" href="#view-1"
-                    aria-label="view full size: transamerica pyramid — san francisco, california">
-                    <img src="https://assets.danieldaum.net/img/transamerica-pyramid.webp"
+                <a class="photo-link" href="#view-8"
+                    aria-label="view full size: Transamerica Pyramid — San Francisco, California">
+                    <img src="https://assets.danieldaum.net/img/photos/transamerica-pyramid.webp"
                         alt="the Transamerica Pyramid rising above San Francisco's skyline" loading="lazy" />
                 </a>
                 <figcaption class="photo-caption">
-                    <span class="photo-caption-name">transamerica pyramid</span>
-                    <span class="photo-caption-location">san francisco, california</span>
+                    <span class="photo-caption-name">Transamerica Pyramid <span class="new-tag">New!</span></span>
+                    <span class="photo-caption-location">San Francisco, California</span>
+                    <span class="photo-caption-date">4 JULY 2026</span>
                 </figcaption>
             </figure>
 
             <figure class="photo-tile">
-                <a class="photo-link" href="#view-2"
-                    aria-label="view full size: wildcat beach — point reyes, california">
-                    <img src="https://assets.danieldaum.net/img/wildcat-beach.webp"
+                <a class="photo-link" href="#view-7"
+                    aria-label="view full size: Wildcat Beach — Point Reyes, California">
+                    <img src="https://assets.danieldaum.net/img/photos/wildcat-beach.webp"
                         alt="the California coast near Point Reyes seen from Wildcat Beach" loading="lazy" />
                 </a>
                 <figcaption class="photo-caption">
-                    <span class="photo-caption-name">wildcat beach</span>
-                    <span class="photo-caption-location">point reyes, california</span>
+                    <span class="photo-caption-name">Wildcat Beach</span>
+                    <span class="photo-caption-location">Point Reyes, California</span>
+                    <span class="photo-caption-date">22 DECEMBER 2024</span>
                 </figcaption>
             </figure>
 
             <figure class="photo-tile">
-                <a class="photo-link" href="#view-3"
-                    aria-label="view full size: boat on lake tahoe — lake tahoe, california">
-                    <img src="https://assets.danieldaum.net/img/lake-tahoe-boat.webp" alt="a boat crossing Lake Tahoe"
-                        loading="lazy" />
+                <a class="photo-link" href="#view-6"
+                    aria-label="view full size: Boat on Lake Tahoe — Lake Tahoe, California">
+                    <img src="https://assets.danieldaum.net/img/photos/lake-tahoe-boat.webp"
+                        alt="a boat crossing Lake Tahoe" loading="lazy" />
                 </a>
                 <figcaption class="photo-caption">
-                    <span class="photo-caption-name">boat on lake tahoe</span>
-                    <span class="photo-caption-location">lake tahoe, california</span>
+                    <span class="photo-caption-name">Boat on Lake Tahoe</span>
+                    <span class="photo-caption-location">Lake Tahoe, California</span>
+                    <span class="photo-caption-date">14 JUNE 2026</span>
                 </figcaption>
             </figure>
 
             <figure class="photo-tile">
-                <a class="photo-link" href="#view-4"
-                    aria-label="view full size: regatta lineup — west sacramento, california">
-                    <img src="https://assets.danieldaum.net/img/regatta-lineup.webp"
+                <a class="photo-link" href="#view-5"
+                    aria-label="view full size: Regatta Lineup — West Sacramento, California">
+                    <img src="https://assets.danieldaum.net/img/photos/regatta-lineup.webp"
                         alt="sailboats lined up for a regatta" loading="lazy" />
                 </a>
                 <figcaption class="photo-caption">
-                    <span class="photo-caption-name">regatta lineup</span>
-                    <span class="photo-caption-location">west sacramento, california</span>
+                    <span class="photo-caption-name">Regatta Lineup</span>
+                    <span class="photo-caption-location">West Sacramento, California</span>
+                    <span class="photo-caption-date">6 JUNE 2026</span>
                 </figcaption>
             </figure>
 
             <figure class="photo-tile">
-                <a class="photo-link" href="#view-5" aria-label="view full size: pines and moon — california">
-                    <img src="https://assets.danieldaum.net/img/pine-trees-and-moon.webp"
+                <a class="photo-link" href="#view-4" aria-label="view full size: Pines and Moon — California">
+                    <img src="https://assets.danieldaum.net/img/photos/pine-trees-and-moon.webp"
                         alt="the moon rising above a line of pine trees" loading="lazy" />
                 </a>
                 <figcaption class="photo-caption">
-                    <span class="photo-caption-name">pines and moon</span>
-                    <span class="photo-caption-location">west sacramento, california</span>
+                    <span class="photo-caption-name">Pines and Moon</span>
+                    <span class="photo-caption-location">West Sacramento, California</span>
+                    <span class="photo-caption-date">6 JUNE 2026</span>
                 </figcaption>
             </figure>
 
             <figure class="photo-tile">
-                <a class="photo-link" href="#view-6" aria-label="view full size: white rose — california">
-                    <img src="https://assets.danieldaum.net/img/white-rose.webp" alt="a single white rose in bloom"
-                        loading="lazy" />
+                <a class="photo-link" href="#view-3" aria-label="view full size: White Rose — California">
+                    <img src="https://assets.danieldaum.net/img/photos/white-rose.webp"
+                        alt="a single white rose in bloom" loading="lazy" />
                 </a>
                 <figcaption class="photo-caption">
-                    <span class="photo-caption-name">white rose</span>
-                    <span class="photo-caption-location">oakland, california</span>
+                    <span class="photo-caption-name">White Rose</span>
+                    <span class="photo-caption-location">Oakland, California</span>
+                    <span class="photo-caption-date">14 JUNE 2026</span>
                 </figcaption>
             </figure>
 
             <figure class="photo-tile">
-                <a class="photo-link" href="#view-7" aria-label="view full size: farm and forest — california">
-                    <img src="https://assets.danieldaum.net/img/farm-forest.webp" alt="a farm at the edge of a forest"
-                        loading="lazy" />
+                <a class="photo-link" href="#view-2" aria-label="view full size: Farm and Forest — California">
+                    <img src="https://assets.danieldaum.net/img/photos/farm-forest.webp"
+                        alt="a farm at the edge of a forest" loading="lazy" />
                 </a>
                 <figcaption class="photo-caption">
-                    <span class="photo-caption-name">farm and forest</span>
-                    <span class="photo-caption-location">lovettsville, virginia</span>
+                    <span class="photo-caption-name">Farm and Forest</span>
+                    <span class="photo-caption-location">Lovettsville, Virginia</span>
+                    <span class="photo-caption-date">16 JUNE 2026</span>
                 </figcaption>
             </figure>
 
             <figure class="photo-tile">
-                <a class="photo-link" href="#view-8" aria-label="view full size: bart, blurry — oakland, california">
-                    <img src="https://assets.danieldaum.net/img/bart-blurry.webp" alt="a BART train in motion, blurred"
-                        loading="lazy" />
+                <a class="photo-link" href="#view-1" aria-label="view full size: BART, Blurry — Oakland, California">
+                    <img src="https://assets.danieldaum.net/img/photos/bart-blurry.webp"
+                        alt="a BART train in motion, blurred" loading="lazy" />
                 </a>
                 <figcaption class="photo-caption">
-                    <span class="photo-caption-name">bart, blurry</span>
-                    <span class="photo-caption-location">san francisco, california</span>
+                    <span class="photo-caption-name">BART, Blurry</span>
+                    <span class="photo-caption-location">San Francisco, California</span>
+                    <span class="photo-caption-date">1 JANUARY 2026</span>
                 </figcaption>
             </figure>
         </section>
 
-        <div class="lightbox" id="view-1" tabindex="-1"
-            aria-label="transamerica pyramid — san francisco, california, full size">
-            <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
-            <a class="lightbox-nav lightbox-prev" href="#view-8" aria-label="previous image">‹</a>
-            <a class="lightbox-close" href="#" aria-label="close full size image">✕</a>
-            <figure class="lightbox-content">
-                <img src="https://assets.danieldaum.net/img/transamerica-pyramid.webp"
-                    alt="the Transamerica Pyramid rising above San Francisco's skyline" />
-                <figcaption class="lightbox-meta">
-                    <p class="lightbox-meta-name">transamerica pyramid</p>
-                    <p class="lightbox-meta-detail">july 4, 2026</p>
-                    <p class="lightbox-meta-detail">san francisco, california</p>
-                    <p class="lightbox-meta-detail">iPhone 16 Pro · Main 24mm &fnof;/1.78 · 12MP · ISO 64 · 0EV</p>
-                    <p class="lightbox-meta-detail">MOOD: NOIR 400-C</p>
-                </figcaption>
-            </figure>
-            <a class="lightbox-nav lightbox-next" href="#view-2" aria-label="next image">›</a>
-        </div>
+        <!--LIGHTBOX-->
+        <!--LIGHTBOX-->
+        <!--LIGHTBOX-->
 
-        <div class="lightbox" id="view-2" tabindex="-1" aria-label="wildcat beach — point reyes, california, full size">
+        <div class="lightbox" id="view-14" tabindex="-1"
+            aria-label="Berkeley Aquatic Park — Berkeley, California, full size">
             <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
             <a class="lightbox-nav lightbox-prev" href="#view-1" aria-label="previous image">‹</a>
             <a class="lightbox-close" href="#" aria-label="close full size image">✕</a>
             <figure class="lightbox-content">
-                <img src="https://assets.danieldaum.net/img/wildcat-beach.webp"
-                    alt="the California coast near Point Reyes seen from Wildcat Beach" />
+                <img src="https://assets.danieldaum.net/img/photos/berkeley-aquatic-park.webp"
+                    alt="berkeley aquatic park" />
                 <figcaption class="lightbox-meta">
-                    <p class="lightbox-meta-name">wildcat beach</p>
-                    <p class="lightbox-meta-detail">december 22, 2024</p>
-                    <p class="lightbox-meta-detail">point reyes, california</p>
-                    <p class="lightbox-meta-detail">iPhone 16 Pro · Main 24mm &fnof;/1.78 · 12MP · ISO 64 · 0EV</p>
-                    <!--<p class="lightbox-meta-detail">MOOD: filter name</p>-->
-                </figcaption>
-            </figure>
-            <a class="lightbox-nav lightbox-next" href="#view-3" aria-label="next image">›</a>
-        </div>
-
-        <div class="lightbox" id="view-3" tabindex="-1"
-            aria-label="boat on lake tahoe — lake tahoe, california, full size">
-            <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
-            <a class="lightbox-nav lightbox-prev" href="#view-2" aria-label="previous image">‹</a>
-            <a class="lightbox-close" href="#" aria-label="close full size image">✕</a>
-            <figure class="lightbox-content">
-                <img src="https://assets.danieldaum.net/img/lake-tahoe-boat.webp" alt="a boat crossing Lake Tahoe" />
-                <figcaption class="lightbox-meta">
-                    <p class="lightbox-meta-name">boat on lake tahoe</p>
-                    <p class="lightbox-meta-detail">june 14, 2026</p>
-                    <p class="lightbox-meta-detail">lake tahoe, california</p>
+                    <p class="lightbox-meta-name">Berkeley Aquatic Park <span class="new-tag">New!</span></p>
+                    <p class="lightbox-meta-detail">August 21, 2026</p>
+                    <p class="lightbox-meta-detail">Berkeley, California</p>
                     <p class="lightbox-meta-detail">iPhone 16 Pro · Main 24mm &fnof;/1.78 · 12MP · ISO 64 · 0EV</p>
                     <p class="lightbox-meta-detail">MOOD: CINE 400-U</p>
                 </figcaption>
             </figure>
-            <a class="lightbox-nav lightbox-next" href="#view-4" aria-label="next image">›</a>
+            <a class="lightbox-nav lightbox-next" href="#view-13" aria-label="next image">›</a>
         </div>
 
-        <div class="lightbox" id="view-4" tabindex="-1"
-            aria-label="regatta lineup — west sacramento, california, full size">
+        <div class="lightbox" id="view-13" tabindex="-1" aria-label="Neighbor Snail — Oakland, California, full size">
             <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
-            <a class="lightbox-nav lightbox-prev" href="#view-3" aria-label="previous image">‹</a>
+            <a class="lightbox-nav lightbox-prev" href="#view-14" aria-label="previous image">‹</a>
             <a class="lightbox-close" href="#" aria-label="close full size image">✕</a>
             <figure class="lightbox-content">
-                <img src="https://assets.danieldaum.net/img/regatta-lineup.webp"
-                    alt="sailboats lined up for a regatta" />
+                <img src="https://assets.danieldaum.net/img/photos/neighbor-snail.webp"
+                    alt="a blue snail in my neighborhood on a plant" />
                 <figcaption class="lightbox-meta">
-                    <p class="lightbox-meta-name">regatta lineup</p>
-                    <p class="lightbox-meta-detail">june 6, 2026</p>
-                    <p class="lightbox-meta-detail">west sacramento, california</p>
+                    <p class="lightbox-meta-name">Neighbor Snail <span class="new-tag">New!</span></p>
+                    <p class="lightbox-meta-detail">August 14, 2026</p>
+                    <p class="lightbox-meta-detail">Oakland, California</p>
                     <p class="lightbox-meta-detail">iPhone 16 Pro · Main 24mm &fnof;/1.78 · 12MP · ISO 64 · 0EV</p>
-                    <p class="lightbox-meta-detail">MOOD: CHROME 400-P</p>
+                    <p class="lightbox-meta-detail">MOOD: CINE 400-U</p>
                 </figcaption>
             </figure>
-            <a class="lightbox-nav lightbox-next" href="#view-5" aria-label="next image">›</a>
+            <a class="lightbox-nav lightbox-next" href="#view-12" aria-label="next image">›</a>
         </div>
 
-        <div class="lightbox" id="view-5" tabindex="-1" aria-label="pines and moon — california, full size">
+        <div class="lightbox" id="view-12" tabindex="-1" aria-label="Fire Truck — San Francisco, California, full size">
             <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
-            <a class="lightbox-nav lightbox-prev" href="#view-4" aria-label="previous image">‹</a>
+            <a class="lightbox-nav lightbox-prev" href="#view-13" aria-label="previous image">‹</a>
             <a class="lightbox-close" href="#" aria-label="close full size image">✕</a>
             <figure class="lightbox-content">
-                <img src="https://assets.danieldaum.net/img/pine-trees-and-moon.webp"
-                    alt="the moon rising above a line of pine trees" />
+                <img src="https://assets.danieldaum.net/img/photos/fire-truck.webp"
+                    alt="a fire truck at night in san francisco" />
                 <figcaption class="lightbox-meta">
-                    <p class="lightbox-meta-name">pines and moon</p>
-                    <p class="lightbox-meta-detail">june 6, 2026</p>
-                    <p class="lightbox-meta-detail">california</p>
+                    <p class="lightbox-meta-name">Fire Truck <span class="new-tag">New!</span></p>
+                    <p class="lightbox-meta-detail">August 12, 2026</p>
+                    <p class="lightbox-meta-detail">San Francisco, California</p>
                     <p class="lightbox-meta-detail">iPhone 16 Pro · Main 24mm &fnof;/1.78 · 12MP · ISO 64 · 0EV</p>
-                    <p class="lightbox-meta-detail">MOOD: 35 MM Neutral</p>
+                    <p class="lightbox-meta-detail">MOOD: MONO 1600-U</p>
                 </figcaption>
             </figure>
-            <a class="lightbox-nav lightbox-next" href="#view-6" aria-label="next image">›</a>
+            <a class="lightbox-nav lightbox-next" href="#view-11" aria-label="next image">›</a>
         </div>
 
-        <div class="lightbox" id="view-6" tabindex="-1" aria-label="white rose — california, full size">
+        <div class="lightbox" id="view-11" tabindex="-1"
+            aria-label="Oracle Park — San Francisco, California, full size">
             <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
-            <a class="lightbox-nav lightbox-prev" href="#view-5" aria-label="previous image">‹</a>
+            <a class="lightbox-nav lightbox-prev" href="#view-12" aria-label="previous image">‹</a>
             <a class="lightbox-close" href="#" aria-label="close full size image">✕</a>
             <figure class="lightbox-content">
-                <img src="https://assets.danieldaum.net/img/white-rose.webp" alt="a single white rose in bloom" />
+                <img src="https://assets.danieldaum.net/img/photos/oracle-park-night.webp" alt="oracle park at night" />
                 <figcaption class="lightbox-meta">
-                    <p class="lightbox-meta-name">white rose</p>
-                    <p class="lightbox-meta-detail">june 14, 2026</p>
-                    <p class="lightbox-meta-detail">california</p>
+                    <p class="lightbox-meta-name">Oracle Park <span class="new-tag">New!</span></p>
+                    <p class="lightbox-meta-detail">August 12, 2026</p>
+                    <p class="lightbox-meta-detail">San Francisco, California</p>
                     <p class="lightbox-meta-detail">iPhone 16 Pro · Main 24mm &fnof;/1.78 · 12MP · ISO 64 · 0EV</p>
-                    <p class="lightbox-meta-detail">MOOD: NORD 200-N</p>
+                    <p class="lightbox-meta-detail">MOOD: MONO 1600-U</p>
                 </figcaption>
             </figure>
-            <a class="lightbox-nav lightbox-next" href="#view-7" aria-label="next image">›</a>
+            <a class="lightbox-nav lightbox-next" href="#view-10" aria-label="next image">›</a>
         </div>
 
-        <div class="lightbox" id="view-7" tabindex="-1" aria-label="farm and forest — california, full size">
+        <div class="lightbox" id="view-10" tabindex="-1" aria-label="Swim Prep — Lake Michigan, full size">
             <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
-            <a class="lightbox-nav lightbox-prev" href="#view-6" aria-label="previous image">‹</a>
+            <a class="lightbox-nav lightbox-prev" href="#view-11" aria-label="previous image">‹</a>
             <a class="lightbox-close" href="#" aria-label="close full size image">✕</a>
             <figure class="lightbox-content">
-                <img src="https://assets.danieldaum.net/img/farm-forest.webp" alt="a farm at the edge of a forest" />
+                <img src="https://assets.danieldaum.net/img/photos/lake-michigan-swim.webp"
+                    alt="getting ready for a swim in lake michigan" />
                 <figcaption class="lightbox-meta">
-                    <p class="lightbox-meta-name">farm and forest</p>
-                    <p class="lightbox-meta-detail">june 16, 2026</p>
-                    <p class="lightbox-meta-detail">lovettsville, virginia</p>
+                    <p class="lightbox-meta-name">Swim Prep <span class="new-tag">New!</span></p>
+                    <p class="lightbox-meta-detail">August 4, 2026</p>
+                    <p class="lightbox-meta-detail">Lake Michigan</p>
                     <p class="lightbox-meta-detail">iPhone 16 Pro · Main 24mm &fnof;/1.78 · 12MP · ISO 64 · 0EV</p>
-                    <p class="lightbox-meta-detail">MOOD: NORD 200-N</p>
+                    <p class="lightbox-meta-detail">MOOD: CINE 400-U</p>
+                </figcaption>
+            </figure>
+            <a class="lightbox-nav lightbox-next" href="#view-9" aria-label="next image">›</a>
+        </div>
+
+        <div class="lightbox" id="view-9" tabindex="-1" aria-label="Blond Racoon — Oakland, California, full size">
+            <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
+            <a class="lightbox-nav lightbox-prev" href="#view-10" aria-label="previous image">‹</a>
+            <a class="lightbox-close" href="#" aria-label="close full size image">✕</a>
+            <figure class="lightbox-content">
+                <img src="https://assets.danieldaum.net/img/photos/blond-raccoon.webp"
+                    alt="a blond racoon eating chips on doorsteps in oakland" />
+                <figcaption class="lightbox-meta">
+                    <p class="lightbox-meta-name">Blond Racoon <span class="new-tag">New!</span></p>
+                    <p class="lightbox-meta-detail">July 10, 2026</p>
+                    <p class="lightbox-meta-detail">Oakland, California</p>
+                    <p class="lightbox-meta-detail">iPhone 16 Pro · Main 24mm &fnof;/1.78 · 12MP · ISO 64 · 0EV</p>
+                    <p class="lightbox-meta-detail">MOOD: VISTA 200-N</p>
                 </figcaption>
             </figure>
             <a class="lightbox-nav lightbox-next" href="#view-8" aria-label="next image">›</a>
         </div>
 
-        <div class="lightbox" id="view-8" tabindex="-1" aria-label="bart, blurry — oakland, california, full size">
+        <div class="lightbox" id="view-8" tabindex="-1"
+            aria-label="Transamerica Pyramid — San Francisco, California, full size">
             <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
-            <a class="lightbox-nav lightbox-prev" href="#view-7" aria-label="previous image">‹</a>
+            <a class="lightbox-nav lightbox-prev" href="#view-9" aria-label="previous image">‹</a>
             <a class="lightbox-close" href="#" aria-label="close full size image">✕</a>
             <figure class="lightbox-content">
-                <img src="https://assets.danieldaum.net/img/bart-blurry.webp" alt="a BART train in motion, blurred" />
+                <img src="https://assets.danieldaum.net/img/photos/transamerica-pyramid.webp"
+                    alt="the Transamerica Pyramid rising above San Francisco's skyline" />
                 <figcaption class="lightbox-meta">
-                    <p class="lightbox-meta-name">bart, blurry</p>
-                    <p class="lightbox-meta-detail">january 1, 2026</p>
-                    <p class="lightbox-meta-detail">oakland, california</p>
+                    <p class="lightbox-meta-name">Transamerica Pyramid</p>
+                    <p class="lightbox-meta-detail">July 4, 2026</p>
+                    <p class="lightbox-meta-detail">San Francisco, California</p>
                     <p class="lightbox-meta-detail">iPhone 16 Pro · Main 24mm &fnof;/1.78 · 12MP · ISO 64 · 0EV</p>
                     <p class="lightbox-meta-detail">MOOD: NOIR 400-C</p>
                 </figcaption>
             </figure>
+            <a class="lightbox-nav lightbox-next" href="#view-7" aria-label="next image">›</a>
+        </div>
+
+        <div class="lightbox" id="view-7" tabindex="-1" aria-label="Wildcat Beach — Point Reyes, California, full size">
+            <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
+            <a class="lightbox-nav lightbox-prev" href="#view-8" aria-label="previous image">‹</a>
+            <a class="lightbox-close" href="#" aria-label="close full size image">✕</a>
+            <figure class="lightbox-content">
+                <img src="https://assets.danieldaum.net/img/photos/wildcat-beach.webp"
+                    alt="the California coast near Point Reyes seen from Wildcat Beach" />
+                <figcaption class="lightbox-meta">
+                    <p class="lightbox-meta-name">Wildcat Beach</p>
+                    <p class="lightbox-meta-detail">December 22, 2024</p>
+                    <p class="lightbox-meta-detail">Point Reyes, California</p>
+                    <p class="lightbox-meta-detail">iPhone 16 Pro · Main 24mm &fnof;/1.78 · 12MP · ISO 64 · 0EV</p>
+                    <!--<p class="lightbox-meta-detail">MOOD: filter name</p>-->
+                </figcaption>
+            </figure>
+            <a class="lightbox-nav lightbox-next" href="#view-6" aria-label="next image">›</a>
+        </div>
+
+        <div class="lightbox" id="view-6" tabindex="-1"
+            aria-label="Boat on Lake Tahoe — Lake Tahoe, California, full size">
+            <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
+            <a class="lightbox-nav lightbox-prev" href="#view-7" aria-label="previous image">‹</a>
+            <a class="lightbox-close" href="#" aria-label="close full size image">✕</a>
+            <figure class="lightbox-content">
+                <img src="https://assets.danieldaum.net/img/photos/lake-tahoe-boat.webp"
+                    alt="a boat crossing Lake Tahoe" />
+                <figcaption class="lightbox-meta">
+                    <p class="lightbox-meta-name">Boat on Lake Tahoe</p>
+                    <p class="lightbox-meta-detail">June 14, 2026</p>
+                    <p class="lightbox-meta-detail">Lake Tahoe, California</p>
+                    <p class="lightbox-meta-detail">iPhone 16 Pro · Main 24mm &fnof;/1.78 · 12MP · ISO 64 · 0EV</p>
+                    <p class="lightbox-meta-detail">MOOD: CINE 400-U</p>
+                </figcaption>
+            </figure>
+            <a class="lightbox-nav lightbox-next" href="#view-5" aria-label="next image">›</a>
+        </div>
+
+        <div class="lightbox" id="view-5" tabindex="-1"
+            aria-label="Regatta Lineup — West Sacramento, California, full size">
+            <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
+            <a class="lightbox-nav lightbox-prev" href="#view-6" aria-label="previous image">‹</a>
+            <a class="lightbox-close" href="#" aria-label="close full size image">✕</a>
+            <figure class="lightbox-content">
+                <img src="https://assets.danieldaum.net/img/photos/regatta-lineup.webp"
+                    alt="sailboats lined up for a regatta" />
+                <figcaption class="lightbox-meta">
+                    <p class="lightbox-meta-name">Regatta Lineup</p>
+                    <p class="lightbox-meta-detail">June 6, 2026</p>
+                    <p class="lightbox-meta-detail">West Sacramento, California</p>
+                    <p class="lightbox-meta-detail">iPhone 16 Pro · Main 24mm &fnof;/1.78 · 12MP · ISO 64 · 0EV</p>
+                    <p class="lightbox-meta-detail">MOOD: CHROME 400-P</p>
+                </figcaption>
+            </figure>
+            <a class="lightbox-nav lightbox-next" href="#view-4" aria-label="next image">›</a>
+        </div>
+
+        <div class="lightbox" id="view-4" tabindex="-1" aria-label="Pines and Moon — California, full size">
+            <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
+            <a class="lightbox-nav lightbox-prev" href="#view-5" aria-label="previous image">‹</a>
+            <a class="lightbox-close" href="#" aria-label="close full size image">✕</a>
+            <figure class="lightbox-content">
+                <img src="https://assets.danieldaum.net/img/photos/pine-trees-and-moon.webp"
+                    alt="the moon rising above a line of pine trees" />
+                <figcaption class="lightbox-meta">
+                    <p class="lightbox-meta-name">Pines and Moon</p>
+                    <p class="lightbox-meta-detail">June 6, 2026</p>
+                    <p class="lightbox-meta-detail">California</p>
+                    <p class="lightbox-meta-detail">iPhone 16 Pro · Main 24mm &fnof;/1.78 · 12MP · ISO 64 · 0EV</p>
+                    <p class="lightbox-meta-detail">MOOD: 35 MM Neutral</p>
+                </figcaption>
+            </figure>
+            <a class="lightbox-nav lightbox-next" href="#view-3" aria-label="next image">›</a>
+        </div>
+
+        <div class="lightbox" id="view-3" tabindex="-1" aria-label="White Rose — California, full size">
+            <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
+            <a class="lightbox-nav lightbox-prev" href="#view-4" aria-label="previous image">‹</a>
+            <a class="lightbox-close" href="#" aria-label="close full size image">✕</a>
+            <figure class="lightbox-content">
+                <img src="https://assets.danieldaum.net/img/photos/white-rose.webp"
+                    alt="a single white rose in bloom" />
+                <figcaption class="lightbox-meta">
+                    <p class="lightbox-meta-name">White Rose</p>
+                    <p class="lightbox-meta-detail">June 14, 2026</p>
+                    <p class="lightbox-meta-detail">California</p>
+                    <p class="lightbox-meta-detail">iPhone 16 Pro · Main 24mm &fnof;/1.78 · 12MP · ISO 64 · 0EV</p>
+                    <p class="lightbox-meta-detail">MOOD: NORD 200-N</p>
+                </figcaption>
+            </figure>
+            <a class="lightbox-nav lightbox-next" href="#view-2" aria-label="next image">›</a>
+        </div>
+
+        <div class="lightbox" id="view-2" tabindex="-1" aria-label="Farm and Forest — California, full size">
+            <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
+            <a class="lightbox-nav lightbox-prev" href="#view-3" aria-label="previous image">‹</a>
+            <a class="lightbox-close" href="#" aria-label="close full size image">✕</a>
+            <figure class="lightbox-content">
+                <img src="https://assets.danieldaum.net/img/photos/farm-forest.webp"
+                    alt="a farm at the edge of a forest" />
+                <figcaption class="lightbox-meta">
+                    <p class="lightbox-meta-name">Farm and Forest</p>
+                    <p class="lightbox-meta-detail">June 16, 2026</p>
+                    <p class="lightbox-meta-detail">Lovettsville, Virginia</p>
+                    <p class="lightbox-meta-detail">iPhone 16 Pro · Main 24mm &fnof;/1.78 · 12MP · ISO 64 · 0EV</p>
+                    <p class="lightbox-meta-detail">MOOD: NORD 200-N</p>
+                </figcaption>
+            </figure>
             <a class="lightbox-nav lightbox-next" href="#view-1" aria-label="next image">›</a>
         </div>
+
+        <div class="lightbox" id="view-1" tabindex="-1" aria-label="BART, Blurry — Oakland, California, full size">
+            <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
+            <a class="lightbox-nav lightbox-prev" href="#view-2" aria-label="previous image">‹</a>
+            <!-- next wraps to the newest photo -->
+            <a class="lightbox-close" href="#" aria-label="close full size image">✕</a>
+            <figure class="lightbox-content">
+                <img src="https://assets.danieldaum.net/img/photos/bart-blurry.webp"
+                    alt="a BART train in motion, blurred" />
+                <figcaption class="lightbox-meta">
+                    <p class="lightbox-meta-name">BART, Blurry</p>
+                    <p class="lightbox-meta-detail">January 1, 2026</p>
+                    <p class="lightbox-meta-detail">Oakland, California</p>
+                    <p class="lightbox-meta-detail">iPhone 16 Pro · Main 24mm &fnof;/1.78 · 12MP · ISO 64 · 0EV</p>
+                    <p class="lightbox-meta-detail">MOOD: NOIR 400-C</p>
+                </figcaption>
+            </figure>
+            <a class="lightbox-nav lightbox-next" href="#view-14" aria-label="next image">›</a>
+        </div>
     </main>
+
+    <!--FOOTER-->
     <footer>
-        <hr />
         <nav aria-label="site links">
-            <p aria-hidden="true">[↗]:</p>
-            <a href="mailto:daniel@danieldaum.net" aria-label="link to send me an email">email</a>
+            <p aria-hidden="true">//</p>
+            <a href="mailto:daniel@danieldaum.net" aria-label="link to send me an email">
+                EMAIL
+            </a>
             <a href="https://git.danieldaum.net/" aria-label="link to my git, opens in new tab" target="_blank"
-                rel="noopener noreferrer">git</a>
-            <a href="/pgp.asc" aria-label="link to my pgp public key (516E97FF)">pgp</a>
-            <a href="/changelog.html">changelog</a>
+                rel="noopener noreferrer">GIT
+            </a>
+            <a href="/pgp.asc" aria-label="link to my pgp public key (516E97FF)">PGP</a>
+            <a href="/changelog">CHANGELOG</a>
+            <a href="/privacy">PRIVACY</a>
+            <a href="/feed.xml">FEED</a>
         </nav>
     </footer>
 </body>

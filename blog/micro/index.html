@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="daniel daum's blog — everything i write, in one place" />
+    <meta name="description" content="daniel daum - software engineer based in oakland, ca" />
     <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://assets.danieldaum.net https://atproto.danieldaum.net; media-src 'self' https://assets.danieldaum.net;" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
@@ -15,7 +15,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
     <link rel="manifest" href="/assets/favicon/site.webmanifest" />
     <link rel="alternate" type="application/atom+xml" title="daniel daum" href="https://danieldaum.net/feed.xml" />
-    <title>blog</title>
+    <title>daniel daum - micro</title>
 </head>
 
 <body>
@@ -32,59 +32,28 @@
         </nav>
     </header>
 
+    <!--MAIN-->
     <main>
-        <section class="hero">
-            <h1>/BLOG</h1>
-            <p class="meta">Things I've written &mdash; posts, notes, project logs, and now pages</p>
+
+        <!-- HERO -->
+        <span class="nav-back"><a href="/blog">BLOG</a> -> <a href="/blog/micro">POSTS</a></span>
+        <section class="post-hero">
+            <h1>/POSTS</h1>
+            <p class="meta"> MICRO THOUGHTS | UPDATES OCCASIONALLY</p>
         </section>
 
-
-        <!-- MICRO - newest post only, acts as the doorway to the full feed -->
-        <section aria-label="micro posts">
-            <div class="section-head">
-                <h2 class="section-label">posts</h2>
-                <a class="section-more" href="/blog/micro">all posts &rarr;</a>
-            </div>
-
-            <div data-micro="latest-featured">
+        <!--MICRO BLOG-->
+        <!-- posts are injected at the edge from my PDS; anchor ids are record keys. see /MICRO.md -->
+        <section class="micro-container">
+            <div data-micro="all">
                 <p class="meta">NO POSTS YET</p>
             </div>
         </section>
 
-        <!-- LONGFORM -->
-        <section aria-label="longform writing">
-            <h2 class="section-label">writing</h2>
-            <table class="content-table">
-                <thead>
-                    <tr>
-                        <th class="col-title">title</th>
-                        <th class="col-date">date</th>
-                        <th class="col-tag">tags</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="table-row">
-                        <td><a class="table-title" href="/now/sep-2026/">WAKE ME UP WHEN SEPTEMBER ENDS</a></td>
-                        <td class="table-date"><time datetime="2026-09-03">3 SEPTEMBER 2026</time></td>
-                        <td class="table-tag">#now</td>
-                    </tr>
 
-                    <tr class="table-row">
-                        <td><a class="table-title" href="/about">LET ME INTRODUCE MYSELF</a></td>
-                        <td class="table-date"><time datetime="2026-08-28">28 AUGUST 2026</time></td>
-                        <td class="table-tag">#about</td>
-                    </tr>
 
-                    <tr class="table-row">
-                        <td><a class="table-title" href="/now/jan-2026/">MY FIRST NOW PAGE</a>
-                        </td>
-                        <td class="table-date"><time datetime="2026-01-21">21 JANUARY 2026</time></td>
-                        <td class="table-tag">#now</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
     </main>
+
 
     <!--FOOTER-->
     <footer>
@@ -102,6 +71,8 @@
             <a href="/feed.xml">FEED</a>
         </nav>
     </footer>
+
+
 </body>
 
 </html>
