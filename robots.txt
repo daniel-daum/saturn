@@ -1,12 +1,10 @@
-# Default
-# the feed is the one thing open to everyone - pollers that respect
-# robots.txt (annot.at, feed readers) need to reach it.
+# Default: closed, except the feed for pollers that respect robots.txt
 User-agent: *
 Allow: /feed.xml
 Disallow: /
 Crawl-delay: 10
 
-# Allow search engines
+# Search engines
 User-agent: Googlebot
 Allow: /
 Disallow: /api/
@@ -15,7 +13,63 @@ User-agent: Bingbot
 Allow: /
 Disallow: /api/
 
-# Block AI bots
+User-agent: Kagibot
+Allow: /
+Disallow: /api/
+
+User-agent: DuckDuckBot
+Allow: /
+Disallow: /api/
+
+User-agent: Applebot
+Allow: /
+Disallow: /api/
+
+User-agent: Slurp
+Allow: /
+Disallow: /api/
+
+User-agent: MojeekBot
+Allow: /
+Disallow: /api/
+
+User-agent: search.marginalia.nu
+Allow: /
+Disallow: /api/
+
+# Feed readers and aggregators
+User-agent: Feedly
+Allow: /
+
+User-agent: Inoreader
+Allow: /
+
+User-agent: NewsBlur
+Allow: /
+
+# Link-preview scrapers
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: Bluesky Cardyb
+Allow: /
+
+User-agent: Mastodon
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: Slackbot
+Allow: /
+
+User-agent: Discordbot
+Allow: /
+
+User-agent: Redditbot
+Allow: /
+
+# AI crawlers
 User-agent: CCBot
 Disallow: /
 
@@ -25,19 +79,19 @@ Disallow: /
 User-agent: ChatGPT-User
 Disallow: /
 
-User-agent: Google-Extended
+User-agent: OAI-SearchBot
 Disallow: /
 
-User-agent: Googlebot-Extended
+User-agent: Google-Extended
 Disallow: /
 
 User-agent: Claude-Web
 Disallow: /
 
-User-agent: anthropic-ai
+User-agent: ClaudeBot
 Disallow: /
 
-User-agent: OAI-SPIDER
+User-agent: anthropic-ai
 Disallow: /
 
 User-agent: cohere-ai
@@ -59,4 +113,7 @@ User-agent: FacebookBot
 Disallow: /
 
 User-agent: facebookexternalhit
+Disallow: /
+
+User-agent: meta-externalagent
 Disallow: /
