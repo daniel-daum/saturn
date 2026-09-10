@@ -1,6 +1,6 @@
 {
     "version": 1,
-    "description": "Only these paths run through functions/. Everything else (pages, css, fonts, images) is served straight from the static asset store, which is faster and edge-cacheable. Keep in step with ALLOWED_PATHS in functions/_middleware.js and isBlogPost() in functions/_lib/social.js.",
-    "include": ["/", "/index.html", "/blog", "/blog/*", "/api/*"],
+    "description": "Only these paths run through functions/. Everything else (pages, css, fonts, images) is served straight from the static asset store, which is faster and edge-cacheable. Keep in step with ALLOWED_PATHS in functions/_middleware.js and isBlogPost() in functions/_lib/social.js. /media/* is the blob proxy in functions/media/, see MICRO.md.",
+    "include": ["/", "/index.html", "/blog", "/blog/*", "/api/*", "/media/*"],
     "exclude": []
 }

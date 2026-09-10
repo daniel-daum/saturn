@@ -138,7 +138,7 @@ async function fetchPosts() {
             rkey: rkeyFromUri(r.uri),
             text: r.value.text,
             createdAt: r.value.createdAt || "",
-            images: imagesFrom(r.value.embed),
+            ...mediaFrom(r.value.embed),
         }))
         .filter((p) => p.rkey)
         .sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt));
@@ -179,6 +179,15 @@ function rkeyFromUri(uri) {
     return idx === -1 ? "" : uri.slice(idx + 1);
 }
 
+// Media attached to a post: a set of images or one video, the two things the
+// Bluesky app can attach. A quote-with-media post carries the same embed one
+// level down under `media`, so it is unwrapped here and the quoted record is
+// dropped. Anything else (link cards, bare quotes) yields no media.
+function mediaFrom(embed) {
+    const media = embed?.$type === "app.bsky.embed.recordWithMedia" ? embed.media : embed;
+    return { images: imagesFrom(media), video: videoFrom(media) };
+}
+
 function imagesFrom(embed) {
     if (!embed || embed.$type !== "app.bsky.embed.images" || !Array.isArray(embed.images)) {
         return [];
@@ -186,6 +195,23 @@ function imagesFrom(embed) {
     return embed.images
         .map((img) => ({ cid: img?.image?.ref?.$link, alt: img?.alt || "" }))
         .filter((img) => typeof img.cid === "string" && img.cid.length > 0);
+}
+
+// The aspect ratio is optional on the record; when present it is written
+// out as width/height attributes so the box is reserved before the video's
+// metadata has loaded and the page does not jump.
+function videoFrom(embed) {
+    if (!embed || embed.$type !== "app.bsky.embed.video") {
+        return null;
+    }
+    const cid = embed.video?.ref?.$link;
+    if (typeof cid !== "string" || cid.length === 0) {
+        return null;
+    }
+    const ratio = embed.aspectRatio;
+    const width = Number.isInteger(ratio?.width) && ratio.width > 0 ? ratio.width : 0;
+    const height = Number.isInteger(ratio?.height) && ratio.height > 0 ? ratio.height : 0;
+    return { cid, alt: typeof embed.alt === "string" ? embed.alt : "", width, height };
 }
 
 // ---------------------------------------------------------------------------
@@ -215,6 +241,7 @@ function renderArticle(post, { featured }) {
                 `<img class="micro-img" src="${blobUrl(img.cid)}" alt="${escapeHtml(img.alt)}" loading="lazy" />`
         )
         .join("\n    ");
+    const video = post.video ? renderVideo(post.video) : "";
 
     return [
         `<article${id} class="${cls}">`,
@@ -224,6 +251,7 @@ function renderArticle(post, { featured }) {
         `    </p>`,
         `    <p class="micro-body">${formatBody(post.text)}</p>`,
         images ? `    ${images}` : null,
+        video ? `    ${video}` : null,
         `</article>`,
     ]
         .filter((line) => line !== null)
@@ -245,11 +273,28 @@ function renderActivityItem(posts) {
     ].join("\n");
 }
 
+// Not autoplayed and not muted: it is a post attachment, the visitor presses
+// play. `playsinline` keeps iOS from taking over the screen on tap. The link
+// inside is what a browser without <video> support gets.
+function renderVideo(video) {
+    const src = mediaUrl(video.cid);
+    const size = video.width && video.height ? ` width="${video.width}" height="${video.height}"` : "";
+    const label = video.alt ? ` aria-label="${escapeHtml(video.alt)}"` : "";
+    return `<video class="micro-video" src="${src}"${size}${label} controls playsinline preload="metadata"><a href="${src}">VIDEO</a></video>`;
+}
+
 function blobUrl(cid) {
     const url = new URL("/xrpc/com.atproto.sync.getBlob", PDS_HOST);
     url.searchParams.set("did", REPO_DID);
     url.searchParams.set("cid", cid);
     return escapeHtml(url.toString());
+}
+
+// Video is served through /media/<cid> (functions/media/[cid].js) rather than
+// straight from the PDS: the PDS ignores Range requests, and Safari will not
+// play a video it cannot seek. Images keep going to the PDS directly.
+function mediaUrl(cid) {
+    return escapeHtml(`/media/${encodeURIComponent(cid)}`);
 }
 
 // ---------------------------------------------------------------------------
@@ -451,8 +496,7 @@ function partsOf(formatter, date) {
 // Deliberately NOT implemented in this pass:
 //
 // - rich text facets: links, mentions and hashtags render as plain text
-// - quote posts (app.bsky.embed.record) and quote-with-media
-//   (app.bsky.embed.recordWithMedia): the embed is ignored, only the text shows
+// - quote posts (app.bsky.embed.record): the quoted record is ignored, only
+//   the text shows. quote-with-media keeps its images or video, drops the quote
 // - external link cards (app.bsky.embed.external)
-// - video embeds (app.bsky.embed.video)
 // - threading: replies are filtered out entirely, thread structure is ignored

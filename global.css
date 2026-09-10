@@ -1114,7 +1114,8 @@ hr {
 }
 
 /* media attachment: sits below the text, bluesky-style */
-.micro-img {
+.micro-img,
+.micro-video {
     width: auto;
     max-width: 100%;
     max-height: 24rem;
@@ -1122,6 +1123,17 @@ hr {
     border: 1px solid var(--borders);
     border-radius: 4px;
     align-self: flex-start;
+}
+
+/* the timestamp's ::after is stretched over the whole card, so the player has
+   to sit above it or every tap on the controls opens the permalink instead.
+   height: auto beats the height attribute so the aspect ratio holds when the
+   box is narrower than the video */
+.micro-video {
+    position: relative;
+    z-index: 1;
+    height: auto;
+    background: var(--borders);
 }
 
 @media (max-width: 480px) {
