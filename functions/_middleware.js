@@ -276,11 +276,16 @@ function renderActivityItem(posts) {
 // Not autoplayed and not muted: it is a post attachment, the visitor presses
 // play. `playsinline` keeps iOS from taking over the screen on tap. The link
 // inside is what a browser without <video> support gets.
+//
+// There is no poster: the record carries no thumbnail. Safari will not paint
+// a frame of a poster-less video on preload="metadata", it leaves the box
+// blank, so the src carries a media fragment just past zero, which makes it
+// seek and paint the first frame. Chrome and Firefox paint it either way.
 function renderVideo(video) {
     const src = mediaUrl(video.cid);
     const size = video.width && video.height ? ` width="${video.width}" height="${video.height}"` : "";
     const label = video.alt ? ` aria-label="${escapeHtml(video.alt)}"` : "";
-    return `<video class="micro-video" src="${src}"${size}${label} controls playsinline preload="metadata"><a href="${src}">VIDEO</a></video>`;
+    return `<video class="micro-video" src="${src}#t=0.001"${size}${label} controls playsinline preload="metadata"><a href="${src}">VIDEO</a></video>`;
 }
 
 function blobUrl(cid) {
