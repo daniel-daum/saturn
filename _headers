@@ -1,8 +1,0 @@
-/.well-known/atproto-did
-  Content-Type: text/plain
-
-/feed.xml
-  Content-Type: application/atom+xml; charset=utf-8
-
-/assets/fonts/*
-  Cache-Control: public, max-age=31536000, immutable
