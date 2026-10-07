@@ -7,35 +7,27 @@ Crawl-delay: 10
 # Search engines
 User-agent: Googlebot
 Allow: /
-Disallow: /api/
 
 User-agent: Bingbot
 Allow: /
-Disallow: /api/
 
 User-agent: Kagibot
 Allow: /
-Disallow: /api/
 
 User-agent: DuckDuckBot
 Allow: /
-Disallow: /api/
 
 User-agent: Applebot
 Allow: /
-Disallow: /api/
 
 User-agent: Slurp
 Allow: /
-Disallow: /api/
 
 User-agent: MojeekBot
 Allow: /
-Disallow: /api/
 
 User-agent: search.marginalia.nu
 Allow: /
-Disallow: /api/
 
 # Feed readers and aggregators
 User-agent: Feedly

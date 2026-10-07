@@ -72,7 +72,6 @@
                 <li><a href="#utility">utility classes</a></li>
                 <li><a href="#layout">page layout</a></li>
                 <li><a href="#components">components</a></li>
-                <li><a href="#micro">micro posts</a></li>
                 <li><a href="#media">media &amp; photos</a></li>
                 <li><a href="#focus">selection &amp; focus</a></li>
                 <li><a href="#responsive">responsive &amp; a11y</a></li>
@@ -269,7 +268,7 @@
                         <td class="icon-glyph">&#9670;</td>
                         <td><code>&amp;#9670;</code></td>
                         <td class="icon-code">U+25C6</td>
-                        <td class="table-desc">micro posts, notes &mdash; also projects, builds, releases</td>
+                        <td class="table-desc">notes &mdash; also projects, builds, releases</td>
                     </tr>
                     <tr class="table-row">
                         <td class="icon-glyph">&#9733;</td>
@@ -355,8 +354,7 @@
                 <li>footer nav &mdash; <code>EMAIL</code>, <code>GIT</code>, <code>PGP</code>,
                     <code>CHANGELOG</code>, <code>PRIVACY</code></li>
                 <li><code>.nav-back</code> breadcrumbs &mdash; <code>GARDEN -&gt; STYLES</code></li>
-                <li>page <code>h1</code> &mdash; <code>/BLOG</code>, <code>STYLES</code>,
-                    <code>/MICRO</code></li>
+                <li>page <code>h1</code> &mdash; <code>/BLOG</code>, <code>STYLES</code></li>
                 <li><code>.post-tag</code> &mdash; <code>#TAG1</code></li>
             </ul>
 
@@ -450,14 +448,14 @@
 
             <h3>stretched links</h3>
             <p>
-                Two components make a whole card or row clickable without nesting anchors: the real link
+                Rows can be made clickable as a whole without nesting anchors: the real link
                 inside gets an <code>::after</code> with <code>position:absolute; inset:0</code>, and the
-                container gets <code>position:relative</code>. Used by <code>.micro-post</code> (via
-                <code>.micro-time</code>) and <code>.activity-item</code> (via <code>.activity-link</code>).
+                container gets <code>position:relative</code>. Used by <code>.activity-item</code> (via
+                <code>.activity-link</code>).
             </p>
             <p>
                 This keeps the accessible name short &mdash; a screen reader announces just the date or
-                the title, not the entire post body. The tradeoff is that the transparent overlay sits
+                the title, not the entire row. The tradeoff is that the transparent overlay sits
                 above the text, so text inside those components is not selectable.
             </p>
         </section>
@@ -665,8 +663,8 @@ console.log(result); // hello, world!</code></pre>
                 <p class="demo-label">.section-head / .section-label / .section-more</p>
                 <div class="section-head" style="margin-top:0;">
                     <h2 class="section-label"
-                        style="color: var(--text-secondary); font-size:0.78rem; letter-spacing:0.12em;">micro posts</h2>
-                    <a class="section-more" href="/blog/micro">all micro posts &rarr;</a>
+                        style="color: var(--text-secondary); font-size:0.78rem; letter-spacing:0.12em;">writing</h2>
+                    <a class="section-more" href="/blog">all writing &rarr;</a>
                 </div>
             </div>
 
@@ -789,7 +787,7 @@ console.log(result); // hello, world!</code></pre>
                     </li>
                     <li class="activity-item">
                         <span class="activity-icon" aria-hidden="true">&#9670;</span>
-                        <a class="activity-link" href="#components">NEW MICRO POST &mdash; A LONGER POST THAT RUNS PAST THE END OF THE ROW SO YOU CAN SEE THE TEXT FADE OUT INSTEAD OF WRAPPING ONTO A SECOND LINE</a>
+                        <a class="activity-link" href="#components">NEW POST &mdash; A LONGER TITLE THAT RUNS PAST THE END OF THE ROW SO YOU CAN SEE THE TEXT FADE OUT INSTEAD OF WRAPPING ONTO A SECOND LINE</a>
                         <span class="activity-date">29 AUG</span>
                     </li>
                     <li class="activity-item">
@@ -923,116 +921,6 @@ console.log(result); // hello, world!</code></pre>
                 (<code>.project-banner-img</code>). Not demoed here &mdash; it is <code>20rem</code> tall
                 and page-specific.
             </p>
-        </section>
-
-        <!-- ===================== -->
-        <!-- MICRO POSTS           -->
-        <!-- ===================== -->
-        <section class="styles-section" id="micro" aria-label="micro posts">
-            <h2>micro posts</h2>
-
-            <p>
-                The short-form feed at <code>/blog/micro</code>. Posts carry an
-                <code>id</code> using the convention <code>YYYY-MM-DD-N</code>, where <code>N</code> is the
-                post number for that day. The timestamp is the post's permalink, and its
-                <code>::after</code> stretches across the whole post so clicking anywhere follows it.
-            </p>
-
-            <p class="group-label">feed</p>
-
-            <h3>.micro-container / .micro-post</h3>
-            <p>
-                <code>.micro-container</code> spans the full body measure. Posts are separated
-                by dividers drawn only <em>between</em> siblings
-                (<code>.micro-post + .micro-post</code>), so the feed is never capped by a stray rule.
-                A targeted post (<code>:target</code>) gets a tinted fill and an accent edge.
-            </p>
-            <div class="demo-box">
-                <p class="demo-label">.micro-container / .micro-post / .micro-at / .micro-time / .micro-body</p>
-                <div class="micro-container">
-                    <article class="micro-post">
-                        <p class="meta"><span class="micro-at">@danieldaum</span><a class="micro-time"
-                                href="/blog/micro">1 SEPTEMBER 2026 &middot; 18:42 PDT</a></p>
-                        <p class="micro-body">took the osmo out for its first spin around town today. shot this waiting
-                            for BART &mdash; barely any light on the platform and it still caught the motion exactly how
-                            it felt.</p>
-                    </article>
-                    <article class="micro-post">
-                        <p class="meta"><span class="micro-at">@danieldaum</span><a class="micro-time"
-                                href="/blog/micro">31 AUGUST 2026 &middot; 13:07 PDT</a></p>
-                        <p class="micro-body">a second post, showing the divider that is drawn only between siblings.
-                        </p>
-                    </article>
-                </div>
-            </div>
-
-            <h3>.micro-img</h3>
-            <p>
-                An optional image attachment sits below the body text, bluesky-style, capped at
-                <code>24rem</code> tall and left-aligned rather than stretched to full width.
-            </p>
-
-            <p class="group-label">featured</p>
-
-            <h3>.micro-featured</h3>
-            <p>
-                The same post markup framed as a bordered card, used on the homepage and the blog index to
-                surface the newest micro post. Tighter padding and gap than a feed post, and the border
-                turns accent on hover.
-            </p>
-            <div class="demo-box">
-                <p class="demo-label">.micro-post.micro-featured</p>
-                <article class="micro-post micro-featured">
-                    <p class="meta">
-                        <span class="micro-at">@danieldaum</span>
-                        <a class="micro-time" href="/blog/micro">1 SEPTEMBER 2026 &middot; 18:42 PDT</a>
-                    </p>
-                    <p class="micro-body">
-                        took the osmo out for its first spin around town today. shot this waiting for BART
-                        &mdash; barely any light on the platform and it still caught the motion exactly how it felt.
-                    </p>
-                </article>
-            </div>
-
-            <p class="meta">
-                Note: the featured card is duplicated by hand on the homepage and
-                <code>/blog</code>, with <code>/blog/micro</code> as the source of truth. Update all three
-                when posting.
-            </p>
-
-            <p class="group-label">likes &amp; replies</p>
-
-            <h3>.post-social</h3>
-            <p>
-                Sits under <code>.post-body</code> on every blog post. The middleware fills the like form and
-                the reply thread at the edge (see SOCIAL.md); the static page only carries the fallback text.
-                The like button is a plain text link, the reply affordance is a <code>mailto:</code>.
-            </p>
-            <div class="demo-box">
-                <p class="demo-label">.post-social / .like-form / .like-button / .reply-head / .reply-thread / .reply</p>
-                <section class="post-social" style="margin-top:0; padding-top:0; border-top:none;">
-                    <form class="like-form" action="#components" method="get">
-                        <button type="submit" class="like-button" aria-label="like this post, 3 likes">&#9825; <span
-                                class="like-count">3</span></button>
-                    </form>
-                    <div class="reply-head">
-                        <p class="meta">1 REPLY</p>
-                        <a class="reply-link" href="#components">REPLY BY EMAIL &rarr;</a>
-                    </div>
-                    <ol class="reply-thread">
-                        <li>
-                            <article class="reply">
-                                <p class="meta">
-                                    <span class="reply-name">someone</span>
-                                    <a class="reply-time" href="#components"><time datetime="2026-09-03">3 SEPTEMBER 2026 &middot; 18:42 PDT</time></a>
-                                </p>
-                                <p class="reply-body">A reply, rendered from D1. Nested replies indent under a left rule.</p>
-                                <a class="reply-link" href="#components">REPLY &rarr;</a>
-                            </article>
-                        </li>
-                    </ol>
-                </section>
-            </div>
         </section>
 
         <!-- ===================== -->
@@ -1204,7 +1092,7 @@ console.log(result); // hello, world!</code></pre>
             <ul>
                 <li><code>&le; 480px</code> &mdash; mobile: reduced padding and type scale, full-width pre
                     blocks, single-column photo wall, two-column tracker walls, pager shows arrows only,
-                    micro and reply meta rows stack, footer also drops CHANGELOG</li>
+                    footer also drops CHANGELOG</li>
                 <li><code>&le; 600px</code> &mdash; header stacks the name over a 3 &times; 2 nav grid;
                     <code>.meta-split</code> stacks; content tables stack title above date/tag; project stats
                     stack; the about-page <code>.figure-row</code> keeps only its middle photo; footer drops
