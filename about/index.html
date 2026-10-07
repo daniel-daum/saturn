@@ -12,6 +12,7 @@
     <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Regular.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Bold.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preconnect" href="https://assets.danieldaum.net" />
     <link rel="stylesheet" href="/global.css" />
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
@@ -24,7 +25,7 @@
     <meta property="og:site_name" content="daniel daum" />
     <meta property="og:title" content="daniel daum - about" />
     <meta property="og:description" content="about daniel daum - oakland-based software engineer, reader, and aspiring game developer" />
-    <meta property="og:url" content="https://danieldaum.net/about" />
+    <meta property="og:url" content="https://danieldaum.net/about/" />
     <meta property="og:image" content="https://assets.danieldaum.net/img/misc/og.jpg" />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
@@ -39,16 +40,18 @@
 </head>
 
 <body>
+    <a class="skip-link" href="#main">skip to content</a>
+
     <!--HEADER-->
     <header class="site-header">
-        <a class="site-name" href="/">DANIEL DAUM</a>
+        <a class="site-name" href="/">Daniel Daum</a>
         <nav aria-label="main navigation">
-            <a href="/">HOME</a>
-            <a href="/about">ABOUT</a>
-            <a href="/now">NOW</a>
-            <a href="/blog">BLOG</a>
-            <a href="/projects">PROJECTS</a>
-            <a href="/garden">GARDEN</a>
+            <a href="/">home</a>
+            <a href="/about/" aria-current="page">about</a>
+            <a href="/now/">now</a>
+            <a href="/blog/">blog</a>
+            <a href="/projects/">projects</a>
+            <a href="/garden/">garden</a>
         </nav>
     </header>
 
@@ -57,8 +60,8 @@
 
         <!--HERO-->
         <section class="hero">
-            <h1>/ABOUT</h1>
-            <p class="meta meta-split"><span>LET ME INTRODUCE MYSELF</span><span class="meta-sep" aria-hidden="true"> | </span><span>28 AUGUST 2026</span></p>
+            <h1><span aria-hidden="true">/</span>about</h1>
+            <p class="meta meta-split"><span>Let Me Introduce Myself</span><span class="meta-sep" aria-hidden="true"> | </span><span>28 August 2026</span></p>
         </section>
 
         <!--CONTENT-->
@@ -72,7 +75,7 @@
                 <img class="img-scaled img-scaled--short" src="https://assets.danieldaum.net/img/photos/reno-race-day.webp"
                     alt="daniel running a relay race in Reno, Nevada" />
             </figure>
-            <h2>HI, I'M DANIEL</h2>
+            <h2 class="caps">hi, I'm Daniel</h2>
             <p>
                 I'm a software engineer and student living in Oakland, California. I worked professionally building
                 backend services and data infrastructure before going back to school. College wasn't affordable for me
@@ -81,10 +84,10 @@
             </p>
             <p>
                 I built this site to practice writing, share my thoughts, and publish things I find interesting. It's
-                mostly handwritten HTML and CSS - there's more on that <a href="/projects/saturn">here</a> if
+                mostly handwritten HTML and CSS - there's more on that <a href="/projects/saturn/">here</a> if
                 you're interested.
             </p>
-            <h2>MY INTERESTS</h2>
+            <h2 class="caps">my interests</h2>
             <p>If I'm not working, I'm probably enjoying one of the following activities!</p>
             <h3>Video games</h3>
             <p>
@@ -114,7 +117,7 @@
                 I love the sound of it and am currently working on reading and speaking it. I hope to one day become
                 fluent.
             </p>
-            <h2>SAY HELLO!</h2>
+            <h2 class="caps">say hello!</h2>
             <p>
                 Email me, especially if it's about books, food, or video games. My email is in the footer below.
             </p>
@@ -123,13 +126,13 @@
         </section>
 
         <nav class="post-pager" aria-label="post navigation">
-            <a class="post-pager-link post-pager-prev" href="/now/jan-2026" rel="prev">
+            <a class="post-pager-link post-pager-prev" href="/now/jan-2026/" rel="prev">
                 <span class="post-pager-label">&larr; previous</span>
-                <span class="post-pager-title">MY FIRST NOW PAGE</span>
+                <span class="post-pager-title caps">My First Now Page</span>
             </a>
-            <a class="post-pager-link post-pager-next" href="/now/sep-2026" rel="next">
+            <a class="post-pager-link post-pager-next" href="/now/sep-2026/" rel="next">
                 <span class="post-pager-label">next &rarr;</span>
-                <span class="post-pager-title">WAKE ME UP WHEN SEPTEMBER ENDS</span>
+                <span class="post-pager-title caps">Wake Me Up When September Ends</span>
             </a>
         </nav>
 
@@ -139,16 +142,16 @@
     <footer>
         <nav aria-label="site links">
             <p aria-hidden="true">//</p>
-            <a href="mailto:daniel@danieldaum.net" aria-label="link to send me an email">
-                EMAIL
+            <a href="mailto:daniel@danieldaum.net">
+                email
             </a>
-            <a href="https://git.danieldaum.net/" aria-label="link to my git, opens in new tab" target="_blank"
-                rel="noopener noreferrer">GIT
+            <a href="https://git.danieldaum.net/" aria-label="git (opens in new tab)" target="_blank"
+                rel="noopener noreferrer">git
             </a>
-            <a href="/pgp.asc" aria-label="link to my pgp public key (516E97FF)">PGP</a>
-            <a href="/changelog">CHANGELOG</a>
-            <a href="/privacy">PRIVACY</a>
-            <a href="/feed.xml">FEED</a>
+            <a href="/pgp.asc" aria-label="PGP public key (516E97FF)">PGP</a>
+            <a href="/changelog/">changelog</a>
+            <a href="/privacy/">privacy</a>
+            <a href="/feed.xml">feed</a>
         </nav>
     </footer>
 </body>

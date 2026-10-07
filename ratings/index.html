@@ -11,6 +11,7 @@
     <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Regular.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Bold.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preconnect" href="https://assets.danieldaum.net" />
     <link rel="stylesheet" href="/global.css" />
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
@@ -39,29 +40,31 @@
 
 <body>
 
+    <a class="skip-link" href="#main">skip to content</a>
+
     <!--HEADER-->
     <header class="site-header">
-        <a class="site-name" href="/">DANIEL DAUM</a>
+        <a class="site-name" href="/">Daniel Daum</a>
         <nav aria-label="main navigation">
-            <a href="/">HOME</a>
-            <a href="/about">ABOUT</a>
-            <a href="/now">NOW</a>
-            <a href="/blog">BLOG</a>
-            <a href="/projects">PROJECTS</a>
-            <a href="/garden">GARDEN</a>
+            <a href="/">home</a>
+            <a href="/about/">about</a>
+            <a href="/now/">now</a>
+            <a href="/blog/">blog</a>
+            <a href="/projects/">projects</a>
+            <a href="/garden/">garden</a>
         </nav>
     </header>
 
     <main id="main">
-        <span class="nav-back"><a href="/garden">GARDEN</a> <span aria-hidden="true">-></span> <a href="/ratings">RATINGS</a></span>
+        <span class="nav-back"><a href="/garden/">garden</a> <span aria-hidden="true">-></span> <a href="/ratings/">ratings</a></span>
 
         <section class="hero">
-            <h1>/RATINGS</h1>
+            <h1><span aria-hidden="true">/</span>ratings</h1>
             <p class="meta">How I score things in the garden. One number out of five.</p>
         </section>
 
         <section>
-            <h2>THE SCALE</h2>
+            <h2 class="caps">the scale</h2>
             <p>
                 Everything in the garden gets one score out of five. The score is about how much I enjoyed it,
                 not how well made it is.
@@ -109,7 +112,7 @@
                 <span class="rating">(?/5)</span>.
             </p>
 
-            <h2>THE COLORS</h2>
+            <h2 class="caps">the colors</h2>
             <p>
                 Each score has its own color so a wall of covers is easy to scan. Red for the low end, green for
                 the high end.
@@ -147,12 +150,12 @@
                 The number is always shown next to the color. In high contrast mode the colors get brighter.
             </p>
 
-            <h2>IN MARKUP</h2>
+            <h2 class="caps">in markup</h2>
             <p>
                 A rating is one element with two classes. The modifier sets the color, and the link goes back to
                 this page.
             </p>
-            <pre><code>&lt;a class="rating rating--great" href="/ratings"&gt;(5/5)&lt;/a&gt;</code></pre>
+            <pre><code>&lt;a class="rating rating--great" href="/ratings/"&gt;(5/5)&lt;/a&gt;</code></pre>
             <p class="meta">
                 Modifiers, 1 to 5: <code>rating--terrible</code>, <code>rating--below-average</code>,
                 <code>rating--good</code>, <code>rating--above-average</code>, <code>rating--great</code>.
@@ -170,16 +173,16 @@
     <footer>
         <nav aria-label="site links">
             <p aria-hidden="true">//</p>
-            <a href="mailto:daniel@danieldaum.net" aria-label="link to send me an email">
-                EMAIL
+            <a href="mailto:daniel@danieldaum.net">
+                email
             </a>
-            <a href="https://git.danieldaum.net/" aria-label="link to my git, opens in new tab" target="_blank"
-                rel="noopener noreferrer">GIT
+            <a href="https://git.danieldaum.net/" aria-label="git (opens in new tab)" target="_blank"
+                rel="noopener noreferrer">git
             </a>
-            <a href="/pgp.asc" aria-label="link to my pgp public key (516E97FF)">PGP</a>
-            <a href="/changelog">CHANGELOG</a>
-            <a href="/privacy">PRIVACY</a>
-            <a href="/feed.xml">FEED</a>
+            <a href="/pgp.asc" aria-label="PGP public key (516E97FF)">PGP</a>
+            <a href="/changelog/">changelog</a>
+            <a href="/privacy/">privacy</a>
+            <a href="/feed.xml">feed</a>
         </nav>
     </footer>
 </body>

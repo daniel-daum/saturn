@@ -11,6 +11,7 @@
     <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Regular.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Bold.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preconnect" href="https://assets.danieldaum.net" />
     <link rel="stylesheet" href="/global.css" />
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
@@ -39,32 +40,34 @@
 
 <body class="photos-page">
 
+    <a class="skip-link" href="#main">skip to content</a>
+
     <!--HEADER-->
     <header class="site-header">
-        <a class="site-name" href="/">DANIEL DAUM</a>
+        <a class="site-name" href="/">Daniel Daum</a>
         <nav aria-label="main navigation">
-            <a href="/">HOME</a>
-            <a href="/about">ABOUT</a>
-            <a href="/now">NOW</a>
-            <a href="/blog">BLOG</a>
-            <a href="/projects">PROJECTS</a>
-            <a href="/garden">GARDEN</a>
+            <a href="/">home</a>
+            <a href="/about/">about</a>
+            <a href="/now/">now</a>
+            <a href="/blog/">blog</a>
+            <a href="/projects/">projects</a>
+            <a href="/garden/">garden</a>
         </nav>
     </header>
 
 
     <main id="main">
-        <span class="nav-back"><a href="/garden">GARDEN</a> <span aria-hidden="true">-></span> <a href="/photos">PHOTOS</a></span>
+        <span class="nav-back"><a href="/garden/">garden</a> <span aria-hidden="true">-></span> <a href="/photos/">photos</a></span>
 
         <section>
-            <h1>/PHOTOS</h1>
+            <h1><span aria-hidden="true">/</span>photos</h1>
             <p class="meta">My favorite pictures. Hover over an image for details, click to view full size.
             </p>
         </section>
 
         <section class="photo-wall" aria-label="photo wall">
 
-            <figure class="photo-tile photo-tile--new">
+            <figure class="photo-tile photo-tile--new" id="photo-14">
                 <a class="photo-link" href="#view-14"
                     aria-label="view full size: Berkeley Aquatic Park — Berkeley, California">
                     <img src="https://assets.danieldaum.net/img/photos/berkeley-aquatic-park.webp"
@@ -73,11 +76,11 @@
                 <figcaption class="photo-caption">
                     <span class="photo-caption-name">Berkeley Aquatic Park <span class="new-tag">New!</span></span>
                     <span class="photo-caption-location">Berkeley, California</span>
-                    <span class="photo-caption-date">21 AUGUST 2026</span>
+                    <span class="photo-caption-date">21 August 2026</span>
                 </figcaption>
             </figure>
 
-            <figure class="photo-tile photo-tile--new">
+            <figure class="photo-tile photo-tile--new" id="photo-13">
                 <a class="photo-link" href="#view-13" aria-label="view full size: Neighbor Snail — Oakland, California">
                     <img src="https://assets.danieldaum.net/img/photos/neighbor-snail.webp"
                         alt="a blue snail in my neighborhood on a plant" loading="lazy" />
@@ -85,11 +88,11 @@
                 <figcaption class="photo-caption">
                     <span class="photo-caption-name">Neighbor Snail <span class="new-tag">New!</span></span>
                     <span class="photo-caption-location">Oakland, California</span>
-                    <span class="photo-caption-date">14 AUGUST 2026</span>
+                    <span class="photo-caption-date">14 August 2026</span>
                 </figcaption>
             </figure>
 
-            <figure class="photo-tile photo-tile--new">
+            <figure class="photo-tile photo-tile--new" id="photo-12">
                 <a class="photo-link" href="#view-12"
                     aria-label="view full size: Fire Truck — San Francisco, California">
                     <img src="https://assets.danieldaum.net/img/photos/fire-truck.webp"
@@ -98,11 +101,11 @@
                 <figcaption class="photo-caption">
                     <span class="photo-caption-name">Fire Truck <span class="new-tag">New!</span></span>
                     <span class="photo-caption-location">San Francisco, California</span>
-                    <span class="photo-caption-date">12 AUGUST 2026</span>
+                    <span class="photo-caption-date">12 August 2026</span>
                 </figcaption>
             </figure>
 
-            <figure class="photo-tile photo-tile--new">
+            <figure class="photo-tile photo-tile--new" id="photo-11">
                 <a class="photo-link" href="#view-11"
                     aria-label="view full size: Oracle Park — San Francisco, California">
                     <img src="https://assets.danieldaum.net/img/photos/oracle-park-night.webp"
@@ -111,11 +114,11 @@
                 <figcaption class="photo-caption">
                     <span class="photo-caption-name">Oracle Park <span class="new-tag">New!</span></span>
                     <span class="photo-caption-location">San Francisco, California</span>
-                    <span class="photo-caption-date">12 AUGUST 2026</span>
+                    <span class="photo-caption-date">12 August 2026</span>
                 </figcaption>
             </figure>
 
-            <figure class="photo-tile photo-tile--new">
+            <figure class="photo-tile photo-tile--new" id="photo-10">
                 <a class="photo-link" href="#view-10" aria-label="view full size: Swim Prep — Lake Michigan">
                     <img src="https://assets.danieldaum.net/img/photos/lake-michigan-swim.webp"
                         alt="getting ready for a swim in lake michigan" loading="lazy" />
@@ -123,11 +126,11 @@
                 <figcaption class="photo-caption">
                     <span class="photo-caption-name">Swim Prep <span class="new-tag">New!</span></span>
                     <span class="photo-caption-location">Lake Michigan</span>
-                    <span class="photo-caption-date">4 AUGUST 2026</span>
+                    <span class="photo-caption-date">4 August 2026</span>
                 </figcaption>
             </figure>
 
-            <figure class="photo-tile photo-tile--new">
+            <figure class="photo-tile photo-tile--new" id="photo-9">
                 <a class="photo-link" href="#view-9" aria-label="view full size: Blond Racoon — Oakland, California">
                     <img src="https://assets.danieldaum.net/img/photos/blond-raccoon.webp"
                         alt="a blond racoon eating chips on doorsteps in oakland" loading="lazy" />
@@ -135,11 +138,11 @@
                 <figcaption class="photo-caption">
                     <span class="photo-caption-name">Blond Racoon <span class="new-tag">New!</span></span>
                     <span class="photo-caption-location">Oakland, California</span>
-                    <span class="photo-caption-date">10 JULY 2026</span>
+                    <span class="photo-caption-date">10 July 2026</span>
                 </figcaption>
             </figure>
 
-            <figure class="photo-tile">
+            <figure class="photo-tile" id="photo-8">
                 <a class="photo-link" href="#view-8"
                     aria-label="view full size: Transamerica Pyramid — San Francisco, California">
                     <img src="https://assets.danieldaum.net/img/photos/transamerica-pyramid.webp"
@@ -148,11 +151,11 @@
                 <figcaption class="photo-caption">
                     <span class="photo-caption-name">Transamerica Pyramid <span class="new-tag">New!</span></span>
                     <span class="photo-caption-location">San Francisco, California</span>
-                    <span class="photo-caption-date">4 JULY 2026</span>
+                    <span class="photo-caption-date">4 July 2026</span>
                 </figcaption>
             </figure>
 
-            <figure class="photo-tile">
+            <figure class="photo-tile" id="photo-7">
                 <a class="photo-link" href="#view-7"
                     aria-label="view full size: Wildcat Beach — Point Reyes, California">
                     <img src="https://assets.danieldaum.net/img/photos/wildcat-beach.webp"
@@ -161,11 +164,11 @@
                 <figcaption class="photo-caption">
                     <span class="photo-caption-name">Wildcat Beach</span>
                     <span class="photo-caption-location">Point Reyes, California</span>
-                    <span class="photo-caption-date">22 DECEMBER 2024</span>
+                    <span class="photo-caption-date">22 December 2024</span>
                 </figcaption>
             </figure>
 
-            <figure class="photo-tile">
+            <figure class="photo-tile" id="photo-6">
                 <a class="photo-link" href="#view-6"
                     aria-label="view full size: Boat on Lake Tahoe — Lake Tahoe, California">
                     <img src="https://assets.danieldaum.net/img/photos/lake-tahoe-boat.webp"
@@ -174,11 +177,11 @@
                 <figcaption class="photo-caption">
                     <span class="photo-caption-name">Boat on Lake Tahoe</span>
                     <span class="photo-caption-location">Lake Tahoe, California</span>
-                    <span class="photo-caption-date">14 JUNE 2026</span>
+                    <span class="photo-caption-date">14 June 2026</span>
                 </figcaption>
             </figure>
 
-            <figure class="photo-tile">
+            <figure class="photo-tile" id="photo-5">
                 <a class="photo-link" href="#view-5"
                     aria-label="view full size: Regatta Lineup — West Sacramento, California">
                     <img src="https://assets.danieldaum.net/img/photos/regatta-lineup.webp"
@@ -187,11 +190,11 @@
                 <figcaption class="photo-caption">
                     <span class="photo-caption-name">Regatta Lineup</span>
                     <span class="photo-caption-location">West Sacramento, California</span>
-                    <span class="photo-caption-date">6 JUNE 2026</span>
+                    <span class="photo-caption-date">6 June 2026</span>
                 </figcaption>
             </figure>
 
-            <figure class="photo-tile">
+            <figure class="photo-tile" id="photo-4">
                 <a class="photo-link" href="#view-4" aria-label="view full size: Pines and Moon — California">
                     <img src="https://assets.danieldaum.net/img/photos/pine-trees-and-moon.webp"
                         alt="the moon rising above a line of pine trees" loading="lazy" />
@@ -199,11 +202,11 @@
                 <figcaption class="photo-caption">
                     <span class="photo-caption-name">Pines and Moon</span>
                     <span class="photo-caption-location">West Sacramento, California</span>
-                    <span class="photo-caption-date">6 JUNE 2026</span>
+                    <span class="photo-caption-date">6 June 2026</span>
                 </figcaption>
             </figure>
 
-            <figure class="photo-tile">
+            <figure class="photo-tile" id="photo-3">
                 <a class="photo-link" href="#view-3" aria-label="view full size: White Rose — California">
                     <img src="https://assets.danieldaum.net/img/photos/white-rose.webp"
                         alt="a single white rose in bloom" loading="lazy" />
@@ -211,11 +214,11 @@
                 <figcaption class="photo-caption">
                     <span class="photo-caption-name">White Rose</span>
                     <span class="photo-caption-location">Oakland, California</span>
-                    <span class="photo-caption-date">14 JUNE 2026</span>
+                    <span class="photo-caption-date">14 June 2026</span>
                 </figcaption>
             </figure>
 
-            <figure class="photo-tile">
+            <figure class="photo-tile" id="photo-2">
                 <a class="photo-link" href="#view-2" aria-label="view full size: Farm and Forest — California">
                     <img src="https://assets.danieldaum.net/img/photos/farm-forest.webp"
                         alt="a farm at the edge of a forest" loading="lazy" />
@@ -223,11 +226,11 @@
                 <figcaption class="photo-caption">
                     <span class="photo-caption-name">Farm and Forest</span>
                     <span class="photo-caption-location">Lovettsville, Virginia</span>
-                    <span class="photo-caption-date">16 JUNE 2026</span>
+                    <span class="photo-caption-date">16 June 2026</span>
                 </figcaption>
             </figure>
 
-            <figure class="photo-tile">
+            <figure class="photo-tile" id="photo-1">
                 <a class="photo-link" href="#view-1" aria-label="view full size: BART, Blurry — Oakland, California">
                     <img src="https://assets.danieldaum.net/img/photos/bart-blurry.webp"
                         alt="a BART train in motion, blurred" loading="lazy" />
@@ -235,7 +238,7 @@
                 <figcaption class="photo-caption">
                     <span class="photo-caption-name">BART, Blurry</span>
                     <span class="photo-caption-location">San Francisco, California</span>
-                    <span class="photo-caption-date">1 JANUARY 2026</span>
+                    <span class="photo-caption-date">1 January 2026</span>
                 </figcaption>
             </figure>
         </section>
@@ -246,9 +249,9 @@
 
         <div class="lightbox" role="dialog" id="view-14" tabindex="-1"
             aria-label="Berkeley Aquatic Park — Berkeley, California, full size">
-            <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
+            <a class="lightbox-backdrop" href="#photo-14" tabindex="-1" aria-hidden="true"></a>
             <a class="lightbox-nav lightbox-prev" href="#view-1" aria-label="previous image">‹</a>
-            <a class="lightbox-close" href="#" aria-label="close full size image">✕</a>
+            <a class="lightbox-close" href="#photo-14" aria-label="close full size image">✕</a>
             <figure class="lightbox-content">
                 <img src="https://assets.danieldaum.net/img/photos/berkeley-aquatic-park.webp"
                     alt="berkeley aquatic park" />
@@ -264,9 +267,9 @@
         </div>
 
         <div class="lightbox" role="dialog" id="view-13" tabindex="-1" aria-label="Neighbor Snail — Oakland, California, full size">
-            <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
+            <a class="lightbox-backdrop" href="#photo-13" tabindex="-1" aria-hidden="true"></a>
             <a class="lightbox-nav lightbox-prev" href="#view-14" aria-label="previous image">‹</a>
-            <a class="lightbox-close" href="#" aria-label="close full size image">✕</a>
+            <a class="lightbox-close" href="#photo-13" aria-label="close full size image">✕</a>
             <figure class="lightbox-content">
                 <img src="https://assets.danieldaum.net/img/photos/neighbor-snail.webp"
                     alt="a blue snail in my neighborhood on a plant" />
@@ -282,9 +285,9 @@
         </div>
 
         <div class="lightbox" role="dialog" id="view-12" tabindex="-1" aria-label="Fire Truck — San Francisco, California, full size">
-            <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
+            <a class="lightbox-backdrop" href="#photo-12" tabindex="-1" aria-hidden="true"></a>
             <a class="lightbox-nav lightbox-prev" href="#view-13" aria-label="previous image">‹</a>
-            <a class="lightbox-close" href="#" aria-label="close full size image">✕</a>
+            <a class="lightbox-close" href="#photo-12" aria-label="close full size image">✕</a>
             <figure class="lightbox-content">
                 <img src="https://assets.danieldaum.net/img/photos/fire-truck.webp"
                     alt="a fire truck at night in san francisco" />
@@ -301,9 +304,9 @@
 
         <div class="lightbox" role="dialog" id="view-11" tabindex="-1"
             aria-label="Oracle Park — San Francisco, California, full size">
-            <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
+            <a class="lightbox-backdrop" href="#photo-11" tabindex="-1" aria-hidden="true"></a>
             <a class="lightbox-nav lightbox-prev" href="#view-12" aria-label="previous image">‹</a>
-            <a class="lightbox-close" href="#" aria-label="close full size image">✕</a>
+            <a class="lightbox-close" href="#photo-11" aria-label="close full size image">✕</a>
             <figure class="lightbox-content">
                 <img src="https://assets.danieldaum.net/img/photos/oracle-park-night.webp" alt="oracle park at night" />
                 <figcaption class="lightbox-meta">
@@ -318,9 +321,9 @@
         </div>
 
         <div class="lightbox" role="dialog" id="view-10" tabindex="-1" aria-label="Swim Prep — Lake Michigan, full size">
-            <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
+            <a class="lightbox-backdrop" href="#photo-10" tabindex="-1" aria-hidden="true"></a>
             <a class="lightbox-nav lightbox-prev" href="#view-11" aria-label="previous image">‹</a>
-            <a class="lightbox-close" href="#" aria-label="close full size image">✕</a>
+            <a class="lightbox-close" href="#photo-10" aria-label="close full size image">✕</a>
             <figure class="lightbox-content">
                 <img src="https://assets.danieldaum.net/img/photos/lake-michigan-swim.webp"
                     alt="getting ready for a swim in lake michigan" />
@@ -336,9 +339,9 @@
         </div>
 
         <div class="lightbox" role="dialog" id="view-9" tabindex="-1" aria-label="Blond Racoon — Oakland, California, full size">
-            <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
+            <a class="lightbox-backdrop" href="#photo-9" tabindex="-1" aria-hidden="true"></a>
             <a class="lightbox-nav lightbox-prev" href="#view-10" aria-label="previous image">‹</a>
-            <a class="lightbox-close" href="#" aria-label="close full size image">✕</a>
+            <a class="lightbox-close" href="#photo-9" aria-label="close full size image">✕</a>
             <figure class="lightbox-content">
                 <img src="https://assets.danieldaum.net/img/photos/blond-raccoon.webp"
                     alt="a blond racoon eating chips on doorsteps in oakland" />
@@ -355,9 +358,9 @@
 
         <div class="lightbox" role="dialog" id="view-8" tabindex="-1"
             aria-label="Transamerica Pyramid — San Francisco, California, full size">
-            <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
+            <a class="lightbox-backdrop" href="#photo-8" tabindex="-1" aria-hidden="true"></a>
             <a class="lightbox-nav lightbox-prev" href="#view-9" aria-label="previous image">‹</a>
-            <a class="lightbox-close" href="#" aria-label="close full size image">✕</a>
+            <a class="lightbox-close" href="#photo-8" aria-label="close full size image">✕</a>
             <figure class="lightbox-content">
                 <img src="https://assets.danieldaum.net/img/photos/transamerica-pyramid.webp"
                     alt="the Transamerica Pyramid rising above San Francisco's skyline" />
@@ -373,9 +376,9 @@
         </div>
 
         <div class="lightbox" role="dialog" id="view-7" tabindex="-1" aria-label="Wildcat Beach — Point Reyes, California, full size">
-            <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
+            <a class="lightbox-backdrop" href="#photo-7" tabindex="-1" aria-hidden="true"></a>
             <a class="lightbox-nav lightbox-prev" href="#view-8" aria-label="previous image">‹</a>
-            <a class="lightbox-close" href="#" aria-label="close full size image">✕</a>
+            <a class="lightbox-close" href="#photo-7" aria-label="close full size image">✕</a>
             <figure class="lightbox-content">
                 <img src="https://assets.danieldaum.net/img/photos/wildcat-beach.webp"
                     alt="the California coast near Point Reyes seen from Wildcat Beach" />
@@ -391,9 +394,9 @@
 
         <div class="lightbox" role="dialog" id="view-6" tabindex="-1"
             aria-label="Boat on Lake Tahoe — Lake Tahoe, California, full size">
-            <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
+            <a class="lightbox-backdrop" href="#photo-6" tabindex="-1" aria-hidden="true"></a>
             <a class="lightbox-nav lightbox-prev" href="#view-7" aria-label="previous image">‹</a>
-            <a class="lightbox-close" href="#" aria-label="close full size image">✕</a>
+            <a class="lightbox-close" href="#photo-6" aria-label="close full size image">✕</a>
             <figure class="lightbox-content">
                 <img src="https://assets.danieldaum.net/img/photos/lake-tahoe-boat.webp"
                     alt="a boat crossing Lake Tahoe" />
@@ -410,9 +413,9 @@
 
         <div class="lightbox" role="dialog" id="view-5" tabindex="-1"
             aria-label="Regatta Lineup — West Sacramento, California, full size">
-            <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
+            <a class="lightbox-backdrop" href="#photo-5" tabindex="-1" aria-hidden="true"></a>
             <a class="lightbox-nav lightbox-prev" href="#view-6" aria-label="previous image">‹</a>
-            <a class="lightbox-close" href="#" aria-label="close full size image">✕</a>
+            <a class="lightbox-close" href="#photo-5" aria-label="close full size image">✕</a>
             <figure class="lightbox-content">
                 <img src="https://assets.danieldaum.net/img/photos/regatta-lineup.webp"
                     alt="sailboats lined up for a regatta" />
@@ -428,9 +431,9 @@
         </div>
 
         <div class="lightbox" role="dialog" id="view-4" tabindex="-1" aria-label="Pines and Moon — California, full size">
-            <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
+            <a class="lightbox-backdrop" href="#photo-4" tabindex="-1" aria-hidden="true"></a>
             <a class="lightbox-nav lightbox-prev" href="#view-5" aria-label="previous image">‹</a>
-            <a class="lightbox-close" href="#" aria-label="close full size image">✕</a>
+            <a class="lightbox-close" href="#photo-4" aria-label="close full size image">✕</a>
             <figure class="lightbox-content">
                 <img src="https://assets.danieldaum.net/img/photos/pine-trees-and-moon.webp"
                     alt="the moon rising above a line of pine trees" />
@@ -446,9 +449,9 @@
         </div>
 
         <div class="lightbox" role="dialog" id="view-3" tabindex="-1" aria-label="White Rose — California, full size">
-            <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
+            <a class="lightbox-backdrop" href="#photo-3" tabindex="-1" aria-hidden="true"></a>
             <a class="lightbox-nav lightbox-prev" href="#view-4" aria-label="previous image">‹</a>
-            <a class="lightbox-close" href="#" aria-label="close full size image">✕</a>
+            <a class="lightbox-close" href="#photo-3" aria-label="close full size image">✕</a>
             <figure class="lightbox-content">
                 <img src="https://assets.danieldaum.net/img/photos/white-rose.webp"
                     alt="a single white rose in bloom" />
@@ -464,9 +467,9 @@
         </div>
 
         <div class="lightbox" role="dialog" id="view-2" tabindex="-1" aria-label="Farm and Forest — California, full size">
-            <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
+            <a class="lightbox-backdrop" href="#photo-2" tabindex="-1" aria-hidden="true"></a>
             <a class="lightbox-nav lightbox-prev" href="#view-3" aria-label="previous image">‹</a>
-            <a class="lightbox-close" href="#" aria-label="close full size image">✕</a>
+            <a class="lightbox-close" href="#photo-2" aria-label="close full size image">✕</a>
             <figure class="lightbox-content">
                 <img src="https://assets.danieldaum.net/img/photos/farm-forest.webp"
                     alt="a farm at the edge of a forest" />
@@ -482,9 +485,9 @@
         </div>
 
         <div class="lightbox" role="dialog" id="view-1" tabindex="-1" aria-label="BART, Blurry — Oakland, California, full size">
-            <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
+            <a class="lightbox-backdrop" href="#photo-1" tabindex="-1" aria-hidden="true"></a>
             <a class="lightbox-nav lightbox-prev" href="#view-2" aria-label="previous image">‹</a>
-            <a class="lightbox-close" href="#" aria-label="close full size image">✕</a>
+            <a class="lightbox-close" href="#photo-1" aria-label="close full size image">✕</a>
             <figure class="lightbox-content">
                 <img src="https://assets.danieldaum.net/img/photos/bart-blurry.webp"
                     alt="a BART train in motion, blurred" />
@@ -504,16 +507,16 @@
     <footer>
         <nav aria-label="site links">
             <p aria-hidden="true">//</p>
-            <a href="mailto:daniel@danieldaum.net" aria-label="link to send me an email">
-                EMAIL
+            <a href="mailto:daniel@danieldaum.net">
+                email
             </a>
-            <a href="https://git.danieldaum.net/" aria-label="link to my git, opens in new tab" target="_blank"
-                rel="noopener noreferrer">GIT
+            <a href="https://git.danieldaum.net/" aria-label="git (opens in new tab)" target="_blank"
+                rel="noopener noreferrer">git
             </a>
-            <a href="/pgp.asc" aria-label="link to my pgp public key (516E97FF)">PGP</a>
-            <a href="/changelog">CHANGELOG</a>
-            <a href="/privacy">PRIVACY</a>
-            <a href="/feed.xml">FEED</a>
+            <a href="/pgp.asc" aria-label="PGP public key (516E97FF)">PGP</a>
+            <a href="/changelog/">changelog</a>
+            <a href="/privacy/">privacy</a>
+            <a href="/feed.xml">feed</a>
         </nav>
     </footer>
 </body>

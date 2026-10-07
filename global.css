@@ -17,6 +17,10 @@
     html {
         interpolate-size: allow-keywords;
     }
+
+    @view-transition {
+        navigation: auto;
+    }
 }
 
 body {
@@ -148,7 +152,7 @@ html {
     height: 100%;
     font-size: 18px;
     scrollbar-gutter: stable;
-    color-scheme: dark light;
+    color-scheme: dark;
 
     /* dark theme (default) */
     --background-dark: #141e15;
@@ -912,6 +916,44 @@ a:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 2px;
     border-radius: 2px;
+}
+
+/* Skip link, hidden until focused */
+.skip-link {
+    position: absolute;
+    top: -3rem;
+    left: 0.5rem;
+    z-index: 200;
+    padding: 0.4rem 0.75rem;
+    background: var(--background-dark);
+    border: 1px solid var(--accent);
+}
+
+.skip-link:focus {
+    top: 0.5rem;
+}
+
+/* Caps are visual only; source text stays readable for screen readers */
+.caps,
+.site-name,
+.site-header nav a,
+footer nav a,
+.nav-back,
+main > section > h1,
+.project-header-title,
+.project-card h2,
+.project-type,
+.project-stat-value,
+.home-card-title,
+.recent-writing-tag,
+.recent-writing-title,
+.recent-writing-meta,
+.meta-split > span,
+.table-title,
+.table-date,
+.photo-caption-date,
+.tracker-caption-line {
+    text-transform: uppercase;
 }
 
 /* Remove default focus for mouse users */

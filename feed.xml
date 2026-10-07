@@ -6,13 +6,14 @@
   <id>https://danieldaum.net/</id>
   <link rel="alternate" type="text/html" href="https://danieldaum.net/" />
   <link rel="self" type="application/atom+xml" href="https://danieldaum.net/feed.xml" />
+  <icon>https://danieldaum.net/assets/favicon/android-chrome-192x192.png</icon>
   <updated>2026-09-03T09:00:00-07:00</updated>
   <author>
     <name>daniel daum</name>
     <uri>https://danieldaum.net/</uri>
   </author>
 
-  <!-- NEWEST FIRST. -->
+  <!-- NEWEST FIRST. content: post body in CDATA, absolute URLs, no classes. -->
 
   <entry>
     <title>Wake Me Up When September Ends</title>
@@ -22,16 +23,60 @@
     <updated>2026-09-03T09:00:00-07:00</updated>
     <category term="now" />
     <summary type="text">The September 2026 now page. Starting the fall semester at Laney and applying to transfer, getting badly into home espresso, training for a half marathon, and notes on what I have been playing, reading, and listening to.</summary>
+    <content type="html"><![CDATA[
+      <blockquote>This page highlights what I've been doing recently. It updates on occasion, so check back every now and then, if you'd like. This is the september 2026 edition, 8 months on from my first update in <a href="https://danieldaum.net/now/jan-2026/">January</a>. The most current update can be found <a href="https://danieldaum.net/now/">here</a>.</blockquote>
+      <h2>recently</h2>
+      <h3>College</h3>
+      <p>This year, I finished the spring and summer semesters at Laney, a community college in Oakland, and I’m starting the fall semester. I’m taking Discrete Mathematics, Data Structures and Algorithms, and a history class—nothing too exciting. What’s exciting is that next spring will be my final semester at community college before I transfer! I’m currently applying to transfer to a four-year university. My hope is to transfer to UC Santa Cruz for a B.S. in Computer Science. It’s also internship application season, so I’m hoping to pick up a summer software engineering internship next summer (if you know of any, please reach out!).</p>
+      <h3>Coffee</h3>
+      <p>I recently started getting into coffee. I’ve been making espresso at home and got addicted. I didn’t understand the coffee cult until recently, but drinking a warm espresso while reading the morning news on the balcony brings me so much joy each morning. I found a local coffee shop nearby called <a href="https://mothertongue.coffee">Mother Tongue</a>. They have great beans, and it’s women-owned!</p>
+      <h3>Running</h3>
+      <p>I decided, for some reason, that I wanted to run a half marathon, so I’ve started training for it. yay.</p>
+      <h3>Gaming</h3>
+      <p>I’ve had less time for gaming lately. I recently finished the 2D platformer <a href="https://playreplaced.com">REPLACED</a> <a href="https://danieldaum.net/ratings/">(3/5)</a>. It’s absolutely gorgeous and perfect for the Steam Deck. I was originally planning to play <a href="https://www.alanwake.com">Alan Wake 2</a>, but I’ve decided to wait for Spooky Season to really dive into it! If I have time I hope to also finally get to the <a href="https://store.steampowered.com/app/1693980/Dead_Space/">Dead Space</a> Remake.</p>
+      <h3>Reading</h3>
+      <p>I wish I had more positive notes here. I recently finished <a href="https://www.goodreads.com/book/show/10374.Hard_boiled_Wonderland_and_the_End_of_the_World">Hard-Boiled Wonderland and the End of the World</a> <a href="https://danieldaum.net/ratings/">(2/5)</a> by Haruki Murakami, <a href="https://www.goodreads.com/en/book/show/48037.Carmilla">Carmilla</a> <a href="https://danieldaum.net/ratings/">(2/5)</a> by Sheridan Le Fanu, and <a href="https://www.goodreads.com/en/book/show/50659468-a-court-of-mist-and-fury">A Court of Mist and Fury</a> <a href="https://danieldaum.net/ratings/">(2/5)</a> by Sarah J. Maas. Nothing great to report here, so on to the next one -&gt; <a href="https://www.goodreads.com/book/show/211721806-dungeon-crawler-carl">Dungeon Crawler Carl</a></p>
+      <h3>Listening</h3>
+      <p><a href="https://music.apple.com/us/album/wor%24t-girl-in-america/1867530577">WOR$T GIRL IN AMERICA</a> <a href="https://danieldaum.net/ratings/">(5/5)</a> (Pop) from Slayyyter is amazing and perfect. It feels like this album was made specifically for me, and I’m so excited to see her live in concert soon!</p>
+      <p>I’m also enjoying <a href="https://music.apple.com/us/album/navy-blue-ep/1845170440">Navy Blue</a> <a href="https://danieldaum.net/ratings/">(4/5)</a> (alternative) by Porch Light, who will be releasing a new album, <em>Hush</em>, later this month.</p>
+      <h3>Watching</h3>
+      <p>If you’re into comedy or horror, I can’t recommend <a href="https://tv.apple.com/us/show/widows-bay/umc.cmc.1zzly0vah46bnvnwf0qkrjhh2">Widows Bay</a> <a href="https://danieldaum.net/ratings/">(5/5)</a> enough. It’s fantastic.</p>
+      <h3>This site</h3>
+      <p>I finally decided to put more effort into this site, so expect to see more frequent updates and changes in the near future! Come back soon</p>
+    ]]></content>
   </entry>
 
   <entry>
     <title>Let Me Introduce Myself</title>
-    <link rel="alternate" type="text/html" href="https://danieldaum.net/about" />
+    <link rel="alternate" type="text/html" href="https://danieldaum.net/about/" />
     <id>https://danieldaum.net/about</id>
     <published>2026-08-28T09:00:00-07:00</published>
     <updated>2026-08-28T09:00:00-07:00</updated>
     <category term="about" />
     <summary type="text">Who I am: a software engineer and student in Oakland who went back to school to finish a computer science degree, and what I get up to otherwise — sci-fi and horror games, being outdoors, books, food, and learning French.</summary>
+    <content type="html"><![CDATA[
+      <figure>
+      <img src="https://assets.danieldaum.net/img/photos/snowboarding.webp" alt="daniel snowboarding in tahoe" />
+      <img src="https://assets.danieldaum.net/img/photos/pinnacles-national-park.webp" alt="daniel hiking at pinnacles national park" />
+      <img src="https://assets.danieldaum.net/img/photos/reno-race-day.webp" alt="daniel running a relay race in Reno, Nevada" /></figure>
+      <h2>hi, I'm Daniel</h2>
+      <p>I'm a software engineer and student living in Oakland, California. I worked professionally building backend services and data infrastructure before going back to school. College wasn't affordable for me the first time around, so I'm finishing my computer science degree now! I'm also learning video game development on the side</p>
+      <p>I built this site to practice writing, share my thoughts, and publish things I find interesting. It's mostly handwritten HTML and CSS - there's more on that <a href="https://danieldaum.net/projects/saturn/">here</a> if you're interested.</p>
+      <h2>my interests</h2>
+      <p>If I'm not working, I'm probably enjoying one of the following activities!</p>
+      <h3>Video games</h3>
+      <p>I especially love sci-fi RPGs and horror. KOTOR 1 &amp; 2, SWTOR, MASS EFFECT 1, 2, and 3 (and Andromeda!), Alan Wake 1 &amp; 2, the Resident Evil series, and Dead Space are among my favorites. I've also played RuneScape since childhood and keep a rotating backlog of everything else.</p>
+      <h3>Outdoors</h3>
+      <p>I'm solar powered, so I enjoy almost anything that gets me outdoors and in the sun. I like to run, and occasionally will run races (see photo above). I also enjoy hiking, camping, kayaking, lifting, swimming, biking, and rock climbing.</p>
+      <h3>Reading</h3>
+      <p>Similar to games, I mainly enjoy science fiction and horror. I also enjoy fantasy and occasionally dip into non-fiction when I find a good one.</p>
+      <h3>Food</h3>
+      <p>I love great food and well-crafted cocktails. Bahn Mi and ramen. Sourdough and butter. A cocktail and a small plate. Yellowbelly, Balkan Treat Box, and Menya Rui (St. Louis), Tall Boy and Bombera (Oakland), Tartine (SF - Manufactory), and Jane Jane (D.C.) are some of my favorite places - check them out!</p>
+      <h3>French</h3>
+      <p>I love the sound of it and am currently working on reading and speaking it. I hope to one day become fluent.</p>
+      <h2>say hello!</h2>
+      <p>Email me, especially if it's about books, food, or video games. My email is in the footer below.</p>
+    ]]></content>
   </entry>
 
   <entry>
@@ -42,6 +87,56 @@
     <updated>2026-01-21T09:00:00-08:00</updated>
     <category term="now" />
     <summary type="text">The first now page. Two years into being Californians, weighing what the move gained and cost, and riding out the new-year feeling — plus what I was reading, listening to, and playing over winter.</summary>
+    <content type="html"><![CDATA[
+      <blockquote>This page highlights what I've been doing recently. It updates on occasion, so check back every now and then, if you'd like. This is the january 2026 edition. The most current update can be found <a href="https://danieldaum.net/now/">here</a>.</blockquote>
+      <h2>recently</h2>
+      <p>Christie and I just wrapped up our second year as Californians</p>
+      <p>We've been exploring California, trying to make new friends, and just settle into our new lives</p>
+      <div>
+      <div>
+      <p>california pros</p>
+      <ul>
+      <li>consistent weather</li>
+      <li>access to national parks</li>
+      <li>redwoods</li></ul></div>
+      <div>
+      <p>california cons</p>
+      <ul>
+      <li>no snow, or fall :(</li>
+      <li>old friends are far away</li></ul></div></div>
+      <figure>
+      <img src="https://assets.danieldaum.net/img/photos/wildcat-beach.webp" alt="view of the California coast near Point Reyes from a hike" />
+      <figcaption>west coast near point reyes from a recent hike</figcaption></figure>
+      <p>Anyways, it's a new year and I'm trying to ride out that <em>'this year will be different'</em> feeling for as long as possible</p>
+      <p>Just the usual stuff: more exercise, more reading, and maybe ease off some of the bad habits a little</p>
+      <p>So here's to 2026</p>
+      <h3>Reading</h3>
+      <p>Recently I was recommended <a href="https://www.goodreads.com/book/show/58416952-the-will-of-the-many">"The Will of the Many"</a> by James Islington, and I immediately devoured it. If you enjoy reading fantasy, this should be on your list</p>
+      <p>I was able to pick up a copy of book two, <a href="https://www.goodreads.com/book/show/169485073-the-strength-of-the-few?ref=nav_sb_ss_1_16">"The Strength of the Few"</a>, which released recently. It is also great, and every second I have to spend not reading it is pure agony</p>
+      <p>Highly recommend</p>
+      <h3>Listening</h3>
+      <p>I'm always actively hunting for new music, but right now it's going...okay...</p>
+      <p>I find that the more I try new bands, or listen to new sounds, the more I need to ground myself in something familiar. So here is the new and the familiar</p>
+      <h4>The new</h4>
+      <ul>
+      <li><a href="https://youtu.be/O6fD5zdct94?si=OdLArLcKGmzDhs36">tops - chlorine</a> (indie pop)</li>
+      <li><a href="https://youtu.be/UV1IgNxPnCU?si=6Qse5gzQ7V_tbAAu">olivia dean - dy-na-mi-tee</a> (r&amp;b - cover)</li>
+      <li><a href="https://youtu.be/0MI1DHbXH68?si=jv62yV2VuD4Vqf3L">l'impératrice, louve - chrysalis</a> (electronic french pop)</li></ul>
+      <h4>The familiar</h4>
+      <ul>
+      <li><a href="https://youtu.be/Gl83mI69nX4?si=IhHsm0z5TfpsrufK">lupe fiasco - kick, push</a> (hip hop)</li>
+      <li><a href="https://youtu.be/n7PVhQPaFNY?si=mBSm4YIhWJBVWlr0">miguel ft j.cole - all i want is you</a> (r&amp;b)</li></ul>
+      <h3>Playing</h3>
+      <p>I had extra time over winter break to go through a small backlog of games. KCD2 is a massive game, maybe too big. Demonschool was just not it for me. And I still don't quite know how to describe Indika</p>
+      <h4>next up</h4>
+      <ul>
+      <li>alan wake 2</li></ul>
+      <h4>finished</h4>
+      <ul>
+      <li><a href="https://youtu.be/7ynJN-HejlY?si=fmo9Gz1lMCVPZBD0">kingdom come: deliverance ii by warhorse studios</a> <a href="https://danieldaum.net/ratings/">(4/5)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=MVkci6ZD_KE">demonschool by necrosoft games</a> <a href="https://danieldaum.net/ratings/">(1/5)</a></li>
+      <li><a href="https://youtu.be/OANaNIEAsWE?si=8O5FMc7rcofVCSeJ">indika by odd meter</a> <a href="https://danieldaum.net/ratings/">(3/5)</a></li></ul>
+    ]]></content>
   </entry>
 
 </feed>
