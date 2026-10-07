@@ -178,7 +178,7 @@ html {
 
 /*============================*/
 /* rating scale */
-/* usage: <a class="rating rating--good" href="/garden/ratings">(3/5)</a> */
+/* usage: <a class="rating rating--good" href="/ratings">(3/5)</a> */
 /* the <a> and <span> forms are visually identical at rest, so ratings that */
 /* sit inside another link (the tracker tiles) can stay spans without the */
 /* seam showing */
@@ -572,8 +572,7 @@ hr {
     border-bottom: none;
 }
 
-/* stretch the link across the whole item so the tag and meta are clickable too -
-   same trick as .activity-link */
+/* stretch the link across the whole item so the tag and meta are clickable too */
 .recent-writing-title a::after {
     content: "";
     position: absolute;
@@ -635,38 +634,6 @@ hr {
     padding: 0;
     border: none;
     border-top: none;
-}
-
-.section-head {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 0.35rem 1.5rem;
-    margin: 2.5rem 0 0.75rem;
-}
-
-.section-head .section-label {
-    margin: 0;
-}
-
-.section-more {
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--text-secondary);
-    white-space: nowrap;
-    border-bottom-color: transparent;
-    transition:
-        color 220ms ease 60ms,
-        border-bottom-color 220ms ease 60ms;
-}
-
-.section-more:hover {
-    color: var(--accent);
-    background: none;
-    border-bottom-color: var(--accent);
 }
 
 /*============================*/
@@ -740,109 +707,9 @@ hr {
 }
 
 /*============================*/
-/* homepage - recent activity feed */
-/*============================*/
-
-.activity-feed {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    border: 1px solid var(--borders);
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.activity-item {
-    position: relative; /* containing block for the stretched row link */
-    display: flex;
-    align-items: baseline;
-    gap: 0.75rem;
-    margin: 0;
-    padding: 0.6rem 1rem;
-    font-size: 0.82rem;
-    cursor: pointer;
-    transition: background-color 0.15s ease;
-}
-
-/* stretch the row's link across the whole item so the pointer cursor is honest -
-   clicking the icon or the date follows the same link as the title */
-.activity-link::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-}
-
-.activity-item + .activity-item {
-    border-top: 1px solid color-mix(in srgb, var(--borders) 60%, transparent);
-}
-
-.activity-item:hover {
-    background-color: color-mix(in srgb, var(--accent-muted) 30%, transparent);
-}
-
-.activity-icon {
-    color: var(--accent);
-    flex-shrink: 0;
-    width: 1.25em;
-    text-align: center;
-}
-
-/* the link takes whatever width the icon and date leave. it never wraps:
-   text that does not fit fades out at the right edge under a mask, so a long
-   entry reads as a teaser rather than a two-line row. min-width 0 lets
-   the flex item shrink below its content width so the date stays put */
-.activity-link {
-    color: var(--text-body);
-    border-bottom: none;
-    flex: 1;
-    min-width: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 4rem), transparent);
-    mask-image: linear-gradient(to right, #000 calc(100% - 4rem), transparent);
-}
-
-.activity-link:hover {
-    color: var(--accent);
-    background: none;
-}
-
-/* the mask would also hide the focus ring, which sits outside the box */
-.activity-link:focus-visible {
-    -webkit-mask-image: none;
-    mask-image: none;
-}
-
-/* small screens: the label alone nearly fills the row, so the date drops
-   to its own line under the text (indented past the icon) and the link gets
-   the full width before it starts to fade */
-@media (max-width: 480px) {
-    .activity-item {
-        flex-wrap: wrap;
-        row-gap: 0.15rem;
-    }
-
-    .activity-date {
-        flex-basis: 100%;
-        padding-left: calc(1.25em + 0.75rem);
-    }
-}
-
-.activity-date {
-    color: var(--text-secondary);
-    font-size: 0.72rem;
-    letter-spacing: 0.06em;
-    white-space: nowrap;
-}
-
-/*============================*/
 /* targeted class styles */
 /* authored css by me*/
 /*============================*/
-
-.bold {
-    font-weight: 700;
-}
 
 .text-center {
     text-align: center;
@@ -964,7 +831,7 @@ hr {
 
 /* bottom-of-page pager for blog posts and now pages: a centered
    PREVIOUS | NEXT pair over a top rule. labels are written lowercase in the
-   source and uppercased here, per the convention in /garden/styles.
+   source and uppercased here, per the convention in /styles.
    at the ends of a run, swap the missing side for .page-nav-disabled so the
    pair stays balanced instead of offering a dead link. */
 .page-nav {
@@ -1066,16 +933,14 @@ hr {
 }
 
 /* Focus visible for keyboard navigation */
-a:focus-visible,
-button:focus-visible {
+a:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 2px;
     border-radius: 2px;
 }
 
 /* Remove default focus for mouse users */
-a:focus:not(:focus-visible),
-button:focus:not(:focus-visible) {
+a:focus:not(:focus-visible) {
     outline: none;
 }
 
@@ -1253,12 +1118,6 @@ button:focus:not(:focus-visible) {
     margin: 0rem;
 }
 
-.project-card:hover {
-    background-color: var(--background-dark);
-    border-bottom: 1px solid var(--borders);
-    text-decoration: none;
-}
-
 .project-card-left {
     display: flex;
     flex-direction: column;
@@ -1291,6 +1150,9 @@ button:focus:not(:focus-visible) {
 }
 
 .project-card:hover {
+    background-color: var(--background-dark);
+    border-bottom: 1px solid var(--borders);
+    text-decoration: none;
     transform: scale(1.05);
     box-shadow:
         0 20px 50px rgba(14, 20, 15, 0.6),
@@ -1608,7 +1470,7 @@ button:focus:not(:focus-visible) {
 }
 
 /*============================*/
-/* garden/photos - photo wall */
+/* photos - photo wall */
 /*============================*/
 
 /* wider body than the rest of the site, just for this page */
@@ -1735,7 +1597,7 @@ body.photos-page {
 }
 
 /*============================*/
-/* garden/photos - lightbox */
+/* photos - lightbox */
 /*============================*/
 
 /* each lightbox is a fixed overlay toggled on/off via :target,
@@ -1858,7 +1720,7 @@ body.photos-page {
 }
 
 /*============================*/
-/* garden/trackers - media walls */
+/* trackers - media walls */
 /* shared by books / movies / shows / games / music */
 /*============================*/
 
@@ -1968,13 +1830,6 @@ body.tracker-page {
     opacity: 0.85;
 }
 
-/* mark a freshly logged entry: accent frame on the cover, same idea as
-   .photo-tile--new. the border is already in the box, so recoloring it
-   shifts nothing - and hover still adds the outline on top of it. */
-.tracker-tile--new .tracker-cover {
-    border-color: var(--accent);
-}
-
 /* title / date / rating sit under the cover - always visible,
    unlike the photo wall where the caption is a hover overlay */
 .tracker-caption {
@@ -2013,7 +1868,7 @@ body.tracker-page {
 }
 
 /*============================*/
-/* garden/trackers - note overlay */
+/* trackers - note overlay */
 /*============================*/
 
 /* same :target overlay as the photo lightbox - the .lightbox shell
@@ -2052,10 +1907,6 @@ body.tracker-page {
     font-size: 0.9rem;
 }
 
-.tracker-note-text:last-child {
-    margin-bottom: 0;
-}
-
 /* link out to the thing's own page - goodreads, letterboxd, bandcamp, etc. */
 .tracker-note-link {
     margin: 0;
@@ -2082,7 +1933,7 @@ body.tracker-page {
 }
 
 /*============================*/
-/* garden/styles - style guide */
+/* styles - style guide */
 /*============================*/
 
 /* color swatches */
@@ -2171,10 +2022,6 @@ main {
     padding-top: 2.25rem;
     border-top: 2px solid var(--accent-muted);
     scroll-margin-top: 1.5rem;
-}
-
-.styles-section:first-of-type {
-    margin-top: 3rem;
 }
 
 .styles-section > h2 {

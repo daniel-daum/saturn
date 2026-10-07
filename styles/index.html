@@ -26,7 +26,7 @@
     <meta property="og:site_name" content="daniel daum" />
     <meta property="og:title" content="daniel daum - styles" />
     <meta property="og:description" content="a reference page for all styles, tokens, and components used on this site" />
-    <meta property="og:url" content="https://danieldaum.net/garden/styles/" />
+    <meta property="og:url" content="https://danieldaum.net/styles/" />
     <meta property="og:image" content="https://assets.danieldaum.net/img/misc/og.jpg" />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
@@ -55,7 +55,7 @@
     </header>
 
     <main id="main">
-        <span class="nav-back"><a href="/garden">GARDEN</a> <span aria-hidden="true">-></span> <a href="/garden/styles">STYLES</a></span>
+        <span class="nav-back"><a href="/garden">GARDEN</a> <span aria-hidden="true">-></span> <a href="/styles">STYLES</a></span>
         <section>
             <h1>STYLES</h1>
             <p class="meta">A living reference for every design token, typographic element, and component class used on
@@ -364,7 +364,7 @@
                 <code>text-transform: uppercase</code>. The source stays readable and greppable:
             </p>
             <ul>
-                <li><code>.section-label</code>, <code>.section-more</code></li>
+                <li><code>.section-label</code></li>
                 <li><code>.group-label</code>, <code>.demo-label</code></li>
                 <li><code>.project-stat-label</code></li>
                 <li><code>.new-tag</code></li>
@@ -450,12 +450,12 @@
             <p>
                 Rows can be made clickable as a whole without nesting anchors: the real link
                 inside gets an <code>::after</code> with <code>position:absolute; inset:0</code>, and the
-                container gets <code>position:relative</code>. Used by <code>.activity-item</code> (via
-                <code>.activity-link</code>).
+                container gets <code>position:relative</code>. Used by <code>.recent-writing-item</code> (via
+                <code>.recent-writing-title a</code>).
             </p>
             <p>
-                This keeps the accessible name short &mdash; a screen reader announces just the date or
-                the title, not the entire row. The tradeoff is that the transparent overlay sits
+                This keeps the accessible name short &mdash; a screen reader announces just the
+                title, not the entire row. The tradeoff is that the transparent overlay sits
                 above the text, so text inside those components is not selectable.
             </p>
         </section>
@@ -542,10 +542,9 @@ console.log(result); // hello, world!</code></pre>
                 <p class="meta">july 8, 2026 &middot; 4 min read &middot; some tag</p>
             </div>
 
-            <h3>.bold / .text-center</h3>
+            <h3>.text-center</h3>
             <div class="demo-box">
-                <p class="demo-label">.bold &amp; .text-center</p>
-                <p class="bold">this paragraph uses .bold (font-weight 700)</p>
+                <p class="demo-label">.text-center</p>
                 <p class="text-center">this paragraph uses .text-center</p>
             </div>
 
@@ -653,21 +652,6 @@ console.log(result); // hello, world!</code></pre>
                     recent writing</h2>
             </div>
 
-            <h3>.section-head</h3>
-            <p>
-                A <code>.section-label</code> paired with a right-aligned action link on one line. Use it
-                whenever a section needs a "see all" escape hatch, so the label and the link do not stack
-                as two separate blocks. Wraps on narrow screens.
-            </p>
-            <div class="demo-box">
-                <p class="demo-label">.section-head / .section-label / .section-more</p>
-                <div class="section-head" style="margin-top:0;">
-                    <h2 class="section-label"
-                        style="color: var(--text-secondary); font-size:0.78rem; letter-spacing:0.12em;">writing</h2>
-                    <a class="section-more" href="/blog">all writing &rarr;</a>
-                </div>
-            </div>
-
             <p class="group-label">wayfinding</p>
 
             <h3>.nav-back</h3>
@@ -729,7 +713,7 @@ console.log(result); // hello, world!</code></pre>
                 <table class="content-table">
                     <thead>
                         <tr>
-                            <th scope="col" class="col-title">title</th>
+                            <th scope="col">title</th>
                             <th scope="col" class="col-date">date</th>
                             <th scope="col" class="col-tag">tag</th>
                         </tr>
@@ -755,7 +739,7 @@ console.log(result); // hello, world!</code></pre>
                 <table class="content-table">
                     <thead>
                         <tr>
-                            <th scope="col" class="col-title">title</th>
+                            <th scope="col">title</th>
                             <th scope="col" class="col-desc">description</th>
                         </tr>
                     </thead>
@@ -766,36 +750,6 @@ console.log(result); // hello, world!</code></pre>
                         </tr>
                     </tbody>
                 </table>
-            </div>
-
-            <h3>.activity-feed</h3>
-            <p>
-                The homepage "recent activity" list. Each row pairs an
-                <a href="#icons">icon glyph</a> with a link and a date. The entire row is clickable
-                &mdash; <code>.activity-link::after</code> stretches across it &mdash; so the pointer
-                cursor is honest. The link never wraps: text that does not fit fades out under a
-                mask, so the date stays on the same line at any width.
-            </p>
-            <div class="demo-box">
-                <p class="demo-label">.activity-feed / .activity-item / .activity-icon / .activity-link / .activity-date
-                </p>
-                <ul class="activity-feed">
-                    <li class="activity-item">
-                        <span class="activity-icon" aria-hidden="true">&#9635;</span>
-                        <a class="activity-link" href="#components">2 NEW PHOTOS &mdash; FOG OVER THE BAY</a>
-                        <span class="activity-date">30 AUG</span>
-                    </li>
-                    <li class="activity-item">
-                        <span class="activity-icon" aria-hidden="true">&#9670;</span>
-                        <a class="activity-link" href="#components">NEW POST &mdash; A LONGER TITLE THAT RUNS PAST THE END OF THE ROW SO YOU CAN SEE THE TEXT FADE OUT INSTEAD OF WRAPPING ONTO A SECOND LINE</a>
-                        <span class="activity-date">29 AUG</span>
-                    </li>
-                    <li class="activity-item">
-                        <span class="activity-icon" aria-hidden="true">&#10047;</span>
-                        <a class="activity-link" href="#components">NEW GARDEN PAGE &mdash; GAMES</a>
-                        <span class="activity-date">27 AUG</span>
-                    </li>
-                </ul>
             </div>
 
             <h3>.recent-writing-list</h3>
@@ -822,7 +776,7 @@ console.log(result); // hello, world!</code></pre>
             <h3>.rating</h3>
             <p>
                 One number out of five with a colour per step. The modifier sets <code>--rating-color</code>;
-                leave it off for an unrated entry. Full write-up on <a href="/garden/ratings">/garden/ratings</a>.
+                leave it off for an unrated entry. Full write-up on <a href="/ratings">/ratings</a>.
             </p>
             <div class="demo-box">
                 <p class="demo-label">.rating / .rating--terrible ... .rating--great</p>
@@ -903,11 +857,11 @@ console.log(result); // hello, world!</code></pre>
                     style="margin-top: 0; color: var(--text-secondary); font-size:0.78rem; letter-spacing:0.12em;">
                     metadata</h2>
                 <div class="project-stats" style="margin-bottom: 0;">
-                    <div class="project-stat">
+                    <div>
                         <p class="project-stat-label">stack</p>
                         <p class="project-stat-value">html, css</p>
                     </div>
-                    <div class="project-stat">
+                    <div>
                         <p class="project-stat-label">source</p>
                         <p class="project-stat-value"><a href="#components">git.danieldaum.net</a></p>
                     </div>
@@ -1002,8 +956,7 @@ console.log(result); // hello, world!</code></pre>
                 Books, movies, shows, games and music share one wall: an auto-fill grid of covers with the
                 title, date and rating always visible beneath. <code>.tracker-cover</code> is a fixed 2:3 box
                 (<code>--square</code> for album art, <code>--boxart</code> for 3:4 games) that shows
-                "NO COVER" until an <code>&lt;img&gt;</code> is dropped in. <code>.tracker-tile--new</code>
-                frames a fresh entry in the accent. Clicking a cover opens a <code>.tracker-note-card</code>
+                "NO COVER" until an <code>&lt;img&gt;</code> is dropped in. Clicking a cover opens a <code>.tracker-note-card</code>
                 inside the same <code>.lightbox</code> shell the photo wall uses.
                 <code>body.tracker-page</code> widens the page the same way <code>.photos-page</code> does.
             </p>
@@ -1023,7 +976,7 @@ console.log(result); // hello, world!</code></pre>
                             </span>
                         </a>
                     </figure>
-                    <figure class="tracker-tile tracker-tile--new">
+                    <figure class="tracker-tile">
                         <a class="tracker-link" href="#media">
                             <span class="tracker-cover tracker-cover--square"></span>
                             <span class="tracker-caption">
