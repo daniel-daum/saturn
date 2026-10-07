@@ -154,6 +154,7 @@ html {
 
     /* dark theme (default) */
     --background-dark: #141e15;
+    --surface: #18231a;
     --borders: #2e322e;
     --text-headings: #f3f3ed;
     --text-body: #c9ccbf;
@@ -174,7 +175,7 @@ html {
 /*============================*/
 
 body {
-    max-width: 72ch;
+    max-width: 78ch;
     min-height: 100vh;
     min-height: 100svh;
 
@@ -572,6 +573,19 @@ nav p {
     letter-spacing: 0.06em;
 }
 
+/* posts: bordered panel */
+article:has(> .page-header--post) {
+    padding: 1.25rem 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--borders);
+}
+
+@media (max-width: 480px) {
+    article:has(> .page-header--post) {
+        padding: 1rem;
+    }
+}
+
 /*============================*/
 /* components - meta line */
 /*============================*/
@@ -637,6 +651,69 @@ nav p {
     color: var(--text-secondary);
     margin: 2.5rem 0 0.75rem 0;
     padding: 0;
+}
+
+/*============================*/
+/* components - likes */
+/*============================*/
+
+/* filled in by functions/_middleware.js. right-aligned under a dashed
+   rule; the comments heading will sit on its left */
+.post-likes {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 3rem;
+    padding-top: 1.25rem;
+    border-top: 1px dashed var(--borders);
+}
+
+.post-likes .meta {
+    margin: 0;
+}
+
+.like-form {
+    margin: 0;
+}
+
+.like-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.3rem 0.75rem;
+    border: 1px solid var(--borders);
+    background: none;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    transition:
+        color 150ms ease,
+        border-color 150ms ease;
+}
+
+.like-button:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+/* already liked today: a state, not an error */
+.like-button:disabled {
+    color: var(--accent);
+    border-color: var(--borders);
+    cursor: default;
+}
+
+.like-icon {
+    width: 0.95em;
+    height: 0.95em;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linejoin: round;
+}
+
+.like-button:disabled .like-icon {
+    fill: currentColor;
 }
 
 /*============================*/

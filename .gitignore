@@ -4,3 +4,7 @@
 
 # deploy staging
 dist/
+
+# wrangler (local d1 + secrets)
+.wrangler/
+.dev.vars

@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="daniel daum's now page - oakland based software engineer" />
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Bold.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preconnect" href="https://assets.danieldaum.net" />
+    <link rel="stylesheet" href="/global.css" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+    <link rel="alternate" type="application/atom+xml" title="daniel daum" href="https://danieldaum.net/feed.xml" />
+    <meta name="robots" content="noindex" />
+    <title>daniel daum - now</title>
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="daniel daum" />
+    <meta property="og:title" content="daniel daum - now" />
+    <meta property="og:description" content="daniel daum's now page - oakland based software engineer" />
+    <meta property="og:url" content="https://danieldaum.net/now/sep-2026/" />
+    <meta property="og:image" content="https://assets.danieldaum.net/img/misc/og.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="daniel daum - software engineer, avid reader, aspiring game dev - danieldaum.net" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="daniel daum - now" />
+    <meta name="twitter:description" content="daniel daum's now page - oakland based software engineer" />
+    <meta name="twitter:image" content="https://assets.danieldaum.net/img/misc/og.jpg" />
+    <meta name="twitter:image:alt" content="daniel daum - software engineer, avid reader, aspiring game dev - danieldaum.net" />
+    <style>
+        /* mock only: likes + comments inside the post panel */
+        .post-social {
+            margin-top: 3rem;
+            padding-top: 1.25rem;
+            border-top: 1px dashed var(--borders);
+        }
+
+
+        .social-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .social-title {
+            margin: 0;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        .reply-thread {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .reply-thread li {
+            margin: 0;
+        }
+
+        .reply-thread .reply-thread {
+            margin-top: 0.25rem;
+            padding-left: 1rem;
+            border-left: 1px solid var(--borders);
+        }
+
+        .reply {
+            padding: 1rem 0;
+        }
+
+        .reply-thread > li + li > .reply {
+            border-top: 1px solid var(--borders);
+        }
+
+        .reply .meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.25rem 0.75rem;
+            margin: 0 0 0.5rem;
+            font-size: 0.78rem;
+            letter-spacing: 0.04em;
+        }
+
+        .reply-name {
+            color: var(--text-headings);
+            font-weight: 600;
+        }
+
+        .reply-author {
+            padding: 0 0.35rem;
+            border: 1px solid var(--borders);
+            font-size: 0.7rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        .reply-time {
+            color: var(--text-secondary);
+            text-transform: uppercase;
+        }
+
+        .reply-body {
+            margin: 0 0 0.5rem;
+        }
+
+        .reply-link {
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .social-foot {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 0.5rem 1rem;
+            margin-top: 0.75rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--borders);
+        }
+
+        .social-foot .meta {
+            margin: 0;
+            font-size: 0.75rem;
+        }
+    </style>
+</head>
+
+<body>
+    <a class="skip-link" href="#main">skip to content</a>
+
+    <!-- ===== HEADER ===== -->
+    <header class="site-header">
+        <a class="site-name" href="/">Daniel Daum</a>
+        <nav aria-label="main navigation">
+            <a href="/">home</a>
+            <a href="/about/">about</a>
+            <a href="/now/">now</a>
+            <a href="/blog/">blog</a>
+            <a href="/projects/">projects</a>
+            <a href="/garden/">garden</a>
+        </nav>
+    </header>
+
+    <!-- ===== MAIN ===== -->
+    <main id="main">
+        <article>
+            <header class="page-header page-header--post">
+                <p class="page-header-kicker"><span aria-hidden="true">/</span>blog</p>
+                <h1>Wake Me Up When September Ends</h1>
+                <p class="meta caps"><time datetime="2026-09-03">3 September 2026</time></p>
+            </header>
+
+            <section>
+
+                <blockquote>
+                    This page highlights what I've been doing recently. It updates on occasion, so check back every now and
+                    then, if you'd like. This is the september 2026 edition, 8 months on from my first update in <a
+                        href="/now/jan-2026/">January</a>. The most current update can be found <a href="/now/">here</a>.
+
+                </blockquote>
+
+
+                <h3>College</h3>
+                <p>
+                    This year, I finished the spring and summer semesters at Laney, a community college in Oakland, and I’m
+                    starting the fall semester. I’m taking Discrete Mathematics, Data Structures and Algorithms, and a
+                    history class—nothing too exciting. What’s exciting is that next spring will be my final semester at
+                    community college before I transfer! I’m currently applying to transfer to a four-year university. My
+                    hope is to transfer to UC Santa Cruz for a B.S. in Computer Science. It’s also internship application
+                    season, so I’m hoping to pick up a summer software engineering internship next summer (if you know of
+                    any, please reach out!).
+                </p>
+
+                <h3>Coffee</h3>
+                <p>
+                    I recently started getting into coffee. I’ve been making espresso at home and got addicted. I didn’t
+                    understand the coffee cult until recently, but drinking a warm espresso while reading the morning news
+                    on the balcony brings me so much joy each morning. I found a local coffee shop nearby called <a
+                        href="https://mothertongue.coffee">Mother Tongue</a>. They have great beans, and it’s women-owned!
+                </p>
+                <h3>Running</h3>
+                <p>
+                    I decided, for some reason, that I wanted to run a half marathon, so I’ve started training for it. yay.
+                </p>
+
+                <h3>Gaming</h3>
+                <p>
+                    I’ve had less time for gaming lately. I recently finished the 2D platformer <a
+                        href="https://playreplaced.com">REPLACED</a> <a class="rating rating--good" href="/ratings/"
+                        aria-label="rated 3 out of 5, see my rating scale">(3/5)</a>. It’s
+                    absolutely gorgeous and perfect for the Steam Deck. I was originally planning to play <a
+                        href="https://www.alanwake.com">Alan Wake 2</a>, but
+                    I’ve decided to wait for Spooky Season to really dive into it! If I have time I hope to also finally get
+                    to the <a href="https://store.steampowered.com/app/1693980/Dead_Space/">Dead Space</a> Remake.
+                </p>
+
+                <h3>Reading</h3>
+                <p>
+                    I wish I had more positive notes here. I recently finished <a
+                        href="https://www.goodreads.com/book/show/10374.Hard_boiled_Wonderland_and_the_End_of_the_World">Hard-Boiled
+                        Wonderland and the End
+                        of the
+                        World</a> <a class="rating rating--below-average" href="/ratings/"
+                        aria-label="rated 2 out of 5, see my rating scale">(2/5)</a> by Haruki Murakami, <a
+                        href="https://www.goodreads.com/en/book/show/48037.Carmilla">Carmilla</a> <a
+                        class="rating rating--below-average" href="/ratings/"
+                        aria-label="rated 2 out of 5, see my rating scale">(2/5)</a> by
+                    Sheridan Le Fanu, and <a
+                        href="https://www.goodreads.com/en/book/show/50659468-a-court-of-mist-and-fury">A Court of Mist and
+                        Fury</a> <a class="rating rating--below-average" href="/ratings/"
+                        aria-label="rated 2 out of 5, see my rating scale">(2/5)</a>
+                    by
+                    Sarah J. Maas. Nothing great to report here, so
+                    on to the next one -> <a
+                        href="https://www.goodreads.com/book/show/211721806-dungeon-crawler-carl">Dungeon Crawler Carl</a>
+                </p>
+                <h3>Listening</h3>
+                <p>
+                    <a href="https://music.apple.com/us/album/wor%24t-girl-in-america/1867530577">WOR$T GIRL IN AMERICA</a>
+                    <a class="rating rating--great" href="/ratings/"
+                        aria-label="rated 5 out of 5, see my rating scale">(5/5)</a>
+                    (Pop) from Slayyyter is amazing and perfect. It feels
+                    like this album was made specifically for
+                    me, and I’m so excited to see her live in concert soon!
+                </p>
+                <p>
+                    I’m also enjoying <a href="https://music.apple.com/us/album/navy-blue-ep/1845170440">Navy Blue</a> <a
+                        class="rating rating--above-average" href="/ratings/"
+                        aria-label="rated 4 out of 5, see my rating scale">(4/5)</a>
+                    (alternative) by Porch Light, who will be releasing a new
+                    album, <em>Hush</em>, later this month.
+                </p>
+
+                <h3>Watching</h3>
+                <p>
+                    If you’re into comedy or horror, I can’t recommend <a
+                        href="https://tv.apple.com/us/show/widows-bay/umc.cmc.1zzly0vah46bnvnwf0qkrjhh2">Widows
+                        Bay</a> <a class="rating rating--great" href="/ratings/"
+                        aria-label="rated 5 out of 5, see my rating scale">(5/5)</a> enough. It’s fantastic.
+                </p>
+
+                <h3>This site</h3>
+                <p>
+                    I finally decided to put more effort into this site, so expect to see more frequent updates and changes
+                    in the near future! Come back soon
+                </p>
+            </section>
+
+            <section class="post-social" id="comments" aria-label="comments">
+                <div class="social-head">
+                    <h2 class="social-title">3 comments</h2>
+                    <form class="like-form" id="likes">
+                        <button type="button" class="like-button" aria-label="like this post, 12 likes"><svg class="like-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" /></svg> 12</button>
+                    </form>
+                </div>
+
+                <ol class="reply-thread">
+                    <li>
+                        <article class="reply" id="reply-1">
+                            <p class="meta">
+                                <span class="reply-name">sam</span>
+                                <a class="reply-time" href="#reply-1"><time datetime="2026-09-04T09:12:00-07:00">4 Sep 2026 &middot; 09:12</time></a>
+                            </p>
+                            <p class="reply-body">Good luck with the UCSC application! Mother Tongue is great, the cortado is worth the walk.</p>
+                            <a class="reply-link" href="mailto:reply@replies.danieldaum.net?subject=re:%20https://danieldaum.net/blog/wake-me-up-when-september-ends/%23reply-1">reply &rarr;</a>
+
+                            <ol class="reply-thread">
+                                <li>
+                                    <article class="reply" id="reply-2">
+                                        <p class="meta">
+                                            <span class="reply-name">daniel</span>
+                                            <span class="reply-author">author</span>
+                                            <a class="reply-time" href="#reply-2"><time datetime="2026-09-04T18:40:00-07:00">4 Sep 2026 &middot; 18:40</time></a>
+                                        </p>
+                                        <p class="reply-body">Thank you! Adding the cortado to the list.</p>
+                                        <a class="reply-link" href="mailto:reply@replies.danieldaum.net?subject=re:%20https://danieldaum.net/blog/wake-me-up-when-september-ends/%23reply-2">reply &rarr;</a>
+                                    </article>
+                                </li>
+                            </ol>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="reply" id="reply-3">
+                            <p class="meta">
+                                <span class="reply-name">alex</span>
+                                <a class="reply-time" href="#reply-3"><time datetime="2026-09-06T21:03:00-07:00">6 Sep 2026 &middot; 21:03</time></a>
+                            </p>
+                            <p class="reply-body">Hard agree on Hard-Boiled Wonderland. Half of it is incredible and the other half I still don't understand.</p>
+                            <a class="reply-link" href="mailto:reply@replies.danieldaum.net?subject=re:%20https://danieldaum.net/blog/wake-me-up-when-september-ends/%23reply-3">reply &rarr;</a>
+                        </article>
+                    </li>
+                </ol>
+
+                <div class="social-foot">
+                    <a class="reply-link" href="mailto:reply@replies.danieldaum.net?subject=re:%20https://danieldaum.net/blog/wake-me-up-when-september-ends/">reply by email &rarr;</a>
+                    <p class="meta">replies arrive by email; your address is never shown or stored</p>
+                </div>
+            </section>
+        </article>
+
+        <nav class="pager" aria-label="post navigation">
+            <a class="pager-link pager-prev" href="/about/" rel="prev">
+                <span class="pager-label">&larr; previous</span>
+                <span class="pager-title">Let Me Introduce Myself</span>
+            </a>
+        </nav>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <nav aria-label="site links">
+            <p aria-hidden="true">//</p>
+            <a href="mailto:daniel@danieldaum.net">email</a>
+            <a href="https://git.danieldaum.net/" aria-label="git (opens in new tab)" target="_blank"
+                rel="noopener noreferrer">git</a>
+            <a href="/pgp.asc" aria-label="PGP public key (516E97FF)">PGP</a>
+            <a href="/changelog/">changelog</a>
+            <a href="/privacy/">privacy</a>
+            <a href="/feed.xml">feed</a>
+        </nav>
+    </footer>
+</body>
+
+</html>
