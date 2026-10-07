@@ -658,34 +658,33 @@ console.log(result); // hello, world!</code></pre>
                         href="#layout">STYLES</a></span>
             </div>
 
-            <h3>.page-nav</h3>
-            <p class="meta">
-                The words sit in <code>.page-nav-text</code>. Below 480px they are hidden and only the arrows
-                show; each link keeps an <code>aria-label</code> so it still has a name. The pager walks the
-                writing table on /blog, oldest at the bottom.
-            </p>
+            <h3>.post-pager</h3>
             <p>
-                Previous/next footer navigation for blog posts and now pages, centered over a
-                top rule. Labels are written lowercase in the source and uppercased by css.
-                At the ends of a run, swap the missing side for
-                <code>.page-nav-disabled</code> so the pair stays balanced rather than
-                offering a dead link.
+                Previous/next cards at the foot of blog posts and media entries. Each card names the
+                page it leads to. Previous is older, next is newer; at the ends of a run, leave the
+                missing card out and the other keeps its side. Stacks below 600px.
             </p>
             <div class="demo-box">
-                <p class="demo-label">.page-nav</p>
-                <nav class="page-nav" style="margin-top:0;" aria-label="page navigation demo">
-                    <a href="#layout" rel="prev" aria-label="previous">&larr; <span class="page-nav-text">previous</span></a>
-                    <span class="page-nav-sep" aria-hidden="true">|</span>
-                    <a href="#layout" rel="next" aria-label="next"><span class="page-nav-text">next</span> &rarr;</a>
+                <p class="demo-label">.post-pager / .post-pager-link / .post-pager-label / .post-pager-title</p>
+                <nav class="post-pager" style="margin-top:0;" aria-label="post navigation demo">
+                    <a class="post-pager-link post-pager-prev" href="#layout" rel="prev">
+                        <span class="post-pager-label">&larr; previous</span>
+                        <span class="post-pager-title">MY FIRST NOW PAGE</span>
+                    </a>
+                    <a class="post-pager-link post-pager-next" href="#layout" rel="next">
+                        <span class="post-pager-label">next &rarr;</span>
+                        <span class="post-pager-title">WAKE ME UP WHEN SEPTEMBER ENDS</span>
+                    </a>
                 </nav>
             </div>
 
             <div class="demo-box">
-                <p class="demo-label">.page-nav &mdash; end of a run</p>
-                <nav class="page-nav" style="margin-top:0;" aria-label="page navigation demo">
-                    <a href="#layout" rel="prev" aria-label="previous">&larr; <span class="page-nav-text">previous</span></a>
-                    <span class="page-nav-sep" aria-hidden="true">|</span>
-                    <span class="page-nav-disabled"><span class="page-nav-text">next</span> &rarr;</span>
+                <p class="demo-label">.post-pager &mdash; end of a run</p>
+                <nav class="post-pager" style="margin-top:0;" aria-label="post navigation demo">
+                    <a class="post-pager-link post-pager-prev" href="#layout" rel="prev">
+                        <span class="post-pager-label">&larr; previous</span>
+                        <span class="post-pager-title">LET ME INTRODUCE MYSELF</span>
+                    </a>
                 </nav>
             </div>
         </section>
