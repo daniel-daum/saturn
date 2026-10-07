@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="daniel daum's photo wall - a collection of photographs" />
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;" />
+        content="default-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Regular.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Bold.woff2" as="font" type="font/woff2" crossorigin />
@@ -19,9 +19,6 @@
     <link rel="alternate" type="application/atom+xml" title="daniel daum" href="https://danieldaum.net/feed.xml" />
     <title>daniel daum - photos</title>
 
-    <!-- open graph / twitter card. this block is repeated in every page's head:
-         only og:title, og:description, og:url and their twitter twins differ
-         per page, the rest is identical everywhere and has to stay in step. -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="daniel daum" />
     <meta property="og:title" content="daniel daum - photos" />
@@ -38,7 +35,6 @@
     <meta name="twitter:description" content="daniel daum's photo wall - a collection of photographs" />
     <meta name="twitter:image" content="https://assets.danieldaum.net/img/misc/og.jpg" />
     <meta name="twitter:image:alt" content="daniel daum - software engineer, avid reader, aspiring game dev - danieldaum.net" />
-    <!-- end open graph / twitter card -->
 </head>
 
 <body class="photos-page">
@@ -388,7 +384,6 @@
                     <p class="lightbox-meta-detail">December 22, 2024</p>
                     <p class="lightbox-meta-detail">Point Reyes, California</p>
                     <p class="lightbox-meta-detail">iPhone 16 Pro · Main 24mm &fnof;/1.78 · 12MP · ISO 64 · 0EV</p>
-                    <!--<p class="lightbox-meta-detail">MOOD: filter name</p>-->
                 </figcaption>
             </figure>
             <a class="lightbox-nav lightbox-next" href="#view-6" aria-label="next image">›</a>
@@ -489,7 +484,6 @@
         <div class="lightbox" role="dialog" id="view-1" tabindex="-1" aria-label="BART, Blurry — Oakland, California, full size">
             <a class="lightbox-backdrop" href="#" aria-label="close full size image"></a>
             <a class="lightbox-nav lightbox-prev" href="#view-2" aria-label="previous image">‹</a>
-            <!-- next wraps to the newest photo -->
             <a class="lightbox-close" href="#" aria-label="close full size image">✕</a>
             <figure class="lightbox-content">
                 <img src="https://assets.danieldaum.net/img/photos/bart-blurry.webp"

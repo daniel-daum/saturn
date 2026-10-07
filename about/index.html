@@ -7,7 +7,7 @@
     <meta name="description"
         content="about daniel daum - oakland-based software engineer, reader, and aspiring game developer" />
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;" />
+        content="default-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Regular.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Bold.woff2" as="font" type="font/woff2" crossorigin />
@@ -20,9 +20,6 @@
     <link rel="alternate" type="application/atom+xml" title="daniel daum" href="https://danieldaum.net/feed.xml" />
     <title>daniel daum - about</title>
 
-    <!-- open graph / twitter card. this block is repeated in every page's head:
-         only og:title, og:description, og:url and their twitter twins differ
-         per page, the rest is identical everywhere and has to stay in step. -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="daniel daum" />
     <meta property="og:title" content="daniel daum - about" />
@@ -39,7 +36,6 @@
     <meta name="twitter:description" content="about daniel daum - oakland-based software engineer, reader, and aspiring game developer" />
     <meta name="twitter:image" content="https://assets.danieldaum.net/img/misc/og.jpg" />
     <meta name="twitter:image:alt" content="daniel daum - software engineer, avid reader, aspiring game dev - danieldaum.net" />
-    <!-- end open graph / twitter card -->
 </head>
 
 <body>
@@ -69,12 +65,12 @@
         <section>
 
             <figure class="figure-row">
-                <img class="img-scaled" src="https://assets.danieldaum.net/img/photos/snowboarding.webp"
-                    alt="daniel snowboarding in tahoe" style="--img-max-height: 18rem;" />
-                <img class="img-scaled" src="https://assets.danieldaum.net/img/photos/pinnacles-national-park.webp"
-                    alt="daniel hiking at pinnacles national park" style="--img-max-height: 18rem;" />
-                <img class="img-scaled" src="https://assets.danieldaum.net/img/photos/reno-race-day.webp"
-                    alt="daniel running a relay race in Reno, Nevada" style="--img-max-height: 18rem;" />
+                <img class="img-scaled img-scaled--short" src="https://assets.danieldaum.net/img/photos/snowboarding.webp"
+                    alt="daniel snowboarding in tahoe" />
+                <img class="img-scaled img-scaled--short" src="https://assets.danieldaum.net/img/photos/pinnacles-national-park.webp"
+                    alt="daniel hiking at pinnacles national park" />
+                <img class="img-scaled img-scaled--short" src="https://assets.danieldaum.net/img/photos/reno-race-day.webp"
+                    alt="daniel running a relay race in Reno, Nevada" />
             </figure>
             <h2>HI, I'M DANIEL</h2>
             <p>
@@ -126,7 +122,6 @@
 
         </section>
 
-        <!-- pager follows the writing table on /blog, oldest at the bottom: jan-2026 now, about, sep-2026 now -->
         <nav class="page-nav" aria-label="post navigation">
             <a href="/now/jan-2026" rel="prev" aria-label="previous">&larr; <span class="page-nav-text">previous</span></a>
             <span class="page-nav-sep" aria-hidden="true">|</span>

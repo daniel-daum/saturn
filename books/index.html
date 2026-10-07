@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="daniel daum's book tracker - what i've read, by year, with ratings and notes" />
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;" />
+        content="default-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Regular.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Bold.woff2" as="font" type="font/woff2" crossorigin />
@@ -19,9 +19,6 @@
     <link rel="alternate" type="application/atom+xml" title="daniel daum" href="https://danieldaum.net/feed.xml" />
     <title>daniel daum - books</title>
 
-    <!-- open graph / twitter card. this block is repeated in every page's head:
-         only og:title, og:description, og:url and their twitter twins differ
-         per page, the rest is identical everywhere and has to stay in step. -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="daniel daum" />
     <meta property="og:title" content="daniel daum - books" />
@@ -38,7 +35,6 @@
     <meta name="twitter:description" content="daniel daum's book tracker - what i've read, by year, with ratings and notes" />
     <meta name="twitter:image" content="https://assets.danieldaum.net/img/misc/og.jpg" />
     <meta name="twitter:image:alt" content="daniel daum - software engineer, avid reader, aspiring game dev - danieldaum.net" />
-    <!-- end open graph / twitter card -->
 </head>
 
 <body class="tracker-page">
@@ -56,7 +52,6 @@
         </nav>
     </header>
 
-
     <main id="main">
         <span class="nav-back"><a href="/garden">GARDEN</a> <span aria-hidden="true">-></span> <a href="/books">BOOKS</a></span>
 
@@ -66,48 +61,6 @@
                 Ratings are a work in progress.
             </p>
         </section>
-
-
-        <!--<h2>FAVORITES</h2>-->
-
-        <!--<section class="tracker-wall tracker-wall--favorites" aria-label="favorite books">
-
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="#book-fav-1"
-                    aria-label="read my note on Do Androids Dream of Electric Sheep?">
-                    <span class="tracker-cover">
-                        <img src="https://assets.danieldaum.net/img/books/electric-sheep.webp"
-                            alt="cover of Do Androids Dream of Electric Sheep?" width="375" height="500" loading="lazy"
-                            decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Do Androids Dream of Electric Sheep?</span>
-                        <span class="tracker-caption-sub">Philip K. Dick</span>
-                        <span class="tracker-caption-line">
-                            <span>DATE</span>
-                            <span class="rating rating--great">(5/5)</span>
-                        </span>
-                    </span>
-                </a>
-            </figure>
-
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="#book-fav-2" aria-label="read my note on I, Robot">
-                    <span class="tracker-cover">
-                        <img src="https://assets.danieldaum.net/img/books/i-robot.webp" alt="cover of I, Robot"
-                            width="257" height="388" loading="lazy" decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">I, Robot</span>
-                        <span class="tracker-caption-sub">Isaac Asimov</span>
-                        <span class="tracker-caption-line">
-                            <span>DATE</span>
-                            <span class="rating rating--great">(5/5)</span>
-                        </span>
-                    </span>
-                </a>
-            </figure>
-        </section>-->
 
         <h2>2026</h2>
 
@@ -482,62 +435,6 @@
         <!--NOTES-->
         <!--NOTES-->
         <!--NOTES-->
-
-        <!-- each note is a :target overlay, hidden until its cover is clicked. one note per
-             entry, shared by the year tile and the favorites tile that both point at it.
-             reuses the photo wall's .lightbox shell for the backdrop and close button. -->
-
-        <div class="lightbox" role="dialog" id="book-fav-1" tabindex="-1"
-            aria-label="my note on Do Androids Dream of Electric Sheep?">
-            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
-            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
-            <article class="tracker-note-card">
-                <h3 class="tracker-note-title">Do Androids Dream of Electric Sheep?</h3>
-                <p class="tracker-note-meta">
-                    <span>Philip K. Dick</span>
-                    <span aria-hidden="true">·</span>
-                    <span>Published 1968</span>
-                    <span aria-hidden="true">·</span>
-                    <span>Finished DATE</span>
-                    <span aria-hidden="true">·</span>
-                    <a class="rating rating--great" href="/ratings" aria-label="rated 5 out of 5, see my rating scale">(5/5)</a>
-                </p>
-                <p class="tracker-note-text">
-                    Review coming soon.
-                </p>
-                <p class="tracker-note-link">
-                    <a href="https://www.goodreads.com/book/show/36402034-do-androids-dream-of-electric-sheep"
-                        aria-label="Do Androids Dream of Electric Sheep? on GOODREADS, opens in new tab" target="_blank"
-                        rel="noopener noreferrer">GOODREADS -></a>
-                </p>
-            </article>
-        </div>
-
-        <div class="lightbox" role="dialog" id="book-fav-2" tabindex="-1" aria-label="my note on I, Robot">
-            <a class="lightbox-backdrop" href="#" aria-label="close note"></a>
-            <a class="lightbox-close" href="#" aria-label="close note">✕</a>
-            <article class="tracker-note-card">
-                <h3 class="tracker-note-title">I, Robot</h3>
-                <p class="tracker-note-meta">
-                    <span>Isaac Asimov</span>
-                    <span aria-hidden="true">·</span>
-                    <span>Published 1950</span>
-                    <span aria-hidden="true">·</span>
-                    <span>Robot</span>
-                    <span aria-hidden="true">·</span>
-                    <span>Finished DATE</span>
-                    <span aria-hidden="true">·</span>
-                    <a class="rating rating--great" href="/ratings" aria-label="rated 5 out of 5, see my rating scale">(5/5)</a>
-                </p>
-                <p class="tracker-note-text">
-                    Review coming soon.
-                </p>
-                <p class="tracker-note-link">
-                    <a href="https://www.goodreads.com/book/show/41804.I_Robot" aria-label="I, Robot on GOODREADS, opens in new tab"
-                        target="_blank" rel="noopener noreferrer">GOODREADS -></a>
-                </p>
-            </article>
-        </div>
 
         <div class="lightbox" role="dialog" id="book-2026-09" tabindex="-1"
             aria-label="my note on Hard-Boiled Wonderland and the End of the World">

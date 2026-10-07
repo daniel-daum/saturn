@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="daniel daum's rating system - what 1 through 5 mean, and the colors that go with them" />
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;" />
+        content="default-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Regular.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Bold.woff2" as="font" type="font/woff2" crossorigin />
@@ -19,9 +19,6 @@
     <link rel="alternate" type="application/atom+xml" title="daniel daum" href="https://danieldaum.net/feed.xml" />
     <title>daniel daum - ratings</title>
 
-    <!-- open graph / twitter card. this block is repeated in every page's head:
-         only og:title, og:description, og:url and their twitter twins differ
-         per page, the rest is identical everywhere and has to stay in step. -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="daniel daum" />
     <meta property="og:title" content="daniel daum - ratings" />
@@ -38,7 +35,6 @@
     <meta name="twitter:description" content="daniel daum's rating system - what 1 through 5 mean, and the colors that go with them" />
     <meta name="twitter:image" content="https://assets.danieldaum.net/img/misc/og.jpg" />
     <meta name="twitter:image:alt" content="daniel daum - software engineer, avid reader, aspiring game dev - danieldaum.net" />
-    <!-- end open graph / twitter card -->
 </head>
 
 <body>
@@ -74,8 +70,8 @@
             <table class="content-table">
                 <thead>
                     <tr>
-                        <th scope="col" style="width:5rem;">rating</th>
-                        <th scope="col" style="width:11rem;">label</th>
+                        <th scope="col" class="col-rating">rating</th>
+                        <th scope="col" class="col-label">label</th>
                         <th scope="col">what it means</th>
                     </tr>
                 </thead>
@@ -121,27 +117,27 @@
 
             <div class="swatch-row">
                 <div class="swatch">
-                    <div class="swatch-block" style="background-color: var(--rating-terrible);"></div>
+                    <div class="swatch-block rating--terrible"></div>
                     <p class="swatch-name">--rating-terrible</p>
                     <p class="swatch-value">#e86b6b</p>
                 </div>
                 <div class="swatch">
-                    <div class="swatch-block" style="background-color: var(--rating-below-average);"></div>
+                    <div class="swatch-block rating--below-average"></div>
                     <p class="swatch-name">--rating-below-average</p>
                     <p class="swatch-value">#d9a441</p>
                 </div>
                 <div class="swatch">
-                    <div class="swatch-block" style="background-color: var(--rating-good);"></div>
+                    <div class="swatch-block rating--good"></div>
                     <p class="swatch-name">--rating-good</p>
                     <p class="swatch-value">#bdbd7f</p>
                 </div>
                 <div class="swatch">
-                    <div class="swatch-block" style="background-color: var(--rating-above-average);"></div>
+                    <div class="swatch-block rating--above-average"></div>
                     <p class="swatch-name">--rating-above-average</p>
                     <p class="swatch-value">#a9c94f</p>
                 </div>
                 <div class="swatch">
-                    <div class="swatch-block" style="background-color: var(--rating-great);"></div>
+                    <div class="swatch-block rating--great"></div>
                     <p class="swatch-name">--rating-great</p>
                     <p class="swatch-value">#7ec98f</p>
                 </div>

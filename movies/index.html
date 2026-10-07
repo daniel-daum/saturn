@@ -7,7 +7,7 @@
     <meta name="description"
         content="daniel daum's movie tracker - what i've watched, by year, with ratings and notes" />
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;" />
+        content="default-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Regular.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Bold.woff2" as="font" type="font/woff2" crossorigin />
@@ -20,9 +20,6 @@
     <link rel="alternate" type="application/atom+xml" title="daniel daum" href="https://danieldaum.net/feed.xml" />
     <title>daniel daum - movies</title>
 
-    <!-- open graph / twitter card. this block is repeated in every page's head:
-         only og:title, og:description, og:url and their twitter twins differ
-         per page, the rest is identical everywhere and has to stay in step. -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="daniel daum" />
     <meta property="og:title" content="daniel daum - movies" />
@@ -39,7 +36,6 @@
     <meta name="twitter:description" content="daniel daum's movie tracker - what i've watched, by year, with ratings and notes" />
     <meta name="twitter:image" content="https://assets.danieldaum.net/img/misc/og.jpg" />
     <meta name="twitter:image:alt" content="daniel daum - software engineer, avid reader, aspiring game dev - danieldaum.net" />
-    <!-- end open graph / twitter card -->
 </head>
 
 <body class="tracker-page">
@@ -57,7 +53,6 @@
         </nav>
     </header>
 
-
     <main id="main">
         <span class="nav-back"><a href="/garden">GARDEN</a> <span aria-hidden="true">-></span> <a href="/movies">MOVIES</a></span>
 
@@ -67,21 +62,6 @@
                 Ratings are a work in progress.
             </p>
         </section>
-
-        <!-- adding a film:
-             1. drop the poster .webp on the cdn (2:3 crop), then put an <img> inside that entry's
-                <span class="tracker-cover"> - the placeholder disappears on its own.
-             2. copy a .tracker-tile into the right year's wall, newest first.
-             3. copy its note overlay into the note block at the bottom of <main>.
-             4. keep the ids unique and matching: #movie-<year>-<n>, n counting up within the year.
-             5. to flag it as new: add .tracker-tile--new to the <figure> for the accent frame,
-                and drop <span class="new-tag">New!</span> after the title in both the wall
-                caption and the note overlay. strip all three off once it isn't new any more.
-             6. rating it 5/5? add a tile to the favorites wall too. if the film is also logged
-                under a year, point that tile at the year's note (#movie-<year>-<n>) so both
-                share one note; a favorite with no year entry gets its own #movie-fav-<n>,
-                numbered by its place in the favorites list.
-             rating classes, 1-5: terrible / below-average / good / above-average / great. -->
 
         <h2>MY FAVORITES</h2>
 
@@ -694,10 +674,6 @@
         <!--NOTES-->
         <!--NOTES-->
         <!--NOTES-->
-
-        <!-- each note is a :target overlay, hidden until its cover is clicked. one note per
-             entry, shared by the year tile and the favorites tile that both point at it.
-             reuses the photo wall's .lightbox shell for the backdrop and close button. -->
 
         <div class="lightbox" role="dialog" id="movie-fav-1" tabindex="-1" aria-label="my note on Blade Runner 2049">
             <a class="lightbox-backdrop" href="#" aria-label="close note"></a>

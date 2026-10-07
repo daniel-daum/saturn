@@ -50,8 +50,6 @@ h6 {
     overflow-wrap: break-word;
 }
 
-/* safari balances the whole paragraph, which on a narrow monospace column
-   leaves lines noticeably short and the right edge looking over-padded */
 @media (min-width: 769px) {
     p {
         text-wrap: pretty;
@@ -153,7 +151,6 @@ html {
     color-scheme: dark light;
 
     /* dark theme (default) */
-    /*--background-dark: #161916;*/
     --background-dark: #141e15;
     --borders: #2e322e;
     --text-headings: #f3f3ed;
@@ -161,7 +158,6 @@ html {
     --text-secondary: #aaaba3;
     --accent: #cddc39;
     --accent-muted: #3a413b;
-
 
     /* rating scale (out of 5, half steps allowed) */
     --rating-terrible: #e86b6b;
@@ -178,10 +174,6 @@ html {
 
 /*============================*/
 /* rating scale */
-/* usage: <a class="rating rating--good" href="/ratings">(3/5)</a> */
-/* the <a> and <span> forms are visually identical at rest, so ratings that */
-/* sit inside another link (the tracker tiles) can stay spans without the */
-/* seam showing */
 /*============================*/
 
 .rating {
@@ -190,19 +182,12 @@ html {
     font-weight: 600;
 }
 
-/* transparent underline at rest so the link occupies the same box as the
-   span and only announces itself on hover */
 a.rating,
 a.rating:visited {
     color: var(--rating-color, var(--text-secondary));
     border-bottom: 1px solid transparent;
 }
 
-/* the global a:hover paints a lime fill with white text, which would bury
-   the rating color. same specificity as a.rating but declared later, so it
-   has to be turned off explicitly here rather than just left unset.
-   currentColor on the underline resolves to the rating color set just above,
-   so the number and its underline can never drift apart */
 a.rating:hover,
 a.rating:focus-visible {
     color: var(--rating-color, var(--text-secondary));
@@ -210,10 +195,6 @@ a.rating:focus-visible {
     border-bottom-color: currentColor;
 }
 
-/* the global a:focus-visible rings in --accent, which puts a lime box around
-   a number whose whole job is to be read as a color. ring in the rating's own
-   color instead - only the color is overridden, so the 2px solid and the
-   offset still come from the global rule */
 a.rating:focus-visible {
     outline-color: var(--rating-color, var(--text-secondary));
 }
@@ -292,8 +273,6 @@ body {
         font-size: 26px;
     }
 
-    /* a deliberate two-row grid reads as a layout; flex wrap at this width
-       left one link stranded on its own line */
     .site-header nav {
         display: grid;
         grid-template-columns: repeat(3, max-content);
@@ -310,11 +289,10 @@ main {
 }
 
 footer {
+    margin-top: 3rem;
     padding: 0.5rem;
 }
 
-/* the footer nav is one line of links. as the viewport narrows, drop the
-   decoration and the least-used links rather than wrapping onto two lines */
 @media (max-width: 600px) {
     footer nav p,
     footer nav a[href="/pgp.asc"] {
@@ -425,6 +403,18 @@ img {
     margin-inline: auto;
 }
 
+.img-scaled--short {
+    --img-max-height: 18rem;
+}
+
+.img-scaled--medium {
+    --img-max-height: 24rem;
+}
+
+.img-scaled--tall {
+    --img-max-height: 30rem;
+}
+
 figcaption {
     font-size: 0.85rem;
     color: var(--text-secondary);
@@ -527,8 +517,6 @@ hr {
 
 /*============================*/
 /* homepage - recent writing */
-/* accent rule down the left, borrowed from the base blockquote treatment. */
-/* tag, title and meta all sit muted at rest and light up together on hover. */
 /*============================*/
 
 .recent-writing-list {
@@ -541,12 +529,11 @@ hr {
 }
 
 .recent-writing-item {
-    position: relative; /* containing block for the stretched title link */
+    position: relative; 
     display: flex;
     flex-direction: column;
     gap: 0.3rem;
     margin: 0;
-    /* matches the base blockquote rule so the two read as the same device */
     padding-left: 1.2rem;
     border-left: 3px solid var(--accent);
     cursor: pointer;
@@ -572,7 +559,6 @@ hr {
     border-bottom: none;
 }
 
-/* stretch the link across the whole item so the tag and meta are clickable too */
 .recent-writing-title a::after {
     content: "";
     position: absolute;
@@ -596,15 +582,12 @@ hr {
     margin: 0;
 }
 
-/* inherits the meta colour (so it follows the hover) but sits back a little */
 .recent-writing-meta li + li::before {
     content: "|";
     margin-right: 0.4rem;
     opacity: 0.5;
 }
 
-/* all three lines go accent together. the title selector also has to beat the
-   global a:hover, which would otherwise block-fill it with the accent colour. */
 .recent-writing-item:hover .recent-writing-tag,
 .recent-writing-item:hover .recent-writing-title a,
 .recent-writing-item:hover .recent-writing-meta {
@@ -612,8 +595,6 @@ hr {
     background: none;
 }
 
-/* move the focus ring onto the stretched pseudo-element so it frames the whole
-   item instead of just the title text */
 .recent-writing-title a:focus-visible {
     outline: none;
 }
@@ -715,8 +696,6 @@ hr {
     text-align: center;
 }
 
-/* two (or more) blocks side by side - e.g. a pros/cons pair on the now page.
-   each column keeps a sane minimum and wraps to a stack on narrow viewports. */
 .two-col-list {
     display: flex;
     flex-wrap: wrap;
@@ -728,9 +707,6 @@ hr {
     min-width: 0;
 }
 
-/* side-by-side images inside a single figure, e.g. about page. one row at
-   every width: min-width 0 lets each image shrink below its natural width so
-   the three share the row instead of overflowing or wrapping */
 .figure-row {
     display: flex;
     flex-direction: row;
@@ -741,7 +717,6 @@ hr {
     min-width: 0;
 }
 
-/* small screens: keep the middle photo, hide the two flanking it */
 @media (max-width: 600px) {
     .figure-row > :not(:nth-child(2)) {
         display: none;
@@ -754,9 +729,6 @@ hr {
     margin-bottom: 1.25rem;
 }
 
-/* "TITLE | DATE" under a page h1. a flex row so the two halves and the
-   divider are separate boxes; below 600px the divider goes and the date
-   drops onto its own line instead of wrapping mid-phrase */
 .meta-split {
     display: flex;
     flex-wrap: wrap;
@@ -829,11 +801,6 @@ hr {
     margin: 0;
 }
 
-/* bottom-of-page pager for blog posts and now pages: a centered
-   PREVIOUS | NEXT pair over a top rule. labels are written lowercase in the
-   source and uppercased here, per the convention in /styles.
-   at the ends of a run, swap the missing side for .page-nav-disabled so the
-   pair stays balanced instead of offering a dead link. */
 .page-nav {
     display: flex;
     flex-wrap: wrap;
@@ -859,7 +826,6 @@ hr {
     border-bottom-color: var(--accent);
 }
 
-/* decorative divider - aria-hidden in the markup */
 .page-nav-sep {
     color: var(--borders);
 }
@@ -869,8 +835,6 @@ hr {
     opacity: 0.4;
 }
 
-/* small screens: keep the pair on one line and drop the words, the arrows
-   carry the meaning (the links keep an aria-label for their name) */
 @media (max-width: 480px) {
     .page-nav {
         gap: 0.5rem 1.25rem;
@@ -1104,7 +1068,6 @@ a:focus:not(:focus-visible) {
     will-change: transform;
 }
 
-/* h2, not h1 — the page already has its own h1, cards shouldn't add a second */
 .project-card h2 {
     padding: 0rem;
     margin: 0rem;
@@ -1129,14 +1092,12 @@ a:focus:not(:focus-visible) {
     margin: 0rem;
 }
 
-/* gradient overlay (so text doesn’t get re-painted weirdly) */
 .project-card::before {
     content: "";
     position: absolute;
     inset: 0;
     border-radius: inherit;
 
-    /* subtle green-tinted radial glow */
     background: radial-gradient(
         ellipse at top left,
         rgba(205, 220, 57, 0.08),
@@ -1169,7 +1130,6 @@ a:focus:not(:focus-visible) {
     z-index: 1;
 }
 
-/* optional: small image polish */
 .project-card-img {
     width: 30rem;
     height: auto;
@@ -1203,7 +1163,6 @@ a:focus:not(:focus-visible) {
         0 0 0 1px rgba(205, 220, 57, 0.25);
 }
 
-/* accessibility: keyboard focus should get the same treatment */
 .project-card:focus-visible {
     outline: 2px solid currentColor;
     outline-offset: 4px;
@@ -1224,7 +1183,6 @@ a:focus:not(:focus-visible) {
         width: 100%;
     }
 
-    /* the scale-up would push the card past the viewport edge */
     .project-card:hover,
     .project-card:focus-visible {
         transform: none;
@@ -1291,10 +1249,6 @@ a:focus:not(:focus-visible) {
     color: var(--text-secondary);
 }
 
-/* stat strip: label/value pairs, bounded top and bottom (the top
-   border doubles as the divider beneath .project-header).
-   gap-based spacing (not per-item dividers) so it wraps cleanly
-   at any width */
 .project-stats {
     display: flex;
     flex-wrap: wrap;
@@ -1355,6 +1309,14 @@ a:focus:not(:focus-visible) {
 
 .content-table thead th.col-tag {
     width: 5.5rem;
+}
+
+.content-table thead th.col-rating {
+    width: 5rem;
+}
+
+.content-table thead th.col-label {
+    width: 11rem;
 }
 
 .content-table thead th.col-desc {
@@ -1456,7 +1418,6 @@ a:focus:not(:focus-visible) {
         padding: 0;
     }
 
-    /* title spans full width on its own line */
     .table-row td:first-child {
         flex: 0 0 100%;
         margin-bottom: 0.25rem;
@@ -1473,14 +1434,10 @@ a:focus:not(:focus-visible) {
 /* photos - photo wall */
 /*============================*/
 
-/* wider body than the rest of the site, just for this page */
 body.photos-page {
     max-width: min(100rem, 94vw);
 }
 
-/* grid (not css columns) so photos flow left->right then top->down:
-   the newest photo in the markup is always top-left.
-   tiles are uniform 4:5 crops; the lightbox shows the full frame. */
 .photo-wall {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -1502,7 +1459,6 @@ body.photos-page {
     object-fit: cover;
 }
 
-/* the image itself is the link into the lightbox */
 .photo-link {
     display: block;
     border-bottom: none;
@@ -1542,7 +1498,6 @@ body.photos-page {
     transform: translateY(0);
 }
 
-/* compact hover caption: just name + location, full details live in the lightbox */
 .photo-caption-name {
     display: block;
     color: var(--text-headings);
@@ -1564,14 +1519,11 @@ body.photos-page {
     letter-spacing: 0.06em;
 }
 
-/* mark a freshly added photo: accent outline on the tile.
-   outline (not border) so the image doesn't shift - drawn over its edge */
 .photo-tile--new {
     outline: 1px solid var(--accent);
     outline-offset: -1px;
 }
 
-/* "New!" badge, used in both the hover caption and the lightbox meta */
 .new-tag {
     color: var(--accent);
     font-weight: 700;
@@ -1600,8 +1552,6 @@ body.photos-page {
 /* photos - lightbox */
 /*============================*/
 
-/* each lightbox is a fixed overlay toggled on/off via :target,
-   navigated entirely through anchor links (#view-n) - pure CSS, no JS */
 .lightbox {
     display: none;
     position: fixed;
@@ -1649,7 +1599,6 @@ body.photos-page {
     margin: 0;
 }
 
-/* full metadata: name, date, location, camera, and mood.app filter */
 .lightbox-meta {
     margin-top: 0.85rem;
     text-align: center;
@@ -1724,14 +1673,10 @@ body.photos-page {
 /* shared by books / movies / shows / games / music */
 /*============================*/
 
-/* wider body than the rest of the site, same as the photo wall */
 body.tracker-page {
     max-width: min(100rem, 94vw);
 }
 
-/* one wall per year, under its own h2.
-   auto-fill keeps the cover size stable and reflows the column
-   count on its own - no breakpoints needed for the grid itself. */
 .tracker-wall {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
@@ -1741,10 +1686,6 @@ body.tracker-page {
     padding: 0;
 }
 
-/* favorites sit above the year walls: the same tiles, re-linked.
-   a tile is copied up verbatim from its year and both copies point at
-   the same note overlay, so nothing here needs its own markup.
-   the rule below just fences the section off from the years underneath. */
 .tracker-wall--favorites {
     padding-bottom: 2.75rem;
     border-bottom: 1px solid var(--borders);
@@ -1756,7 +1697,6 @@ body.tracker-page {
     min-width: 0;
 }
 
-/* the cover is the link into the note overlay */
 .tracker-link {
     display: block;
     border-bottom: none;
@@ -1767,8 +1707,6 @@ body.tracker-page {
     background: none;
 }
 
-/* fixed 2:3 box so a missing cover still holds its place in the wall.
-   drop an <img> inside and it fills the box edge to edge. */
 .tracker-cover {
     position: relative;
     display: block;
@@ -1784,7 +1722,6 @@ body.tracker-page {
     outline-offset: -1px;
 }
 
-/* placeholder mark, painted over by a real cover */
 .tracker-cover::after {
     content: "NO COVER";
     position: absolute;
@@ -1805,12 +1742,10 @@ body.tracker-page {
     content: none;
 }
 
-/* album art is square, unlike book / poster / box art */
 .tracker-cover--square {
     aspect-ratio: 1 / 1;
 }
 
-/* box art is 3:4 - taller than album art, squatter than a poster */
 .tracker-cover--boxart {
     aspect-ratio: 3 / 4;
 }
@@ -1830,8 +1765,6 @@ body.tracker-page {
     opacity: 0.85;
 }
 
-/* title / date / rating sit under the cover - always visible,
-   unlike the photo wall where the caption is a hover overlay */
 .tracker-caption {
     display: block;
     margin-top: 0.5rem;
@@ -1871,8 +1804,6 @@ body.tracker-page {
 /* trackers - note overlay */
 /*============================*/
 
-/* same :target overlay as the photo lightbox - the .lightbox shell
-   supplies the backdrop and close button, this is just the card. */
 .tracker-note-card {
     position: relative;
     z-index: 1;
@@ -1907,7 +1838,6 @@ body.tracker-page {
     font-size: 0.9rem;
 }
 
-/* link out to the thing's own page - goodreads, letterboxd, bandcamp, etc. */
 .tracker-note-link {
     margin: 0;
     padding-top: 0.9rem;
@@ -1933,10 +1863,9 @@ body.tracker-page {
 }
 
 /*============================*/
-/* styles - style guide */
+/* ratings - color swatches */
 /*============================*/
 
-/* color swatches */
 .swatch-row {
     display: flex;
     flex-wrap: wrap;
@@ -1952,6 +1881,7 @@ body.tracker-page {
 }
 
 .swatch-block {
+    background-color: var(--rating-color, transparent);
     width: 100%;
     height: 3.5rem;
     border-radius: 6px;
@@ -1969,157 +1899,4 @@ body.tracker-page {
     color: var(--text-secondary);
     margin: 0;
     opacity: 0.7;
-}
-
-/* typography scale demo */
-.type-scale-row {
-    display: flex;
-    align-items: baseline;
-    gap: 1.5rem;
-    padding: 0.5rem 0;
-    border-bottom: 1px solid var(--borders);
-}
-
-.type-scale-label {
-    font-size: 0.72rem;
-    color: var(--text-secondary);
-    white-space: nowrap;
-    flex-shrink: 0;
-    width: 6rem;
-    margin: 0;
-}
-
-/* component demo boxes */
-.demo-box {
-    border: 1px dashed var(--borders);
-    border-radius: 6px;
-    padding: 1.25rem;
-    margin-bottom: 1.5rem;
-}
-
-.demo-label {
-    font-size: 0.7rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--text-secondary);
-    margin-bottom: 0.75rem;
-}
-
-/* page scaffolding. three clearly separated ranks, strongest first:
-     .styles-section  - numbered, ruled, widest gap
-     .group-label     - "// " prefixed accent label, no rule
-     h3               - plain sub-heading
-   these used to be ambiguous: sections had no rule while .group-label had a
-   1px border-top, so sub-groups read as bigger breaks than the sections
-   containing them. the rule now belongs to the section only. */
-
-main {
-    counter-reset: styles-section;
-}
-
-.styles-section {
-    margin-top: 5rem;
-    padding-top: 2.25rem;
-    border-top: 2px solid var(--accent-muted);
-    scroll-margin-top: 1.5rem;
-}
-
-.styles-section > h2 {
-    margin: 0 0 1.75rem;
-    color: var(--accent);
-    font-size: 1.4rem;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-}
-
-/* running section number, so position on a long page stays obvious */
-.styles-section > h2::before {
-    counter-increment: styles-section;
-    content: counter(styles-section, decimal-leading-zero);
-    margin-right: 0.75rem;
-    color: var(--text-secondary);
-    font-weight: 400;
-}
-
-/* sub-grouping within a section, e.g. splitting components into
-   listings/cards/layout. deliberately lighter than a section break. */
-.group-label {
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin: 2.75rem 0 1rem;
-    padding: 0;
-    border: none;
-}
-
-.group-label::before {
-    content: "// ";
-    color: var(--text-secondary);
-}
-
-.group-label:first-of-type {
-    margin-top: 1.5rem;
-}
-
-/* index of sections, sits under the page intro */
-.styles-toc {
-    counter-reset: toc-item;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem 1.5rem;
-    margin: 1.75rem 0 0;
-    padding: 1.25rem 1.5rem;
-    list-style: none;
-    border: 1px solid var(--borders);
-    border-radius: 10px;
-}
-
-.styles-toc li {
-    margin: 0;
-}
-
-.styles-toc a {
-    font-size: 0.76rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--text-secondary);
-    border-bottom-color: transparent;
-}
-
-.styles-toc a::before {
-    counter-increment: toc-item;
-    content: counter(toc-item, decimal-leading-zero) " ";
-    color: var(--accent-muted);
-}
-
-.styles-toc a:hover {
-    color: var(--accent);
-    background: none;
-    border-bottom-color: var(--accent);
-}
-
-.styles-toc a:hover::before {
-    color: var(--accent);
-}
-
-/* icon reference table - rows are reference only, not links */
-.icon-table .table-row:hover {
-    cursor: default;
-}
-
-/* glyph column renders the character itself */
-.icon-glyph {
-    width: 3rem;
-    color: var(--accent);
-    font-size: 1.15rem;
-    line-height: 1;
-    text-align: center;
-}
-
-.icon-code {
-    color: var(--text-secondary);
-    font-size: 0.78rem;
-    white-space: nowrap;
 }
