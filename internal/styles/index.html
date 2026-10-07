@@ -42,6 +42,7 @@
 <body>
     <a class="skip-link" href="#main">skip to content</a>
 
+    <!-- ===== HEADER ===== -->
     <header class="site-header">
         <a class="site-name" href="/">Daniel Daum</a>
         <nav aria-label="main navigation">
@@ -54,8 +55,9 @@
         </nav>
     </header>
 
+    <!-- ===== MAIN ===== -->
     <main id="main">
-        <span class="nav-back"><a href="/garden/">garden</a> <span aria-hidden="true">-></span> <a href="/internal/styles/">styles</a></span>
+        <nav class="breadcrumb" aria-label="breadcrumb"><a href="/garden/">garden</a> <span aria-hidden="true">-></span> <a href="/internal/styles/">styles</a></nav>
         <section>
             <h1>styles</h1>
             <p class="meta">A living reference for every design token, typographic element, and component class used on
@@ -236,7 +238,7 @@
                 obvious when reading the source.
             </p>
 
-            <table class="content-table icon-table">
+            <table class="table icon-table">
                 <thead>
                     <tr>
                         <th scope="col" style="width:3rem;">icon</th>
@@ -353,9 +355,8 @@
                     <code>blog</code>, <code>projects</code>, <code>garden</code></li>
                 <li>footer nav &mdash; <code>email</code>, <code>git</code>, <code>PGP</code>,
                     <code>changelog</code>, <code>privacy</code></li>
-                <li><code>.nav-back</code> breadcrumbs &mdash; <code>GARDEN -&gt; STYLES</code></li>
+                <li><code>.breadcrumb</code> breadcrumbs &mdash; <code>GARDEN -&gt; STYLES</code></li>
                 <li>page <code>h1</code> &mdash; <code>/BLOG</code>, <code>styles</code></li>
-                <li><code>.post-tag</code> &mdash; <code>#TAG1</code></li>
             </ul>
 
             <p class="group-label">uppercased by css</p>
@@ -368,7 +369,7 @@
                 <li><code>.group-label</code>, <code>.demo-label</code></li>
                 <li><code>.project-stat-label</code></li>
                 <li><code>.new-tag</code></li>
-                <li><code>.content-table thead th</code></li>
+                <li><code>.table thead th</code></li>
                 <li><code>.styles-section &gt; h2</code>, <code>.styles-toc a</code></li>
             </ul>
 
@@ -610,35 +611,20 @@ console.log(result); // hello, world!</code></pre>
             <p>
                 <code>body</code> is a flex column capped at <code>90ch</code> and centered, with
                 <code>main</code> set to <code>flex: 1</code> so the footer is pushed to the bottom on
-                short pages. The photos page opts out via <code>body.photos-page</code>, which widens the
+                short pages. The photo and media walls opt out via <code>body.page--wide</code>, which widens the
                 cap to <code>min(100rem, 94vw)</code>.
             </p>
 
-            <p class="group-label">heroes</p>
+            <p class="group-label">page header</p>
 
-            <h3>.hero</h3>
+            <h3>.page-header</h3>
             <p>Homepage and listing-page intro block &mdash; title plus a <code>.meta</code> line.</p>
             <div class="demo-box">
-                <p class="demo-label">.hero</p>
-                <section class="hero" style="margin-bottom:0;">
+                <p class="demo-label">.page-header</p>
+                <header class="page-header" style="margin-bottom:0;">
                     <h1><span aria-hidden="true">/</span>blog</h1>
                     <p class="meta">Things I've written &mdash; posts, notes, project logs, and now pages</p>
-                </section>
-            </div>
-
-            <h3>.post-hero</h3>
-            <p>Individual post header &mdash; title, meta line, and an optional tag row.</p>
-            <div class="demo-box">
-                <p class="demo-label">.post-hero / .post-tags / .post-tag</p>
-                <section class="post-hero" style="margin-bottom:0;">
-                    <h1>TITLE OF A POST</h1>
-                    <p class="meta meta-split"><span>2387 words</span><span class="meta-sep" aria-hidden="true"> | </span><span>28 August 2026</span></p>
-                    <div class="post-tags">
-                        <p class="post-tag">#TAG1</p>
-                        <p class="post-tag">#TAG2</p>
-                        <p class="post-tag">#TAG3</p>
-                    </div>
-                </section>
+                </header>
             </div>
 
             <p class="group-label">section headers</p>
@@ -654,39 +640,39 @@ console.log(result); // hello, world!</code></pre>
 
             <p class="group-label">wayfinding</p>
 
-            <h3>.nav-back</h3>
+            <h3>.breadcrumb</h3>
             <div class="demo-box">
-                <p class="demo-label">.nav-back</p>
-                <span class="nav-back" style="margin-bottom:0;"><a href="#layout">garden</a> <span aria-hidden="true">-&gt;</span> <a
-                        href="#layout">styles</a></span>
+                <p class="demo-label">.breadcrumb</p>
+                <nav class="breadcrumb" aria-label="breadcrumb" style="margin-bottom:0;"><a href="#layout">garden</a> <span aria-hidden="true">-&gt;</span> <a
+                        href="#layout">styles</a></nav>
             </div>
 
-            <h3>.post-pager</h3>
+            <h3>.pager</h3>
             <p>
                 Previous/next cards at the foot of blog posts and media entries. Each card names the
                 page it leads to. Previous is older, next is newer; at the ends of a run, leave the
                 missing card out and the other keeps its side. Stacks below 600px.
             </p>
             <div class="demo-box">
-                <p class="demo-label">.post-pager / .post-pager-link / .post-pager-label / .post-pager-title</p>
-                <nav class="post-pager" style="margin-top:0;" aria-label="post navigation demo">
-                    <a class="post-pager-link post-pager-prev" href="#layout" rel="prev">
-                        <span class="post-pager-label">&larr; previous</span>
-                        <span class="post-pager-title caps">My First Now Page</span>
+                <p class="demo-label">.pager / .pager-link / .pager-label / .pager-title</p>
+                <nav class="pager" style="margin-top:0;" aria-label="post navigation demo">
+                    <a class="pager-link pager-prev" href="#layout" rel="prev">
+                        <span class="pager-label">&larr; previous</span>
+                        <span class="pager-title">My First Now Page</span>
                     </a>
-                    <a class="post-pager-link post-pager-next" href="#layout" rel="next">
-                        <span class="post-pager-label">next &rarr;</span>
-                        <span class="post-pager-title caps">Wake Me Up When September Ends</span>
+                    <a class="pager-link pager-next" href="#layout" rel="next">
+                        <span class="pager-label">next &rarr;</span>
+                        <span class="pager-title">Wake Me Up When September Ends</span>
                     </a>
                 </nav>
             </div>
 
             <div class="demo-box">
-                <p class="demo-label">.post-pager &mdash; end of a run</p>
-                <nav class="post-pager" style="margin-top:0;" aria-label="post navigation demo">
-                    <a class="post-pager-link post-pager-prev" href="#layout" rel="prev">
-                        <span class="post-pager-label">&larr; previous</span>
-                        <span class="post-pager-title caps">Let Me Introduce Myself</span>
+                <p class="demo-label">.pager &mdash; end of a run</p>
+                <nav class="pager" style="margin-top:0;" aria-label="post navigation demo">
+                    <a class="pager-link pager-prev" href="#layout" rel="prev">
+                        <span class="pager-label">&larr; previous</span>
+                        <span class="pager-title">Let Me Introduce Myself</span>
                     </a>
                 </nav>
             </div>
@@ -700,7 +686,7 @@ console.log(result); // hello, world!</code></pre>
 
             <p class="group-label">listings</p>
 
-            <h3>.content-table</h3>
+            <h3>.table</h3>
             <p>
                 Used on the homepage, blog, and garden listing pages. The <code>col-date</code> and
                 <code>col-tag</code> columns are optional &mdash; the garden listing drops them in favor of
@@ -708,13 +694,13 @@ console.log(result); // hello, world!</code></pre>
                 cursor on hover, though only the title text is an actual link.
             </p>
             <div class="demo-box">
-                <p class="demo-label">.content-table &mdash; title / date / tag</p>
-                <table class="content-table">
+                <p class="demo-label">.table &mdash; title / date / tag</p>
+                <table class="table">
                     <thead>
                         <tr>
                             <th scope="col">title</th>
-                            <th scope="col" class="col-date">date</th>
-                            <th scope="col" class="col-tag">tag</th>
+                            <th scope="col" class="table-col-date">date</th>
+                            <th scope="col" class="table-col-tag">tag</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -734,12 +720,12 @@ console.log(result); // hello, world!</code></pre>
             </div>
 
             <div class="demo-box">
-                <p class="demo-label">.content-table &mdash; title / description</p>
-                <table class="content-table">
+                <p class="demo-label">.table &mdash; title / description</p>
+                <table class="table">
                     <thead>
                         <tr>
                             <th scope="col">title</th>
-                            <th scope="col" class="col-desc">description</th>
+                            <th scope="col" class="table-col-desc">description</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -791,24 +777,24 @@ console.log(result); // hello, world!</code></pre>
 
             <p class="group-label">cards</p>
 
-            <h3>.home-project-card</h3>
+            <h3>.card</h3>
             <p>Used on the homepage projects grid &mdash; a two-column flex grid of cards:</p>
             <div class="demo-box">
-                <p class="demo-label">.home-projects-grid / .home-project-card / .home-card-title / .home-card-desc</p>
-                <div class="home-projects-grid">
-                    <a class="home-project-card" href="#components">
-                        <p class="project-type">Jan '26 &middot; re-design</p>
-                        <p class="home-card-title">saturn</p>
-                        <p class="home-card-desc">a cozy yet minimalist personal website</p>
+                <p class="demo-label">.card-grid / .card / .card-title / .card-desc</p>
+                <div class="card-grid">
+                    <a class="card" href="#components">
+                        <p class="card-type">Jan '26 &middot; re-design</p>
+                        <p class="card-title">saturn</p>
+                        <p class="card-desc">a cozy yet minimalist personal website</p>
                     </a>
-                    <a class="home-project-card" href="#components">
-                        <p class="project-type">feb '26 &middot; tool</p>
-                        <p class="home-card-title">another project</p>
-                        <p class="home-card-desc">a short description of what it does</p>
+                    <a class="card" href="#components">
+                        <p class="card-type">feb '26 &middot; tool</p>
+                        <p class="card-title">another project</p>
+                        <p class="card-desc">a short description of what it does</p>
                     </a>
-                    <a class="home-project-card home-project-card--more" href="#components">
-                        <p class="home-card-title">all projects &rarr;</p>
-                        <p class="home-card-desc">dashed border, muted opacity variant</p>
+                    <a class="card card--more" href="#components">
+                        <p class="card-title">all projects &rarr;</p>
+                        <p class="card-desc">dashed border, muted opacity variant</p>
                     </a>
                 </div>
             </div>
@@ -819,7 +805,7 @@ console.log(result); // hello, world!</code></pre>
                 <p class="demo-label">.project-card</p>
                 <a class="project-card" href="#components" style="text-decoration:none;">
                     <div class="project-card-left">
-                        <p class="project-type">Jan '26</p>
+                        <p class="card-type">Jan '26</p>
                     </div>
                     <div class="project-card-right">
                         <h2 style="text-transform:none; letter-spacing:0;">project title</h2>
@@ -848,7 +834,7 @@ console.log(result); // hello, world!</code></pre>
                 <code>.project-header</code>, so the two are meant to sit back to back with no extra
                 border in between. Wraps to a stacked list below <code>600px</code>. Pair it with a
                 <code>.section-label</code> heading (e.g. "metadata"), same as
-                <code>.content-table</code> sections are introduced:
+                <code>.table</code> sections are introduced:
             </p>
             <div class="demo-box">
                 <p class="demo-label">.project-stats / .project-stat-label / .project-stat-value</p>
@@ -957,7 +943,7 @@ console.log(result); // hello, world!</code></pre>
                 (<code>--square</code> for album art, <code>--boxart</code> for 3:4 games) that shows
                 "NO COVER" until an <code>&lt;img&gt;</code> is dropped in. Clicking a cover opens a <code>.tracker-note-card</code>
                 inside the same <code>.lightbox</code> shell the photo wall uses.
-                <code>body.tracker-page</code> widens the page the same way <code>.photos-page</code> does.
+                <code>body.page--wide</code> widens the page.
             </p>
             <div class="demo-box">
                 <p class="demo-label">.tracker-wall / .tracker-tile / .tracker-cover / .tracker-caption</p>
@@ -1067,7 +1053,7 @@ console.log(result); // hello, world!</code></pre>
 
     </main>
 
-    <!--FOOTER-->
+    <!-- ===== FOOTER ===== -->
     <footer>
         <nav aria-label="site links">
             <p aria-hidden="true">//</p>

@@ -41,6 +41,7 @@
 <body>
     <a class="skip-link" href="#main">skip to content</a>
 
+    <!-- ===== HEADER ===== -->
     <header class="site-header">
         <a class="site-name" href="/">Daniel Daum</a>
         <nav aria-label="main navigation">
@@ -53,33 +54,34 @@
         </nav>
     </header>
 
+    <!-- ===== MAIN ===== -->
     <main id="main">
-        <span class="nav-back"><a href="/blog/">blog</a> <span aria-hidden="true">-></span> <a href="/blog/SLUG/">post title</a></span>
+        <nav class="breadcrumb" aria-label="breadcrumb"><a href="/blog/">blog</a> <span aria-hidden="true">-></span> <a href="/blog/SLUG/">post title</a></nav>
 
-        <section class="post-hero">
-            <h1>post title</h1>
-            <p class="meta meta-split"><span>000 words</span><span class="meta-sep" aria-hidden="true"> | </span><span>1 January 2026</span></p>
-            <div class="post-tags">
-                <p class="post-tag">#TAG1</p>
-            </div>
-        </section>
+        <article>
+            <header class="page-header page-header--post">
+                <p class="page-header-kicker"><span aria-hidden="true">/</span>blog</p>
+                <h1>Post Title</h1>
+                <p class="meta caps"><time datetime="2026-01-01">1 January 2026</time></p>
+            </header>
 
-        <section>
-            <h2 class="caps">first section</h2>
-            <p>
-                Body copy goes here.
-            </p>
-        </section>
+            <section>
+                <h2 class="caps">first section</h2>
+                <p>
+                    Body copy goes here.
+                </p>
+            </section>
+        </article>
 
-        <nav class="post-pager" aria-label="post navigation">
-            <a class="post-pager-link post-pager-prev" href="/blog/PREVIOUS-SLUG/" rel="prev">
-                <span class="post-pager-label">&larr; previous</span>
-                <span class="post-pager-title">PREVIOUS POST TITLE</span>
+        <nav class="pager" aria-label="post navigation">
+            <a class="pager-link pager-prev" href="/blog/PREVIOUS-SLUG/" rel="prev">
+                <span class="pager-label">&larr; previous</span>
+                <span class="pager-title">PREVIOUS POST TITLE</span>
             </a>
         </nav>
     </main>
 
-    <!--FOOTER-->
+    <!-- ===== FOOTER ===== -->
     <footer>
         <nav aria-label="site links">
             <p aria-hidden="true">//</p>
