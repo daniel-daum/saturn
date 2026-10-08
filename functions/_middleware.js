@@ -1,9 +1,10 @@
 // runs in front of /about/, /now/*, /blog/* and /api/* (see _routes.json).
-// on likeable pages it reads the like count from d1 and writes the like
-// button into the page's [data-likes] placeholder. if anything fails, the
+// on likeable pages it reads likes and approved comments from d1 and writes
+// them into the page's [data-social] placeholder. if anything fails, the
 // page is served untouched with its fallback text.
 
 import { isLikeable, voterId } from "./_lib/likes.js";
+import { renderComments } from "./_lib/comments.js";
 
 export async function onRequest(context) {
     const { request, env } = context;
@@ -31,24 +32,31 @@ export async function onRequest(context) {
     }
 
     const page = new HTMLRewriter()
-        .on("[data-likes]", {
+        .on("[data-social]", {
             async element(el) {
-                // the placeholder can name another page's count, e.g. /now/
-                // shares /now/sep-2026/'s. empty means this page.
-                const key = el.getAttribute("data-likes") || pathname;
+                // the placeholder can name another page, e.g. /now/ shows
+                // /now/sep-2026/'s likes and comments. empty means this page.
+                const key = el.getAttribute("data-social") || pathname;
                 if (!isLikeable(key)) {
                     return;
                 }
                 try {
-                    const [count, liked] = await env.DB.batch([
+                    const [count, liked, comments] = await env.DB.batch([
                         env.DB.prepare("SELECT count FROM Likes WHERE page = ?").bind(key),
                         env.DB.prepare("SELECT 1 FROM LikeVoters WHERE page = ? AND voter = ?").bind(key, voter),
+                        env.DB
+                            .prepare("SELECT id, parent, name, body, is_author, created_at FROM Comments WHERE page = ? AND approved = 1 ORDER BY created_at")
+                            .bind(key),
                     ]);
                     const likes = {
                         count: Number(count.results[0]?.count ?? 0),
                         liked: liked.results.length > 0,
                     };
-                    el.setInnerContent(renderLikes(key, likes), { html: true });
+                    const { title, thread, foot } = renderComments(key, comments.results);
+                    el.setInnerContent(
+                        `<div class="social-head"><h2 class="social-title">${title}</h2>${renderLikes(key, likes)}</div>${thread}${foot}`,
+                        { html: true }
+                    );
                 } catch {
                     // leave the fallback text
                 }
@@ -56,7 +64,7 @@ export async function onRequest(context) {
         })
         .transform(response);
 
-    // the count is per visitor and changes on submit, so the back button
+    // the like state is per visitor and changes on submit, so the back button
     // must not show a cached copy
     const out = new Response(page.body, page);
     out.headers.set("Cache-Control", "private, no-cache");
@@ -70,7 +78,7 @@ function renderLikes(key, { count, liked }) {
     const noun = count === 1 ? "like" : "likes";
     const label = liked ? `you liked this post, ${count} ${noun}` : `like this post, ${count} ${noun}`;
     const state = liked ? ` disabled aria-pressed="true"` : "";
-    return `<form class="like-form" method="POST" action="/api/like">
+    return `<form class="like-form" id="likes" method="POST" action="/api/like">
     <input type="hidden" name="path" value="${key}" />
     <button type="submit" class="like-button" aria-label="${label}"${state}>${HEART} ${count}</button>
 </form>`;

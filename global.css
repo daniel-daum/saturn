@@ -654,21 +654,121 @@ article:has(> .page-header--post) {
 }
 
 /*============================*/
-/* components - likes */
+/* components - likes + comments */
 /*============================*/
 
-/* filled in by functions/_middleware.js. right-aligned under a dashed
-   rule; the comments heading will sit on its left */
-.post-likes {
-    display: flex;
-    justify-content: flex-end;
+/* filled in by functions/_middleware.js: comment count and like button in
+   one row under a dashed rule, then the thread, then the email footer */
+.post-social {
     margin-top: 3rem;
     padding-top: 1.25rem;
     border-top: 1px dashed var(--borders);
 }
 
-.post-likes .meta {
+.post-social > .meta {
     margin: 0;
+}
+
+.social-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.social-title {
+    margin: 0;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+}
+
+.comment-thread {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.comment-thread li {
+    margin: 0;
+}
+
+/* replies: one level, indented on a rule */
+.comment-thread .comment-thread {
+    margin-top: 0.25rem;
+    padding-left: 1rem;
+    border-left: 1px solid var(--borders);
+}
+
+.comment {
+    padding: 1rem 0;
+}
+
+.comment-thread > li + li > .comment {
+    border-top: 1px solid var(--borders);
+}
+
+.comment .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 0.75rem;
+    margin: 0 0 0.5rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+}
+
+.comment-name {
+    color: var(--text-headings);
+    font-weight: 600;
+}
+
+.comment-author {
+    padding: 0 0.35rem;
+    border: 1px solid var(--borders);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+}
+
+.comment-time {
+    color: var(--text-secondary);
+}
+
+.comment-time:hover {
+    color: var(--accent);
+}
+
+.comment-body p {
+    margin: 0 0 0.5rem;
+}
+
+.comment-link {
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+}
+
+.social-foot {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.5rem 1rem;
+    margin-top: 0.75rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--borders);
+}
+
+.social-foot .meta {
+    margin: 0;
+    font-size: 0.75rem;
+}
+
+/* /api/moderate's buttons */
+.moderate-actions {
+    display: flex;
+    gap: 0.75rem;
 }
 
 .like-form {
@@ -1884,7 +1984,11 @@ footer nav a,
 .entry-heading h1,
 .pager-title,
 .photo-caption-date,
-.tracker-caption-line {
+.tracker-caption-line,
+.social-title,
+.comment-author,
+.comment-time,
+.comment-link {
     text-transform: uppercase;
 }
 
