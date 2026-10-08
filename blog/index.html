@@ -9,7 +9,7 @@
         />
         <meta
             http-equiv="Content-Security-Policy"
-            content="default-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;"
+            content="default-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' https://assets.danieldaum.net https://pds.danieldaum.net https://cdn.bsky.app https://video.bsky.app https://video.cdn.bsky.app; media-src 'self' https://assets.danieldaum.net;"
         />
         <meta name="referrer" content="strict-origin-when-cross-origin" />
         <link
@@ -118,65 +118,55 @@
             <header class="page-header">
                 <h1><span aria-hidden="true">/</span>blog</h1>
                 <p class="meta">
-                    Things I've written &mdash; posts, notes, project logs, and
-                    now pages
+                    Things I've written &mdash; short posts, long-form writing,
+                    and notes on what I've played, watched and read.
                 </p>
             </header>
 
-            <!-- LONGFORM -->
-            <section aria-label="longform writing">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">title</th>
-                            <th scope="col" class="table-col-date">date</th>
-                            <th scope="col" class="table-col-tag">tags</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="table-row">
-                            <td>
-                                <a class="table-title" href="/now/sep-2026/"
-                                    >Wake Me Up When September Ends</a
-                                >
-                            </td>
-                            <td class="table-date">
-                                <time datetime="2026-09-03"
-                                    >3 September 2026</time
-                                >
-                            </td>
-                            <td class="table-tag">#now</td>
-                        </tr>
+            <!-- POSTS: filled by scripts/sync-posts.mjs -->
+            <section aria-labelledby="blog-posts">
+                <h2 class="section-label" id="blog-posts">posts</h2>
+                <!-- posts:highlight -->
+                <a class="post-card" href="/posts/#3mxffhxusws2o">
+                    <span class="post-card-meta">
+                        <span>&#8635; reposted</span>
+                        <time datetime="2026-10-08T21:24:37.374Z">8 Oct 2026, 2:24 pm</time>
+                    </span>
+                    <span class="post-card-text">jenn schiffer 😎: i just keep getting hotter and smarter</span>
+                </a>
+                <!-- /posts:highlight -->
+                <p class="post-feed-more caps"><a href="/posts/">all posts &rarr;</a></p>
+            </section>
 
-                        <tr class="table-row">
-                            <td>
-                                <a class="table-title" href="/about/"
-                                    >Let Me Introduce Myself</a
-                                >
-                            </td>
-                            <td class="table-date">
-                                <time datetime="2026-08-28"
-                                    >28 August 2026</time
-                                >
-                            </td>
-                            <td class="table-tag">#about</td>
-                        </tr>
-
-                        <tr class="table-row">
-                            <td>
-                                <a class="table-title" href="/now/jan-2026/"
-                                    >My First Now Page</a
-                                >
-                            </td>
-                            <td class="table-date">
-                                <time datetime="2026-01-21"
-                                    >21 January 2026</time
-                                >
-                            </td>
-                            <td class="table-tag">#now</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <!-- WRITING, newest first: long-form posts and, later, notes
+                 (reviews). a note row links to the media page and is tagged
+                 #game, #movie, #show, #book or #album. notes never go in
+                 feed.xml -->
+            <section aria-labelledby="blog-writing">
+                <h2 class="section-label" id="blog-writing">writing</h2>
+                <ol class="archive">
+                    <li>
+                        <a class="archive-row" href="/now/sep-2026/">
+                            <span class="archive-title">Wake Me Up When September Ends</span>
+                            <span class="archive-tag">#now</span>
+                            <time class="archive-date" datetime="2026-09-03">03 Sep 26</time>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="archive-row" href="/about/">
+                            <span class="archive-title">Let Me Introduce Myself</span>
+                            <span class="archive-tag">#about</span>
+                            <time class="archive-date" datetime="2026-08-28">28 Aug 26</time>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="archive-row" href="/now/jan-2026/">
+                            <span class="archive-title">My First Now Page</span>
+                            <span class="archive-tag">#now</span>
+                            <time class="archive-date" datetime="2026-01-21">21 Jan 26</time>
+                        </a>
+                    </li>
+                </ol>
             </section>
         </main>
 

@@ -9,7 +9,7 @@
         />
         <meta
             http-equiv="Content-Security-Policy"
-            content="default-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;"
+            content="default-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' https://assets.danieldaum.net https://pds.danieldaum.net https://cdn.bsky.app https://video.bsky.app https://video.cdn.bsky.app; media-src 'self' https://assets.danieldaum.net;"
         />
         <meta name="referrer" content="strict-origin-when-cross-origin" />
         <link
@@ -117,13 +117,29 @@
         <main id="main">
             <header class="page-header">
                 <h1>
-                    Software engineer.<br />Avid reader.<br />Aspiring game dev.
+                    building software.<br />reading books.<br />learning game
+                    dev.
                 </h1>
                 <p class="meta">
                     Building backend services in Oakland, CA. Currently learning
                     game development and pursuing degree in computer science.
                 </p>
             </header>
+
+            <!-- LATEST POST: filled by scripts/sync-posts.mjs -->
+            <section aria-labelledby="home-post">
+                <h2 class="section-label" id="home-post">latest post</h2>
+                <!-- posts:highlight -->
+                <a class="post-card" href="/posts/#3mxffhxusws2o">
+                    <span class="post-card-meta">
+                        <span>&#8635; reposted</span>
+                        <time datetime="2026-10-08T21:24:37.374Z">8 Oct 2026, 2:24 pm</time>
+                    </span>
+                    <span class="post-card-text">jenn schiffer 😎: i just keep getting hotter and smarter</span>
+                </a>
+                <!-- /posts:highlight -->
+                <p class="post-feed-more caps"><a href="/posts/">all posts &rarr;</a></p>
+            </section>
 
             <!-- RECENT WRITING -->
             <section aria-label="recent writing">

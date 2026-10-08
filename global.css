@@ -899,6 +899,249 @@ article:has(> .page-header--post) {
 }
 
 /*============================*/
+/* components - posts feed */
+/*============================*/
+
+/* written by scripts/sync-posts.mjs from my bluesky posts. a quiet log:
+   dashed rules between posts, grey meta row, lime only on links */
+.post-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1.5rem 0;
+    scroll-margin-top: 1rem;
+}
+
+.post-item + .post-item {
+    border-top: 1px dashed var(--borders);
+}
+
+/* arriving from a permalink: the post sits in the panel colour */
+.post-item:target {
+    margin-inline: -1rem;
+    padding-inline: 1rem;
+    background-color: var(--surface);
+    box-shadow: inset 2px 0 0 var(--accent);
+}
+
+/* time left, reply right; both grey until hovered, like the footer */
+.post-item-meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.25rem 1rem;
+    margin: 0;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+}
+
+.post-item-time,
+.post-item-reply {
+    color: var(--text-secondary);
+    border-bottom: 1px solid transparent;
+    transition:
+        color 150ms ease,
+        border-bottom-color 150ms ease;
+}
+
+.post-item-time:hover,
+.post-item-reply:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+.post-item-body {
+    margin: 0;
+}
+
+/* one image keeps its shape */
+.post-item-media img,
+.post-item-video img {
+    width: auto;
+    height: auto;
+    max-height: 26rem;
+    border: 1px solid var(--borders);
+}
+
+/* two or more: a cropped grid, two across */
+.post-item-media--grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.4rem;
+}
+
+.post-item-media--grid img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+
+/* video: bluesky's thumbnail with a play mark, links out to watch */
+.post-item-video {
+    position: relative;
+    align-self: flex-start;
+}
+
+.post-item-video::after {
+    content: "\25B6";
+    position: absolute;
+    inset: 50% auto auto 50%;
+    translate: -50% -50%;
+    display: grid;
+    place-items: center;
+    width: 3rem;
+    height: 3rem;
+    padding-left: 0.2rem;
+    border: 1px solid var(--borders);
+    background-color: color-mix(in srgb, var(--background-dark) 80%, transparent);
+    color: var(--text-headings);
+    font-size: 1rem;
+    transition:
+        color 150ms ease,
+        border-color 150ms ease;
+}
+
+.post-item-video:hover::after {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+/* link cards and quoted posts */
+.post-item-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 0.875rem 1rem;
+    border: 1px solid var(--borders);
+    background-color: var(--surface);
+    transition: border-color 150ms ease;
+}
+
+.post-item-card:hover {
+    border-color: var(--accent);
+}
+
+.post-item-card-title {
+    color: var(--text-headings);
+    font-size: 0.9375rem;
+}
+
+.post-item-card-desc,
+.post-item-quote-text {
+    color: var(--text-body);
+    font-size: 0.85rem;
+    line-height: 1.55;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+.post-item-quote-text {
+    -webkit-line-clamp: 4;
+}
+
+.post-item-card-meta {
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+}
+
+.post-item-quote .post-item-card-meta {
+    color: var(--text-headings);
+}
+
+.post-item-quote .post-item-card-meta span {
+    color: var(--text-secondary);
+}
+
+.post-item-note {
+    margin: 0;
+    font-size: 0.85rem;
+}
+
+/* a repost: small label before the time, the original post in a panel */
+.post-item-label {
+    margin-right: 0.5rem;
+    color: var(--text-secondary);
+}
+
+.post-item-label::before {
+    content: "\21BB\00A0";
+}
+
+.post-item-repost {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1rem;
+    border: 1px solid var(--borders);
+    background-color: var(--surface);
+}
+
+.post-item-repost > .post-item-card-meta {
+    margin: 0;
+    color: var(--text-headings);
+}
+
+.post-item-repost > .post-item-card-meta span {
+    color: var(--text-secondary);
+}
+
+/* cards inside the panel step back down to the page colour */
+.post-item-repost .post-item-card {
+    background-color: var(--background-dark);
+}
+
+/* "all posts ->" under the post card on / and /blog/ */
+.post-feed-more {
+    margin: 1rem 0 0;
+    font-size: 0.85rem;
+}
+
+/* the newest post on / and /blog/: a small panel, set apart from the
+   lists around it */
+.post-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--borders);
+    background-color: var(--surface);
+    transition: border-color 150ms ease;
+}
+
+.post-card:hover {
+    border-color: var(--accent);
+}
+
+.post-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.25rem 1rem;
+}
+
+.post-card-meta,
+.post-card-extra {
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: var(--text-secondary);
+}
+
+.post-card-text {
+    color: var(--text-headings);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+}
+
+/*============================*/
 /* components - pager */
 /*============================*/
 
@@ -1196,6 +1439,103 @@ article:has(> .page-header--post) + .pager {
     .table-tag,
     .table-desc {
         font-size: 0.78rem;
+    }
+}
+
+/*============================*/
+/* components - archive list */
+/*============================*/
+
+/* /blog/'s index: one line per entry, title . . . . tag date. no header row
+   and no rules; the dotted leader carries the eye to the date */
+.archive {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.archive li {
+    margin: 0;
+}
+
+.archive-row {
+    display: flex;
+    align-items: baseline;
+    align-items: last baseline;
+    gap: 0 0.75rem;
+    padding: 0.45rem 0;
+    color: var(--text-secondary);
+}
+
+/* the leader: an empty flex item whose dotted bottom border sits on the
+   baseline, under the last line of a wrapped title */
+.archive-row::after {
+    content: "";
+    order: 1;
+    flex: 1 1 2rem;
+    min-width: 2rem;
+    border-bottom: 1px dotted var(--borders);
+    transition: border-color 150ms ease;
+}
+
+.archive-title {
+    order: 0;
+    color: var(--text-headings);
+    font-size: 0.9rem;
+    line-height: 1.45;
+    transition: color 150ms ease;
+}
+
+.archive-tag,
+.archive-date {
+    flex: none;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+}
+
+/* fixed width so the dates line up whatever the tag */
+.archive-tag {
+    order: 2;
+    width: 7ch;
+}
+
+.archive-date {
+    order: 3;
+    font-variant-numeric: tabular-nums;
+}
+
+.archive-row:hover .archive-title {
+    color: var(--accent);
+}
+
+.archive-row:hover::after {
+    border-bottom-color: var(--text-secondary);
+}
+
+/* writing, then notes */
+.archive + .section-label {
+    margin-top: 1.75rem;
+}
+
+/* phones: title on its own line, tag and date under it, no leader */
+@media (max-width: 600px) {
+    .archive-row {
+        flex-wrap: wrap;
+        gap: 0.15rem 0.75rem;
+        padding: 0.55rem 0;
+    }
+
+    .archive-row::after {
+        display: none;
+    }
+
+    .archive-title {
+        flex: 0 0 100%;
+    }
+
+    .archive-tag {
+        width: auto;
     }
 }
 
@@ -2131,7 +2471,15 @@ footer nav a,
 .social-title,
 .comment-author,
 .comment-time,
-.comment-link {
+.comment-link,
+.post-item-time,
+.post-item-reply,
+.post-item-label,
+.archive-title,
+.archive-tag,
+.archive-date,
+.post-card-meta,
+.post-card-extra {
     text-transform: uppercase;
 }
 

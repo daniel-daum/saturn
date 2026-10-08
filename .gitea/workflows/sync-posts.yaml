@@ -1,0 +1,39 @@
+name: Sync
+
+# run by hand (from the gitea app too): copies my bluesky posts into the
+# html, publishes my writing to standard.site, and commits the result. the
+# push is made with SYNC_TOKEN, a personal access token, because pushes made
+# with the built-in actions token don't trigger other workflows, and Mirror
+# and Deploy has to run after this.
+on:
+    workflow_dispatch:
+
+jobs:
+    sync:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+              with:
+                  token: ${{ secrets.SYNC_TOKEN }}
+
+            - name: Sync posts
+              run: |
+                  node --version
+                  node scripts/sync-posts.mjs
+
+            - name: Publish to standard.site
+              env:
+                  ATPROTO_APP_PASSWORD: ${{ secrets.ATPROTO_APP_PASSWORD }}
+              run: node scripts/sync-standard.mjs
+
+            - name: Commit and push
+              run: |
+                  if git diff --quiet; then
+                      echo "nothing changed"
+                      exit 0
+                  fi
+                  git config user.name "${{ gitea.actor }}"
+                  git config user.email "${{ gitea.actor }}@noreply.git.danieldaum.net"
+                  git commit -am "chore: sync"
+                  git push

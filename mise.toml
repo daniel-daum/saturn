@@ -6,3 +6,13 @@ node = "latest"
 [tasks.serve]
 description = "Run the site in live-reload mode"
 run = "five-server --port=8080"
+
+# mise run sync-posts
+[tasks.sync-posts]
+description = "Copy my bluesky posts from my pds into the html"
+run = "node scripts/sync-posts.mjs"
+
+# ATPROTO_APP_PASSWORD=... mise run sync-standard
+[tasks.sync-standard]
+description = "Publish my writing to standard.site"
+run = "node scripts/sync-standard.mjs"

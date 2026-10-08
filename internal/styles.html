@@ -137,6 +137,7 @@
             <li><a href="#type">type</a></li>
             <li><a href="#text">text</a></li>
             <li><a href="#post">post</a></li>
+            <li><a href="#posts">posts</a></li>
             <li><a href="#wayfinding">wayfinding</a></li>
             <li><a href="#listings">listings</a></li>
             <li><a href="#projects">projects</a></li>
@@ -501,6 +502,80 @@
         </section>
 
         <!-- ===================== -->
+        <!-- POSTS                 -->
+        <!-- ===================== -->
+        <section class="guide-section" id="posts" aria-label="posts">
+            <h2>posts</h2>
+
+            <div class="demo">
+                <p class="demo-label">.post-item: written by scripts/sync-posts.mjs between &lt;!-- posts:all --&gt; markers, never by hand</p>
+                <article class="post-item" id="demo-post">
+                    <p class="post-item-meta">
+                        <a class="post-item-time" href="#demo-post"><time datetime="2026-10-08T21:01:00Z">8 Oct 2026, 2:01 pm</time></a>
+                        <a class="post-item-reply" href="#posts">reply on bluesky</a>
+                    </p>
+                    <p class="post-item-body">a short post with a <a href="#posts">link</a>, a <a href="#posts">#tag</a> and a <a href="#posts">@mention</a>.<br />line breaks are kept.</p>
+                    <a class="post-item-card" href="#posts">
+                        <span class="post-item-card-title">daniel daum - blog</span>
+                        <span class="post-item-card-desc">daniel daum's blog &mdash; everything i write, in one place</span>
+                        <span class="post-item-card-meta">danieldaum.net</span>
+                    </a>
+                </article>
+            </div>
+
+            <div class="demo">
+                <p class="demo-label">.post-card: the newest post on / and /blog/, via &lt;!-- posts:highlight --&gt;, then .post-feed-more</p>
+                <a class="post-card" href="#posts">
+                    <span class="post-card-meta">
+                        <span>@danieldaum.net</span>
+                        <time datetime="2026-10-08T21:24:00Z">8 Oct 2026, 2:24 pm</time>
+                    </span>
+                    <span class="post-card-text">the post's own text, sentence case, four lines at most.</span>
+                    <span class="post-card-extra">2 images</span>
+                </a>
+                <p class="post-feed-more caps"><a href="#posts">all posts &rarr;</a></p>
+            </div>
+
+            <div class="demo">
+                <p class="demo-label">.post-item-media (one image keeps its shape) / .post-item-media--grid (two or more, square crops)</p>
+                <article class="post-item">
+                    <div class="post-item-media post-item-media--grid">
+                        <img src="https://assets.danieldaum.net/img/photos/regatta-lineup.webp" alt="rowing boats lined up for a regatta" loading="lazy" />
+                        <img src="https://assets.danieldaum.net/img/photos/lake-tahoe-boat.webp" alt="boat on lake tahoe" loading="lazy" />
+                    </div>
+                </article>
+            </div>
+
+            <div class="demo">
+                <p class="demo-label">.post-item--repost: .post-item-label in the meta row, the original post in .post-item-repost</p>
+                <article class="post-item post-item--repost">
+                    <p class="post-item-meta">
+                        <span><span class="post-item-label">reposted</span> <a class="post-item-time" href="#posts"><time datetime="2026-10-08T21:30:00Z">8 Oct 2026, 2:30 pm</time></a></span>
+                        <a class="post-item-reply" href="#posts">reply on bluesky</a>
+                    </p>
+                    <div class="post-item-repost">
+                        <p class="post-item-card-meta">someone <span>@someone.example</span></p>
+                        <p class="post-item-body">someone else's post, with its <a href="#posts">links</a> and media.</p>
+                    </div>
+                </article>
+            </div>
+
+            <div class="demo">
+                <p class="demo-label">.post-item-quote, .post-item-video (bluesky's thumbnail, links out), .post-item-note (fallback when the appview lookup fails)</p>
+                <article class="post-item">
+                    <a class="post-item-card post-item-quote" href="#posts">
+                        <span class="post-item-card-meta">someone <span>@someone.example</span></span>
+                        <span class="post-item-quote-text">the quoted post's text, clamped to four lines.</span>
+                    </a>
+                    <a class="post-item-video" href="#posts">
+                        <img src="https://assets.danieldaum.net/img/photos/wildcat-beach.webp" alt="video, plays on bluesky" width="400" height="400" loading="lazy" />
+                    </a>
+                    <p class="post-item-note"><a href="#posts">quoting &rarr;</a></p>
+                </article>
+            </div>
+        </section>
+
+        <!-- ===================== -->
         <!-- WAYFINDING            -->
         <!-- ===================== -->
         <section class="guide-section" id="wayfinding" aria-label="wayfinding">
@@ -561,7 +636,27 @@
             </div>
 
             <div class="demo">
-                <p class="demo-label">.table, title / date / tag</p>
+                <p class="demo-label">.archive: /blog/'s list. dotted leader, tag column fixed width, dd mmm yy dates; stacks under 600px</p>
+                <ol class="archive">
+                    <li>
+                        <a class="archive-row" href="#listings">
+                            <span class="archive-title">Wake Me Up When September Ends</span>
+                            <span class="archive-tag">#now</span>
+                            <time class="archive-date" datetime="2026-09-03">03 Sep 26</time>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="archive-row" href="#listings">
+                            <span class="archive-title">Hard-Boiled Wonderland and the End of the World</span>
+                            <span class="archive-tag">#book</span>
+                            <time class="archive-date" datetime="2026-10-08">08 Oct 26</time>
+                        </a>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="demo">
+                <p class="demo-label">.table, title / date / tag (garden, ratings)</p>
                 <table class="table">
                     <thead>
                         <tr>
