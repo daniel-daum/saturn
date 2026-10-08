@@ -1,0 +1,212 @@
+<!doctype html>
+<!-- example post: /now/sep-2026/ restructured to suit the styles. compare the two side by side. never deployed -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://assets.danieldaum.net;" />
+    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Bold.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="/global.css" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" />
+    <title>daniel daum - example post</title>
+
+    <!-- only for the notes box under the post -->
+    <style>
+        .notes {
+            margin-top: 4rem;
+            padding: 1.25rem 1.5rem;
+            border: 1px dashed var(--borders);
+        }
+
+        .notes > :last-child {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <a class="skip-link" href="#main">skip to content</a>
+
+    <!-- ===== HEADER ===== -->
+    <header class="site-header">
+        <a class="site-name" href="/">Daniel Daum</a>
+        <nav aria-label="main navigation">
+            <a href="/">home</a>
+            <a href="/about/">about</a>
+            <a href="/now/">now</a>
+            <a href="/blog/">blog</a>
+            <a href="/projects/">projects</a>
+            <a href="/garden/">garden</a>
+        </nav>
+    </header>
+
+    <!-- ===== MAIN ===== -->
+    <main id="main">
+        <article>
+            <header class="page-header page-header--post">
+                <p class="page-header-kicker"><span aria-hidden="true">/</span>now</p>
+                <h1>Wake Me Up When September Ends</h1>
+                <p class="meta caps"><time datetime="2026-09-03">3 September 2026</time></p>
+            </header>
+
+            <section>
+                <!-- intro: one short note, kept in the blockquote -->
+                <blockquote>
+                    This page highlights what I've been doing recently. This is the September 2026 edition, eight
+                    months on from my first update in <a href="/now/jan-2026/">January</a>. The latest one is always
+                    <a href="/now/">here</a>.
+                </blockquote>
+
+                <!-- h2 = a group of related things, with at least two paragraphs under it -->
+                <h2 class="caps">College</h2>
+                <p>
+                    This year I finished the spring and summer semesters at Laney, a community college in Oakland,
+                    and now I'm starting the fall. I'm taking Discrete Mathematics, Data Structures and Algorithms,
+                    and a history class, nothing too exciting.
+                </p>
+                <p>
+                    What is exciting is that next spring will be my last semester before I transfer. I'm applying to
+                    four-year universities now, and my hope is UC Santa Cruz for a B.S. in Computer Science. It's also
+                    internship season, so I'm hoping to land a software engineering internship for next summer (if
+                    you know of any, please reach out!).
+                </p>
+
+                <!-- short topics share one heading; each paragraph opens by naming its topic -->
+                <h2 class="caps">Life</h2>
+                <p>
+                    I've gotten into coffee. I make espresso at home now and I'm hooked. I didn't understand the
+                    coffee cult until recently, but a warm espresso with the morning news on the balcony brings me
+                    so much joy. My local shop is <a href="https://mothertongue.coffee">Mother Tongue</a>. They have
+                    great beans, and it's women-owned!
+                </p>
+                <p>
+                    I also decided, for some reason, that I want to run a half marathon, so I've started training.
+                    Yay.
+                </p>
+
+                <!-- media: one line of context, then h4 labels over lists, one title per line -->
+                <h2 class="caps">Media</h2>
+                <p>
+                    Less time for games lately, and a rough run of books, but the music has been great.
+                </p>
+
+                <h4>Playing</h4>
+                <ul>
+                    <li><a href="https://playreplaced.com">REPLACED</a> <a class="rating rating--good" href="/ratings/"
+                            aria-label="rated 3 out of 5, see my rating scale">(3/5)</a>: an absolutely gorgeous 2D
+                        platformer, perfect for the Steam Deck</li>
+                    <li><a href="https://www.alanwake.com">Alan Wake 2</a>: saving it for spooky season</li>
+                    <li><a href="https://store.steampowered.com/app/1693980/Dead_Space/">Dead Space</a> remake, if I
+                        have time</li>
+                </ul>
+
+                <h4>Reading</h4>
+                <ul>
+                    <li><a href="https://www.goodreads.com/book/show/10374.Hard_boiled_Wonderland_and_the_End_of_the_World">Hard-Boiled
+                            Wonderland and the End of the World</a> <a class="rating rating--below-average"
+                            href="/ratings/" aria-label="rated 2 out of 5, see my rating scale">(2/5)</a> by Haruki
+                        Murakami</li>
+                    <li><a href="https://www.goodreads.com/en/book/show/48037.Carmilla">Carmilla</a> <a
+                            class="rating rating--below-average" href="/ratings/"
+                            aria-label="rated 2 out of 5, see my rating scale">(2/5)</a> by Sheridan Le Fanu</li>
+                    <li><a href="https://www.goodreads.com/en/book/show/50659468-a-court-of-mist-and-fury">A Court of
+                            Mist and Fury</a> <a class="rating rating--below-average" href="/ratings/"
+                            aria-label="rated 2 out of 5, see my rating scale">(2/5)</a> by Sarah J. Maas</li>
+                    <li>next: <a href="https://www.goodreads.com/book/show/211721806-dungeon-crawler-carl">Dungeon
+                            Crawler Carl</a></li>
+                </ul>
+
+                <h4>Listening</h4>
+                <ul>
+                    <li><a href="https://music.apple.com/us/album/wor%24t-girl-in-america/1867530577">WOR$T GIRL IN
+                            AMERICA</a> <a class="rating rating--great" href="/ratings/"
+                            aria-label="rated 5 out of 5, see my rating scale">(5/5)</a> by Slayyyter: pop that feels
+                        made for me. Seeing her live soon!</li>
+                    <li><a href="https://music.apple.com/us/album/navy-blue-ep/1845170440">Navy Blue</a> <a
+                            class="rating rating--above-average" href="/ratings/"
+                            aria-label="rated 4 out of 5, see my rating scale">(4/5)</a> by Porch Light: alternative,
+                        with a new album, <em>Hush</em>, out later this month</li>
+                </ul>
+
+                <h4>Watching</h4>
+                <ul>
+                    <li><a href="https://tv.apple.com/us/show/widows-bay/umc.cmc.1zzly0vah46bnvnwf0qkrjhh2">Widows
+                            Bay</a> <a class="rating rating--great" href="/ratings/"
+                            aria-label="rated 5 out of 5, see my rating scale">(5/5)</a>: comedy and horror. I can't
+                        recommend it enough</li>
+                </ul>
+
+                <!-- close with a plain paragraph, no heading, straight into the dashed rule -->
+                <p>
+                    Last thing: I finally decided to put more effort into this site, so expect more frequent updates
+                    and changes. Come back soon.
+                </p>
+            </section>
+
+            <!-- a static copy of what functions/_middleware.js writes in -->
+            <section class="post-social" aria-label="likes and comments">
+                <div class="social-head">
+                    <h2 class="social-title">no comments yet</h2>
+                    <form class="like-form">
+                        <button type="button" class="like-button" aria-label="like this post, 0 likes"><svg class="like-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" /></svg> 0</button>
+                    </form>
+                </div>
+                <div class="social-foot">
+                    <a class="comment-link" href="#main">comment by email &rarr;</a>
+                    <p class="meta">Start with a "name:" line for your display name. Your email is never shown or stored</p>
+                </div>
+            </section>
+        </article>
+
+        <nav class="pager" aria-label="post navigation">
+            <a class="pager-link pager-prev" href="/about/" rel="prev">
+                <span class="pager-label">&larr; previous</span>
+                <span class="pager-title">Let Me Introduce Myself</span>
+            </a>
+        </nav>
+
+        <!-- ===== NOTES ===== -->
+        <aside class="notes" aria-label="why this structure">
+            <h4>Why this structure</h4>
+            <ul>
+                <li><strong>Three h2 groups instead of eight h3 labels.</strong> h2 has 3rem of space above it, so
+                    it's built to mark a real break. Grouping topics gives the page three clear stops instead of eight
+                    equal ones.</li>
+                <li><strong>No heading over less than two paragraphs.</strong> Running (20 words) and Watching
+                    (15 words) had a heading each. Short topics now share a heading, and each paragraph opens by
+                    naming its topic, so you can still scan it.</li>
+                <li><strong>Paragraphs of 3 to 6 sentences.</strong> At about 64 characters a line that's 4 to 8
+                    lines on a laptop and roughly twice that on a phone: long enough to read as prose, short enough
+                    not to become a wall.</li>
+                <li><strong>Lists for media.</strong> The Reading paragraph had four titles and three ratings in one
+                    sentence, a run of lime underlines. One title per line keeps each rating next to its title, and the
+                    h4 labels are the same small grey style as the /NOW label.</li>
+                <li><strong>No heading on the last paragraph.</strong> The post ends on prose and goes straight into
+                    the dashed rule, instead of ending on a heading over two sentences.</li>
+                <li><strong>Same words.</strong> Only joins between sentences changed, so you can compare this with
+                    /now/sep-2026/ for structure alone.</li>
+            </ul>
+        </aside>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <nav aria-label="site links">
+            <p aria-hidden="true">//</p>
+            <a href="mailto:daniel@danieldaum.net">email</a>
+            <a href="https://git.danieldaum.net/" aria-label="git (opens in new tab)" target="_blank"
+                rel="noopener noreferrer">git</a>
+            <a href="/pgp.asc" aria-label="PGP public key (516E97FF)">PGP</a>
+            <a href="/changelog/">changelog</a>
+            <a href="/privacy/">privacy</a>
+            <a href="/feed.xml">feed</a>
+        </nav>
+    </footer>
+</body>
+
+</html>

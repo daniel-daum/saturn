@@ -1,0 +1,3 @@
+[tools]
+node = "latest"
+"npm:five-server" = "latest"

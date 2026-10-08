@@ -1,0 +1,797 @@
+<!doctype html>
+<!-- style guide: every token, element and component in global.css, rendered live. never deployed -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'unsafe-inline'; font-src 'self'; img-src 'self' https://assets.danieldaum.net;" />
+    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Bold.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="/global.css" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" />
+    <title>daniel daum - styles</title>
+
+    <!-- the guide's own scaffolding; everything inside .demo is plain global.css -->
+    <style>
+        .guide-toc {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.25rem;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-size: 0.78rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .guide-toc li {
+            margin: 0;
+        }
+
+        .guide-toc a {
+            color: var(--text-secondary);
+            border-bottom: 0;
+        }
+
+        .guide-toc a:hover {
+            color: var(--accent);
+            background: none;
+        }
+
+        .guide-section {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--borders);
+            scroll-margin-top: 1rem;
+        }
+
+        .guide-section > h2 {
+            margin: 0 0 1.5rem;
+            font-size: 1rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        .demo {
+            margin: 1rem 0 2.5rem;
+            padding: 1.25rem;
+            border: 1px dashed var(--borders);
+        }
+
+        .demo > :last-child {
+            margin-bottom: 0;
+        }
+
+        .demo-label {
+            margin: 0 0 1rem;
+            font-size: 0.72rem;
+            letter-spacing: 0.06em;
+            color: var(--text-secondary);
+        }
+
+        .type-row {
+            display: grid;
+            grid-template-columns: 10rem 1fr;
+            align-items: baseline;
+            gap: 1rem;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid var(--borders);
+        }
+
+        .type-row > * {
+            margin: 0;
+        }
+
+        .type-spec {
+            font-size: 0.72rem;
+            color: var(--text-secondary);
+        }
+
+        .placeholder {
+            aspect-ratio: 4 / 5;
+            background: var(--accent-muted);
+        }
+
+        @media (max-width: 600px) {
+            .type-row {
+                grid-template-columns: 1fr;
+                gap: 0.25rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a class="skip-link" href="#main">skip to content</a>
+
+    <!-- ===== HEADER ===== -->
+    <header class="site-header">
+        <a class="site-name" href="/">Daniel Daum</a>
+        <nav aria-label="main navigation">
+            <a href="/">home</a>
+            <a href="/about/">about</a>
+            <a href="/now/">now</a>
+            <a href="/blog/">blog</a>
+            <a href="/projects/">projects</a>
+            <a href="/garden/">garden</a>
+        </nav>
+    </header>
+
+    <!-- ===== MAIN ===== -->
+    <main id="main">
+        <header class="page-header">
+            <h1><span aria-hidden="true">/</span>styles</h1>
+            <p class="meta">Every token, element and component in global.css, rendered live. The header and footer
+                of this page are the real ones.</p>
+        </header>
+
+        <ul class="guide-toc" aria-label="page contents">
+            <li><a href="#rules">rules</a></li>
+            <li><a href="#color">colour</a></li>
+            <li><a href="#type">type</a></li>
+            <li><a href="#text">text</a></li>
+            <li><a href="#post">post</a></li>
+            <li><a href="#wayfinding">wayfinding</a></li>
+            <li><a href="#listings">listings</a></li>
+            <li><a href="#projects">projects</a></li>
+            <li><a href="#media">media</a></li>
+            <li><a href="#responsive">responsive</a></li>
+        </ul>
+
+        <!-- ===================== -->
+        <!-- RULES                 -->
+        <!-- ===================== -->
+        <section class="guide-section" id="rules" aria-label="rules">
+            <h2>rules</h2>
+            <ul>
+                <li>Lime (<code>--accent</code>) is for navigation and things you can act on. Labels, headings in
+                    footers and metadata stay grey.</li>
+                <li>All caps come from CSS: the caps selector list at the end of global.css, or the
+                    <code>.caps</code> utility. Write the HTML in normal case.</li>
+                <li>Only unclassed links inside <code>p</code>, <code>li</code>, <code>td</code>, <code>dd</code>,
+                    <code>blockquote</code> and <code>figcaption</code> get the underline and highlight. A link
+                    with a class styles itself.</li>
+                <li>Internal links end in a slash: <code>/now/sep-2026/</code>.</li>
+                <li>Public pages allow no inline styles (<code>style-src 'self'</code>). Only internal/ pages,
+                    like this one, use them.</li>
+                <li>No JavaScript on the site. The two lines at the bottom of this page are the only exception,
+                    and this page is never deployed.</li>
+            </ul>
+        </section>
+
+        <!-- ===================== -->
+        <!-- COLOUR                -->
+        <!-- ===================== -->
+        <section class="guide-section" id="color" aria-label="colour">
+            <h2>colour</h2>
+            <p>Tokens live on <code>html</code> in global.css. The values below are read from the stylesheet when
+                the page loads, so they're always current.</p>
+
+            <h3>surfaces and lines</h3>
+            <div class="swatch-row">
+                <div class="swatch">
+                    <div class="swatch-block" style="background: var(--background-dark);"></div>
+                    <p class="swatch-name">--background-dark</p>
+                    <p class="swatch-value" data-token="--background-dark"></p>
+                    <p class="swatch-value">page</p>
+                </div>
+                <div class="swatch">
+                    <div class="swatch-block" style="background: var(--surface);"></div>
+                    <p class="swatch-name">--surface</p>
+                    <p class="swatch-value" data-token="--surface"></p>
+                    <p class="swatch-value">post panel, pager cards</p>
+                </div>
+                <div class="swatch">
+                    <div class="swatch-block" style="background: var(--borders);"></div>
+                    <p class="swatch-name">--borders</p>
+                    <p class="swatch-value" data-token="--borders"></p>
+                    <p class="swatch-value">borders and rules</p>
+                </div>
+                <div class="swatch">
+                    <div class="swatch-block" style="background: var(--accent-muted);"></div>
+                    <p class="swatch-name">--accent-muted</p>
+                    <p class="swatch-value" data-token="--accent-muted"></p>
+                    <p class="swatch-value">blockquote bar, code, //</p>
+                </div>
+            </div>
+
+            <h3>text and accent</h3>
+            <div class="swatch-row">
+                <div class="swatch">
+                    <div class="swatch-block" style="background: var(--text-headings);"></div>
+                    <p class="swatch-name">--text-headings</p>
+                    <p class="swatch-value" data-token="--text-headings"></p>
+                    <p class="swatch-value">h2, h3, titles</p>
+                </div>
+                <div class="swatch">
+                    <div class="swatch-block" style="background: var(--text-body);"></div>
+                    <p class="swatch-name">--text-body</p>
+                    <p class="swatch-value" data-token="--text-body"></p>
+                    <p class="swatch-value">paragraphs</p>
+                </div>
+                <div class="swatch">
+                    <div class="swatch-block" style="background: var(--text-secondary);"></div>
+                    <p class="swatch-name">--text-secondary</p>
+                    <p class="swatch-value" data-token="--text-secondary"></p>
+                    <p class="swatch-value">meta, labels, footer</p>
+                </div>
+                <div class="swatch">
+                    <div class="swatch-block" style="background: var(--accent);"></div>
+                    <p class="swatch-name">--accent</p>
+                    <p class="swatch-value" data-token="--accent"></p>
+                    <p class="swatch-value">h1, nav, actions</p>
+                </div>
+            </div>
+
+            <h3>ratings</h3>
+            <div class="swatch-row">
+                <div class="swatch">
+                    <div class="swatch-block rating--terrible"></div>
+                    <p class="swatch-name">--rating-terrible</p>
+                    <p class="swatch-value" data-token="--rating-terrible"></p>
+                </div>
+                <div class="swatch">
+                    <div class="swatch-block rating--below-average"></div>
+                    <p class="swatch-name">--rating-below-average</p>
+                    <p class="swatch-value" data-token="--rating-below-average"></p>
+                </div>
+                <div class="swatch">
+                    <div class="swatch-block rating--good"></div>
+                    <p class="swatch-name">--rating-good</p>
+                    <p class="swatch-value" data-token="--rating-good"></p>
+                </div>
+                <div class="swatch">
+                    <div class="swatch-block rating--above-average"></div>
+                    <p class="swatch-name">--rating-above-average</p>
+                    <p class="swatch-value" data-token="--rating-above-average"></p>
+                </div>
+                <div class="swatch">
+                    <div class="swatch-block rating--great"></div>
+                    <p class="swatch-name">--rating-great</p>
+                    <p class="swatch-value" data-token="--rating-great"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== -->
+        <!-- TYPE                  -->
+        <!-- ===================== -->
+        <section class="guide-section" id="type" aria-label="type">
+            <h2>type</h2>
+            <p>Ioskeley Mono, self-hosted in /assets/fonts/ioskeleymono/ at weights 300, 400, 600 and 700, each with
+                an italic. Root size 16px. Paragraphs and list items use a 1.65 line height, and
+                <code>body</code> is capped at 78ch.</p>
+
+            <div class="type-row">
+                <p class="type-spec">h1 &middot; 1.75rem<br />posts 1.6rem</p>
+                <h1 class="caps">The quick brown fox</h1>
+            </div>
+            <div class="type-row">
+                <p class="type-spec">h2 &middot; 1.35rem</p>
+                <h2>The quick brown fox</h2>
+            </div>
+            <div class="type-row">
+                <p class="type-spec">h3 &middot; 1.125rem</p>
+                <h3>The quick brown fox</h3>
+            </div>
+            <div class="type-row">
+                <p class="type-spec">h4 &middot; 0.78rem label</p>
+                <h4>The quick brown fox</h4>
+            </div>
+            <div class="type-row">
+                <p class="type-spec">p &middot; 0.9375rem</p>
+                <p>The quick brown fox jumps over the lazy dog.</p>
+            </div>
+            <div class="type-row">
+                <p class="type-spec">.meta &middot; 0.85rem</p>
+                <p class="meta">3 September 2026 &middot; 422 words</p>
+            </div>
+            <div class="type-row">
+                <p class="type-spec">.section-label &middot; 0.78rem</p>
+                <p class="section-label">recent writing</p>
+            </div>
+
+            <h3>weights</h3>
+            <p>
+                <span style="font-weight: 300;">light 300</span> &middot; regular 400 &middot;
+                <span style="font-weight: 600;">semibold 600</span> &middot; <strong>bold 700</strong><br />
+                <em style="font-weight: 300;">light italic</em> &middot; <em>italic</em> &middot;
+                <em style="font-weight: 600;">semibold italic</em> &middot; <strong><em>bold italic</em></strong>
+            </p>
+
+            <h3>heading spacing</h3>
+            <p>h2 has 3rem above it and h3 2.25rem, so a new section reads as a bigger break than a sub-section.
+                On phones they drop to about 2.75rem and 1.75rem.</p>
+        </section>
+
+        <!-- ===================== -->
+        <!-- TEXT                  -->
+        <!-- ===================== -->
+        <section class="guide-section" id="text" aria-label="text">
+            <h2>text</h2>
+
+            <div class="demo">
+                <p class="demo-label">p, a, em, strong, code, .rating</p>
+                <p>A paragraph with a <a href="#text">text link</a> (underlined, highlighted on hover),
+                    <em>italic</em>, <strong>bold</strong> and <code>inline code</code>. Ratings link to the scale:
+                    <a class="rating rating--terrible" href="/ratings/">(1/5)</a>
+                    <a class="rating rating--below-average" href="/ratings/">(2/5)</a>
+                    <a class="rating rating--good" href="/ratings/">(3/5)</a>
+                    <a class="rating rating--above-average" href="/ratings/">(4/5)</a>
+                    <a class="rating rating--great" href="/ratings/">(5/5)</a>
+                    <a class="rating" href="/ratings/">(?/5)</a>
+                </p>
+            </div>
+
+            <div class="demo">
+                <p class="demo-label">blockquote</p>
+                <blockquote>
+                    This page highlights what I've been doing recently. Used for the intro note on now pages and for
+                    changelog entries, with an <a href="#text">inline link</a>.
+                </blockquote>
+            </div>
+
+            <div class="demo">
+                <p class="demo-label">ul, ol, h4 label</p>
+                <h4>The new</h4>
+                <ul>
+                    <li>first item</li>
+                    <li>second item, long enough to show how a list item wraps onto a second line at this width</li>
+                </ul>
+                <ol>
+                    <li>step one</li>
+                    <li>step two</li>
+                </ol>
+            </div>
+
+            <div class="demo">
+                <p class="demo-label">pre, code</p>
+                <pre><code>function greet(name) {
+    return `hello, ${name}`;
+}</code></pre>
+            </div>
+
+            <div class="demo">
+                <p class="demo-label">hr, figure, figcaption</p>
+                <hr />
+                <figure>
+                    <div class="placeholder"></div>
+                    <figcaption>A figcaption under an image.</figcaption>
+                </figure>
+            </div>
+
+            <div class="demo">
+                <p class="demo-label">.two-col-list</p>
+                <div class="two-col-list">
+                    <div>
+                        <p class="section-label">pros</p>
+                        <ul>
+                            <li>consistent weather</li>
+                            <li>national parks</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="section-label">cons</p>
+                        <ul>
+                            <li>no snow</li>
+                            <li>friends far away</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== -->
+        <!-- POST                  -->
+        <!-- ===================== -->
+        <section class="guide-section" id="post" aria-label="post">
+            <h2>post</h2>
+            <p>A post is an <code>article</code> holding a <code>.page-header--post</code>, which turns it into the
+                panel. The likes and comments block is written by functions/_middleware.js; the markup below copies
+                what it outputs. A <code>.pager</code> straight after the article sits 1rem under it. On phones the
+                panel and pager cards run edge to edge.</p>
+
+            <div class="demo">
+                <p class="demo-label">article / .page-header--post / .post-social / .pager</p>
+                <article>
+                    <header class="page-header page-header--post">
+                        <p class="page-header-kicker"><span aria-hidden="true">/</span>now</p>
+                        <h1>Wake Me Up When September Ends</h1>
+                        <p class="meta caps"><time datetime="2026-09-03">3 September 2026</time></p>
+                    </header>
+
+                    <section>
+                        <h3>Coffee</h3>
+                        <p>I recently started getting into coffee. I found a local coffee shop nearby called
+                            <a href="#post">Mother Tongue</a>.</p>
+                    </section>
+
+                    <section class="post-social" aria-label="likes and comments">
+                        <div class="social-head">
+                            <h2 class="social-title">2 comments</h2>
+                            <form class="like-form">
+                                <button type="button" class="like-button" aria-label="like this post, 3 likes"><svg class="like-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" /></svg> 3</button>
+                            </form>
+                        </div>
+                        <ol class="comment-thread">
+                            <li>
+                                <article class="comment" id="demo-comment-1">
+                                    <p class="meta">
+                                        <span class="comment-name">sam</span>
+                                        <a class="comment-time" href="#demo-comment-1"><time datetime="2026-09-04T16:12:00Z">4 Sept 2026 &middot; 09:12</time></a>
+                                    </p>
+                                    <div class="comment-body">
+                                        <p>Mother Tongue is great. Try the cortado.</p>
+                                    </div>
+                                    <a class="comment-link" href="#post">reply &rarr;</a>
+                                    <ol class="comment-thread">
+                                        <li>
+                                            <article class="comment" id="demo-comment-2">
+                                                <p class="meta">
+                                                    <span class="comment-name">daniel</span><span class="comment-author">author</span>
+                                                    <a class="comment-time" href="#demo-comment-2"><time datetime="2026-09-04T18:30:00Z">4 Sept 2026 &middot; 11:30</time></a>
+                                                </p>
+                                                <div class="comment-body">
+                                                    <p>Will do!</p>
+                                                </div>
+                                                <a class="comment-link" href="#post">reply &rarr;</a>
+                                            </article>
+                                        </li>
+                                    </ol>
+                                </article>
+                            </li>
+                        </ol>
+                        <div class="social-foot">
+                            <a class="comment-link" href="#post">comment by email &rarr;</a>
+                            <p class="meta">Start with a "name:" line for your display name. Your email is never shown or stored</p>
+                        </div>
+                    </section>
+                </article>
+
+                <nav class="pager" aria-label="post navigation demo">
+                    <a class="pager-link pager-prev" href="#post" rel="prev">
+                        <span class="pager-label">&larr; previous</span>
+                        <span class="pager-title">Let Me Introduce Myself</span>
+                    </a>
+                    <a class="pager-link pager-next" href="#post" rel="next">
+                        <span class="pager-label">next &rarr;</span>
+                        <span class="pager-title">Next Post Title</span>
+                    </a>
+                </nav>
+            </div>
+
+            <div class="demo">
+                <p class="demo-label">.post-social, empty and already liked</p>
+                <section class="post-social" aria-label="likes and comments, empty">
+                    <div class="social-head">
+                        <h2 class="social-title">no comments yet</h2>
+                        <form class="like-form">
+                            <button type="button" class="like-button" aria-label="you liked this post, 1 like" disabled aria-pressed="true"><svg class="like-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" /></svg> 1</button>
+                        </form>
+                    </div>
+                    <div class="social-foot">
+                        <a class="comment-link" href="#post">comment by email &rarr;</a>
+                        <p class="meta">Start with a "name:" line for your display name. Your email is never shown or stored</p>
+                    </div>
+                </section>
+            </div>
+        </section>
+
+        <!-- ===================== -->
+        <!-- WAYFINDING            -->
+        <!-- ===================== -->
+        <section class="guide-section" id="wayfinding" aria-label="wayfinding">
+            <h2>wayfinding</h2>
+
+            <div class="demo">
+                <p class="demo-label">.page-header, for listing pages</p>
+                <header class="page-header">
+                    <h1><span aria-hidden="true">/</span>blog</h1>
+                    <p class="meta">Things I've written</p>
+                </header>
+            </div>
+
+            <div class="demo">
+                <p class="demo-label">.meta.meta-split / .meta-sep (stacks under 600px)</p>
+                <p class="meta meta-split"><span>the privacy policy</span><span class="meta-sep" aria-hidden="true"> | </span><span>8 October 2026</span></p>
+            </div>
+
+            <div class="demo">
+                <p class="demo-label">.breadcrumb, on garden pages</p>
+                <nav class="breadcrumb" aria-label="breadcrumb demo"><a href="#wayfinding">garden</a> <span aria-hidden="true">-></span> <a href="#wayfinding">movies</a></nav>
+            </div>
+
+            <div class="demo">
+                <p class="demo-label">.pager, end of a run: leave out the missing card</p>
+                <nav class="pager" aria-label="pager demo, one card">
+                    <a class="pager-link pager-prev" href="#wayfinding" rel="prev">
+                        <span class="pager-label">&larr; previous</span>
+                        <span class="pager-title">Wake Up Dead Man: A Knives Out Mystery</span>
+                    </a>
+                </nav>
+            </div>
+
+            <div class="demo">
+                <p class="demo-label">.section-label</p>
+                <h2 class="section-label">review</h2>
+            </div>
+        </section>
+
+        <!-- ===================== -->
+        <!-- LISTINGS              -->
+        <!-- ===================== -->
+        <section class="guide-section" id="listings" aria-label="listings">
+            <h2>listings</h2>
+
+            <div class="demo">
+                <p class="demo-label">.recent-writing-list, home page</p>
+                <ol class="recent-writing-list">
+                    <li class="recent-writing-item">
+                        <p class="recent-writing-tag">#now</p>
+                        <h3 class="recent-writing-title"><a href="#listings">Wake Me Up When September Ends</a></h3>
+                        <ul class="recent-writing-meta">
+                            <li>422 words</li>
+                            <li><time datetime="2026-09-03">3 September 2026</time></li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="demo">
+                <p class="demo-label">.table, title / date / tag</p>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">title</th>
+                            <th scope="col" class="table-col-date">date</th>
+                            <th scope="col" class="table-col-tag">tag</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="table-row">
+                            <td><a class="table-title" href="#listings">Wake Me Up When September Ends</a></td>
+                            <td class="table-date"><time datetime="2026-09-03">sep 2026</time></td>
+                            <td class="table-tag">#now</td>
+                        </tr>
+                        <tr class="table-row">
+                            <td><a class="table-title" href="#listings">Let Me Introduce Myself</a></td>
+                            <td class="table-date"><time datetime="2026-08-28">aug 2026</time></td>
+                            <td class="table-tag">#about</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="demo">
+                <p class="demo-label">.table, title / description</p>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">title</th>
+                            <th scope="col" class="table-col-desc">description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="table-row">
+                            <td><a class="table-title" href="#listings">books</a></td>
+                            <td class="table-desc">what I'm reading and what I thought</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="demo">
+                <p class="demo-label">.card-grid / .card / .card--more, home page</p>
+                <div class="card-grid">
+                    <a class="card" href="#listings">
+                        <p class="card-type">Jan '26 &middot; re-design</p>
+                        <p class="card-title">saturn</p>
+                        <p class="card-desc">a cozy yet minimalist personal website</p>
+                    </a>
+                    <a class="card card--more" href="#listings">
+                        <p class="card-title">all projects &rarr;</p>
+                        <p class="card-desc">more coming soon</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== -->
+        <!-- PROJECTS              -->
+        <!-- ===================== -->
+        <section class="guide-section" id="projects" aria-label="projects">
+            <h2>projects</h2>
+
+            <div class="demo">
+                <p class="demo-label">.project-card, projects page</p>
+                <a class="project-card" href="#projects">
+                    <div class="project-card-left">
+                        <p class="card-type">Jan '26 &middot; re-design</p>
+                        <div>
+                            <h2>Saturn</h2>
+                            <p class="meta">A cozy yet minimalist personal website</p>
+                        </div>
+                    </div>
+                    <div class="project-card-right">
+                        <img class="project-card-img" src="https://assets.danieldaum.net/img/misc/saturn-project-hero.webp"
+                            alt="screenshot of the saturn personal website" />
+                    </div>
+                </a>
+            </div>
+
+            <div class="demo">
+                <p class="demo-label">.project-header / .project-stats, project pages</p>
+                <div class="project-header">
+                    <h1 class="project-header-title">saturn</h1>
+                    <p class="project-header-desc">a cozy minimalist personal site</p>
+                </div>
+                <div class="project-stats">
+                    <div>
+                        <p class="project-stat-label">stack</p>
+                        <p class="project-stat-value">html, css</p>
+                    </div>
+                    <div>
+                        <p class="project-stat-label">source</p>
+                        <p class="project-stat-value"><a href="#projects">git.danieldaum.net</a></p>
+                    </div>
+                </div>
+            </div>
+            <p class="meta">.project-banner (the tall gradient banner at the top of a project page) is page-specific
+                and not shown here.</p>
+        </section>
+
+        <!-- ===================== -->
+        <!-- MEDIA                 -->
+        <!-- ===================== -->
+        <section class="guide-section" id="media" aria-label="media">
+            <h2>media</h2>
+
+            <div class="demo">
+                <p class="demo-label">.tracker-wall / .tracker-tile, books, movies, shows, games, music</p>
+                <section class="tracker-wall" aria-label="tracker wall demo">
+                    <figure class="tracker-tile">
+                        <a class="tracker-link" href="#media">
+                            <span class="tracker-cover"></span>
+                            <span class="tracker-caption">
+                                <span class="tracker-caption-title">Book Title</span>
+                                <span class="tracker-caption-sub">Author Name</span>
+                                <span class="tracker-caption-line"><span>1 January 2026</span><span class="rating rating--great">(5/5)</span></span>
+                            </span>
+                        </a>
+                    </figure>
+                    <figure class="tracker-tile">
+                        <a class="tracker-link" href="#media">
+                            <span class="tracker-cover tracker-cover--boxart"></span>
+                            <span class="tracker-caption">
+                                <span class="tracker-caption-title">Game Title</span>
+                                <span class="tracker-caption-line"><span>1 January 2026</span><span class="rating rating--good">(3/5)</span></span>
+                            </span>
+                        </a>
+                    </figure>
+                    <figure class="tracker-tile">
+                        <a class="tracker-link" href="#media">
+                            <span class="tracker-cover tracker-cover--square"></span>
+                            <span class="tracker-caption">
+                                <span class="tracker-caption-title">Album Title <span class="new-tag">new!</span></span>
+                                <span class="tracker-caption-sub">Artist Name</span>
+                                <span class="tracker-caption-line"><span>1 January 2026</span><span class="rating">(?/5)</span></span>
+                            </span>
+                        </a>
+                    </figure>
+                </section>
+            </div>
+
+            <div class="demo">
+                <p class="demo-label">.entry-hero, a tracker entry page</p>
+                <header class="entry-hero">
+                    <span class="tracker-cover entry-cover"></span>
+                    <div class="entry-heading">
+                        <h1>Sinners</h1>
+                        <ul class="entry-meta">
+                            <li>Director Name</li>
+                            <li>Released 2025</li>
+                            <li><a class="rating rating--great" href="/ratings/">(5/5)</a></li>
+                        </ul>
+                    </div>
+                </header>
+            </div>
+
+            <div class="demo">
+                <p class="demo-label">.photo-wall / .photo-tile / .photo-tile--new (hover a tile for its caption)</p>
+                <div class="photo-wall">
+                    <figure class="photo-tile photo-tile--new">
+                        <div class="placeholder"></div>
+                        <figcaption class="photo-caption">
+                            <span class="photo-caption-name">Berkeley Aquatic Park <span class="new-tag">new!</span></span>
+                            <span class="photo-caption-location">Berkeley, California</span>
+                            <span class="photo-caption-date">21 August 2026</span>
+                        </figcaption>
+                    </figure>
+                    <figure class="photo-tile">
+                        <div class="placeholder"></div>
+                        <figcaption class="photo-caption">
+                            <span class="photo-caption-name">Neighbor Snail</span>
+                            <span class="photo-caption-location">Oakland, California</span>
+                            <span class="photo-caption-date">18 August 2026</span>
+                        </figcaption>
+                    </figure>
+                    <figure class="photo-tile">
+                        <div class="placeholder"></div>
+                        <figcaption class="photo-caption">
+                            <span class="photo-caption-name">Fog Over The Bay</span>
+                            <span class="photo-caption-location">Oakland, California</span>
+                            <span class="photo-caption-date">12 August 2026</span>
+                        </figcaption>
+                    </figure>
+                    <figure class="photo-tile">
+                        <div class="placeholder"></div>
+                        <figcaption class="photo-caption">
+                            <span class="photo-caption-name">Redwood Trail</span>
+                            <span class="photo-caption-location">Oakland, California</span>
+                            <span class="photo-caption-date">3 August 2026</span>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <p>The <code>.lightbox</code> opens on <code>:target</code>, with no JavaScript. It covers the whole
+                screen, so it isn't shown here; see /photos/ and the tracker walls.</p>
+            <p><code>.img-scaled</code> caps an image's height (26rem, or <code>--short</code> 18rem,
+                <code>--medium</code> 24rem, <code>--tall</code> 30rem) and centres it. <code>.figure-row</code>
+                puts several images side by side; under 600px only the middle one shows.</p>
+        </section>
+
+        <!-- ===================== -->
+        <!-- RESPONSIVE            -->
+        <!-- ===================== -->
+        <section class="guide-section" id="responsive" aria-label="responsive and preferences">
+            <h2>responsive</h2>
+            <ul>
+                <li><code>&le; 900px</code>: photo wall drops to two columns.</li>
+                <li><code>&le; 768px</code>: less page padding, h1 1.6rem, project cards stack. Paragraphs stop
+                    using <code>text-wrap: pretty</code>.</li>
+                <li><code>&le; 600px</code>: header stacks with the nav on one row and "home" hidden; meta-split,
+                    tables, project stats, entry hero and the pager stack; <code>.figure-row</code> keeps its middle
+                    image; the footer drops <code>//</code> and PGP.</li>
+                <li><code>&le; 480px</code>: 1rem page gutter; h1 1.5rem, h2 1.2rem, h3 1.05rem; the post panel and
+                    pager cards run edge to edge; photo wall one column, tracker walls two; the footer also drops
+                    changelog.</li>
+            </ul>
+
+            <h3>preferences</h3>
+            <ul>
+                <li><code>prefers-reduced-motion</code>: transitions and animations are effectively turned off.</li>
+                <li><code>prefers-contrast: high</code>: white text, yellow accent, white borders, underlined links.</li>
+                <li><code>print</code>: black on white, nav and pager hidden, URLs printed after links.</li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <nav aria-label="site links">
+            <p aria-hidden="true">//</p>
+            <a href="mailto:daniel@danieldaum.net">email</a>
+            <a href="https://git.danieldaum.net/" aria-label="git (opens in new tab)" target="_blank"
+                rel="noopener noreferrer">git</a>
+            <a href="/pgp.asc" aria-label="PGP public key (516E97FF)">PGP</a>
+            <a href="/changelog/">changelog</a>
+            <a href="/privacy/">privacy</a>
+            <a href="/feed.xml">feed</a>
+        </nav>
+    </footer>
+
+    <!-- fill in the swatch values from the live tokens -->
+    <script>
+        const tokens = getComputedStyle(document.documentElement);
+        document.querySelectorAll("[data-token]").forEach((el) => (el.textContent = tokens.getPropertyValue(el.dataset.token).trim()));
+    </script>
+</body>
+
+</html>

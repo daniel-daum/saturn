@@ -1,697 +1,1125 @@
 <!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="daniel daum's movie tracker - what i've watched, by year, with ratings and notes"
+        />
+        <meta
+            http-equiv="Content-Security-Policy"
+            content="default-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;"
+        />
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
+        <link
+            rel="preload"
+            href="/assets/fonts/ioskeleymono/IoskeleyMono-Regular.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin
+        />
+        <link
+            rel="preload"
+            href="/assets/fonts/ioskeleymono/IoskeleyMono-Bold.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin
+        />
+        <link
+            rel="preload"
+            href="/assets/fonts/ioskeleymono/IoskeleyMono-SemiBold.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin
+        />
+        <link rel="preconnect" href="https://assets.danieldaum.net" />
+        <link rel="stylesheet" href="/global.css" />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/assets/favicon/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/assets/favicon/favicon-16x16.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/assets/favicon/apple-touch-icon.png"
+        />
+        <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+        <link
+            rel="alternate"
+            type="application/atom+xml"
+            title="daniel daum"
+            href="https://danieldaum.net/feed.xml"
+        />
+        <title>daniel daum - movies</title>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description"
-        content="daniel daum's movie tracker - what i've watched, by year, with ratings and notes" />
-    <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;" />
-    <meta name="referrer" content="strict-origin-when-cross-origin" />
-    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Regular.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Bold.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preconnect" href="https://assets.danieldaum.net" />
-    <link rel="stylesheet" href="/global.css" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
-    <link rel="manifest" href="/assets/favicon/site.webmanifest" />
-    <link rel="alternate" type="application/atom+xml" title="daniel daum" href="https://danieldaum.net/feed.xml" />
-    <title>daniel daum - movies</title>
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="daniel daum" />
+        <meta property="og:title" content="daniel daum - movies" />
+        <meta
+            property="og:description"
+            content="daniel daum's movie tracker - what i've watched, by year, with ratings and notes"
+        />
+        <meta property="og:url" content="https://danieldaum.net/movies/" />
+        <meta
+            property="og:image"
+            content="https://assets.danieldaum.net/img/misc/og.jpg"
+        />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta
+            property="og:image:alt"
+            content="daniel daum - software engineer, avid reader, aspiring game dev - danieldaum.net"
+        />
 
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="daniel daum" />
-    <meta property="og:title" content="daniel daum - movies" />
-    <meta property="og:description" content="daniel daum's movie tracker - what i've watched, by year, with ratings and notes" />
-    <meta property="og:url" content="https://danieldaum.net/movies/" />
-    <meta property="og:image" content="https://assets.danieldaum.net/img/misc/og.jpg" />
-    <meta property="og:image:type" content="image/jpeg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="daniel daum - software engineer, avid reader, aspiring game dev - danieldaum.net" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="daniel daum - movies" />
+        <meta
+            name="twitter:description"
+            content="daniel daum's movie tracker - what i've watched, by year, with ratings and notes"
+        />
+        <meta
+            name="twitter:image"
+            content="https://assets.danieldaum.net/img/misc/og.jpg"
+        />
+        <meta
+            name="twitter:image:alt"
+            content="daniel daum - software engineer, avid reader, aspiring game dev - danieldaum.net"
+        />
+    </head>
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="daniel daum - movies" />
-    <meta name="twitter:description" content="daniel daum's movie tracker - what i've watched, by year, with ratings and notes" />
-    <meta name="twitter:image" content="https://assets.danieldaum.net/img/misc/og.jpg" />
-    <meta name="twitter:image:alt" content="daniel daum - software engineer, avid reader, aspiring game dev - danieldaum.net" />
-</head>
+    <body class="page--wide">
+        <a class="skip-link" href="#main">skip to content</a>
 
-<body class="page--wide">
-
-    <a class="skip-link" href="#main">skip to content</a>
-
-    <!-- ===== HEADER ===== -->
-    <header class="site-header">
-        <a class="site-name" href="/">Daniel Daum</a>
-        <nav aria-label="main navigation">
-            <a href="/">home</a>
-            <a href="/about/">about</a>
-            <a href="/now/">now</a>
-            <a href="/blog/">blog</a>
-            <a href="/projects/">projects</a>
-            <a href="/garden/">garden</a>
-        </nav>
-    </header>
-
-    <!-- ===== MAIN ===== -->
-    <main id="main">
-        <nav class="breadcrumb" aria-label="breadcrumb"><a href="/garden/">garden</a> <span aria-hidden="true">-></span> <a href="/movies/">movies</a></nav>
-
-        <header class="page-header">
-            <h1><span aria-hidden="true">/</span>movies</h1>
-            <p class="meta">The movies I've seen. Click a poster to read my note on it.<br />
-                Ratings are a work in progress.
-            </p>
+        <!-- ===== HEADER ===== -->
+        <header class="site-header">
+            <a class="site-name" href="/">Daniel Daum</a>
+            <nav aria-label="main navigation">
+                <a href="/">home</a>
+                <a href="/about/">about</a>
+                <a href="/now/">now</a>
+                <a href="/blog/">blog</a>
+                <a href="/projects/">projects</a>
+                <a href="/garden/">garden</a>
+            </nav>
         </header>
 
-        <h2 class="caps">my favorites</h2>
+        <!-- ===== MAIN ===== -->
+        <main id="main">
+            <nav class="breadcrumb" aria-label="breadcrumb">
+                <a href="/garden/">garden</a> <span aria-hidden="true">-></span>
+                <a href="/movies/">movies</a>
+            </nav>
 
-        <section class="tracker-wall tracker-wall--favorites" aria-label="favorite movies">
+            <header class="page-header">
+                <h1><span aria-hidden="true">/</span>movies</h1>
+                <p class="meta">
+                    The movies I've seen. Click a poster to read my note on
+                    it.<br />
+                    Ratings are a work in progress.
+                </p>
+            </header>
 
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/movies/blade-runner-2049/" aria-label="Blade Runner 2049">
-                    <span class="tracker-cover">
-                        <img src="https://assets.danieldaum.net/img/movies/blade-runner-2049.webp"
-                            alt="Blade Runner 2049" loading="lazy" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Blade Runner 2049</span>
-                        <span class="tracker-caption-sub">Director Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating rating--great">(5/5)</span>
+            <h2 class="caps">my favorites</h2>
+
+            <section
+                class="tracker-wall tracker-wall--favorites"
+                aria-label="favorite movies"
+            >
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/movies/blade-runner-2049/"
+                        aria-label="Blade Runner 2049"
+                    >
+                        <span class="tracker-cover">
+                            <img
+                                src="https://assets.danieldaum.net/img/movies/blade-runner-2049.webp"
+                                alt="Blade Runner 2049"
+                                loading="lazy"
+                            />
                         </span>
-                    </span>
-                </a>
-            </figure>
-
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/movies/ratatouille/" aria-label="Ratatouille">
-                    <span class="tracker-cover">
-                        <img src="https://assets.danieldaum.net/img/movies/ratatouille.webp" alt="Ratatouille"
-                            loading="lazy" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Ratatouille</span>
-                        <span class="tracker-caption-sub">Director Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating rating--great">(5/5)</span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >Blade Runner 2049</span
+                            >
+                            <span class="tracker-caption-sub"
+                                >Director Name</span
+                            >
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating rating--great">(5/5)</span>
+                            </span>
                         </span>
-                    </span>
-                </a>
-            </figure>
+                    </a>
+                </figure>
 
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/movies/the-thing/" aria-label="The Thing">
-                    <span class="tracker-cover">
-                        <img src="https://assets.danieldaum.net/img/movies/the-thing.webp" alt="The Thing"
-                            loading="lazy" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">The Thing</span>
-                        <span class="tracker-caption-sub">Director Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating rating--great">(5/5)</span>
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/movies/ratatouille/"
+                        aria-label="Ratatouille"
+                    >
+                        <span class="tracker-cover">
+                            <img
+                                src="https://assets.danieldaum.net/img/movies/ratatouille.webp"
+                                alt="Ratatouille"
+                                loading="lazy"
+                            />
                         </span>
-                    </span>
-                </a>
-            </figure>
-
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/movies/the-incredibles/" aria-label="The Incredibles">
-                    <span class="tracker-cover">
-                        <img src="https://assets.danieldaum.net/img/movies/the-incredibles.webp" alt="The Incredibles"
-                            loading="lazy" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">The Incredibles</span>
-                        <span class="tracker-caption-sub">Director Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating rating--great">(5/5)</span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >Ratatouille</span
+                            >
+                            <span class="tracker-caption-sub"
+                                >Director Name</span
+                            >
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating rating--great">(5/5)</span>
+                            </span>
                         </span>
-                    </span>
-                </a>
-            </figure>
+                    </a>
+                </figure>
 
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/movies/kikis-delivery-service/" aria-label="Kiki's Delivery Service">
-                    <span class="tracker-cover">
-                        <img src="https://assets.danieldaum.net/img/movies/kikis-delivery-service.webp"
-                            alt="Kiki's Delivery Service" loading="lazy" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Kiki's Delivery Service</span>
-                        <span class="tracker-caption-sub">Director Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating rating--great">(5/5)</span>
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/movies/the-thing/"
+                        aria-label="The Thing"
+                    >
+                        <span class="tracker-cover">
+                            <img
+                                src="https://assets.danieldaum.net/img/movies/the-thing.webp"
+                                alt="The Thing"
+                                loading="lazy"
+                            />
                         </span>
-                    </span>
-                </a>
-            </figure>
-
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/movies/the-prestige/" aria-label="The Prestige">
-                    <span class="tracker-cover">
-                        <img src="https://assets.danieldaum.net/img/movies/the-prestige.webp" alt="The Prestige"
-                            loading="lazy" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">The Prestige</span>
-                        <span class="tracker-caption-sub">Director Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating rating--great">(5/5)</span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title">The Thing</span>
+                            <span class="tracker-caption-sub"
+                                >Director Name</span
+                            >
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating rating--great">(5/5)</span>
+                            </span>
                         </span>
-                    </span>
-                </a>
-            </figure>
+                    </a>
+                </figure>
 
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/movies/spirited-away/" aria-label="Spirited Away">
-                    <span class="tracker-cover">
-                        <img src="https://assets.danieldaum.net/img/movies/spirited-away.webp" alt="Spirited Away"
-                            loading="lazy" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Spirited Away</span>
-                        <span class="tracker-caption-sub">Director Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating rating--great">(5/5)</span>
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/movies/the-incredibles/"
+                        aria-label="The Incredibles"
+                    >
+                        <span class="tracker-cover">
+                            <img
+                                src="https://assets.danieldaum.net/img/movies/the-incredibles.webp"
+                                alt="The Incredibles"
+                                loading="lazy"
+                            />
                         </span>
-                    </span>
-                </a>
-            </figure>
-
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/movies/star-wars-episode-iii-revenge-of-the-sith/"
-                    aria-label="Star Wars: Episode III - Revenge of the Sith">
-                    <span class="tracker-cover">
-                        <img src="https://assets.danieldaum.net/img/movies/star-wars-episode-iii-revenge-of-the-sith.jpg"
-                            alt="Star Wars: Episode III - Revenge of the Sith" width="780" height="1170" loading="lazy"
-                            decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Star Wars: Episode III - Revenge of the Sith</span>
-                        <span class="tracker-caption-sub">Director Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating rating--great">(5/5)</span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >The Incredibles</span
+                            >
+                            <span class="tracker-caption-sub"
+                                >Director Name</span
+                            >
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating rating--great">(5/5)</span>
+                            </span>
                         </span>
-                    </span>
-                </a>
-            </figure>
+                    </a>
+                </figure>
 
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/movies/gladiator/" aria-label="Gladiator">
-                    <span class="tracker-cover">
-                        <img src="https://assets.danieldaum.net/img/movies/gladiator.webp" alt="Gladiator"
-                            loading="lazy" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Gladiator</span>
-                        <span class="tracker-caption-sub">Director Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating rating--great">(5/5)</span>
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/movies/kikis-delivery-service/"
+                        aria-label="Kiki's Delivery Service"
+                    >
+                        <span class="tracker-cover">
+                            <img
+                                src="https://assets.danieldaum.net/img/movies/kikis-delivery-service.webp"
+                                alt="Kiki's Delivery Service"
+                                loading="lazy"
+                            />
                         </span>
-                    </span>
-                </a>
-            </figure>
-        </section>
-
-        <h2>2026</h2>
-
-        <section class="tracker-wall" aria-label="movies logged in 2026">
-
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/movies/kikis-delivery-service/" aria-label="Kiki's Delivery Service">
-                    <span class="tracker-cover">
-                        <img src="https://assets.danieldaum.net/img/movies/kikis-delivery-service.webp"
-                            alt="Kiki's Delivery Service" loading="lazy" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Kiki's Delivery Service</span>
-                        <span class="tracker-caption-sub">Director Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating rating--great">(5/5)</span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >Kiki's Delivery Service</span
+                            >
+                            <span class="tracker-caption-sub"
+                                >Director Name</span
+                            >
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating rating--great">(5/5)</span>
+                            </span>
                         </span>
-                    </span>
-                </a>
-            </figure>
+                    </a>
+                </figure>
 
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/movies/ghost-in-the-shell/" aria-label="Ghost in the Shell">
-                    <span class="tracker-cover">
-                        <img src="https://assets.danieldaum.net/img/movies/ghost-in-the-shell.webp"
-                            alt="Ghost in the Shell" loading="lazy" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Ghost in the Shell</span>
-                        <span class="tracker-caption-sub">Director Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/movies/the-prestige/"
+                        aria-label="The Prestige"
+                    >
+                        <span class="tracker-cover">
+                            <img
+                                src="https://assets.danieldaum.net/img/movies/the-prestige.webp"
+                                alt="The Prestige"
+                                loading="lazy"
+                            />
                         </span>
-                    </span>
-                </a>
-            </figure>
-
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/movies/oblivion/" aria-label="Oblivion">
-                    <span class="tracker-cover">
-                        <img src="https://assets.danieldaum.net/img/movies/oblivion.webp" alt="Oblivion"
-                            loading="lazy" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Oblivion</span>
-                        <span class="tracker-caption-sub">Director Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >The Prestige</span
+                            >
+                            <span class="tracker-caption-sub"
+                                >Director Name</span
+                            >
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating rating--great">(5/5)</span>
+                            </span>
                         </span>
-                    </span>
-                </a>
-            </figure>
+                    </a>
+                </figure>
 
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/movies/the-girl-with-the-dragon-tattoo/"
-                    aria-label="The Girl with the Dragon Tattoo">
-                    <span class="tracker-cover">
-                        <img src="https://assets.danieldaum.net/img/movies/dragon-tattoo.webp"
-                            alt="The Girl with the Dragon Tattoo" loading="lazy" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">The Girl with the Dragon Tattoo</span>
-                        <span class="tracker-caption-sub">Director Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/movies/spirited-away/"
+                        aria-label="Spirited Away"
+                    >
+                        <span class="tracker-cover">
+                            <img
+                                src="https://assets.danieldaum.net/img/movies/spirited-away.webp"
+                                alt="Spirited Away"
+                                loading="lazy"
+                            />
                         </span>
-                    </span>
-                </a>
-            </figure>
-
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/movies/project-hail-mary/" aria-label="Project Hail Mary">
-                    <span class="tracker-cover">
-                        <img src="https://assets.danieldaum.net/img/movies/project-hail-mary.webp"
-                            alt="Project Hail Mary" loading="lazy" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Project Hail Mary</span>
-                        <span class="tracker-caption-sub">Director Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >Spirited Away</span
+                            >
+                            <span class="tracker-caption-sub"
+                                >Director Name</span
+                            >
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating rating--great">(5/5)</span>
+                            </span>
                         </span>
-                    </span>
-                </a>
-            </figure>
+                    </a>
+                </figure>
 
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/movies/oldboy/" aria-label="Oldboy">
-                    <span class="tracker-cover">
-                        <img src="https://assets.danieldaum.net/img/movies/oldboy.webp" alt="Oldboy" loading="lazy" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Oldboy</span>
-                        <span class="tracker-caption-sub">Director Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/movies/star-wars-episode-iii-revenge-of-the-sith/"
+                        aria-label="Star Wars: Episode III - Revenge of the Sith"
+                    >
+                        <span class="tracker-cover">
+                            <img
+                                src="https://assets.danieldaum.net/img/movies/star-wars-episode-iii-revenge-of-the-sith.jpg"
+                                alt="Star Wars: Episode III - Revenge of the Sith"
+                                width="780"
+                                height="1170"
+                                loading="lazy"
+                                decoding="async"
+                            />
                         </span>
-                    </span>
-                </a>
-            </figure>
-
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/movies/the-thing/" aria-label="The Thing">
-                    <span class="tracker-cover">
-                        <img src="https://assets.danieldaum.net/img/movies/the-thing.webp" alt="The Thing"
-                            loading="lazy" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">The Thing</span>
-                        <span class="tracker-caption-sub">Director Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating rating--great">(5/5)</span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >Star Wars: Episode III - Revenge of the
+                                Sith</span
+                            >
+                            <span class="tracker-caption-sub"
+                                >Director Name</span
+                            >
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating rating--great">(5/5)</span>
+                            </span>
                         </span>
-                    </span>
-                </a>
-            </figure>
+                    </a>
+                </figure>
 
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/movies/children-of-men/" aria-label="Children of Men">
-                    <span class="tracker-cover">
-                        <img src="https://assets.danieldaum.net/img/movies/children-of-men.webp" alt="Children of Men"
-                            loading="lazy" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Children of Men</span>
-                        <span class="tracker-caption-sub">Director Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/movies/gladiator/"
+                        aria-label="Gladiator"
+                    >
+                        <span class="tracker-cover">
+                            <img
+                                src="https://assets.danieldaum.net/img/movies/gladiator.webp"
+                                alt="Gladiator"
+                                loading="lazy"
+                            />
                         </span>
-                    </span>
-                </a>
-            </figure>
-
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/movies/starship-troopers/" aria-label="Starship Troopers">
-                    <span class="tracker-cover">
-                        <img src="https://assets.danieldaum.net/img/movies/starship-troopers.webp"
-                            alt="Starship Troopers" loading="lazy" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Starship Troopers</span>
-                        <span class="tracker-caption-sub">Director Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title">Gladiator</span>
+                            <span class="tracker-caption-sub"
+                                >Director Name</span
+                            >
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating rating--great">(5/5)</span>
+                            </span>
                         </span>
-                    </span>
-                </a>
-            </figure>
+                    </a>
+                </figure>
+            </section>
 
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/movies/vampire-hunter-d-bloodlust/" aria-label="Vampire Hunter D: Bloodlust">
-                    <span class="tracker-cover">
-                        <img src="https://assets.danieldaum.net/img/movies/vampire-hunter-d.webp"
-                            alt="Vampire Hunter D: Bloodlust" loading="lazy" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Vampire Hunter D: Bloodlust</span>
-                        <span class="tracker-caption-sub">Director Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+            <h2>2026</h2>
+
+            <section class="tracker-wall" aria-label="movies logged in 2026">
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/movies/kikis-delivery-service/"
+                        aria-label="Kiki's Delivery Service"
+                    >
+                        <span class="tracker-cover">
+                            <img
+                                src="https://assets.danieldaum.net/img/movies/kikis-delivery-service.webp"
+                                alt="Kiki's Delivery Service"
+                                loading="lazy"
+                            />
                         </span>
-                    </span>
-                </a>
-            </figure>
-
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/movies/tropic-thunder/" aria-label="Tropic Thunder">
-                    <span class="tracker-cover">
-                        <img src="https://assets.danieldaum.net/img/movies/tropic-thunder.webp" alt="Tropic Thunder"
-                            loading="lazy" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Tropic Thunder</span>
-                        <span class="tracker-caption-sub">Director Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >Kiki's Delivery Service</span
+                            >
+                            <span class="tracker-caption-sub"
+                                >Director Name</span
+                            >
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating rating--great">(5/5)</span>
+                            </span>
                         </span>
-                    </span>
-                </a>
-            </figure>
+                    </a>
+                </figure>
 
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/movies/the-sheep-detectives/" aria-label="The Sheep Detectives">
-                    <span class="tracker-cover">
-                        <img src="https://assets.danieldaum.net/img/movies/the-sheep-detectives.webp"
-                            alt="The Sheep Detectives" loading="lazy" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">The Sheep Detectives</span>
-                        <span class="tracker-caption-sub">Director Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/movies/ghost-in-the-shell/"
+                        aria-label="Ghost in the Shell"
+                    >
+                        <span class="tracker-cover">
+                            <img
+                                src="https://assets.danieldaum.net/img/movies/ghost-in-the-shell.webp"
+                                alt="Ghost in the Shell"
+                                loading="lazy"
+                            />
                         </span>
-                    </span>
-                </a>
-            </figure>
-
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/movies/the-rip/" aria-label="The Rip">
-                    <span class="tracker-cover">
-                        <img src="https://assets.danieldaum.net/img/movies/the-rip.webp" alt="The Rip" loading="lazy" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">The Rip</span>
-                        <span class="tracker-caption-sub">Director Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >Ghost in the Shell</span
+                            >
+                            <span class="tracker-caption-sub"
+                                >Director Name</span
+                            >
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
                         </span>
-                    </span>
-                </a>
-            </figure>
+                    </a>
+                </figure>
 
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/movies/spider-man-into-the-spider-verse/"
-                    aria-label="Spider-Man: Into the Spider-Verse">
-                    <span class="tracker-cover">
-                        <img src="https://assets.danieldaum.net/img/movies/into-the-spider-verse.webp"
-                            alt="Spider-Man: Into the Spider-Verse" loading="lazy" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Spider-Man: Into the Spider-Verse</span>
-                        <span class="tracker-caption-sub">Director Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/movies/oblivion/"
+                        aria-label="Oblivion"
+                    >
+                        <span class="tracker-cover">
+                            <img
+                                src="https://assets.danieldaum.net/img/movies/oblivion.webp"
+                                alt="Oblivion"
+                                loading="lazy"
+                            />
                         </span>
-                    </span>
-                </a>
-            </figure>
-        </section>
-
-        <h2>2025</h2>
-
-        <section class="tracker-wall" aria-label="movies logged in 2025">
-
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/movies/a-house-of-dynamite/" aria-label="A House of Dynamite">
-                    <span class="tracker-cover">
-                        <img src="https://assets.danieldaum.net/img/movies/a-house-of-dynamite.webp"
-                            alt="A House of Dynamite" loading="lazy" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">A House of Dynamite</span>
-                        <span class="tracker-caption-sub">Director Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title">Oblivion</span>
+                            <span class="tracker-caption-sub"
+                                >Director Name</span
+                            >
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
                         </span>
-                    </span>
-                </a>
-            </figure>
+                    </a>
+                </figure>
 
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/movies/sinners/" aria-label="Sinners">
-                    <span class="tracker-cover">
-                        <img src="https://assets.danieldaum.net/img/movies/sinners.webp" alt="Sinners" loading="lazy" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Sinners</span>
-                        <span class="tracker-caption-sub">Director Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/movies/the-girl-with-the-dragon-tattoo/"
+                        aria-label="The Girl with the Dragon Tattoo"
+                    >
+                        <span class="tracker-cover">
+                            <img
+                                src="https://assets.danieldaum.net/img/movies/dragon-tattoo.webp"
+                                alt="The Girl with the Dragon Tattoo"
+                                loading="lazy"
+                            />
                         </span>
-                    </span>
-                </a>
-            </figure>
-
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/movies/wake-up-dead-man-a-knives-out-mystery/"
-                    aria-label="Wake Up Dead Man: A Knives Out Mystery">
-                    <span class="tracker-cover">
-                        <img src="https://assets.danieldaum.net/img/movies/wake-up-dead-man.webp"
-                            alt="Wake Up Dead Man: A Knives Out Mystery" loading="lazy" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Wake Up Dead Man: A Knives Out Mystery</span>
-                        <span class="tracker-caption-sub">Director Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >The Girl with the Dragon Tattoo</span
+                            >
+                            <span class="tracker-caption-sub"
+                                >Director Name</span
+                            >
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
                         </span>
-                    </span>
-                </a>
-            </figure>
+                    </a>
+                </figure>
 
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/movies/weapons/" aria-label="Weapons">
-                    <span class="tracker-cover">
-                        <img src="https://assets.danieldaum.net/img/movies/weapons.webp" alt="Weapons" loading="lazy" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Weapons</span>
-                        <span class="tracker-caption-sub">Director Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/movies/project-hail-mary/"
+                        aria-label="Project Hail Mary"
+                    >
+                        <span class="tracker-cover">
+                            <img
+                                src="https://assets.danieldaum.net/img/movies/project-hail-mary.webp"
+                                alt="Project Hail Mary"
+                                loading="lazy"
+                            />
                         </span>
-                    </span>
-                </a>
-            </figure>
-
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/movies/alien-romulus/" aria-label="Alien: Romulus">
-                    <span class="tracker-cover">
-                        <img src="https://assets.danieldaum.net/img/movies/alien-romulus.webp" alt="Alien: Romulus"
-                            loading="lazy" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Alien: Romulus</span>
-                        <span class="tracker-caption-sub">Director Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >Project Hail Mary</span
+                            >
+                            <span class="tracker-caption-sub"
+                                >Director Name</span
+                            >
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
                         </span>
-                    </span>
-                </a>
-            </figure>
+                    </a>
+                </figure>
 
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/movies/smile/" aria-label="Smile">
-                    <span class="tracker-cover">
-                        <img src="https://assets.danieldaum.net/img/movies/smile.webp" alt="Smile" loading="lazy" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Smile</span>
-                        <span class="tracker-caption-sub">Director Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/movies/oldboy/"
+                        aria-label="Oldboy"
+                    >
+                        <span class="tracker-cover">
+                            <img
+                                src="https://assets.danieldaum.net/img/movies/oldboy.webp"
+                                alt="Oldboy"
+                                loading="lazy"
+                            />
                         </span>
-                    </span>
-                </a>
-            </figure>
-
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/movies/f1/" aria-label="F1">
-                    <span class="tracker-cover">
-                        <img src="https://assets.danieldaum.net/img/movies/f1.webp" alt="F1" loading="lazy" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">F1</span>
-                        <span class="tracker-caption-sub">Director Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title">Oldboy</span>
+                            <span class="tracker-caption-sub"
+                                >Director Name</span
+                            >
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
                         </span>
-                    </span>
-                </a>
-            </figure>
+                    </a>
+                </figure>
 
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/movies/longlegs/" aria-label="Longlegs">
-                    <span class="tracker-cover">
-                        <img src="https://assets.danieldaum.net/img/movies/longlegs.webp" alt="Longlegs"
-                            loading="lazy" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Longlegs</span>
-                        <span class="tracker-caption-sub">Director Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/movies/the-thing/"
+                        aria-label="The Thing"
+                    >
+                        <span class="tracker-cover">
+                            <img
+                                src="https://assets.danieldaum.net/img/movies/the-thing.webp"
+                                alt="The Thing"
+                                loading="lazy"
+                            />
                         </span>
-                    </span>
-                </a>
-            </figure>
-
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/movies/poor-things/" aria-label="Poor Things">
-                    <span class="tracker-cover">
-                        <img src="https://assets.danieldaum.net/img/movies/poor-things.webp" alt="Poor Things"
-                            loading="lazy" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Poor Things</span>
-                        <span class="tracker-caption-sub">Director Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title">The Thing</span>
+                            <span class="tracker-caption-sub"
+                                >Director Name</span
+                            >
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating rating--great">(5/5)</span>
+                            </span>
                         </span>
-                    </span>
-                </a>
-            </figure>
+                    </a>
+                </figure>
 
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/movies/kinds-of-kindness/" aria-label="Kinds of Kindness">
-                    <span class="tracker-cover">
-                        <img src="https://assets.danieldaum.net/img/movies/kinds-of-kindness.webp"
-                            alt="Kinds of Kindness" loading="lazy" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Kinds of Kindness</span>
-                        <span class="tracker-caption-sub">Director Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/movies/children-of-men/"
+                        aria-label="Children of Men"
+                    >
+                        <span class="tracker-cover">
+                            <img
+                                src="https://assets.danieldaum.net/img/movies/children-of-men.webp"
+                                alt="Children of Men"
+                                loading="lazy"
+                            />
                         </span>
-                    </span>
-                </a>
-            </figure>
-
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/movies/prey/" aria-label="Prey">
-                    <span class="tracker-cover">
-                        <img src="https://assets.danieldaum.net/img/movies/prey.webp" alt="Prey" loading="lazy" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Prey</span>
-                        <span class="tracker-caption-sub">Director Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >Children of Men</span
+                            >
+                            <span class="tracker-caption-sub"
+                                >Director Name</span
+                            >
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
                         </span>
-                    </span>
-                </a>
-            </figure>
+                    </a>
+                </figure>
 
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/movies/the-iron-claw/" aria-label="The Iron Claw">
-                    <span class="tracker-cover">
-                        <img src="https://assets.danieldaum.net/img/movies/the-iron-claw.webp" alt="The Iron Claw"
-                            loading="lazy" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">The Iron Claw</span>
-                        <span class="tracker-caption-sub">Director Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/movies/starship-troopers/"
+                        aria-label="Starship Troopers"
+                    >
+                        <span class="tracker-cover">
+                            <img
+                                src="https://assets.danieldaum.net/img/movies/starship-troopers.webp"
+                                alt="Starship Troopers"
+                                loading="lazy"
+                            />
                         </span>
-                    </span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >Starship Troopers</span
+                            >
+                            <span class="tracker-caption-sub"
+                                >Director Name</span
+                            >
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
+                        </span>
+                    </a>
+                </figure>
+
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/movies/vampire-hunter-d-bloodlust/"
+                        aria-label="Vampire Hunter D: Bloodlust"
+                    >
+                        <span class="tracker-cover">
+                            <img
+                                src="https://assets.danieldaum.net/img/movies/vampire-hunter-d.webp"
+                                alt="Vampire Hunter D: Bloodlust"
+                                loading="lazy"
+                            />
+                        </span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >Vampire Hunter D: Bloodlust</span
+                            >
+                            <span class="tracker-caption-sub"
+                                >Director Name</span
+                            >
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
+                        </span>
+                    </a>
+                </figure>
+
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/movies/tropic-thunder/"
+                        aria-label="Tropic Thunder"
+                    >
+                        <span class="tracker-cover">
+                            <img
+                                src="https://assets.danieldaum.net/img/movies/tropic-thunder.webp"
+                                alt="Tropic Thunder"
+                                loading="lazy"
+                            />
+                        </span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >Tropic Thunder</span
+                            >
+                            <span class="tracker-caption-sub"
+                                >Director Name</span
+                            >
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
+                        </span>
+                    </a>
+                </figure>
+
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/movies/the-sheep-detectives/"
+                        aria-label="The Sheep Detectives"
+                    >
+                        <span class="tracker-cover">
+                            <img
+                                src="https://assets.danieldaum.net/img/movies/the-sheep-detectives.webp"
+                                alt="The Sheep Detectives"
+                                loading="lazy"
+                            />
+                        </span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >The Sheep Detectives</span
+                            >
+                            <span class="tracker-caption-sub"
+                                >Director Name</span
+                            >
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
+                        </span>
+                    </a>
+                </figure>
+
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/movies/the-rip/"
+                        aria-label="The Rip"
+                    >
+                        <span class="tracker-cover">
+                            <img
+                                src="https://assets.danieldaum.net/img/movies/the-rip.webp"
+                                alt="The Rip"
+                                loading="lazy"
+                            />
+                        </span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title">The Rip</span>
+                            <span class="tracker-caption-sub"
+                                >Director Name</span
+                            >
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
+                        </span>
+                    </a>
+                </figure>
+
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/movies/spider-man-into-the-spider-verse/"
+                        aria-label="Spider-Man: Into the Spider-Verse"
+                    >
+                        <span class="tracker-cover">
+                            <img
+                                src="https://assets.danieldaum.net/img/movies/into-the-spider-verse.webp"
+                                alt="Spider-Man: Into the Spider-Verse"
+                                loading="lazy"
+                            />
+                        </span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >Spider-Man: Into the Spider-Verse</span
+                            >
+                            <span class="tracker-caption-sub"
+                                >Director Name</span
+                            >
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
+                        </span>
+                    </a>
+                </figure>
+            </section>
+
+            <h2>2025</h2>
+
+            <section class="tracker-wall" aria-label="movies logged in 2025">
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/movies/a-house-of-dynamite/"
+                        aria-label="A House of Dynamite"
+                    >
+                        <span class="tracker-cover">
+                            <img
+                                src="https://assets.danieldaum.net/img/movies/a-house-of-dynamite.webp"
+                                alt="A House of Dynamite"
+                                loading="lazy"
+                            />
+                        </span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >A House of Dynamite</span
+                            >
+                            <span class="tracker-caption-sub"
+                                >Director Name</span
+                            >
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
+                        </span>
+                    </a>
+                </figure>
+
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/movies/sinners/"
+                        aria-label="Sinners"
+                    >
+                        <span class="tracker-cover">
+                            <img
+                                src="https://assets.danieldaum.net/img/movies/sinners.webp"
+                                alt="Sinners"
+                                loading="lazy"
+                            />
+                        </span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title">Sinners</span>
+                            <span class="tracker-caption-sub"
+                                >Director Name</span
+                            >
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
+                        </span>
+                    </a>
+                </figure>
+
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/movies/wake-up-dead-man-a-knives-out-mystery/"
+                        aria-label="Wake Up Dead Man: A Knives Out Mystery"
+                    >
+                        <span class="tracker-cover">
+                            <img
+                                src="https://assets.danieldaum.net/img/movies/wake-up-dead-man.webp"
+                                alt="Wake Up Dead Man: A Knives Out Mystery"
+                                loading="lazy"
+                            />
+                        </span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >Wake Up Dead Man: A Knives Out Mystery</span
+                            >
+                            <span class="tracker-caption-sub"
+                                >Director Name</span
+                            >
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
+                        </span>
+                    </a>
+                </figure>
+
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/movies/weapons/"
+                        aria-label="Weapons"
+                    >
+                        <span class="tracker-cover">
+                            <img
+                                src="https://assets.danieldaum.net/img/movies/weapons.webp"
+                                alt="Weapons"
+                                loading="lazy"
+                            />
+                        </span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title">Weapons</span>
+                            <span class="tracker-caption-sub"
+                                >Director Name</span
+                            >
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
+                        </span>
+                    </a>
+                </figure>
+
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/movies/alien-romulus/"
+                        aria-label="Alien: Romulus"
+                    >
+                        <span class="tracker-cover">
+                            <img
+                                src="https://assets.danieldaum.net/img/movies/alien-romulus.webp"
+                                alt="Alien: Romulus"
+                                loading="lazy"
+                            />
+                        </span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >Alien: Romulus</span
+                            >
+                            <span class="tracker-caption-sub"
+                                >Director Name</span
+                            >
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
+                        </span>
+                    </a>
+                </figure>
+
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/movies/smile/"
+                        aria-label="Smile"
+                    >
+                        <span class="tracker-cover">
+                            <img
+                                src="https://assets.danieldaum.net/img/movies/smile.webp"
+                                alt="Smile"
+                                loading="lazy"
+                            />
+                        </span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title">Smile</span>
+                            <span class="tracker-caption-sub"
+                                >Director Name</span
+                            >
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
+                        </span>
+                    </a>
+                </figure>
+
+                <figure class="tracker-tile">
+                    <a class="tracker-link" href="/movies/f1/" aria-label="F1">
+                        <span class="tracker-cover">
+                            <img
+                                src="https://assets.danieldaum.net/img/movies/f1.webp"
+                                alt="F1"
+                                loading="lazy"
+                            />
+                        </span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title">F1</span>
+                            <span class="tracker-caption-sub"
+                                >Director Name</span
+                            >
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
+                        </span>
+                    </a>
+                </figure>
+
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/movies/longlegs/"
+                        aria-label="Longlegs"
+                    >
+                        <span class="tracker-cover">
+                            <img
+                                src="https://assets.danieldaum.net/img/movies/longlegs.webp"
+                                alt="Longlegs"
+                                loading="lazy"
+                            />
+                        </span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title">Longlegs</span>
+                            <span class="tracker-caption-sub"
+                                >Director Name</span
+                            >
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
+                        </span>
+                    </a>
+                </figure>
+
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/movies/poor-things/"
+                        aria-label="Poor Things"
+                    >
+                        <span class="tracker-cover">
+                            <img
+                                src="https://assets.danieldaum.net/img/movies/poor-things.webp"
+                                alt="Poor Things"
+                                loading="lazy"
+                            />
+                        </span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >Poor Things</span
+                            >
+                            <span class="tracker-caption-sub"
+                                >Director Name</span
+                            >
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
+                        </span>
+                    </a>
+                </figure>
+
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/movies/kinds-of-kindness/"
+                        aria-label="Kinds of Kindness"
+                    >
+                        <span class="tracker-cover">
+                            <img
+                                src="https://assets.danieldaum.net/img/movies/kinds-of-kindness.webp"
+                                alt="Kinds of Kindness"
+                                loading="lazy"
+                            />
+                        </span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >Kinds of Kindness</span
+                            >
+                            <span class="tracker-caption-sub"
+                                >Director Name</span
+                            >
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
+                        </span>
+                    </a>
+                </figure>
+
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/movies/prey/"
+                        aria-label="Prey"
+                    >
+                        <span class="tracker-cover">
+                            <img
+                                src="https://assets.danieldaum.net/img/movies/prey.webp"
+                                alt="Prey"
+                                loading="lazy"
+                            />
+                        </span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title">Prey</span>
+                            <span class="tracker-caption-sub"
+                                >Director Name</span
+                            >
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
+                        </span>
+                    </a>
+                </figure>
+
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/movies/the-iron-claw/"
+                        aria-label="The Iron Claw"
+                    >
+                        <span class="tracker-cover">
+                            <img
+                                src="https://assets.danieldaum.net/img/movies/the-iron-claw.webp"
+                                alt="The Iron Claw"
+                                loading="lazy"
+                            />
+                        </span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >The Iron Claw</span
+                            >
+                            <span class="tracker-caption-sub"
+                                >Director Name</span
+                            >
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
+                        </span>
+                    </a>
+                </figure>
+            </section>
+        </main>
+
+        <!-- ===== FOOTER ===== -->
+        <footer>
+            <nav aria-label="site links">
+                <p aria-hidden="true">//</p>
+                <a href="mailto:daniel@danieldaum.net"> email </a>
+                <a
+                    href="https://git.danieldaum.net/"
+                    aria-label="git (opens in new tab)"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >git
                 </a>
-            </figure>
-        </section>
-    </main>
-
-    <!-- ===== FOOTER ===== -->
-    <footer>
-        <nav aria-label="site links">
-            <p aria-hidden="true">//</p>
-            <a href="mailto:daniel@danieldaum.net">
-                email
-            </a>
-            <a href="https://git.danieldaum.net/" aria-label="git (opens in new tab)" target="_blank"
-                rel="noopener noreferrer">git
-            </a>
-            <a href="/pgp.asc" aria-label="PGP public key (516E97FF)">PGP</a>
-            <a href="/changelog/">changelog</a>
-            <a href="/privacy/">privacy</a>
-            <a href="/feed.xml">feed</a>
-        </nav>
-    </footer>
-</body>
-
+                <a href="/pgp.asc" aria-label="PGP public key (516E97FF)"
+                    >PGP</a
+                >
+                <a href="/changelog/">changelog</a>
+                <a href="/privacy/">privacy</a>
+                <a href="/feed.xml">feed</a>
+            </nav>
+        </footer>
+    </body>
 </html>

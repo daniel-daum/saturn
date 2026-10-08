@@ -1,220 +1,335 @@
 <!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="saturn's changelog" />
+        <meta
+            http-equiv="Content-Security-Policy"
+            content="default-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;"
+        />
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
+        <link
+            rel="preload"
+            href="/assets/fonts/ioskeleymono/IoskeleyMono-Regular.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin
+        />
+        <link
+            rel="preload"
+            href="/assets/fonts/ioskeleymono/IoskeleyMono-Bold.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin
+        />
+        <link
+            rel="preload"
+            href="/assets/fonts/ioskeleymono/IoskeleyMono-SemiBold.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin
+        />
+        <link rel="preconnect" href="https://assets.danieldaum.net" />
+        <link rel="stylesheet" href="/global.css" />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/assets/favicon/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/assets/favicon/favicon-16x16.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/assets/favicon/apple-touch-icon.png"
+        />
+        <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+        <link
+            rel="alternate"
+            type="application/atom+xml"
+            title="daniel daum"
+            href="https://danieldaum.net/feed.xml"
+        />
+        <title>daniel daum - changelog</title>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="saturn's changelog" />
-    <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;" />
-    <meta name="referrer" content="strict-origin-when-cross-origin" />
-    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Regular.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Bold.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preconnect" href="https://assets.danieldaum.net" />
-    <link rel="stylesheet" href="/global.css" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
-    <link rel="manifest" href="/assets/favicon/site.webmanifest" />
-    <link rel="alternate" type="application/atom+xml" title="daniel daum" href="https://danieldaum.net/feed.xml" />
-    <title>daniel daum - changelog</title>
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="daniel daum" />
+        <meta property="og:title" content="daniel daum - changelog" />
+        <meta property="og:description" content="saturn's changelog" />
+        <meta property="og:url" content="https://danieldaum.net/changelog/" />
+        <meta
+            property="og:image"
+            content="https://assets.danieldaum.net/img/misc/og.jpg"
+        />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta
+            property="og:image:alt"
+            content="daniel daum - software engineer, avid reader, aspiring game dev - danieldaum.net"
+        />
 
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="daniel daum" />
-    <meta property="og:title" content="daniel daum - changelog" />
-    <meta property="og:description" content="saturn's changelog" />
-    <meta property="og:url" content="https://danieldaum.net/changelog/" />
-    <meta property="og:image" content="https://assets.danieldaum.net/img/misc/og.jpg" />
-    <meta property="og:image:type" content="image/jpeg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="daniel daum - software engineer, avid reader, aspiring game dev - danieldaum.net" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="daniel daum - changelog" />
+        <meta name="twitter:description" content="saturn's changelog" />
+        <meta
+            name="twitter:image"
+            content="https://assets.danieldaum.net/img/misc/og.jpg"
+        />
+        <meta
+            name="twitter:image:alt"
+            content="daniel daum - software engineer, avid reader, aspiring game dev - danieldaum.net"
+        />
+    </head>
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="daniel daum - changelog" />
-    <meta name="twitter:description" content="saturn's changelog" />
-    <meta name="twitter:image" content="https://assets.danieldaum.net/img/misc/og.jpg" />
-    <meta name="twitter:image:alt" content="daniel daum - software engineer, avid reader, aspiring game dev - danieldaum.net" />
-</head>
+    <body>
+        <a class="skip-link" href="#main">skip to content</a>
 
-<body>
-    <a class="skip-link" href="#main">skip to content</a>
-
-    <!-- ===== HEADER ===== -->
-    <header class="site-header">
-        <a class="site-name" href="/">Daniel Daum</a>
-        <nav aria-label="main navigation">
-            <a href="/">home</a>
-            <a href="/about/">about</a>
-            <a href="/now/">now</a>
-            <a href="/blog/">blog</a>
-            <a href="/projects/">projects</a>
-            <a href="/garden/">garden</a>
-        </nav>
-    </header>
-    <!-- ===== MAIN ===== -->
-    <main id="main">
-        <header class="page-header">
-            <h1><span aria-hidden="true">/</span>changelog</h1>
-            <p class="meta">Tracking the changes to this website</p>
-
+        <!-- ===== HEADER ===== -->
+        <header class="site-header">
+            <a class="site-name" href="/">Daniel Daum</a>
+            <nav aria-label="main navigation">
+                <a href="/">home</a>
+                <a href="/about/">about</a>
+                <a href="/now/">now</a>
+                <a href="/blog/">blog</a>
+                <a href="/projects/">projects</a>
+                <a href="/garden/">garden</a>
+            </nav>
         </header>
-        <section>
-            <blockquote>
-                <h2>v0.4.0 — 2026-09-03 — blog redesign</h2>
-                <p class="meta">micro posts, likes, replies, and a feed</p>
+        <!-- ===== MAIN ===== -->
+        <main id="main">
+            <header class="page-header">
+                <h1><span aria-hidden="true">/</span>changelog</h1>
+                <p class="meta">Tracking the changes to this website</p>
+            </header>
+            <section>
+                <blockquote>
+                    <h2>v0.5.0 — 2026-10-08 — comments and a cleaner look</h2>
+                    <p class="meta">
+                        likes, comments by email, and a calmer post layout
+                    </p>
 
-                <h3>added</h3>
-                <ul>
-                    <li>micro posts pulled from my bluesky pds and injected at the edge (/blog/micro)</li>
-                    <li>likes and reply-by-email comments on blog posts, backed by d1 and an email worker</li>
-                    <li>atom feed (/feed.xml) and autodiscovery links on every page</li>
-                    <li>now page archive (/now/jan-2026, /now/sep-2026)</li>
-                    <li>garden trackers: books, movies, shows, games, music, and the ratings scale</li>
-                    <li>privacy page</li>
-                </ul>
+                    <p>
+                        Likes and comments by email are back, rebuilt to keep
+                        less about you. The privacy page says exactly what's
+                        stored. Micro posts are gone, the garden trackers moved
+                        to their own pages at /books/, /movies/, /shows/,
+                        /games/ and /music/, and links to the site now show a
+                        preview card.
+                    </p>
+                    <p>
+                        Posts sit in a panel on a darker page, with one quiet
+                        footer for likes and comments, previous/next cards
+                        underneath, and easier-to-read headings and text,
+                        especially on phones.
+                    </p>
+                </blockquote>
+                <hr />
+                <blockquote>
+                    <h2>v0.4.0 — 2026-09-03 — blog redesign</h2>
+                    <p class="meta">micro posts, likes, replies, and a feed</p>
 
-                <h3>changed</h3>
-                <ul>
-                    <li>homepage: recent activity feed, featured post, and recent writing list</li>
-                    <li>blog index: featured micro post plus a table of longform writing</li>
-                    <li>footer links: privacy and feed</li>
-                    <li>link hover text uses the page background colour instead of white for contrast</li>
-                </ul>
+                    <h3>added</h3>
+                    <ul>
+                        <li>
+                            micro posts pulled from my bluesky pds and injected
+                            at the edge (/blog/micro)
+                        </li>
+                        <li>
+                            likes and reply-by-email comments on blog posts,
+                            backed by d1 and an email worker
+                        </li>
+                        <li>
+                            atom feed (/feed.xml) and autodiscovery links on
+                            every page
+                        </li>
+                        <li>now page archive (/now/jan-2026, /now/sep-2026)</li>
+                        <li>
+                            garden trackers: books, movies, shows, games, music,
+                            and the ratings scale
+                        </li>
+                        <li>privacy page</li>
+                    </ul>
 
-                <h3>removed</h3>
-                <ul>
-                    <li>unused footer ticker, project status tags, and leftover reset rules from global.css</li>
-                    <li>the jpeg favicon link (the png set and manifest remain)</li>
-                </ul>
-            </blockquote>
-            <hr>
-            <blockquote>
-                <h2>v0.3.2 — 2026-07-09 — fix table</h2>
-                <p class="meta">update table css for responsive borders</p>
-                <h3>fix</h3>
-                <ul>
-                    <li>make table borders responsive on smaller screens</li>
-                </ul>
-            </blockquote>
-            <hr>
-            <blockquote>
-                <h2>v0.3.1 — 2026-07-08 — asset cleanup</h2>
-                <p class="meta">restructured static assets ahead of the cloudflare cdn move</p>
+                    <h3>changed</h3>
+                    <ul>
+                        <li>
+                            homepage: recent activity feed, featured post, and
+                            recent writing list
+                        </li>
+                        <li>
+                            blog index: featured micro post plus a table of
+                            longform writing
+                        </li>
+                        <li>footer links: privacy and feed</li>
+                        <li>
+                            link hover text uses the page background colour
+                            instead of white for contrast
+                        </li>
+                    </ul>
 
-                <h3>changed</h3>
-                <ul>
-                    <li>moved /src/assets to top-level /assets</li>
-                    <li>updated font and favicon paths across the site to match</li>
-                </ul>
+                    <h3>removed</h3>
+                    <ul>
+                        <li>
+                            unused footer ticker, project status tags, and
+                            leftover reset rules from global.css
+                        </li>
+                        <li>
+                            the jpeg favicon link (the png set and manifest
+                            remain)
+                        </li>
+                    </ul>
+                </blockquote>
+                <hr />
+                <blockquote>
+                    <h2>v0.3.2 — 2026-07-09 — fix table</h2>
+                    <p class="meta">update table css for responsive borders</p>
+                    <h3>fix</h3>
+                    <ul>
+                        <li>
+                            make table borders responsive on smaller screens
+                        </li>
+                    </ul>
+                </blockquote>
+                <hr />
+                <blockquote>
+                    <h2>v0.3.1 — 2026-07-08 — asset cleanup</h2>
+                    <p class="meta">
+                        restructured static assets ahead of the cloudflare cdn
+                        move
+                    </p>
 
-                <h3>removed</h3>
-                <ul>
-                    <li>unused projects/saturn/saturn.png</li>
-                </ul>
+                    <h3>changed</h3>
+                    <ul>
+                        <li>moved /src/assets to top-level /assets</li>
+                        <li>
+                            updated font and favicon paths across the site to
+                            match
+                        </li>
+                    </ul>
 
-            </blockquote>
-            <hr>
-            <blockquote>
-                <h2>v0.3.0 — 2026-07-06 — site redesign</h2>
-                <p class="meta">new pages, visual refresh, real content</p>
+                    <h3>removed</h3>
+                    <ul>
+                        <li>unused projects/saturn/saturn.png</li>
+                    </ul>
+                </blockquote>
+                <hr />
+                <blockquote>
+                    <h2>v0.3.0 — 2026-07-06 — site redesign</h2>
+                    <p class="meta">new pages, visual refresh, real content</p>
 
-                <h3>added</h3>
-                <ul>
-                    <li>hero section on the homepage</li>
-                    <li>about page</li>
-                    <li>blog page</li>
-                    <li>garden page</li>
-                    <li>garden/styles page</li>
-                    <li>garden/photos page</li>
-                    <li>images and assets now served from cloudflare r2</li>
-                </ul>
-            </blockquote>
-            <blockquote>
-                <h3>changed</h3>
-                <ul>
-                    <li>header nav styles</li>
-                    <li>saturn project page</li>
-                    <li>projects listing page</li>
-                    <li>typography and color palette across the site</li>
-                    <li>blog and homepage "recent writing" now link to real posts instead of placeholders</li>
-                </ul>
-            </blockquote>
-            <hr>
-            <blockquote>
-                <h2>v0.2.0 — 2026-06-10 — clean slate</h2>
-                <p class="meta">polish and foundation</p>
+                    <h3>added</h3>
+                    <ul>
+                        <li>hero section on the homepage</li>
+                        <li>about page</li>
+                        <li>blog page</li>
+                        <li>garden page</li>
+                        <li>garden/styles page</li>
+                        <li>garden/photos page</li>
+                        <li>images and assets now served from cloudflare r2</li>
+                    </ul>
+                </blockquote>
+                <blockquote>
+                    <h3>changed</h3>
+                    <ul>
+                        <li>header nav styles</li>
+                        <li>saturn project page</li>
+                        <li>projects listing page</li>
+                        <li>typography and color palette across the site</li>
+                        <li>
+                            blog and homepage "recent writing" now link to real
+                            posts instead of placeholders
+                        </li>
+                    </ul>
+                </blockquote>
+                <hr />
+                <blockquote>
+                    <h2>v0.2.0 — 2026-06-10 — clean slate</h2>
+                    <p class="meta">polish and foundation</p>
 
-                <h3>added</h3>
-                <ul>
-                    <li>pgp key in footer</li>
-                    <li>aria labels across all pages</li>
-                    <li>now/archive page</li>
-                    <li>writing and garden stub pages</li>
-                    <li>svg favicon</li>
-                </ul>
+                    <h3>added</h3>
+                    <ul>
+                        <li>pgp key in footer</li>
+                        <li>aria labels across all pages</li>
+                        <li>now/archive page</li>
+                        <li>writing and garden stub pages</li>
+                        <li>svg favicon</li>
+                    </ul>
 
-                <h3>changed</h3>
-                <ul>
-                    <li>font changed from geist mono to ioskeley mono</li>
-                    <li>directory structure updated for cleaner url endpoints</li>
-                    <li>streamlined css</li>
-                    <li>standardized favicon across the site</li>
-                    <li>updated element spacing across the site</li>
-                    <li>added mise.toml for toolchain config</li>
-                    <li>added favicon link to all pages</li>
-                    <li>capitalized bio text in index.html</li>
-                    <li>cleaned up .gitignore</li>
-                    <li>adjusted .project-type font size to 0.7rem</li>
-                    <li>added scrollbar-gutter and base font-size to html</li>
-                </ul>
+                    <h3>changed</h3>
+                    <ul>
+                        <li>font changed from geist mono to ioskeley mono</li>
+                        <li>
+                            directory structure updated for cleaner url
+                            endpoints
+                        </li>
+                        <li>streamlined css</li>
+                        <li>standardized favicon across the site</li>
+                        <li>updated element spacing across the site</li>
+                        <li>added mise.toml for toolchain config</li>
+                        <li>added favicon link to all pages</li>
+                        <li>capitalized bio text in index.html</li>
+                        <li>cleaned up .gitignore</li>
+                        <li>adjusted .project-type font size to 0.7rem</li>
+                        <li>
+                            added scrollbar-gutter and base font-size to html
+                        </li>
+                    </ul>
 
-                <h3>fixed</h3>
-                <ul>
-                    <li>header standardized across all pages</li>
-                    <li>footer standardized across all pages</li>
-                </ul>
+                    <h3>fixed</h3>
+                    <ul>
+                        <li>header standardized across all pages</li>
+                        <li>footer standardized across all pages</li>
+                    </ul>
+                </blockquote>
+                <hr />
+                <blockquote>
+                    <h2>v0.1.0 — 2026-06-10</h2>
+                    <p class="meta">initial release</p>
 
-            </blockquote>
-            <hr>
-            <blockquote>
-                <h2>v0.1.0 — 2026-06-10</h2>
-                <p class="meta">initial release</p>
-
-                <h3>added</h3>
-                <ul>
-                    <li>homepage with intro and bio</li>
-                    <li>now page</li>
-                    <li>projects page</li>
-                    <li>404 page</li>
-                    <li>changelog page (this page)</li>
-                    <li>changelog link in footer</li>
-                    <li>geist mono variable font</li>
-                    <li>
-                        global css with dark theme, responsive layout, print styles
-                    </li>
-                </ul>
-            </blockquote>
-        </section>
-
-    </main>
-    <!-- ===== FOOTER ===== -->
-    <footer>
-        <nav aria-label="site links">
-            <p aria-hidden="true">//</p>
-            <a href="mailto:daniel@danieldaum.net">
-                email
-            </a>
-            <a href="https://git.danieldaum.net/" aria-label="git (opens in new tab)" target="_blank"
-                rel="noopener noreferrer">git
-            </a>
-            <a href="/pgp.asc" aria-label="PGP public key (516E97FF)">PGP</a>
-            <a href="/changelog/">changelog</a>
-            <a href="/privacy/">privacy</a>
-            <a href="/feed.xml">feed</a>
-        </nav>
-    </footer>
-</body>
-
+                    <h3>added</h3>
+                    <ul>
+                        <li>homepage with intro and bio</li>
+                        <li>now page</li>
+                        <li>projects page</li>
+                        <li>404 page</li>
+                        <li>changelog page (this page)</li>
+                        <li>changelog link in footer</li>
+                        <li>geist mono variable font</li>
+                        <li>
+                            global css with dark theme, responsive layout, print
+                            styles
+                        </li>
+                    </ul>
+                </blockquote>
+            </section>
+        </main>
+        <!-- ===== FOOTER ===== -->
+        <footer>
+            <nav aria-label="site links">
+                <p aria-hidden="true">//</p>
+                <a href="mailto:daniel@danieldaum.net"> email </a>
+                <a
+                    href="https://git.danieldaum.net/"
+                    aria-label="git (opens in new tab)"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >git
+                </a>
+                <a href="/pgp.asc" aria-label="PGP public key (516E97FF)"
+                    >PGP</a
+                >
+                <a href="/changelog/">changelog</a>
+                <a href="/privacy/">privacy</a>
+                <a href="/feed.xml">feed</a>
+            </nav>
+        </footer>
+    </body>
 </html>

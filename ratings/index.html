@@ -1,191 +1,291 @@
 <!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="daniel daum's rating system - what 1 through 5 mean, and the colors that go with them"
+        />
+        <meta
+            http-equiv="Content-Security-Policy"
+            content="default-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;"
+        />
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
+        <link
+            rel="preload"
+            href="/assets/fonts/ioskeleymono/IoskeleyMono-Regular.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin
+        />
+        <link
+            rel="preload"
+            href="/assets/fonts/ioskeleymono/IoskeleyMono-Bold.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin
+        />
+        <link
+            rel="preload"
+            href="/assets/fonts/ioskeleymono/IoskeleyMono-SemiBold.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin
+        />
+        <link rel="preconnect" href="https://assets.danieldaum.net" />
+        <link rel="stylesheet" href="/global.css" />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/assets/favicon/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/assets/favicon/favicon-16x16.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/assets/favicon/apple-touch-icon.png"
+        />
+        <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+        <link
+            rel="alternate"
+            type="application/atom+xml"
+            title="daniel daum"
+            href="https://danieldaum.net/feed.xml"
+        />
+        <title>daniel daum - ratings</title>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="daniel daum's rating system - what 1 through 5 mean, and the colors that go with them" />
-    <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;" />
-    <meta name="referrer" content="strict-origin-when-cross-origin" />
-    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Regular.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Bold.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preconnect" href="https://assets.danieldaum.net" />
-    <link rel="stylesheet" href="/global.css" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
-    <link rel="manifest" href="/assets/favicon/site.webmanifest" />
-    <link rel="alternate" type="application/atom+xml" title="daniel daum" href="https://danieldaum.net/feed.xml" />
-    <title>daniel daum - ratings</title>
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="daniel daum" />
+        <meta property="og:title" content="daniel daum - ratings" />
+        <meta
+            property="og:description"
+            content="daniel daum's rating system - what 1 through 5 mean, and the colors that go with them"
+        />
+        <meta property="og:url" content="https://danieldaum.net/ratings/" />
+        <meta
+            property="og:image"
+            content="https://assets.danieldaum.net/img/misc/og.jpg"
+        />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta
+            property="og:image:alt"
+            content="daniel daum - software engineer, avid reader, aspiring game dev - danieldaum.net"
+        />
 
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="daniel daum" />
-    <meta property="og:title" content="daniel daum - ratings" />
-    <meta property="og:description" content="daniel daum's rating system - what 1 through 5 mean, and the colors that go with them" />
-    <meta property="og:url" content="https://danieldaum.net/ratings/" />
-    <meta property="og:image" content="https://assets.danieldaum.net/img/misc/og.jpg" />
-    <meta property="og:image:type" content="image/jpeg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="daniel daum - software engineer, avid reader, aspiring game dev - danieldaum.net" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="daniel daum - ratings" />
+        <meta
+            name="twitter:description"
+            content="daniel daum's rating system - what 1 through 5 mean, and the colors that go with them"
+        />
+        <meta
+            name="twitter:image"
+            content="https://assets.danieldaum.net/img/misc/og.jpg"
+        />
+        <meta
+            name="twitter:image:alt"
+            content="daniel daum - software engineer, avid reader, aspiring game dev - danieldaum.net"
+        />
+    </head>
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="daniel daum - ratings" />
-    <meta name="twitter:description" content="daniel daum's rating system - what 1 through 5 mean, and the colors that go with them" />
-    <meta name="twitter:image" content="https://assets.danieldaum.net/img/misc/og.jpg" />
-    <meta name="twitter:image:alt" content="daniel daum - software engineer, avid reader, aspiring game dev - danieldaum.net" />
-</head>
+    <body>
+        <a class="skip-link" href="#main">skip to content</a>
 
-<body>
-
-    <a class="skip-link" href="#main">skip to content</a>
-
-    <!-- ===== HEADER ===== -->
-    <header class="site-header">
-        <a class="site-name" href="/">Daniel Daum</a>
-        <nav aria-label="main navigation">
-            <a href="/">home</a>
-            <a href="/about/">about</a>
-            <a href="/now/">now</a>
-            <a href="/blog/">blog</a>
-            <a href="/projects/">projects</a>
-            <a href="/garden/">garden</a>
-        </nav>
-    </header>
-
-    <!-- ===== MAIN ===== -->
-    <main id="main">
-        <nav class="breadcrumb" aria-label="breadcrumb"><a href="/garden/">garden</a> <span aria-hidden="true">-></span> <a href="/ratings/">ratings</a></nav>
-
-        <header class="page-header">
-            <h1><span aria-hidden="true">/</span>ratings</h1>
-            <p class="meta">How I score things in the garden. One number out of five.</p>
+        <!-- ===== HEADER ===== -->
+        <header class="site-header">
+            <a class="site-name" href="/">Daniel Daum</a>
+            <nav aria-label="main navigation">
+                <a href="/">home</a>
+                <a href="/about/">about</a>
+                <a href="/now/">now</a>
+                <a href="/blog/">blog</a>
+                <a href="/projects/">projects</a>
+                <a href="/garden/">garden</a>
+            </nav>
         </header>
 
-        <section>
-            <h2 class="caps">the scale</h2>
-            <p>
-                Everything in the garden gets one score out of five. The score is about how much I enjoyed it,
-                not how well made it is.
-            </p>
+        <!-- ===== MAIN ===== -->
+        <main id="main">
+            <nav class="breadcrumb" aria-label="breadcrumb">
+                <a href="/garden/">garden</a> <span aria-hidden="true">-></span>
+                <a href="/ratings/">ratings</a>
+            </nav>
 
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col" class="table-col-rating">rating</th>
-                        <th scope="col" class="table-col-label">label</th>
-                        <th scope="col">what it means</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="table-row">
-                        <td><span class="rating rating--terrible">(1/5)</span></td>
-                        <td class="table-desc">terrible</td>
-                        <td class="table-desc">Didn't finish it, or wish I hadn't.</td>
-                    </tr>
-                    <tr class="table-row">
-                        <td><span class="rating rating--below-average">(2/5)</span></td>
-                        <td class="table-desc">below average</td>
-                        <td class="table-desc">Finished it, but wouldn't recommend it.</td>
-                    </tr>
-                    <tr class="table-row">
-                        <td><span class="rating rating--good">(3/5)</span></td>
-                        <td class="table-desc">average</td>
-                        <td class="table-desc">Fine. No regrets, no strong feelings.</td>
-                    </tr>
-                    <tr class="table-row">
-                        <td><span class="rating rating--above-average">(4/5)</span></td>
-                        <td class="table-desc">above average</td>
-                        <td class="table-desc">Really liked it. Would recommend.</td>
-                    </tr>
-                    <tr class="table-row">
-                        <td><span class="rating rating--great">(5/5)</span></td>
-                        <td class="table-desc">great</td>
-                        <td class="table-desc">A favorite. It goes on the favorites shelf at the top of its page.</td>
-                    </tr>
-                </tbody>
-            </table>
+            <header class="page-header">
+                <h1><span aria-hidden="true">/</span>ratings</h1>
+                <p class="meta">
+                    How I score things in the garden. One number out of five.
+                </p>
+            </header>
 
-            <p class="meta">
-                Half points are allowed. Anything I haven't scored yet shows as
-                <span class="rating">(?/5)</span>.
-            </p>
+            <section>
+                <h2 class="caps">the scale</h2>
+                <p>
+                    Everything in the garden gets one score out of five. The
+                    score is about how much I enjoyed it, not how well made it
+                    is.
+                </p>
 
-            <h2 class="caps">the colors</h2>
-            <p>
-                Each score has its own color so a wall of covers is easy to scan. Red for the low end, green for
-                the high end.
-            </p>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="table-col-rating">rating</th>
+                            <th scope="col" class="table-col-label">label</th>
+                            <th scope="col">what it means</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="table-row">
+                            <td>
+                                <span class="rating rating--terrible"
+                                    >(1/5)</span
+                                >
+                            </td>
+                            <td class="table-desc">terrible</td>
+                            <td class="table-desc">
+                                Didn't finish it, or wish I hadn't.
+                            </td>
+                        </tr>
+                        <tr class="table-row">
+                            <td>
+                                <span class="rating rating--below-average"
+                                    >(2/5)</span
+                                >
+                            </td>
+                            <td class="table-desc">below average</td>
+                            <td class="table-desc">
+                                Finished it, but wouldn't recommend it.
+                            </td>
+                        </tr>
+                        <tr class="table-row">
+                            <td>
+                                <span class="rating rating--good">(3/5)</span>
+                            </td>
+                            <td class="table-desc">average</td>
+                            <td class="table-desc">
+                                Fine. No regrets, no strong feelings.
+                            </td>
+                        </tr>
+                        <tr class="table-row">
+                            <td>
+                                <span class="rating rating--above-average"
+                                    >(4/5)</span
+                                >
+                            </td>
+                            <td class="table-desc">above average</td>
+                            <td class="table-desc">
+                                Really liked it. Would recommend.
+                            </td>
+                        </tr>
+                        <tr class="table-row">
+                            <td>
+                                <span class="rating rating--great">(5/5)</span>
+                            </td>
+                            <td class="table-desc">great</td>
+                            <td class="table-desc">
+                                A favorite. It goes on the favorites shelf at
+                                the top of its page.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
 
-            <div class="swatch-row">
-                <div class="swatch">
-                    <div class="swatch-block rating--terrible"></div>
-                    <p class="swatch-name">--rating-terrible</p>
-                    <p class="swatch-value">#e86b6b</p>
+                <p class="meta">
+                    Half points are allowed. Anything I haven't scored yet shows
+                    as
+                    <span class="rating">(?/5)</span>.
+                </p>
+
+                <h2 class="caps">the colors</h2>
+                <p>
+                    Each score has its own color so a wall of covers is easy to
+                    scan. Red for the low end, green for the high end.
+                </p>
+
+                <div class="swatch-row">
+                    <div class="swatch">
+                        <div class="swatch-block rating--terrible"></div>
+                        <p class="swatch-name">--rating-terrible</p>
+                        <p class="swatch-value">#e86b6b</p>
+                    </div>
+                    <div class="swatch">
+                        <div class="swatch-block rating--below-average"></div>
+                        <p class="swatch-name">--rating-below-average</p>
+                        <p class="swatch-value">#d9a441</p>
+                    </div>
+                    <div class="swatch">
+                        <div class="swatch-block rating--good"></div>
+                        <p class="swatch-name">--rating-good</p>
+                        <p class="swatch-value">#bdbd7f</p>
+                    </div>
+                    <div class="swatch">
+                        <div class="swatch-block rating--above-average"></div>
+                        <p class="swatch-name">--rating-above-average</p>
+                        <p class="swatch-value">#a9c94f</p>
+                    </div>
+                    <div class="swatch">
+                        <div class="swatch-block rating--great"></div>
+                        <p class="swatch-name">--rating-great</p>
+                        <p class="swatch-value">#7ec98f</p>
+                    </div>
                 </div>
-                <div class="swatch">
-                    <div class="swatch-block rating--below-average"></div>
-                    <p class="swatch-name">--rating-below-average</p>
-                    <p class="swatch-value">#d9a441</p>
-                </div>
-                <div class="swatch">
-                    <div class="swatch-block rating--good"></div>
-                    <p class="swatch-name">--rating-good</p>
-                    <p class="swatch-value">#bdbd7f</p>
-                </div>
-                <div class="swatch">
-                    <div class="swatch-block rating--above-average"></div>
-                    <p class="swatch-name">--rating-above-average</p>
-                    <p class="swatch-value">#a9c94f</p>
-                </div>
-                <div class="swatch">
-                    <div class="swatch-block rating--great"></div>
-                    <p class="swatch-name">--rating-great</p>
-                    <p class="swatch-value">#7ec98f</p>
-                </div>
-            </div>
 
-            <p class="meta">
-                The number is always shown next to the color. In high contrast mode the colors get brighter.
-            </p>
+                <p class="meta">
+                    The number is always shown next to the color. In high
+                    contrast mode the colors get brighter.
+                </p>
 
-            <h2 class="caps">in markup</h2>
-            <p>
-                A rating is one element with two classes. The modifier sets the color, and the link goes back to
-                this page.
-            </p>
-            <pre><code>&lt;a class="rating rating--great" href="/ratings/"&gt;(5/5)&lt;/a&gt;</code></pre>
-            <p class="meta">
-                Modifiers, 1 to 5: <code>rating--terrible</code>, <code>rating--below-average</code>,
-                <code>rating--good</code>, <code>rating--above-average</code>, <code>rating--great</code>.
-                Leave the modifier off for an unrated entry.
-            </p>
-            <p>
-                On a tracker tile the caption is already a link, so the rating there is a span instead of a
-                second link. It looks the same.
-            </p>
-            <pre><code>&lt;span class="rating rating--great"&gt;(5/5)&lt;/span&gt;</code></pre>
-        </section>
-    </main>
+                <h2 class="caps">in markup</h2>
+                <p>
+                    A rating is one element with two classes. The modifier sets
+                    the color, and the link goes back to this page.
+                </p>
+                <pre><code>&lt;a class="rating rating--great" href="/ratings/"&gt;(5/5)&lt;/a&gt;</code></pre>
+                <p class="meta">
+                    Modifiers, 1 to 5: <code>rating--terrible</code>,
+                    <code>rating--below-average</code>,
+                    <code>rating--good</code>,
+                    <code>rating--above-average</code>,
+                    <code>rating--great</code>. Leave the modifier off for an
+                    unrated entry.
+                </p>
+                <p>
+                    On a tracker tile the caption is already a link, so the
+                    rating there is a span instead of a second link. It looks
+                    the same.
+                </p>
+                <pre><code>&lt;span class="rating rating--great"&gt;(5/5)&lt;/span&gt;</code></pre>
+            </section>
+        </main>
 
-    <!-- ===== FOOTER ===== -->
-    <footer>
-        <nav aria-label="site links">
-            <p aria-hidden="true">//</p>
-            <a href="mailto:daniel@danieldaum.net">
-                email
-            </a>
-            <a href="https://git.danieldaum.net/" aria-label="git (opens in new tab)" target="_blank"
-                rel="noopener noreferrer">git
-            </a>
-            <a href="/pgp.asc" aria-label="PGP public key (516E97FF)">PGP</a>
-            <a href="/changelog/">changelog</a>
-            <a href="/privacy/">privacy</a>
-            <a href="/feed.xml">feed</a>
-        </nav>
-    </footer>
-</body>
-
+        <!-- ===== FOOTER ===== -->
+        <footer>
+            <nav aria-label="site links">
+                <p aria-hidden="true">//</p>
+                <a href="mailto:daniel@danieldaum.net"> email </a>
+                <a
+                    href="https://git.danieldaum.net/"
+                    aria-label="git (opens in new tab)"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >git
+                </a>
+                <a href="/pgp.asc" aria-label="PGP public key (516E97FF)"
+                    >PGP</a
+                >
+                <a href="/changelog/">changelog</a>
+                <a href="/privacy/">privacy</a>
+                <a href="/feed.xml">feed</a>
+            </nav>
+        </footer>
+    </body>
 </html>

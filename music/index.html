@@ -1,505 +1,811 @@
 <!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="daniel daum's album tracker - what i've been listening to, by year, with ratings and notes"
+        />
+        <meta
+            http-equiv="Content-Security-Policy"
+            content="default-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;"
+        />
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
+        <link
+            rel="preload"
+            href="/assets/fonts/ioskeleymono/IoskeleyMono-Regular.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin
+        />
+        <link
+            rel="preload"
+            href="/assets/fonts/ioskeleymono/IoskeleyMono-Bold.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin
+        />
+        <link
+            rel="preload"
+            href="/assets/fonts/ioskeleymono/IoskeleyMono-SemiBold.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin
+        />
+        <link rel="preconnect" href="https://assets.danieldaum.net" />
+        <link rel="stylesheet" href="/global.css" />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/assets/favicon/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/assets/favicon/favicon-16x16.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/assets/favicon/apple-touch-icon.png"
+        />
+        <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+        <link
+            rel="alternate"
+            type="application/atom+xml"
+            title="daniel daum"
+            href="https://danieldaum.net/feed.xml"
+        />
+        <title>daniel daum - music</title>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description"
-        content="daniel daum's album tracker - what i've been listening to, by year, with ratings and notes" />
-    <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;" />
-    <meta name="referrer" content="strict-origin-when-cross-origin" />
-    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Regular.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Bold.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preconnect" href="https://assets.danieldaum.net" />
-    <link rel="stylesheet" href="/global.css" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
-    <link rel="manifest" href="/assets/favicon/site.webmanifest" />
-    <link rel="alternate" type="application/atom+xml" title="daniel daum" href="https://danieldaum.net/feed.xml" />
-    <title>daniel daum - music</title>
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="daniel daum" />
+        <meta property="og:title" content="daniel daum - music" />
+        <meta
+            property="og:description"
+            content="daniel daum's album tracker - what i've been listening to, by year, with ratings and notes"
+        />
+        <meta property="og:url" content="https://danieldaum.net/music/" />
+        <meta
+            property="og:image"
+            content="https://assets.danieldaum.net/img/misc/og.jpg"
+        />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta
+            property="og:image:alt"
+            content="daniel daum - software engineer, avid reader, aspiring game dev - danieldaum.net"
+        />
 
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="daniel daum" />
-    <meta property="og:title" content="daniel daum - music" />
-    <meta property="og:description" content="daniel daum's album tracker - what i've been listening to, by year, with ratings and notes" />
-    <meta property="og:url" content="https://danieldaum.net/music/" />
-    <meta property="og:image" content="https://assets.danieldaum.net/img/misc/og.jpg" />
-    <meta property="og:image:type" content="image/jpeg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="daniel daum - software engineer, avid reader, aspiring game dev - danieldaum.net" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="daniel daum - music" />
+        <meta
+            name="twitter:description"
+            content="daniel daum's album tracker - what i've been listening to, by year, with ratings and notes"
+        />
+        <meta
+            name="twitter:image"
+            content="https://assets.danieldaum.net/img/misc/og.jpg"
+        />
+        <meta
+            name="twitter:image:alt"
+            content="daniel daum - software engineer, avid reader, aspiring game dev - danieldaum.net"
+        />
+    </head>
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="daniel daum - music" />
-    <meta name="twitter:description" content="daniel daum's album tracker - what i've been listening to, by year, with ratings and notes" />
-    <meta name="twitter:image" content="https://assets.danieldaum.net/img/misc/og.jpg" />
-    <meta name="twitter:image:alt" content="daniel daum - software engineer, avid reader, aspiring game dev - danieldaum.net" />
-</head>
+    <body class="page--wide">
+        <a class="skip-link" href="#main">skip to content</a>
 
-<body class="page--wide">
-
-    <a class="skip-link" href="#main">skip to content</a>
-
-    <!-- ===== HEADER ===== -->
-    <header class="site-header">
-        <a class="site-name" href="/">Daniel Daum</a>
-        <nav aria-label="main navigation">
-            <a href="/">home</a>
-            <a href="/about/">about</a>
-            <a href="/now/">now</a>
-            <a href="/blog/">blog</a>
-            <a href="/projects/">projects</a>
-            <a href="/garden/">garden</a>
-        </nav>
-    </header>
-
-    <!-- ===== MAIN ===== -->
-    <main id="main">
-        <nav class="breadcrumb" aria-label="breadcrumb"><a href="/garden/">garden</a> <span aria-hidden="true">-></span> <a href="/music/">music</a></nav>
-
-        <header class="page-header">
-            <h1><span aria-hidden="true">/</span>music</h1>
-            <p class="meta">The albums in my rotation. Click a cover to read my note on it.<br />
-                Ratings are a work in progress.
-            </p>
+        <!-- ===== HEADER ===== -->
+        <header class="site-header">
+            <a class="site-name" href="/">Daniel Daum</a>
+            <nav aria-label="main navigation">
+                <a href="/">home</a>
+                <a href="/about/">about</a>
+                <a href="/now/">now</a>
+                <a href="/blog/">blog</a>
+                <a href="/projects/">projects</a>
+                <a href="/garden/">garden</a>
+            </nav>
         </header>
 
-        <h2 class="caps">my favorites</h2>
-        <section class="tracker-wall tracker-wall--favorites" aria-label="favorite albums">
+        <!-- ===== MAIN ===== -->
+        <main id="main">
+            <nav class="breadcrumb" aria-label="breadcrumb">
+                <a href="/garden/">garden</a> <span aria-hidden="true">-></span>
+                <a href="/music/">music</a>
+            </nav>
 
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/music/my-beautiful-dark-twisted-fantasy/"
-                    aria-label="My Beautiful Dark Twisted Fantasy">
-                    <span class="tracker-cover tracker-cover--square">
-                        <img src="https://assets.danieldaum.net/img/music/my-beautiful-dark-twisted-fantasy.webp"
-                            alt="album art of My Beautiful Dark Twisted Fantasy" loading="lazy" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">My Beautiful Dark Twisted Fantasy</span>
-                        <span class="tracker-caption-sub">Artist Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating rating--great">(5/5)</span>
+            <header class="page-header">
+                <h1><span aria-hidden="true">/</span>music</h1>
+                <p class="meta">
+                    The albums in my rotation. Click a cover to read my note on
+                    it.<br />
+                    Ratings are a work in progress.
+                </p>
+            </header>
+
+            <h2 class="caps">my favorites</h2>
+            <section
+                class="tracker-wall tracker-wall--favorites"
+                aria-label="favorite albums"
+            >
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/music/my-beautiful-dark-twisted-fantasy/"
+                        aria-label="My Beautiful Dark Twisted Fantasy"
+                    >
+                        <span class="tracker-cover tracker-cover--square">
+                            <img
+                                src="https://assets.danieldaum.net/img/music/my-beautiful-dark-twisted-fantasy.webp"
+                                alt="album art of My Beautiful Dark Twisted Fantasy"
+                                loading="lazy"
+                            />
                         </span>
-                    </span>
-                </a>
-            </figure>
-
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/music/2014-forest-hills-drive/" aria-label="2014 Forest Hills Drive">
-                    <span class="tracker-cover tracker-cover--square">
-                        <img src="https://assets.danieldaum.net/img/music/2014-forest-hills-drive.webp"
-                            alt="album art of 2014 Forest Hills Drive" loading="lazy" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">2014 Forest Hills Drive</span>
-                        <span class="tracker-caption-sub">Artist Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating rating--great">(5/5)</span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >My Beautiful Dark Twisted Fantasy</span
+                            >
+                            <span class="tracker-caption-sub">Artist Name</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating rating--great">(5/5)</span>
+                            </span>
                         </span>
-                    </span>
-                </a>
-            </figure>
+                    </a>
+                </figure>
 
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/music/awaken-my-love/" aria-label="Awaken, My Love!">
-                    <span class="tracker-cover tracker-cover--square">
-                        <img src="https://assets.danieldaum.net/img/music/awaken-my-love.webp"
-                            alt="album art of Awaken, My Love!" loading="lazy" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Awaken, My Love!</span>
-                        <span class="tracker-caption-sub">Artist Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating rating--great">(5/5)</span>
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/music/2014-forest-hills-drive/"
+                        aria-label="2014 Forest Hills Drive"
+                    >
+                        <span class="tracker-cover tracker-cover--square">
+                            <img
+                                src="https://assets.danieldaum.net/img/music/2014-forest-hills-drive.webp"
+                                alt="album art of 2014 Forest Hills Drive"
+                                loading="lazy"
+                            />
                         </span>
-                    </span>
-                </a>
-            </figure>
-
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/music/good-kid-m-a-a-d-city/" aria-label="good kid, m.A.A.d city">
-                    <span class="tracker-cover tracker-cover--square">
-                        <img src="https://assets.danieldaum.net/img/music/good-kid-maad-city.webp"
-                            alt="album art of good kid, m.A.A.d city" loading="lazy" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">good kid, m.A.A.d city</span>
-                        <span class="tracker-caption-sub">Artist Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating rating--great">(5/5)</span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >2014 Forest Hills Drive</span
+                            >
+                            <span class="tracker-caption-sub">Artist Name</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating rating--great">(5/5)</span>
+                            </span>
                         </span>
-                    </span>
-                </a>
-            </figure>
+                    </a>
+                </figure>
 
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/music/painless/" aria-label="Painless">
-                    <span class="tracker-cover tracker-cover--square">
-                        <img src="https://assets.danieldaum.net/img/music/painless.webp" alt="album art of Painless"
-                            loading="lazy" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Painless</span>
-                        <span class="tracker-caption-sub">Artist Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating rating--great">(5/5)</span>
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/music/awaken-my-love/"
+                        aria-label="Awaken, My Love!"
+                    >
+                        <span class="tracker-cover tracker-cover--square">
+                            <img
+                                src="https://assets.danieldaum.net/img/music/awaken-my-love.webp"
+                                alt="album art of Awaken, My Love!"
+                                loading="lazy"
+                            />
                         </span>
-                    </span>
-                </a>
-            </figure>
-
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/music/pulsar/" aria-label="Pulsar">
-                    <span class="tracker-cover tracker-cover--square">
-                        <img src="https://assets.danieldaum.net/img/music/pulsar.webp" alt="album art of Pulsar"
-                            loading="lazy" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Pulsar</span>
-                        <span class="tracker-caption-sub">Artist Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating rating--great">(5/5)</span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >Awaken, My Love!</span
+                            >
+                            <span class="tracker-caption-sub">Artist Name</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating rating--great">(5/5)</span>
+                            </span>
                         </span>
-                    </span>
-                </a>
-            </figure>
+                    </a>
+                </figure>
 
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/music/random-access-memories/" aria-label="Random Access Memories">
-                    <span class="tracker-cover tracker-cover--square">
-                        <img src="https://assets.danieldaum.net/img/music/random-access-memories.webp"
-                            alt="album art of Random Access Memories" loading="lazy" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Random Access Memories</span>
-                        <span class="tracker-caption-sub">Artist Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating rating--great">(5/5)</span>
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/music/good-kid-m-a-a-d-city/"
+                        aria-label="good kid, m.A.A.d city"
+                    >
+                        <span class="tracker-cover tracker-cover--square">
+                            <img
+                                src="https://assets.danieldaum.net/img/music/good-kid-maad-city.webp"
+                                alt="album art of good kid, m.A.A.d city"
+                                loading="lazy"
+                            />
                         </span>
-                    </span>
-                </a>
-            </figure>
-
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/music/sideline-story/" aria-label="Sideline Story">
-                    <span class="tracker-cover tracker-cover--square">
-                        <img src="https://assets.danieldaum.net/img/music/sideline-story.webp"
-                            alt="album art of Sideline Story" loading="lazy" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Sideline Story</span>
-                        <span class="tracker-caption-sub">Artist Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating rating--great">(5/5)</span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >good kid, m.A.A.d city</span
+                            >
+                            <span class="tracker-caption-sub">Artist Name</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating rating--great">(5/5)</span>
+                            </span>
                         </span>
-                    </span>
-                </a>
-            </figure>
+                    </a>
+                </figure>
 
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/music/igor/" aria-label="IGOR">
-                    <span class="tracker-cover tracker-cover--square">
-                        <img src="https://assets.danieldaum.net/img/music/tyler-the-creator-igor.webp"
-                            alt="album art of IGOR" width="1000" height="1000" loading="lazy" decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">IGOR</span>
-                        <span class="tracker-caption-sub">Tyler, the Creator</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating rating--great">(5/5)</span>
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/music/painless/"
+                        aria-label="Painless"
+                    >
+                        <span class="tracker-cover tracker-cover--square">
+                            <img
+                                src="https://assets.danieldaum.net/img/music/painless.webp"
+                                alt="album art of Painless"
+                                loading="lazy"
+                            />
                         </span>
-                    </span>
-                </a>
-            </figure>
-        </section>
-
-        <h2>2026</h2>
-
-        <section class="tracker-wall" aria-label="albums logged in 2026">
-
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/music/navy-blue/" aria-label="Navy Blue">
-                    <span class="tracker-cover tracker-cover--square">
-                        <img src="https://assets.danieldaum.net/img/music/porch-light-navy-blue.webp"
-                            alt="album art of Navy Blue" width="1000" height="1000" loading="lazy" decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Navy Blue</span>
-                        <span class="tracker-caption-sub">Porch Light</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title">Painless</span>
+                            <span class="tracker-caption-sub">Artist Name</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating rating--great">(5/5)</span>
+                            </span>
                         </span>
-                    </span>
-                </a>
-            </figure>
+                    </a>
+                </figure>
 
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/music/worst-girl-in-america/" aria-label="WOR$T GIRL IN AMERICA">
-                    <span class="tracker-cover tracker-cover--square">
-                        <img src="https://assets.danieldaum.net/img/music/slayyyter-worst-girl-in-america.webp"
-                            alt="album art of WOR$T GIRL IN AMERICA" width="1000" height="1000" loading="lazy"
-                            decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">WOR$T GIRL IN AMERICA</span>
-                        <span class="tracker-caption-sub">Slayyyter</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/music/pulsar/"
+                        aria-label="Pulsar"
+                    >
+                        <span class="tracker-cover tracker-cover--square">
+                            <img
+                                src="https://assets.danieldaum.net/img/music/pulsar.webp"
+                                alt="album art of Pulsar"
+                                loading="lazy"
+                            />
                         </span>
-                    </span>
-                </a>
-            </figure>
-
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/music/the-fall-off/" aria-label="The Fall-Off">
-                    <span class="tracker-cover tracker-cover--square">
-                        <img src="https://assets.danieldaum.net/img/music/j-cole-the-fall-off.webp"
-                            alt="album art of The Fall-Off" width="1000" height="1000" loading="lazy"
-                            decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">The Fall-Off</span>
-                        <span class="tracker-caption-sub">J. Cole</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title">Pulsar</span>
+                            <span class="tracker-caption-sub">Artist Name</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating rating--great">(5/5)</span>
+                            </span>
                         </span>
-                    </span>
-                </a>
-            </figure>
+                    </a>
+                </figure>
 
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/music/its-been-awful/" aria-label="IT'S BEEN AWFUL">
-                    <span class="tracker-cover tracker-cover--square">
-                        <img src="https://assets.danieldaum.net/img/music/isaiah-rashad-its-been-awful.webp"
-                            alt="album art of IT'S BEEN AWFUL" width="1000" height="1000" loading="lazy"
-                            decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">IT'S BEEN AWFUL</span>
-                        <span class="tracker-caption-sub">Isaiah Rashad</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/music/random-access-memories/"
+                        aria-label="Random Access Memories"
+                    >
+                        <span class="tracker-cover tracker-cover--square">
+                            <img
+                                src="https://assets.danieldaum.net/img/music/random-access-memories.webp"
+                                alt="album art of Random Access Memories"
+                                loading="lazy"
+                            />
                         </span>
-                    </span>
-                </a>
-            </figure>
-
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/music/bury-the-key/" aria-label="Bury the Key">
-                    <span class="tracker-cover tracker-cover--square">
-                        <img src="https://assets.danieldaum.net/img/music/tops-bury-the-key.webp"
-                            alt="album art of Bury the Key" width="1000" height="1000" loading="lazy"
-                            decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Bury the Key</span>
-                        <span class="tracker-caption-sub">TOPS</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >Random Access Memories</span
+                            >
+                            <span class="tracker-caption-sub">Artist Name</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating rating--great">(5/5)</span>
+                            </span>
                         </span>
-                    </span>
-                </a>
-            </figure>
+                    </a>
+                </figure>
 
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/music/cole-world-the-sideline-story/"
-                    aria-label="Cole World: The Sideline Story">
-                    <span class="tracker-cover tracker-cover--square">
-                        <img src="https://assets.danieldaum.net/img/music/sideline-story.webp"
-                            alt="album art of Cole World: The Sideline Story" width="1000" height="1000" loading="lazy"
-                            decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Cole World: The Sideline Story</span>
-                        <span class="tracker-caption-sub">J. Cole</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/music/sideline-story/"
+                        aria-label="Sideline Story"
+                    >
+                        <span class="tracker-cover tracker-cover--square">
+                            <img
+                                src="https://assets.danieldaum.net/img/music/sideline-story.webp"
+                                alt="album art of Sideline Story"
+                                loading="lazy"
+                            />
                         </span>
-                    </span>
-                </a>
-            </figure>
-
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/music/sonido-cosmico/" aria-label="Sonido Cósmico">
-                    <span class="tracker-cover tracker-cover--square">
-                        <img src="https://assets.danieldaum.net/img/music/hermanos-gutierrez-sonido-cosmico.webp"
-                            alt="album art of Sonido Cósmico" width="1000" height="1000" loading="lazy"
-                            decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Sonido Cósmico</span>
-                        <span class="tracker-caption-sub">Hermanos Gutiérrez</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >Sideline Story</span
+                            >
+                            <span class="tracker-caption-sub">Artist Name</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating rating--great">(5/5)</span>
+                            </span>
                         </span>
-                    </span>
-                </a>
-            </figure>
-        </section>
+                    </a>
+                </figure>
 
-        <h2>2025</h2>
-
-        <section class="tracker-wall" aria-label="albums logged in 2025">
-
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/music/pulsar/" aria-label="Pulsar">
-                    <span class="tracker-cover tracker-cover--square">
-                        <img src="https://assets.danieldaum.net/img/music/pulsar.webp" alt="album art of Pulsar"
-                            width="1000" height="1000" loading="lazy" decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Pulsar</span>
-                        <span class="tracker-caption-sub">L'Impératrice</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/music/igor/"
+                        aria-label="IGOR"
+                    >
+                        <span class="tracker-cover tracker-cover--square">
+                            <img
+                                src="https://assets.danieldaum.net/img/music/tyler-the-creator-igor.webp"
+                                alt="album art of IGOR"
+                                width="1000"
+                                height="1000"
+                                loading="lazy"
+                                decoding="async"
+                            />
                         </span>
-                    </span>
-                </a>
-            </figure>
-
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/music/submarine/" aria-label="Submarine">
-                    <span class="tracker-cover tracker-cover--square">
-                        <img src="https://assets.danieldaum.net/img/music/the-marias-submarine.webp"
-                            alt="album art of Submarine" width="1000" height="1000" loading="lazy" decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Submarine</span>
-                        <span class="tracker-caption-sub">The Marías</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title">IGOR</span>
+                            <span class="tracker-caption-sub"
+                                >Tyler, the Creator</span
+                            >
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating rating--great">(5/5)</span>
+                            </span>
                         </span>
-                    </span>
-                </a>
-            </figure>
+                    </a>
+                </figure>
+            </section>
 
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/music/being-so-normal/" aria-label="Being So Normal">
-                    <span class="tracker-cover tracker-cover--square">
-                        <img src="https://assets.danieldaum.net/img/music/peach-pit-being-so-normal.webp"
-                            alt="album art of Being So Normal" width="1000" height="1000" loading="lazy"
-                            decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Being So Normal</span>
-                        <span class="tracker-caption-sub">Peach Pit</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+            <h2>2026</h2>
+
+            <section class="tracker-wall" aria-label="albums logged in 2026">
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/music/navy-blue/"
+                        aria-label="Navy Blue"
+                    >
+                        <span class="tracker-cover tracker-cover--square">
+                            <img
+                                src="https://assets.danieldaum.net/img/music/porch-light-navy-blue.webp"
+                                alt="album art of Navy Blue"
+                                width="1000"
+                                height="1000"
+                                loading="lazy"
+                                decoding="async"
+                            />
                         </span>
-                    </span>
-                </a>
-            </figure>
-
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/music/the-art-of-loving/" aria-label="The Art of Loving">
-                    <span class="tracker-cover tracker-cover--square">
-                        <img src="https://assets.danieldaum.net/img/music/olivia-dean-the-art-of-loving.webp"
-                            alt="album art of The Art of Loving" width="1000" height="1000" loading="lazy"
-                            decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">The Art of Loving</span>
-                        <span class="tracker-caption-sub">Olivia Dean</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title">Navy Blue</span>
+                            <span class="tracker-caption-sub">Porch Light</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
                         </span>
-                    </span>
-                </a>
-            </figure>
+                    </a>
+                </figure>
 
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/music/clean-slate/" aria-label="Clean Slate">
-                    <span class="tracker-cover tracker-cover--square">
-                        <img src="https://assets.danieldaum.net/img/music/passion-mango-clean-slate.webp"
-                            alt="album art of Clean Slate" width="1000" height="1000" loading="lazy" decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Clean Slate</span>
-                        <span class="tracker-caption-sub">Passion Mango</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/music/worst-girl-in-america/"
+                        aria-label="WOR$T GIRL IN AMERICA"
+                    >
+                        <span class="tracker-cover tracker-cover--square">
+                            <img
+                                src="https://assets.danieldaum.net/img/music/slayyyter-worst-girl-in-america.webp"
+                                alt="album art of WOR$T GIRL IN AMERICA"
+                                width="1000"
+                                height="1000"
+                                loading="lazy"
+                                decoding="async"
+                            />
                         </span>
-                    </span>
-                </a>
-            </figure>
-
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/music/10-000-gecs/" aria-label="10,000 gecs">
-                    <span class="tracker-cover tracker-cover--square">
-                        <img src="https://assets.danieldaum.net/img/music/100-gecs-10000-gecs.webp"
-                            alt="album art of 10,000 gecs" width="1000" height="1000" loading="lazy" decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">10,000 gecs</span>
-                        <span class="tracker-caption-sub">100 gecs</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >WOR$T GIRL IN AMERICA</span
+                            >
+                            <span class="tracker-caption-sub">Slayyyter</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
                         </span>
-                    </span>
-                </a>
-            </figure>
+                    </a>
+                </figure>
 
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/music/hit-me-hard-and-soft/" aria-label="HIT ME HARD AND SOFT">
-                    <span class="tracker-cover tracker-cover--square">
-                        <img src="https://assets.danieldaum.net/img/music/billie-eilish-hit-me-hard-and-soft.webp"
-                            alt="album art of HIT ME HARD AND SOFT" width="1000" height="1000" loading="lazy"
-                            decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">HIT ME HARD AND SOFT</span>
-                        <span class="tracker-caption-sub">Billie Eilish</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/music/the-fall-off/"
+                        aria-label="The Fall-Off"
+                    >
+                        <span class="tracker-cover tracker-cover--square">
+                            <img
+                                src="https://assets.danieldaum.net/img/music/j-cole-the-fall-off.webp"
+                                alt="album art of The Fall-Off"
+                                width="1000"
+                                height="1000"
+                                loading="lazy"
+                                decoding="async"
+                            />
                         </span>
-                    </span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >The Fall-Off</span
+                            >
+                            <span class="tracker-caption-sub">J. Cole</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
+                        </span>
+                    </a>
+                </figure>
+
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/music/its-been-awful/"
+                        aria-label="IT'S BEEN AWFUL"
+                    >
+                        <span class="tracker-cover tracker-cover--square">
+                            <img
+                                src="https://assets.danieldaum.net/img/music/isaiah-rashad-its-been-awful.webp"
+                                alt="album art of IT'S BEEN AWFUL"
+                                width="1000"
+                                height="1000"
+                                loading="lazy"
+                                decoding="async"
+                            />
+                        </span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >IT'S BEEN AWFUL</span
+                            >
+                            <span class="tracker-caption-sub"
+                                >Isaiah Rashad</span
+                            >
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
+                        </span>
+                    </a>
+                </figure>
+
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/music/bury-the-key/"
+                        aria-label="Bury the Key"
+                    >
+                        <span class="tracker-cover tracker-cover--square">
+                            <img
+                                src="https://assets.danieldaum.net/img/music/tops-bury-the-key.webp"
+                                alt="album art of Bury the Key"
+                                width="1000"
+                                height="1000"
+                                loading="lazy"
+                                decoding="async"
+                            />
+                        </span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >Bury the Key</span
+                            >
+                            <span class="tracker-caption-sub">TOPS</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
+                        </span>
+                    </a>
+                </figure>
+
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/music/cole-world-the-sideline-story/"
+                        aria-label="Cole World: The Sideline Story"
+                    >
+                        <span class="tracker-cover tracker-cover--square">
+                            <img
+                                src="https://assets.danieldaum.net/img/music/sideline-story.webp"
+                                alt="album art of Cole World: The Sideline Story"
+                                width="1000"
+                                height="1000"
+                                loading="lazy"
+                                decoding="async"
+                            />
+                        </span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >Cole World: The Sideline Story</span
+                            >
+                            <span class="tracker-caption-sub">J. Cole</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
+                        </span>
+                    </a>
+                </figure>
+
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/music/sonido-cosmico/"
+                        aria-label="Sonido Cósmico"
+                    >
+                        <span class="tracker-cover tracker-cover--square">
+                            <img
+                                src="https://assets.danieldaum.net/img/music/hermanos-gutierrez-sonido-cosmico.webp"
+                                alt="album art of Sonido Cósmico"
+                                width="1000"
+                                height="1000"
+                                loading="lazy"
+                                decoding="async"
+                            />
+                        </span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >Sonido Cósmico</span
+                            >
+                            <span class="tracker-caption-sub"
+                                >Hermanos Gutiérrez</span
+                            >
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
+                        </span>
+                    </a>
+                </figure>
+            </section>
+
+            <h2>2025</h2>
+
+            <section class="tracker-wall" aria-label="albums logged in 2025">
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/music/pulsar/"
+                        aria-label="Pulsar"
+                    >
+                        <span class="tracker-cover tracker-cover--square">
+                            <img
+                                src="https://assets.danieldaum.net/img/music/pulsar.webp"
+                                alt="album art of Pulsar"
+                                width="1000"
+                                height="1000"
+                                loading="lazy"
+                                decoding="async"
+                            />
+                        </span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title">Pulsar</span>
+                            <span class="tracker-caption-sub"
+                                >L'Impératrice</span
+                            >
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
+                        </span>
+                    </a>
+                </figure>
+
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/music/submarine/"
+                        aria-label="Submarine"
+                    >
+                        <span class="tracker-cover tracker-cover--square">
+                            <img
+                                src="https://assets.danieldaum.net/img/music/the-marias-submarine.webp"
+                                alt="album art of Submarine"
+                                width="1000"
+                                height="1000"
+                                loading="lazy"
+                                decoding="async"
+                            />
+                        </span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title">Submarine</span>
+                            <span class="tracker-caption-sub">The Marías</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
+                        </span>
+                    </a>
+                </figure>
+
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/music/being-so-normal/"
+                        aria-label="Being So Normal"
+                    >
+                        <span class="tracker-cover tracker-cover--square">
+                            <img
+                                src="https://assets.danieldaum.net/img/music/peach-pit-being-so-normal.webp"
+                                alt="album art of Being So Normal"
+                                width="1000"
+                                height="1000"
+                                loading="lazy"
+                                decoding="async"
+                            />
+                        </span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >Being So Normal</span
+                            >
+                            <span class="tracker-caption-sub">Peach Pit</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
+                        </span>
+                    </a>
+                </figure>
+
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/music/the-art-of-loving/"
+                        aria-label="The Art of Loving"
+                    >
+                        <span class="tracker-cover tracker-cover--square">
+                            <img
+                                src="https://assets.danieldaum.net/img/music/olivia-dean-the-art-of-loving.webp"
+                                alt="album art of The Art of Loving"
+                                width="1000"
+                                height="1000"
+                                loading="lazy"
+                                decoding="async"
+                            />
+                        </span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >The Art of Loving</span
+                            >
+                            <span class="tracker-caption-sub">Olivia Dean</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
+                        </span>
+                    </a>
+                </figure>
+
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/music/clean-slate/"
+                        aria-label="Clean Slate"
+                    >
+                        <span class="tracker-cover tracker-cover--square">
+                            <img
+                                src="https://assets.danieldaum.net/img/music/passion-mango-clean-slate.webp"
+                                alt="album art of Clean Slate"
+                                width="1000"
+                                height="1000"
+                                loading="lazy"
+                                decoding="async"
+                            />
+                        </span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >Clean Slate</span
+                            >
+                            <span class="tracker-caption-sub"
+                                >Passion Mango</span
+                            >
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
+                        </span>
+                    </a>
+                </figure>
+
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/music/10-000-gecs/"
+                        aria-label="10,000 gecs"
+                    >
+                        <span class="tracker-cover tracker-cover--square">
+                            <img
+                                src="https://assets.danieldaum.net/img/music/100-gecs-10000-gecs.webp"
+                                alt="album art of 10,000 gecs"
+                                width="1000"
+                                height="1000"
+                                loading="lazy"
+                                decoding="async"
+                            />
+                        </span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >10,000 gecs</span
+                            >
+                            <span class="tracker-caption-sub">100 gecs</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
+                        </span>
+                    </a>
+                </figure>
+
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/music/hit-me-hard-and-soft/"
+                        aria-label="HIT ME HARD AND SOFT"
+                    >
+                        <span class="tracker-cover tracker-cover--square">
+                            <img
+                                src="https://assets.danieldaum.net/img/music/billie-eilish-hit-me-hard-and-soft.webp"
+                                alt="album art of HIT ME HARD AND SOFT"
+                                width="1000"
+                                height="1000"
+                                loading="lazy"
+                                decoding="async"
+                            />
+                        </span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >HIT ME HARD AND SOFT</span
+                            >
+                            <span class="tracker-caption-sub"
+                                >Billie Eilish</span
+                            >
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
+                        </span>
+                    </a>
+                </figure>
+            </section>
+        </main>
+
+        <!-- ===== FOOTER ===== -->
+        <footer>
+            <nav aria-label="site links">
+                <p aria-hidden="true">//</p>
+                <a href="mailto:daniel@danieldaum.net"> email </a>
+                <a
+                    href="https://git.danieldaum.net/"
+                    aria-label="git (opens in new tab)"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >git
                 </a>
-            </figure>
-        </section>
-    </main>
-
-    <!-- ===== FOOTER ===== -->
-    <footer>
-        <nav aria-label="site links">
-            <p aria-hidden="true">//</p>
-            <a href="mailto:daniel@danieldaum.net">
-                email
-            </a>
-            <a href="https://git.danieldaum.net/" aria-label="git (opens in new tab)" target="_blank"
-                rel="noopener noreferrer">git
-            </a>
-            <a href="/pgp.asc" aria-label="PGP public key (516E97FF)">PGP</a>
-            <a href="/changelog/">changelog</a>
-            <a href="/privacy/">privacy</a>
-            <a href="/feed.xml">feed</a>
-        </nav>
-    </footer>
-</body>
-
+                <a href="/pgp.asc" aria-label="PGP public key (516E97FF)"
+                    >PGP</a
+                >
+                <a href="/changelog/">changelog</a>
+                <a href="/privacy/">privacy</a>
+                <a href="/feed.xml">feed</a>
+            </nav>
+        </footer>
+    </body>
 </html>

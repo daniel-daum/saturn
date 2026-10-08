@@ -153,9 +153,9 @@ html {
     color-scheme: dark;
 
     /* dark theme (default) */
-    --background-dark: #141e15;
-    --surface: #18231a;
-    --borders: #2e322e;
+    --background-dark: #0f1510;
+    --surface: #18211a;
+    --borders: #28332a;
     --text-headings: #f3f3ed;
     --text-body: #c9ccbf;
     --text-secondary: #aaaba3;
@@ -207,22 +207,24 @@ h1 {
 h2 {
     font-size: 1.35rem;
     color: var(--text-headings);
-    margin: 2.5rem 0 0.6rem 0;
+    margin: 3rem 0 0.6rem 0;
     font-weight: 600;
 }
 
 h3 {
-    font-size: 1.05rem;
+    font-size: 1.125rem;
     color: var(--text-headings);
-    margin: 1.75rem 0 0.5rem 0;
+    margin: 2.25rem 0 0.5rem 0;
     font-weight: 700;
 }
 
+/* small label, same as the post kicker */
 h4 {
-    font-size: 1rem;
+    font-size: 0.78rem;
     color: var(--text-secondary);
-    margin: 1rem 0 0.4rem 0;
+    margin: 1.5rem 0 0.5rem 0;
     font-weight: 600;
+    letter-spacing: 0.12em;
 }
 
 p {
@@ -441,6 +443,20 @@ footer {
     padding: 0.5rem;
 }
 
+/* quieter than the header nav: grey until hovered */
+footer nav {
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+}
+
+footer nav a {
+    color: var(--text-secondary);
+}
+
+footer nav p {
+    color: var(--accent-muted);
+}
+
 @media (max-width: 600px) {
     footer nav p,
     footer nav a[href="/pgp.asc"] {
@@ -517,7 +533,7 @@ nav p {
 
     h3 {
         font-size: 1.05rem;
-        margin-top: 0.9rem;
+        margin-top: 1.75rem;
     }
 
     nav {
@@ -575,14 +591,17 @@ nav p {
 
 /* posts: bordered panel */
 article:has(> .page-header--post) {
-    padding: 1.25rem 1.5rem;
+    padding: clamp(1.25rem, 4vw, 2.5rem);
     background: var(--surface);
     border: 1px solid var(--borders);
 }
 
+/* phones: edge to edge */
 @media (max-width: 480px) {
     article:has(> .page-header--post) {
-        padding: 1rem;
+        margin-inline: -1rem;
+        padding: 1.25rem 1rem;
+        border-inline: 0;
     }
 }
 
@@ -682,7 +701,7 @@ article:has(> .page-header--post) {
     font-size: 0.78rem;
     font-weight: 600;
     letter-spacing: 0.12em;
-    color: var(--accent);
+    color: var(--text-secondary);
 }
 
 .comment-thread {
@@ -704,10 +723,6 @@ article:has(> .page-header--post) {
 
 .comment {
     padding: 1rem 0;
-}
-
-.comment-thread > li + li > .comment {
-    border-top: 1px solid var(--borders);
 }
 
 .comment .meta {
@@ -749,20 +764,24 @@ article:has(> .page-header--post) {
     letter-spacing: 0.08em;
 }
 
+/* same highlight as text links */
+.comment-link:hover {
+    color: var(--background-dark);
+    background-color: var(--accent);
+}
+
 .social-foot {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: baseline;
     gap: 0.5rem 1rem;
-    margin-top: 0.75rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--borders);
+    margin-top: 1.5rem;
 }
 
 .social-foot .meta {
     margin: 0;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
 }
 
 /* /api/moderate's buttons */
@@ -779,7 +798,8 @@ article:has(> .page-header--post) {
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    padding: 0.3rem 0.75rem;
+    min-height: 2.25rem;
+    padding: 0 0.85rem;
     border: 1px solid var(--borders);
     background: none;
     color: var(--text-secondary);
@@ -823,16 +843,27 @@ article:has(> .page-header--post) {
 .pager {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
+    gap: 1rem;
     margin-top: 3.5rem;
-    padding-top: 1.25rem;
-    border-top: 1px solid var(--borders);
+}
+
+/* posts: dock under the panel */
+article:has(> .page-header--post) + .pager {
+    margin-top: 1rem;
 }
 
 .pager-link {
     display: flex;
     flex-direction: column;
     gap: 0.3rem;
+    padding: 1rem 1.25rem;
+    background: var(--surface);
+    border: 1px solid var(--borders);
+    transition: border-color 150ms ease;
+}
+
+.pager-link:hover {
+    border-color: var(--accent);
 }
 
 .pager-next {
@@ -859,6 +890,29 @@ article:has(> .page-header--post) {
 .pager-link:hover .pager-label,
 .pager-link:hover .pager-title {
     color: var(--accent);
+}
+
+@media (max-width: 600px) {
+    .pager {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    .pager-link {
+        padding: 1rem;
+    }
+
+    .pager-next {
+        grid-column: auto;
+    }
+}
+
+/* phones: edge to edge, like the post panel */
+@media (max-width: 480px) {
+    .pager-link {
+        margin-inline: -1rem;
+        border-inline: 0;
+    }
 }
 
 /*============================*/
@@ -1965,6 +2019,7 @@ figure:has(.img-scaled) figcaption {
 
 /* Caps are visual only; source text stays readable for screen readers */
 .caps,
+h4,
 .site-name,
 .site-header nav a,
 footer nav a,

@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<!doctype html>
+<!-- blank post: copy to /SECTION/SLUG/index.html and replace everything in CAPS. how to structure it: internal/example.html -->
 <html lang="en">
 
 <head>
@@ -24,7 +25,7 @@
     <meta property="og:site_name" content="daniel daum" />
     <meta property="og:title" content="daniel daum - POST TITLE" />
     <meta property="og:description" content="ONE SENTENCE SUMMARY - copy this verbatim into the feed entry summary" />
-    <meta property="og:url" content="https://danieldaum.net/blog/POST-SLUG/" />
+    <meta property="og:url" content="https://danieldaum.net/SECTION/SLUG/" />
     <meta property="og:image" content="https://assets.danieldaum.net/img/misc/og.jpg" />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
@@ -56,31 +57,40 @@
 
     <!-- ===== MAIN ===== -->
     <main id="main">
-        <nav class="breadcrumb" aria-label="breadcrumb"><a href="/blog/">blog</a> <span aria-hidden="true">-></span> <a href="/blog/SLUG/">post title</a></nav>
-
         <article>
             <header class="page-header page-header--post">
-                <p class="page-header-kicker"><span aria-hidden="true">/</span>blog</p>
+                <p class="page-header-kicker"><span aria-hidden="true">/</span>SECTION</p>
                 <h1>Post Title</h1>
-                <p class="meta caps"><time datetime="2026-01-01">1 January 2026</time></p>
+                <p class="meta caps"><time datetime="YYYY-MM-DD">D MONTH YYYY</time></p>
             </header>
 
             <section>
-                <h2 class="caps">first section</h2>
+                <h2 class="caps">Section heading</h2>
                 <p>
-                    Body copy goes here.
+                    Body text.
+                </p>
+
+                <h3>Sub-heading</h3>
+                <p>
+                    Body text.
                 </p>
             </section>
 
+            <!-- likes and comments are filled in by functions/_middleware.js -->
             <section class="post-social" id="comments" data-social aria-label="likes and comments">
                 <p class="meta">likes and comments unavailable</p>
             </section>
         </article>
 
+        <!-- remove whichever card has no post yet -->
         <nav class="pager" aria-label="post navigation">
-            <a class="pager-link pager-prev" href="/blog/PREVIOUS-SLUG/" rel="prev">
+            <a class="pager-link pager-prev" href="/SECTION/PREVIOUS-SLUG/" rel="prev">
                 <span class="pager-label">&larr; previous</span>
-                <span class="pager-title">PREVIOUS POST TITLE</span>
+                <span class="pager-title">Previous Post Title</span>
+            </a>
+            <a class="pager-link pager-next" href="/SECTION/NEXT-SLUG/" rel="next">
+                <span class="pager-label">next &rarr;</span>
+                <span class="pager-title">Next Post Title</span>
             </a>
         </nav>
     </main>
@@ -89,12 +99,9 @@
     <footer>
         <nav aria-label="site links">
             <p aria-hidden="true">//</p>
-            <a href="mailto:daniel@danieldaum.net">
-                email
-            </a>
+            <a href="mailto:daniel@danieldaum.net">email</a>
             <a href="https://git.danieldaum.net/" aria-label="git (opens in new tab)" target="_blank"
-                rel="noopener noreferrer">git
-            </a>
+                rel="noopener noreferrer">git</a>
             <a href="/pgp.asc" aria-label="PGP public key (516E97FF)">PGP</a>
             <a href="/changelog/">changelog</a>
             <a href="/privacy/">privacy</a>

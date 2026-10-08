@@ -1,101 +1,166 @@
 <!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="daniel daum's projects - oakland based software engineer"
+        />
+        <meta
+            http-equiv="Content-Security-Policy"
+            content="default-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;"
+        />
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
+        <link
+            rel="preload"
+            href="/assets/fonts/ioskeleymono/IoskeleyMono-Regular.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin
+        />
+        <link
+            rel="preload"
+            href="/assets/fonts/ioskeleymono/IoskeleyMono-Bold.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin
+        />
+        <link
+            rel="preload"
+            href="/assets/fonts/ioskeleymono/IoskeleyMono-SemiBold.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin
+        />
+        <link rel="preconnect" href="https://assets.danieldaum.net" />
+        <link rel="stylesheet" href="/global.css" />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/assets/favicon/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/assets/favicon/favicon-16x16.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/assets/favicon/apple-touch-icon.png"
+        />
+        <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+        <link
+            rel="alternate"
+            type="application/atom+xml"
+            title="daniel daum"
+            href="https://danieldaum.net/feed.xml"
+        />
+        <title>daniel daum - projects</title>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="daniel daum's projects - oakland based software engineer" />
-    <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;" />
-    <meta name="referrer" content="strict-origin-when-cross-origin" />
-    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Regular.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Bold.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preconnect" href="https://assets.danieldaum.net" />
-    <link rel="stylesheet" href="/global.css" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
-    <link rel="manifest" href="/assets/favicon/site.webmanifest" />
-    <link rel="alternate" type="application/atom+xml" title="daniel daum" href="https://danieldaum.net/feed.xml" />
-    <title>daniel daum - projects</title>
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="daniel daum" />
+        <meta property="og:title" content="daniel daum - projects" />
+        <meta
+            property="og:description"
+            content="daniel daum's projects - oakland based software engineer"
+        />
+        <meta property="og:url" content="https://danieldaum.net/projects/" />
+        <meta
+            property="og:image"
+            content="https://assets.danieldaum.net/img/misc/og.jpg"
+        />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta
+            property="og:image:alt"
+            content="daniel daum - software engineer, avid reader, aspiring game dev - danieldaum.net"
+        />
 
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="daniel daum" />
-    <meta property="og:title" content="daniel daum - projects" />
-    <meta property="og:description" content="daniel daum's projects - oakland based software engineer" />
-    <meta property="og:url" content="https://danieldaum.net/projects/" />
-    <meta property="og:image" content="https://assets.danieldaum.net/img/misc/og.jpg" />
-    <meta property="og:image:type" content="image/jpeg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="daniel daum - software engineer, avid reader, aspiring game dev - danieldaum.net" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="daniel daum - projects" />
+        <meta
+            name="twitter:description"
+            content="daniel daum's projects - oakland based software engineer"
+        />
+        <meta
+            name="twitter:image"
+            content="https://assets.danieldaum.net/img/misc/og.jpg"
+        />
+        <meta
+            name="twitter:image:alt"
+            content="daniel daum - software engineer, avid reader, aspiring game dev - danieldaum.net"
+        />
+    </head>
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="daniel daum - projects" />
-    <meta name="twitter:description" content="daniel daum's projects - oakland based software engineer" />
-    <meta name="twitter:image" content="https://assets.danieldaum.net/img/misc/og.jpg" />
-    <meta name="twitter:image:alt" content="daniel daum - software engineer, avid reader, aspiring game dev - danieldaum.net" />
-</head>
+    <body>
+        <a class="skip-link" href="#main">skip to content</a>
 
-<body>
-    <a class="skip-link" href="#main">skip to content</a>
-
-    <!-- ===== HEADER ===== -->
-    <header class="site-header">
-        <a class="site-name" href="/">Daniel Daum</a>
-        <nav aria-label="main navigation">
-            <a href="/">home</a>
-            <a href="/about/">about</a>
-            <a href="/now/">now</a>
-            <a href="/blog/">blog</a>
-            <a href="/projects/" aria-current="page">projects</a>
-            <a href="/garden/">garden</a>
-        </nav>
-    </header>
-
-    <!-- ===== MAIN ===== -->
-    <main id="main">
-
-        <header class="page-header">
-            <h1><span aria-hidden="true">/</span>projects</h1>
-            <p class="meta">Things I've built</p>
+        <!-- ===== HEADER ===== -->
+        <header class="site-header">
+            <a class="site-name" href="/">Daniel Daum</a>
+            <nav aria-label="main navigation">
+                <a href="/">home</a>
+                <a href="/about/">about</a>
+                <a href="/now/">now</a>
+                <a href="/blog/">blog</a>
+                <a href="/projects/" aria-current="page">projects</a>
+                <a href="/garden/">garden</a>
+            </nav>
         </header>
 
-        <section>
-            <a class="project-card" href="/projects/saturn/">
-                <div class="project-card-left">
-                    <p class="card-type">Jan '26 &middot; re-design</p>
-                    <div>
-                        <h2>Saturn</h2>
-                        <p class="meta">A cozy yet minimalist personal website</p>
+        <!-- ===== MAIN ===== -->
+        <main id="main">
+            <header class="page-header">
+                <h1><span aria-hidden="true">/</span>projects</h1>
+                <p class="meta">Things I've built</p>
+            </header>
+
+            <section>
+                <a class="project-card" href="/projects/saturn/">
+                    <div class="project-card-left">
+                        <p class="card-type">Jan '26 &middot; re-design</p>
+                        <div>
+                            <h2>Saturn</h2>
+                            <p class="meta">
+                                A cozy yet minimalist personal website
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <div class="project-card-right">
-                    <img class="project-card-img" src="https://assets.danieldaum.net/img/misc/saturn-project-hero.webp"
-                        alt="screenshot of the saturn personal website" />
-                </div>
-            </a>
-        </section>
+                    <div class="project-card-right">
+                        <img
+                            class="project-card-img"
+                            src="https://assets.danieldaum.net/img/misc/saturn-project-hero.webp"
+                            alt="screenshot of the saturn personal website"
+                        />
+                    </div>
+                </a>
+            </section>
+        </main>
 
-    </main>
-
-    <!-- ===== FOOTER ===== -->
-    <footer>
-        <nav aria-label="site links">
-            <p aria-hidden="true">//</p>
-            <a href="mailto:daniel@danieldaum.net">
-                email
-            </a>
-            <a href="https://git.danieldaum.net/" aria-label="git (opens in new tab)" target="_blank"
-                rel="noopener noreferrer">git
-            </a>
-            <a href="/pgp.asc" aria-label="PGP public key (516E97FF)">PGP</a>
-            <a href="/changelog/">changelog</a>
-            <a href="/privacy/">privacy</a>
-            <a href="/feed.xml">feed</a>
-        </nav>
-    </footer>
-</body>
-
+        <!-- ===== FOOTER ===== -->
+        <footer>
+            <nav aria-label="site links">
+                <p aria-hidden="true">//</p>
+                <a href="mailto:daniel@danieldaum.net"> email </a>
+                <a
+                    href="https://git.danieldaum.net/"
+                    aria-label="git (opens in new tab)"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >git
+                </a>
+                <a href="/pgp.asc" aria-label="PGP public key (516E97FF)"
+                    >PGP</a
+                >
+                <a href="/changelog/">changelog</a>
+                <a href="/privacy/">privacy</a>
+                <a href="/feed.xml">feed</a>
+            </nav>
+        </footer>
+    </body>
 </html>

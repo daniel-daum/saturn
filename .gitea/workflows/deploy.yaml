@@ -31,7 +31,7 @@ jobs:
               run: |
                   mkdir dist
                   git ls-files -z \
-                      | grep -zv -e '^internal/' -e '^workers/' -e '^\.gitea/' -e '^\.gitignore$' \
+                      | grep -zv -e '^internal/' -e '^workers/' -e '^\.gitea/' -e '^\.gitignore$' -e '^mise\.toml$' \
                       | xargs -0 cp --parents -t dist
 
             - name: Deploy to Cloudflare Pages

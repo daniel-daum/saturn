@@ -38,7 +38,7 @@ export function renderComments(key, rows) {
         thread: top.length ? thread(top) : "",
         foot: `<div class="social-foot">
     <a class="comment-link" href="${mailto(key)}">comment by email &rarr;</a>
-    <p class="meta">start with a "name:" line; that name is shown. comments with links wait for approval. your address is never shown or stored</p>
+    <p class="meta">Start with a "name:" line for your display name. Your email is never shown or stored</p>
 </div>`,
     };
 

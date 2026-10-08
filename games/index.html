@@ -1,711 +1,1165 @@
 <!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="daniel daum's game tracker - what i've played, by year, with ratings and notes"
+        />
+        <meta
+            http-equiv="Content-Security-Policy"
+            content="default-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;"
+        />
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
+        <link
+            rel="preload"
+            href="/assets/fonts/ioskeleymono/IoskeleyMono-Regular.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin
+        />
+        <link
+            rel="preload"
+            href="/assets/fonts/ioskeleymono/IoskeleyMono-Bold.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin
+        />
+        <link
+            rel="preload"
+            href="/assets/fonts/ioskeleymono/IoskeleyMono-SemiBold.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin
+        />
+        <link rel="preconnect" href="https://assets.danieldaum.net" />
+        <link rel="stylesheet" href="/global.css" />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/assets/favicon/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/assets/favicon/favicon-16x16.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/assets/favicon/apple-touch-icon.png"
+        />
+        <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+        <link
+            rel="alternate"
+            type="application/atom+xml"
+            title="daniel daum"
+            href="https://danieldaum.net/feed.xml"
+        />
+        <title>daniel daum - games</title>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="daniel daum's game tracker - what i've played, by year, with ratings and notes" />
-    <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;" />
-    <meta name="referrer" content="strict-origin-when-cross-origin" />
-    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Regular.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Bold.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preconnect" href="https://assets.danieldaum.net" />
-    <link rel="stylesheet" href="/global.css" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
-    <link rel="manifest" href="/assets/favicon/site.webmanifest" />
-    <link rel="alternate" type="application/atom+xml" title="daniel daum" href="https://danieldaum.net/feed.xml" />
-    <title>daniel daum - games</title>
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="daniel daum" />
+        <meta property="og:title" content="daniel daum - games" />
+        <meta
+            property="og:description"
+            content="daniel daum's game tracker - what i've played, by year, with ratings and notes"
+        />
+        <meta property="og:url" content="https://danieldaum.net/games/" />
+        <meta
+            property="og:image"
+            content="https://assets.danieldaum.net/img/misc/og.jpg"
+        />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta
+            property="og:image:alt"
+            content="daniel daum - software engineer, avid reader, aspiring game dev - danieldaum.net"
+        />
 
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="daniel daum" />
-    <meta property="og:title" content="daniel daum - games" />
-    <meta property="og:description" content="daniel daum's game tracker - what i've played, by year, with ratings and notes" />
-    <meta property="og:url" content="https://danieldaum.net/games/" />
-    <meta property="og:image" content="https://assets.danieldaum.net/img/misc/og.jpg" />
-    <meta property="og:image:type" content="image/jpeg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="daniel daum - software engineer, avid reader, aspiring game dev - danieldaum.net" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="daniel daum - games" />
+        <meta
+            name="twitter:description"
+            content="daniel daum's game tracker - what i've played, by year, with ratings and notes"
+        />
+        <meta
+            name="twitter:image"
+            content="https://assets.danieldaum.net/img/misc/og.jpg"
+        />
+        <meta
+            name="twitter:image:alt"
+            content="daniel daum - software engineer, avid reader, aspiring game dev - danieldaum.net"
+        />
+    </head>
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="daniel daum - games" />
-    <meta name="twitter:description" content="daniel daum's game tracker - what i've played, by year, with ratings and notes" />
-    <meta name="twitter:image" content="https://assets.danieldaum.net/img/misc/og.jpg" />
-    <meta name="twitter:image:alt" content="daniel daum - software engineer, avid reader, aspiring game dev - danieldaum.net" />
-</head>
+    <body class="page--wide">
+        <a class="skip-link" href="#main">skip to content</a>
 
-<body class="page--wide">
-
-    <a class="skip-link" href="#main">skip to content</a>
-
-    <!-- ===== HEADER ===== -->
-    <header class="site-header">
-        <a class="site-name" href="/">Daniel Daum</a>
-        <nav aria-label="main navigation">
-            <a href="/">home</a>
-            <a href="/about/">about</a>
-            <a href="/now/">now</a>
-            <a href="/blog/">blog</a>
-            <a href="/projects/">projects</a>
-            <a href="/garden/">garden</a>
-        </nav>
-    </header>
-
-    <!-- ===== MAIN ===== -->
-    <main id="main">
-        <nav class="breadcrumb" aria-label="breadcrumb"><a href="/garden/">garden</a> <span aria-hidden="true">-></span> <a href="/games/">games</a></nav>
-
-        <header class="page-header">
-            <h1><span aria-hidden="true">/</span>games</h1>
-            <p class="meta">Every game I've played through. Click a cover to read my note on it.<br />
-                Ratings are a work in progress.
-            </p>
+        <!-- ===== HEADER ===== -->
+        <header class="site-header">
+            <a class="site-name" href="/">Daniel Daum</a>
+            <nav aria-label="main navigation">
+                <a href="/">home</a>
+                <a href="/about/">about</a>
+                <a href="/now/">now</a>
+                <a href="/blog/">blog</a>
+                <a href="/projects/">projects</a>
+                <a href="/garden/">garden</a>
+            </nav>
         </header>
 
-        <h2 class="caps">my favorites</h2>
-        <section class="tracker-wall tracker-wall--favorites" aria-label="favorite games">
+        <!-- ===== MAIN ===== -->
+        <main id="main">
+            <nav class="breadcrumb" aria-label="breadcrumb">
+                <a href="/garden/">garden</a> <span aria-hidden="true">-></span>
+                <a href="/games/">games</a>
+            </nav>
 
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/games/star-wars-knights-of-the-old-republic/"
-                    aria-label="Star Wars: Knights of the Old Republic">
-                    <span class="tracker-cover tracker-cover--boxart">
-                        <img src="https://assets.danieldaum.net/img/games/star-wars-knights-of-the-old-republic.webp"
-                            alt="Star Wars: Knights of the Old Republic" width="528" height="704" loading="lazy"
-                            decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Star Wars: Knights of the Old Republic</span>
-                        <span class="tracker-caption-sub">Studio Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating rating--great">(5/5)</span>
+            <header class="page-header">
+                <h1><span aria-hidden="true">/</span>games</h1>
+                <p class="meta">
+                    Every game I've played through. Click a cover to read my
+                    note on it.<br />
+                    Ratings are a work in progress.
+                </p>
+            </header>
+
+            <h2 class="caps">my favorites</h2>
+            <section
+                class="tracker-wall tracker-wall--favorites"
+                aria-label="favorite games"
+            >
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/games/star-wars-knights-of-the-old-republic/"
+                        aria-label="Star Wars: Knights of the Old Republic"
+                    >
+                        <span class="tracker-cover tracker-cover--boxart">
+                            <img
+                                src="https://assets.danieldaum.net/img/games/star-wars-knights-of-the-old-republic.webp"
+                                alt="Star Wars: Knights of the Old Republic"
+                                width="528"
+                                height="704"
+                                loading="lazy"
+                                decoding="async"
+                            />
                         </span>
-                    </span>
-                </a>
-            </figure>
-
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/games/kotor-ii-the-sith-lords/" aria-label="KOTOR II: The Sith Lords">
-                    <span class="tracker-cover tracker-cover--boxart">
-                        <img src="https://assets.danieldaum.net/img/games/star-wars-knights-of-the-old-republic-ii-the-sith-lords.webp"
-                            alt="KOTOR II: The Sith Lords" width="528" height="704" loading="lazy" decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">KOTOR II: The Sith Lords</span>
-                        <span class="tracker-caption-sub">Studio Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating rating--great">(5/5)</span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >Star Wars: Knights of the Old Republic</span
+                            >
+                            <span class="tracker-caption-sub">Studio Name</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating rating--great">(5/5)</span>
+                            </span>
                         </span>
-                    </span>
-                </a>
-            </figure>
+                    </a>
+                </figure>
 
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/games/star-wars-the-old-republic/" aria-label="Star Wars: The Old Republic">
-                    <span class="tracker-cover tracker-cover--boxart">
-                        <img src="https://assets.danieldaum.net/img/games/star-wars-the-old-republic.webp"
-                            alt="Star Wars: The Old Republic" width="528" height="704" loading="lazy"
-                            decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Star Wars: The Old Republic</span>
-                        <span class="tracker-caption-sub">Studio Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating rating--great">(5/5)</span>
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/games/kotor-ii-the-sith-lords/"
+                        aria-label="KOTOR II: The Sith Lords"
+                    >
+                        <span class="tracker-cover tracker-cover--boxart">
+                            <img
+                                src="https://assets.danieldaum.net/img/games/star-wars-knights-of-the-old-republic-ii-the-sith-lords.webp"
+                                alt="KOTOR II: The Sith Lords"
+                                width="528"
+                                height="704"
+                                loading="lazy"
+                                decoding="async"
+                            />
                         </span>
-                    </span>
-                </a>
-            </figure>
-
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/games/pokemon-emerald/" aria-label="Pokémon Emerald">
-                    <span class="tracker-cover tracker-cover--boxart">
-                        <img src="https://assets.danieldaum.net/img/games/pokemon-emerald-version.webp"
-                            alt="Pokémon Emerald" width="528" height="704" loading="lazy" decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Pokémon Emerald</span>
-                        <span class="tracker-caption-sub">Studio Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating rating--great">(5/5)</span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >KOTOR II: The Sith Lords</span
+                            >
+                            <span class="tracker-caption-sub">Studio Name</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating rating--great">(5/5)</span>
+                            </span>
                         </span>
-                    </span>
-                </a>
-            </figure>
+                    </a>
+                </figure>
 
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/games/the-last-of-us-part-i/" aria-label="The Last of Us Part I">
-                    <span class="tracker-cover tracker-cover--boxart">
-                        <img src="https://assets.danieldaum.net/img/games/the-last-of-us-part-i.webp"
-                            alt="The Last of Us Part I" width="528" height="704" loading="lazy" decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">The Last of Us Part I</span>
-                        <span class="tracker-caption-sub">Studio Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating rating--great">(5/5)</span>
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/games/star-wars-the-old-republic/"
+                        aria-label="Star Wars: The Old Republic"
+                    >
+                        <span class="tracker-cover tracker-cover--boxart">
+                            <img
+                                src="https://assets.danieldaum.net/img/games/star-wars-the-old-republic.webp"
+                                alt="Star Wars: The Old Republic"
+                                width="528"
+                                height="704"
+                                loading="lazy"
+                                decoding="async"
+                            />
                         </span>
-                    </span>
-                </a>
-            </figure>
-
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/games/the-last-of-us-part-ii/" aria-label="The Last of Us Part II">
-                    <span class="tracker-cover tracker-cover--boxart">
-                        <img src="https://assets.danieldaum.net/img/games/the-last-of-us-part-ii.webp"
-                            alt="The Last of Us Part II" width="528" height="704" loading="lazy" decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">The Last of Us Part II</span>
-                        <span class="tracker-caption-sub">Studio Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating rating--great">(5/5)</span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >Star Wars: The Old Republic</span
+                            >
+                            <span class="tracker-caption-sub">Studio Name</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating rating--great">(5/5)</span>
+                            </span>
                         </span>
-                    </span>
-                </a>
-            </figure>
+                    </a>
+                </figure>
 
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/games/halo-2/" aria-label="Halo 2">
-                    <span class="tracker-cover tracker-cover--boxart">
-                        <img src="https://assets.danieldaum.net/img/games/halo-2.webp" alt="Halo 2" width="528"
-                            height="704" loading="lazy" decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Halo 2</span>
-                        <span class="tracker-caption-sub">Studio Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating rating--great">(5/5)</span>
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/games/pokemon-emerald/"
+                        aria-label="Pokémon Emerald"
+                    >
+                        <span class="tracker-cover tracker-cover--boxart">
+                            <img
+                                src="https://assets.danieldaum.net/img/games/pokemon-emerald-version.webp"
+                                alt="Pokémon Emerald"
+                                width="528"
+                                height="704"
+                                loading="lazy"
+                                decoding="async"
+                            />
                         </span>
-                    </span>
-                </a>
-            </figure>
-
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/games/halo-reach/" aria-label="Halo: Reach">
-                    <span class="tracker-cover tracker-cover--boxart">
-                        <img src="https://assets.danieldaum.net/img/games/halo-reach.webp" alt="Halo: Reach" width="528"
-                            height="704" loading="lazy" decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Halo: Reach</span>
-                        <span class="tracker-caption-sub">Studio Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating rating--great">(5/5)</span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >Pokémon Emerald</span
+                            >
+                            <span class="tracker-caption-sub">Studio Name</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating rating--great">(5/5)</span>
+                            </span>
                         </span>
-                    </span>
-                </a>
-            </figure>
+                    </a>
+                </figure>
 
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/games/baldurs-gate-3/" aria-label="Baldur's Gate 3">
-                    <span class="tracker-cover tracker-cover--boxart">
-                        <img src="https://assets.danieldaum.net/img/games/baldurs-gate-3.webp" alt="Baldur's Gate 3"
-                            width="528" height="704" loading="lazy" decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Baldur's Gate 3</span>
-                        <span class="tracker-caption-sub">Studio Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating rating--great">(5/5)</span>
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/games/the-last-of-us-part-i/"
+                        aria-label="The Last of Us Part I"
+                    >
+                        <span class="tracker-cover tracker-cover--boxart">
+                            <img
+                                src="https://assets.danieldaum.net/img/games/the-last-of-us-part-i.webp"
+                                alt="The Last of Us Part I"
+                                width="528"
+                                height="704"
+                                loading="lazy"
+                                decoding="async"
+                            />
                         </span>
-                    </span>
-                </a>
-            </figure>
-
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/games/mass-effect-2/" aria-label="Mass Effect 2">
-                    <span class="tracker-cover tracker-cover--boxart">
-                        <img src="https://assets.danieldaum.net/img/games/mass-effect-2.webp" alt="Mass Effect 2"
-                            width="528" height="704" loading="lazy" decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Mass Effect 2</span>
-                        <span class="tracker-caption-sub">Studio Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating rating--great">(5/5)</span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >The Last of Us Part I</span
+                            >
+                            <span class="tracker-caption-sub">Studio Name</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating rating--great">(5/5)</span>
+                            </span>
                         </span>
-                    </span>
-                </a>
-            </figure>
+                    </a>
+                </figure>
 
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/games/stardew-valley/" aria-label="Stardew Valley">
-                    <span class="tracker-cover tracker-cover--boxart">
-                        <img src="https://assets.danieldaum.net/img/games/stardew-valley.webp" alt="Stardew Valley"
-                            width="528" height="704" loading="lazy" decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Stardew Valley</span>
-                        <span class="tracker-caption-sub">Studio Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating rating--great">(5/5)</span>
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/games/the-last-of-us-part-ii/"
+                        aria-label="The Last of Us Part II"
+                    >
+                        <span class="tracker-cover tracker-cover--boxart">
+                            <img
+                                src="https://assets.danieldaum.net/img/games/the-last-of-us-part-ii.webp"
+                                alt="The Last of Us Part II"
+                                width="528"
+                                height="704"
+                                loading="lazy"
+                                decoding="async"
+                            />
                         </span>
-                    </span>
-                </a>
-            </figure>
-
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/games/returnal/" aria-label="Returnal">
-                    <span class="tracker-cover tracker-cover--boxart">
-                        <img src="https://assets.danieldaum.net/img/games/returnal.webp" alt="Returnal" width="528"
-                            height="704" loading="lazy" decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Returnal</span>
-                        <span class="tracker-caption-sub">Studio Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating rating--great">(5/5)</span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >The Last of Us Part II</span
+                            >
+                            <span class="tracker-caption-sub">Studio Name</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating rating--great">(5/5)</span>
+                            </span>
                         </span>
-                    </span>
-                </a>
-            </figure>
+                    </a>
+                </figure>
 
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/games/star-wars-republic-commando/" aria-label="Star Wars: Republic Commando">
-                    <span class="tracker-cover tracker-cover--boxart">
-                        <img src="https://assets.danieldaum.net/img/games/star-wars-republic-commando.webp"
-                            alt="Star Wars: Republic Commando" width="528" height="704" loading="lazy"
-                            decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Star Wars: Republic Commando</span>
-                        <span class="tracker-caption-sub">Studio Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating rating--great">(5/5)</span>
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/games/halo-2/"
+                        aria-label="Halo 2"
+                    >
+                        <span class="tracker-cover tracker-cover--boxart">
+                            <img
+                                src="https://assets.danieldaum.net/img/games/halo-2.webp"
+                                alt="Halo 2"
+                                width="528"
+                                height="704"
+                                loading="lazy"
+                                decoding="async"
+                            />
                         </span>
-                    </span>
-                </a>
-            </figure>
-
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/games/age-of-mythology/" aria-label="Age of Mythology">
-                    <span class="tracker-cover tracker-cover--boxart">
-                        <img src="https://assets.danieldaum.net/img/games/age-of-mythology.webp" alt="Age of Mythology"
-                            width="528" height="704" loading="lazy" decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Age of Mythology</span>
-                        <span class="tracker-caption-sub">Studio Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating rating--great">(5/5)</span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title">Halo 2</span>
+                            <span class="tracker-caption-sub">Studio Name</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating rating--great">(5/5)</span>
+                            </span>
                         </span>
-                    </span>
-                </a>
-            </figure>
+                    </a>
+                </figure>
 
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/games/the-callisto-protocol/" aria-label="The Callisto Protocol">
-                    <span class="tracker-cover tracker-cover--boxart">
-                        <img src="https://assets.danieldaum.net/img/games/the-callisto-protocol.webp"
-                            alt="The Callisto Protocol" width="528" height="704" loading="lazy" decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">The Callisto Protocol</span>
-                        <span class="tracker-caption-sub">Studio Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating rating--great">(5/5)</span>
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/games/halo-reach/"
+                        aria-label="Halo: Reach"
+                    >
+                        <span class="tracker-cover tracker-cover--boxart">
+                            <img
+                                src="https://assets.danieldaum.net/img/games/halo-reach.webp"
+                                alt="Halo: Reach"
+                                width="528"
+                                height="704"
+                                loading="lazy"
+                                decoding="async"
+                            />
                         </span>
-                    </span>
-                </a>
-            </figure>
-
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/games/star-wars-battlefront-ii-2005/"
-                    aria-label="Star Wars: Battlefront II (2005)">
-                    <span class="tracker-cover tracker-cover--boxart">
-                        <img src="https://assets.danieldaum.net/img/games/star-wars-battlefront-ii-2005.webp"
-                            alt="Star Wars: Battlefront II (2005)" width="528" height="704" loading="lazy"
-                            decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Star Wars: Battlefront II (2005)</span>
-                        <span class="tracker-caption-sub">Studio Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating rating--great">(5/5)</span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >Halo: Reach</span
+                            >
+                            <span class="tracker-caption-sub">Studio Name</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating rating--great">(5/5)</span>
+                            </span>
                         </span>
-                    </span>
-                </a>
-            </figure>
+                    </a>
+                </figure>
 
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/games/call-of-duty-modern-warfare-2-2009/"
-                    aria-label="Call of Duty: Modern Warfare 2 (2009)">
-                    <span class="tracker-cover tracker-cover--boxart">
-                        <img src="https://assets.danieldaum.net/img/games/call-of-duty-modern-warfare-2.webp"
-                            alt="Call of Duty: Modern Warfare 2 (2009)" width="528" height="704" loading="lazy"
-                            decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Call of Duty: Modern Warfare 2 (2009)</span>
-                        <span class="tracker-caption-sub">Studio Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating rating--great">(5/5)</span>
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/games/baldurs-gate-3/"
+                        aria-label="Baldur's Gate 3"
+                    >
+                        <span class="tracker-cover tracker-cover--boxart">
+                            <img
+                                src="https://assets.danieldaum.net/img/games/baldurs-gate-3.webp"
+                                alt="Baldur's Gate 3"
+                                width="528"
+                                height="704"
+                                loading="lazy"
+                                decoding="async"
+                            />
                         </span>
-                    </span>
-                </a>
-            </figure>
-        </section>
-
-        <h2>2026</h2>
-
-        <section class="tracker-wall" aria-label="games logged in 2026">
-
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/games/replaced/" aria-label="Replaced">
-                    <span class="tracker-cover tracker-cover--boxart">
-                        <img src="https://assets.danieldaum.net/img/games/replaced.webp" alt="Replaced" width="528"
-                            height="704" loading="lazy" decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Replaced</span>
-                        <span class="tracker-caption-sub">Studio Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >Baldur's Gate 3</span
+                            >
+                            <span class="tracker-caption-sub">Studio Name</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating rating--great">(5/5)</span>
+                            </span>
                         </span>
-                    </span>
-                </a>
-            </figure>
+                    </a>
+                </figure>
 
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/games/vampire-survivors/" aria-label="Vampire Survivors">
-                    <span class="tracker-cover tracker-cover--boxart">
-                        <img src="https://assets.danieldaum.net/img/games/vampire-survivors.webp"
-                            alt="Vampire Survivors" width="528" height="704" loading="lazy" decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Vampire Survivors</span>
-                        <span class="tracker-caption-sub">Studio Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/games/mass-effect-2/"
+                        aria-label="Mass Effect 2"
+                    >
+                        <span class="tracker-cover tracker-cover--boxart">
+                            <img
+                                src="https://assets.danieldaum.net/img/games/mass-effect-2.webp"
+                                alt="Mass Effect 2"
+                                width="528"
+                                height="704"
+                                loading="lazy"
+                                decoding="async"
+                            />
                         </span>
-                    </span>
-                </a>
-            </figure>
-
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/games/south-of-midnight/" aria-label="South of Midnight">
-                    <span class="tracker-cover tracker-cover--boxart">
-                        <img src="https://assets.danieldaum.net/img/games/south-of-midnight.webp"
-                            alt="South of Midnight" width="528" height="704" loading="lazy" decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">South of Midnight</span>
-                        <span class="tracker-caption-sub">Studio Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >Mass Effect 2</span
+                            >
+                            <span class="tracker-caption-sub">Studio Name</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating rating--great">(5/5)</span>
+                            </span>
                         </span>
-                    </span>
-                </a>
-            </figure>
+                    </a>
+                </figure>
 
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/games/dispatch/" aria-label="Dispatch">
-                    <span class="tracker-cover tracker-cover--boxart">
-                        <img src="https://assets.danieldaum.net/img/games/dispatch.webp" alt="Dispatch" width="528"
-                            height="704" loading="lazy" decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Dispatch</span>
-                        <span class="tracker-caption-sub">Studio Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/games/stardew-valley/"
+                        aria-label="Stardew Valley"
+                    >
+                        <span class="tracker-cover tracker-cover--boxart">
+                            <img
+                                src="https://assets.danieldaum.net/img/games/stardew-valley.webp"
+                                alt="Stardew Valley"
+                                width="528"
+                                height="704"
+                                loading="lazy"
+                                decoding="async"
+                            />
                         </span>
-                    </span>
-                </a>
-            </figure>
-
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/games/battlefield-6/" aria-label="Battlefield 6">
-                    <span class="tracker-cover tracker-cover--boxart">
-                        <img src="https://assets.danieldaum.net/img/games/battlefield-6.webp" alt="Battlefield 6"
-                            width="528" height="704" loading="lazy" decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Battlefield 6</span>
-                        <span class="tracker-caption-sub">Studio Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >Stardew Valley</span
+                            >
+                            <span class="tracker-caption-sub">Studio Name</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating rating--great">(5/5)</span>
+                            </span>
                         </span>
-                    </span>
-                </a>
-            </figure>
+                    </a>
+                </figure>
 
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/games/journey/" aria-label="Journey">
-                    <span class="tracker-cover tracker-cover--boxart">
-                        <img src="https://assets.danieldaum.net/img/games/journey.webp" alt="Journey" width="528"
-                            height="704" loading="lazy" decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Journey</span>
-                        <span class="tracker-caption-sub">Studio Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/games/returnal/"
+                        aria-label="Returnal"
+                    >
+                        <span class="tracker-cover tracker-cover--boxart">
+                            <img
+                                src="https://assets.danieldaum.net/img/games/returnal.webp"
+                                alt="Returnal"
+                                width="528"
+                                height="704"
+                                loading="lazy"
+                                decoding="async"
+                            />
                         </span>
-                    </span>
-                </a>
-            </figure>
-
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/games/marathon/" aria-label="Marathon">
-                    <span class="tracker-cover tracker-cover--boxart">
-                        <img src="https://assets.danieldaum.net/img/games/marathon-2026.webp" alt="Marathon" width="528"
-                            height="704" loading="lazy" decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Marathon</span>
-                        <span class="tracker-caption-sub">Studio Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title">Returnal</span>
+                            <span class="tracker-caption-sub">Studio Name</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating rating--great">(5/5)</span>
+                            </span>
                         </span>
-                    </span>
-                </a>
-            </figure>
+                    </a>
+                </figure>
 
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/games/v-rising/" aria-label="V Rising">
-                    <span class="tracker-cover tracker-cover--boxart">
-                        <img src="https://assets.danieldaum.net/img/games/v-rising.webp" alt="V Rising" width="528"
-                            height="704" loading="lazy" decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">V Rising</span>
-                        <span class="tracker-caption-sub">Studio Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/games/star-wars-republic-commando/"
+                        aria-label="Star Wars: Republic Commando"
+                    >
+                        <span class="tracker-cover tracker-cover--boxart">
+                            <img
+                                src="https://assets.danieldaum.net/img/games/star-wars-republic-commando.webp"
+                                alt="Star Wars: Republic Commando"
+                                width="528"
+                                height="704"
+                                loading="lazy"
+                                decoding="async"
+                            />
                         </span>
-                    </span>
-                </a>
-            </figure>
-        </section>
-
-        <h2>2025</h2>
-
-        <section class="tracker-wall" aria-label="games logged in 2025">
-
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/games/kingdom-come-deliverance-ii/" aria-label="Kingdom Come: Deliverance II">
-                    <span class="tracker-cover tracker-cover--boxart">
-                        <img src="https://assets.danieldaum.net/img/games/kingdom-come-deliverance-2.webp"
-                            alt="Kingdom Come: Deliverance II" width="528" height="704" loading="lazy"
-                            decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Kingdom Come: Deliverance II</span>
-                        <span class="tracker-caption-sub">Studio Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >Star Wars: Republic Commando</span
+                            >
+                            <span class="tracker-caption-sub">Studio Name</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating rating--great">(5/5)</span>
+                            </span>
                         </span>
-                    </span>
-                </a>
-            </figure>
+                    </a>
+                </figure>
 
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/games/vampire-the-masquerade-bloodlines-2/"
-                    aria-label="Vampire: The Masquerade - Bloodlines 2">
-                    <span class="tracker-cover tracker-cover--boxart">
-                        <img src="https://assets.danieldaum.net/img/games/vampire-the-masquerade-bloodlines-2.webp"
-                            alt="Vampire: The Masquerade - Bloodlines 2" width="528" height="704" loading="lazy"
-                            decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Vampire: The Masquerade - Bloodlines 2</span>
-                        <span class="tracker-caption-sub">Studio Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/games/age-of-mythology/"
+                        aria-label="Age of Mythology"
+                    >
+                        <span class="tracker-cover tracker-cover--boxart">
+                            <img
+                                src="https://assets.danieldaum.net/img/games/age-of-mythology.webp"
+                                alt="Age of Mythology"
+                                width="528"
+                                height="704"
+                                loading="lazy"
+                                decoding="async"
+                            />
                         </span>
-                    </span>
-                </a>
-            </figure>
-
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/games/the-callisto-protocol/" aria-label="The Callisto Protocol">
-                    <span class="tracker-cover tracker-cover--boxart">
-                        <img src="https://assets.danieldaum.net/img/games/the-callisto-protocol.webp"
-                            alt="The Callisto Protocol" width="528" height="704" loading="lazy" decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">The Callisto Protocol</span>
-                        <span class="tracker-caption-sub">Studio Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating rating--great">(5/5)</span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >Age of Mythology</span
+                            >
+                            <span class="tracker-caption-sub">Studio Name</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating rating--great">(5/5)</span>
+                            </span>
                         </span>
-                    </span>
-                </a>
-            </figure>
+                    </a>
+                </figure>
 
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/games/star-wars-outlaws/" aria-label="Star Wars Outlaws">
-                    <span class="tracker-cover tracker-cover--boxart">
-                        <img src="https://assets.danieldaum.net/img/games/star-wars-outlaws.webp"
-                            alt="Star Wars Outlaws" width="528" height="704" loading="lazy" decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Star Wars Outlaws</span>
-                        <span class="tracker-caption-sub">Studio Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/games/the-callisto-protocol/"
+                        aria-label="The Callisto Protocol"
+                    >
+                        <span class="tracker-cover tracker-cover--boxart">
+                            <img
+                                src="https://assets.danieldaum.net/img/games/the-callisto-protocol.webp"
+                                alt="The Callisto Protocol"
+                                width="528"
+                                height="704"
+                                loading="lazy"
+                                decoding="async"
+                            />
                         </span>
-                    </span>
-                </a>
-            </figure>
-
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/games/warhammer-40-000-space-marine-ii/"
-                    aria-label="Warhammer 40,000: Space Marine II">
-                    <span class="tracker-cover tracker-cover--boxart">
-                        <img src="https://assets.danieldaum.net/img/games/warhammer-40000-space-marine-2.webp"
-                            alt="Warhammer 40,000: Space Marine II" width="528" height="704" loading="lazy"
-                            decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Warhammer 40,000: Space Marine II</span>
-                        <span class="tracker-caption-sub">Studio Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >The Callisto Protocol</span
+                            >
+                            <span class="tracker-caption-sub">Studio Name</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating rating--great">(5/5)</span>
+                            </span>
                         </span>
-                    </span>
-                </a>
-            </figure>
+                    </a>
+                </figure>
 
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/games/demonschool/" aria-label="Demonschool">
-                    <span class="tracker-cover tracker-cover--boxart">
-                        <img src="https://assets.danieldaum.net/img/games/demonschool.webp" alt="Demonschool"
-                            width="528" height="704" loading="lazy" decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Demonschool</span>
-                        <span class="tracker-caption-sub">Studio Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/games/star-wars-battlefront-ii-2005/"
+                        aria-label="Star Wars: Battlefront II (2005)"
+                    >
+                        <span class="tracker-cover tracker-cover--boxart">
+                            <img
+                                src="https://assets.danieldaum.net/img/games/star-wars-battlefront-ii-2005.webp"
+                                alt="Star Wars: Battlefront II (2005)"
+                                width="528"
+                                height="704"
+                                loading="lazy"
+                                decoding="async"
+                            />
                         </span>
-                    </span>
-                </a>
-            </figure>
-
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/games/indika/" aria-label="Indika">
-                    <span class="tracker-cover tracker-cover--boxart">
-                        <img src="https://assets.danieldaum.net/img/games/indika.webp" alt="Indika" width="528"
-                            height="704" loading="lazy" decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Indika</span>
-                        <span class="tracker-caption-sub">Studio Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >Star Wars: Battlefront II (2005)</span
+                            >
+                            <span class="tracker-caption-sub">Studio Name</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating rating--great">(5/5)</span>
+                            </span>
                         </span>
-                    </span>
-                </a>
-            </figure>
+                    </a>
+                </figure>
 
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/games/the-quarry/" aria-label="The Quarry">
-                    <span class="tracker-cover tracker-cover--boxart">
-                        <img src="https://assets.danieldaum.net/img/games/the-quarry.webp" alt="The Quarry" width="528"
-                            height="704" loading="lazy" decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">The Quarry</span>
-                        <span class="tracker-caption-sub">Studio Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/games/call-of-duty-modern-warfare-2-2009/"
+                        aria-label="Call of Duty: Modern Warfare 2 (2009)"
+                    >
+                        <span class="tracker-cover tracker-cover--boxart">
+                            <img
+                                src="https://assets.danieldaum.net/img/games/call-of-duty-modern-warfare-2.webp"
+                                alt="Call of Duty: Modern Warfare 2 (2009)"
+                                width="528"
+                                height="704"
+                                loading="lazy"
+                                decoding="async"
+                            />
                         </span>
-                    </span>
-                </a>
-            </figure>
-
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/games/starfield/" aria-label="Starfield">
-                    <span class="tracker-cover tracker-cover--boxart">
-                        <img src="https://assets.danieldaum.net/img/games/starfield.webp" alt="Starfield" width="528"
-                            height="704" loading="lazy" decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Starfield</span>
-                        <span class="tracker-caption-sub">Studio Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >Call of Duty: Modern Warfare 2 (2009)</span
+                            >
+                            <span class="tracker-caption-sub">Studio Name</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating rating--great">(5/5)</span>
+                            </span>
                         </span>
-                    </span>
-                </a>
-            </figure>
+                    </a>
+                </figure>
+            </section>
 
-            <figure class="tracker-tile">
-                <a class="tracker-link" href="/games/clair-obscur-expedition-33/" aria-label="Clair Obscur: Expedition 33">
-                    <span class="tracker-cover tracker-cover--boxart">
-                        <img src="https://assets.danieldaum.net/img/games/clair-obscur-expedition-33.webp"
-                            alt="Clair Obscur: Expedition 33" width="528" height="704" loading="lazy"
-                            decoding="async" />
-                    </span>
-                    <span class="tracker-caption">
-                        <span class="tracker-caption-title">Clair Obscur: Expedition 33</span>
-                        <span class="tracker-caption-sub">Studio Name</span>
-                        <span class="tracker-caption-line">
-                            <span>date</span>
-                            <span class="rating">(?/5)</span>
+            <h2>2026</h2>
+
+            <section class="tracker-wall" aria-label="games logged in 2026">
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/games/replaced/"
+                        aria-label="Replaced"
+                    >
+                        <span class="tracker-cover tracker-cover--boxart">
+                            <img
+                                src="https://assets.danieldaum.net/img/games/replaced.webp"
+                                alt="Replaced"
+                                width="528"
+                                height="704"
+                                loading="lazy"
+                                decoding="async"
+                            />
                         </span>
-                    </span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title">Replaced</span>
+                            <span class="tracker-caption-sub">Studio Name</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
+                        </span>
+                    </a>
+                </figure>
+
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/games/vampire-survivors/"
+                        aria-label="Vampire Survivors"
+                    >
+                        <span class="tracker-cover tracker-cover--boxart">
+                            <img
+                                src="https://assets.danieldaum.net/img/games/vampire-survivors.webp"
+                                alt="Vampire Survivors"
+                                width="528"
+                                height="704"
+                                loading="lazy"
+                                decoding="async"
+                            />
+                        </span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >Vampire Survivors</span
+                            >
+                            <span class="tracker-caption-sub">Studio Name</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
+                        </span>
+                    </a>
+                </figure>
+
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/games/south-of-midnight/"
+                        aria-label="South of Midnight"
+                    >
+                        <span class="tracker-cover tracker-cover--boxart">
+                            <img
+                                src="https://assets.danieldaum.net/img/games/south-of-midnight.webp"
+                                alt="South of Midnight"
+                                width="528"
+                                height="704"
+                                loading="lazy"
+                                decoding="async"
+                            />
+                        </span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >South of Midnight</span
+                            >
+                            <span class="tracker-caption-sub">Studio Name</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
+                        </span>
+                    </a>
+                </figure>
+
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/games/dispatch/"
+                        aria-label="Dispatch"
+                    >
+                        <span class="tracker-cover tracker-cover--boxart">
+                            <img
+                                src="https://assets.danieldaum.net/img/games/dispatch.webp"
+                                alt="Dispatch"
+                                width="528"
+                                height="704"
+                                loading="lazy"
+                                decoding="async"
+                            />
+                        </span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title">Dispatch</span>
+                            <span class="tracker-caption-sub">Studio Name</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
+                        </span>
+                    </a>
+                </figure>
+
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/games/battlefield-6/"
+                        aria-label="Battlefield 6"
+                    >
+                        <span class="tracker-cover tracker-cover--boxart">
+                            <img
+                                src="https://assets.danieldaum.net/img/games/battlefield-6.webp"
+                                alt="Battlefield 6"
+                                width="528"
+                                height="704"
+                                loading="lazy"
+                                decoding="async"
+                            />
+                        </span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >Battlefield 6</span
+                            >
+                            <span class="tracker-caption-sub">Studio Name</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
+                        </span>
+                    </a>
+                </figure>
+
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/games/journey/"
+                        aria-label="Journey"
+                    >
+                        <span class="tracker-cover tracker-cover--boxart">
+                            <img
+                                src="https://assets.danieldaum.net/img/games/journey.webp"
+                                alt="Journey"
+                                width="528"
+                                height="704"
+                                loading="lazy"
+                                decoding="async"
+                            />
+                        </span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title">Journey</span>
+                            <span class="tracker-caption-sub">Studio Name</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
+                        </span>
+                    </a>
+                </figure>
+
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/games/marathon/"
+                        aria-label="Marathon"
+                    >
+                        <span class="tracker-cover tracker-cover--boxart">
+                            <img
+                                src="https://assets.danieldaum.net/img/games/marathon-2026.webp"
+                                alt="Marathon"
+                                width="528"
+                                height="704"
+                                loading="lazy"
+                                decoding="async"
+                            />
+                        </span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title">Marathon</span>
+                            <span class="tracker-caption-sub">Studio Name</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
+                        </span>
+                    </a>
+                </figure>
+
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/games/v-rising/"
+                        aria-label="V Rising"
+                    >
+                        <span class="tracker-cover tracker-cover--boxart">
+                            <img
+                                src="https://assets.danieldaum.net/img/games/v-rising.webp"
+                                alt="V Rising"
+                                width="528"
+                                height="704"
+                                loading="lazy"
+                                decoding="async"
+                            />
+                        </span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title">V Rising</span>
+                            <span class="tracker-caption-sub">Studio Name</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
+                        </span>
+                    </a>
+                </figure>
+            </section>
+
+            <h2>2025</h2>
+
+            <section class="tracker-wall" aria-label="games logged in 2025">
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/games/kingdom-come-deliverance-ii/"
+                        aria-label="Kingdom Come: Deliverance II"
+                    >
+                        <span class="tracker-cover tracker-cover--boxart">
+                            <img
+                                src="https://assets.danieldaum.net/img/games/kingdom-come-deliverance-2.webp"
+                                alt="Kingdom Come: Deliverance II"
+                                width="528"
+                                height="704"
+                                loading="lazy"
+                                decoding="async"
+                            />
+                        </span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >Kingdom Come: Deliverance II</span
+                            >
+                            <span class="tracker-caption-sub">Studio Name</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
+                        </span>
+                    </a>
+                </figure>
+
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/games/vampire-the-masquerade-bloodlines-2/"
+                        aria-label="Vampire: The Masquerade - Bloodlines 2"
+                    >
+                        <span class="tracker-cover tracker-cover--boxart">
+                            <img
+                                src="https://assets.danieldaum.net/img/games/vampire-the-masquerade-bloodlines-2.webp"
+                                alt="Vampire: The Masquerade - Bloodlines 2"
+                                width="528"
+                                height="704"
+                                loading="lazy"
+                                decoding="async"
+                            />
+                        </span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >Vampire: The Masquerade - Bloodlines 2</span
+                            >
+                            <span class="tracker-caption-sub">Studio Name</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
+                        </span>
+                    </a>
+                </figure>
+
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/games/the-callisto-protocol/"
+                        aria-label="The Callisto Protocol"
+                    >
+                        <span class="tracker-cover tracker-cover--boxart">
+                            <img
+                                src="https://assets.danieldaum.net/img/games/the-callisto-protocol.webp"
+                                alt="The Callisto Protocol"
+                                width="528"
+                                height="704"
+                                loading="lazy"
+                                decoding="async"
+                            />
+                        </span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >The Callisto Protocol</span
+                            >
+                            <span class="tracker-caption-sub">Studio Name</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating rating--great">(5/5)</span>
+                            </span>
+                        </span>
+                    </a>
+                </figure>
+
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/games/star-wars-outlaws/"
+                        aria-label="Star Wars Outlaws"
+                    >
+                        <span class="tracker-cover tracker-cover--boxart">
+                            <img
+                                src="https://assets.danieldaum.net/img/games/star-wars-outlaws.webp"
+                                alt="Star Wars Outlaws"
+                                width="528"
+                                height="704"
+                                loading="lazy"
+                                decoding="async"
+                            />
+                        </span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >Star Wars Outlaws</span
+                            >
+                            <span class="tracker-caption-sub">Studio Name</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
+                        </span>
+                    </a>
+                </figure>
+
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/games/warhammer-40-000-space-marine-ii/"
+                        aria-label="Warhammer 40,000: Space Marine II"
+                    >
+                        <span class="tracker-cover tracker-cover--boxart">
+                            <img
+                                src="https://assets.danieldaum.net/img/games/warhammer-40000-space-marine-2.webp"
+                                alt="Warhammer 40,000: Space Marine II"
+                                width="528"
+                                height="704"
+                                loading="lazy"
+                                decoding="async"
+                            />
+                        </span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >Warhammer 40,000: Space Marine II</span
+                            >
+                            <span class="tracker-caption-sub">Studio Name</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
+                        </span>
+                    </a>
+                </figure>
+
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/games/demonschool/"
+                        aria-label="Demonschool"
+                    >
+                        <span class="tracker-cover tracker-cover--boxart">
+                            <img
+                                src="https://assets.danieldaum.net/img/games/demonschool.webp"
+                                alt="Demonschool"
+                                width="528"
+                                height="704"
+                                loading="lazy"
+                                decoding="async"
+                            />
+                        </span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >Demonschool</span
+                            >
+                            <span class="tracker-caption-sub">Studio Name</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
+                        </span>
+                    </a>
+                </figure>
+
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/games/indika/"
+                        aria-label="Indika"
+                    >
+                        <span class="tracker-cover tracker-cover--boxart">
+                            <img
+                                src="https://assets.danieldaum.net/img/games/indika.webp"
+                                alt="Indika"
+                                width="528"
+                                height="704"
+                                loading="lazy"
+                                decoding="async"
+                            />
+                        </span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title">Indika</span>
+                            <span class="tracker-caption-sub">Studio Name</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
+                        </span>
+                    </a>
+                </figure>
+
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/games/the-quarry/"
+                        aria-label="The Quarry"
+                    >
+                        <span class="tracker-cover tracker-cover--boxart">
+                            <img
+                                src="https://assets.danieldaum.net/img/games/the-quarry.webp"
+                                alt="The Quarry"
+                                width="528"
+                                height="704"
+                                loading="lazy"
+                                decoding="async"
+                            />
+                        </span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >The Quarry</span
+                            >
+                            <span class="tracker-caption-sub">Studio Name</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
+                        </span>
+                    </a>
+                </figure>
+
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/games/starfield/"
+                        aria-label="Starfield"
+                    >
+                        <span class="tracker-cover tracker-cover--boxart">
+                            <img
+                                src="https://assets.danieldaum.net/img/games/starfield.webp"
+                                alt="Starfield"
+                                width="528"
+                                height="704"
+                                loading="lazy"
+                                decoding="async"
+                            />
+                        </span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title">Starfield</span>
+                            <span class="tracker-caption-sub">Studio Name</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
+                        </span>
+                    </a>
+                </figure>
+
+                <figure class="tracker-tile">
+                    <a
+                        class="tracker-link"
+                        href="/games/clair-obscur-expedition-33/"
+                        aria-label="Clair Obscur: Expedition 33"
+                    >
+                        <span class="tracker-cover tracker-cover--boxart">
+                            <img
+                                src="https://assets.danieldaum.net/img/games/clair-obscur-expedition-33.webp"
+                                alt="Clair Obscur: Expedition 33"
+                                width="528"
+                                height="704"
+                                loading="lazy"
+                                decoding="async"
+                            />
+                        </span>
+                        <span class="tracker-caption">
+                            <span class="tracker-caption-title"
+                                >Clair Obscur: Expedition 33</span
+                            >
+                            <span class="tracker-caption-sub">Studio Name</span>
+                            <span class="tracker-caption-line">
+                                <span>date</span>
+                                <span class="rating">(?/5)</span>
+                            </span>
+                        </span>
+                    </a>
+                </figure>
+            </section>
+        </main>
+
+        <!-- ===== FOOTER ===== -->
+        <footer>
+            <nav aria-label="site links">
+                <p aria-hidden="true">//</p>
+                <a href="mailto:daniel@danieldaum.net"> email </a>
+                <a
+                    href="https://git.danieldaum.net/"
+                    aria-label="git (opens in new tab)"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >git
                 </a>
-            </figure>
-        </section>
-    </main>
-
-    <!-- ===== FOOTER ===== -->
-    <footer>
-        <nav aria-label="site links">
-            <p aria-hidden="true">//</p>
-            <a href="mailto:daniel@danieldaum.net">
-                email
-            </a>
-            <a href="https://git.danieldaum.net/" aria-label="git (opens in new tab)" target="_blank"
-                rel="noopener noreferrer">git
-            </a>
-            <a href="/pgp.asc" aria-label="PGP public key (516E97FF)">PGP</a>
-            <a href="/changelog/">changelog</a>
-            <a href="/privacy/">privacy</a>
-            <a href="/feed.xml">feed</a>
-        </nav>
-    </footer>
-</body>
-
+                <a href="/pgp.asc" aria-label="PGP public key (516E97FF)"
+                    >PGP</a
+                >
+                <a href="/changelog/">changelog</a>
+                <a href="/privacy/">privacy</a>
+                <a href="/feed.xml">feed</a>
+            </nav>
+        </footer>
+    </body>
 </html>
