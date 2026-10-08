@@ -24,6 +24,8 @@
     <category term="now" />
     <summary type="text">The September 2026 now page. Starting the fall semester at Laney and applying to transfer, getting badly into home espresso, training for a half marathon, and notes on what I have been playing, reading, and listening to.</summary>
     <content type="html"><![CDATA[
+      <figure>
+      <img src="https://assets.danieldaum.net/img/photos/lake-tahoe-boat.webp" alt="a boat crossing Lake Tahoe" /></figure>
       <blockquote>This page highlights what I've been doing recently. It updates on occasion, so check back every now and then, if you'd like. This is the september 2026 edition, 8 months on from my first update in <a href="https://danieldaum.net/now/jan-2026/">January</a>. The most current update can be found <a href="https://danieldaum.net/now/">here</a>.</blockquote>
       <h2>College</h2>
       <p>This year, I finished the spring and summer semesters at Laney, a community college in Oakland, and I’m starting the fall semester. I’m taking Discrete Mathematics, Data Structures and Algorithms, and a history class—nothing too exciting.</p>
@@ -96,6 +98,8 @@
     <category term="now" />
     <summary type="text">The first now page. Two years into being Californians, weighing what the move gained and cost, and riding out the new-year feeling — plus what I was reading, listening to, and playing over winter.</summary>
     <content type="html"><![CDATA[
+      <figure>
+      <img src="https://assets.danieldaum.net/img/photos/wildcat-beach.webp" alt="the California coast near Point Reyes seen from Wildcat Beach" /></figure>
       <blockquote>This page highlights what I've been doing recently. It updates on occasion, so check back every now and then, if you'd like. This is the january 2026 edition. The most current update can be found <a href="https://danieldaum.net/now/">here</a>.</blockquote>
       <p>Christie and I just wrapped up our second year as Californians. We've been exploring California, trying to make new friends, and just settle into our new lives</p>
       <div>
@@ -110,9 +114,6 @@
       <ul>
       <li>no snow, or fall :(</li>
       <li>old friends are far away</li></ul></div></div>
-      <figure>
-      <img src="https://assets.danieldaum.net/img/photos/wildcat-beach.webp" alt="view of the California coast near Point Reyes from a hike" />
-      <figcaption>west coast near point reyes from a recent hike</figcaption></figure>
       <p>Anyways, it's a new year and I'm trying to ride out that <em>'this year will be different'</em> feeling for as long as possible. Just the usual stuff: more exercise, more reading, and maybe ease off some of the bad habits a little</p>
       <h2>Reading</h2>
       <p>Recently I was recommended <a href="https://www.goodreads.com/book/show/58416952-the-will-of-the-many">"The Will of the Many"</a> by James Islington, and I immediately devoured it. If you enjoy reading fantasy, this should be on your list</p>

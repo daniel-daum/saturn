@@ -394,7 +394,10 @@
             <h2>post</h2>
             <p>A post is an <code>article</code> holding a <code>.page-header--post</code>, which turns it into the
                 panel. The likes and comments block is written by functions/_middleware.js; the markup below copies
-                what it outputs. A <code>.pager</code> straight after the article sits 1rem under it. On phones the
+                what it outputs. A <code>.pager</code> straight after the article sits 1rem under it. An optional
+                <code>.post-banner</code> photo can open the panel: 2:1 (4:3 on phones), bled to the panel edges,
+                linking to the photo's page. <code>.post-banner--row</code> (a <code>figure</code>, no link) holds
+                several photos side by side, as on /about/. On phones the
                 panel and pager cards run edge to edge.</p>
 
             <div class="demo">
@@ -464,6 +467,20 @@
                         <span class="pager-title">Next Post Title</span>
                     </a>
                 </nav>
+            </div>
+
+            <div class="demo">
+                <p class="demo-label">.post-banner (optional, first in the article; --high / --low / --left / --right move the crop, on the banner or one photo)</p>
+                <article>
+                    <a class="post-banner" href="/photos/lake-tahoe-boat/" aria-label="photo details: Boat on Lake Tahoe">
+                        <img src="https://assets.danieldaum.net/img/photos/lake-tahoe-boat.webp" alt="a boat crossing Lake Tahoe" />
+                    </a>
+                    <header class="page-header page-header--post">
+                        <p class="page-header-kicker"><span aria-hidden="true">/</span>now</p>
+                        <h1>Wake Me Up When September Ends</h1>
+                        <p class="meta caps"><time datetime="2026-09-03">3 September 2026</time></p>
+                    </header>
+                </article>
             </div>
 
             <div class="demo">
@@ -741,10 +758,15 @@
             </div>
 
             <p>The <code>.lightbox</code> opens on <code>:target</code>, with no JavaScript. It covers the whole
-                screen, so it isn't shown here; see /photos/ and the tracker walls.</p>
+                screen, so it isn't shown here; see /photos/ and the tracker walls. On /photos/ each lightbox shows
+                the photo's name and a <code>.lightbox-details</code> link to its page.</p>
+
+            <p>Each photo has a page at <code>/photos/&lt;file name&gt;/</code>: <code>.photo-entry</code> puts the
+                whole photo beside an <code>.entry-heading</code> (title, date, place, camera, film), stacked on
+                phones. Clicking the photo opens a single lightbox, <code>#full</code>. Posts and banners link
+                here, never to <code>#view-…</code>.</p>
             <p><code>.img-scaled</code> caps an image's height (26rem, or <code>--short</code> 18rem,
-                <code>--medium</code> 24rem, <code>--tall</code> 30rem) and centres it. <code>.figure-row</code>
-                puts several images side by side; under 600px only the middle one shows.</p>
+                <code>--medium</code> 24rem, <code>--tall</code> 30rem) and centres it.</p>
         </section>
 
         <!-- ===================== -->
@@ -757,8 +779,8 @@
                 <li><code>&le; 768px</code>: less page padding, h1 1.6rem, project cards stack. Paragraphs stop
                     using <code>text-wrap: pretty</code>.</li>
                 <li><code>&le; 600px</code>: header stacks with the nav on one row and "home" hidden; meta-split,
-                    tables, project stats, entry hero and the pager stack; <code>.figure-row</code> keeps its middle
-                    image; the footer drops <code>//</code> and PGP.</li>
+                    tables, project stats, entry hero and the pager stack; a <code>.post-banner--row</code> keeps its
+                    middle photo; the footer drops <code>//</code> and PGP.</li>
                 <li><code>&le; 480px</code>: 1rem page gutter; h1 1.5rem, h2 1.2rem, h3 1.05rem; the post panel and
                     pager cards run edge to edge; photo wall one column, tracker walls two; the footer also drops
                     changelog.</li>

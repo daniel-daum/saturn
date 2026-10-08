@@ -591,17 +591,79 @@ nav p {
 
 /* posts: bordered panel */
 article:has(> .page-header--post) {
-    padding: clamp(1.25rem, 4vw, 2.5rem);
+    --panel-pad-block: clamp(1.25rem, 4vw, 2.5rem);
+    --panel-pad-inline: var(--panel-pad-block);
+    padding: var(--panel-pad-block) var(--panel-pad-inline);
     background: var(--surface);
     border: 1px solid var(--borders);
+}
+
+/* posts: optional banner photo, bled to the panel edges */
+.post-banner {
+    display: block;
+    aspect-ratio: 2 / 1;
+    margin: calc(-1 * var(--panel-pad-block)) calc(-1 * var(--panel-pad-inline))
+        var(--panel-pad-block);
+    border-bottom: 1px solid var(--borders);
+}
+
+.post-banner img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* crop focus: centre by default. on the banner, or on one photo in a row */
+.post-banner--high img,
+.post-banner img.post-banner--high {
+    object-position: 50% 30%;
+}
+
+.post-banner--low img,
+.post-banner img.post-banner--low {
+    object-position: 50% 70%;
+}
+
+.post-banner--left img,
+.post-banner img.post-banner--left {
+    object-position: 30% 50%;
+}
+
+.post-banner--right img,
+.post-banner img.post-banner--right {
+    object-position: 70% 50%;
+}
+
+/* several photos side by side; phones keep the middle one */
+.post-banner--row {
+    display: flex;
+    gap: 1px;
+    background: var(--borders);
+}
+
+.post-banner--row img {
+    flex: 1;
+    min-width: 0;
+}
+
+@media (max-width: 600px) {
+    .post-banner--row img:not(:nth-child(2)) {
+        display: none;
+    }
 }
 
 /* phones: edge to edge */
 @media (max-width: 480px) {
     article:has(> .page-header--post) {
+        --panel-pad-block: 1.25rem;
+        --panel-pad-inline: 1rem;
         margin-inline: -1rem;
-        padding: 1.25rem 1rem;
         border-inline: 0;
+    }
+
+    .post-banner {
+        aspect-ratio: 4 / 3;
     }
 }
 
@@ -1228,22 +1290,6 @@ figure:has(.img-scaled) figcaption {
     min-width: 0;
 }
 
-.figure-row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.figure-row > * {
-    min-width: 0;
-}
-
-@media (max-width: 600px) {
-    .figure-row > :not(:nth-child(2)) {
-        display: none;
-    }
-}
-
 /*============================*/
 /* home - recent writing */
 /*============================*/
@@ -1732,10 +1778,15 @@ figure:has(.img-scaled) figcaption {
     font-weight: 600;
 }
 
-.lightbox-meta-detail {
-    margin: 0.15rem 0 0;
-    color: var(--text-secondary);
-    font-size: 0.8rem;
+/* link to the photo's own page */
+.lightbox-details {
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+}
+
+.lightbox-details:hover {
+    color: var(--background-dark);
+    background-color: var(--accent);
 }
 
 .lightbox-close,
@@ -1783,6 +1834,42 @@ figure:has(.img-scaled) figcaption {
     .lightbox-close {
         top: 0.75rem;
         right: 1rem;
+    }
+}
+
+/*============================*/
+/* photos - photo pages */
+/*============================*/
+
+/* whole photo beside its details; heading and list reuse .entry-heading / .entry-meta */
+.photo-entry {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(12rem, 2fr);
+    gap: 2rem;
+    align-items: start;
+}
+
+.photo-entry-link {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+}
+
+.photo-entry-link img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 85vh;
+    max-height: 85svh;
+    margin: 0;
+    border: 1px solid var(--borders);
+}
+
+@media (max-width: 600px) {
+    .photo-entry {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 }
 
@@ -2039,6 +2126,7 @@ footer nav a,
 .entry-heading h1,
 .pager-title,
 .photo-caption-date,
+.lightbox-details,
 .tracker-caption-line,
 .social-title,
 .comment-author,

@@ -1,3 +1,8 @@
 [tools]
 node = "latest"
 "npm:five-server" = "latest"
+
+# mise run serve
+[tasks.serve]
+description = "Run the site in live-reload mode"
+run = "five-server --port=8080"
