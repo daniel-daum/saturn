@@ -8,11 +8,13 @@ when:
 
 engine: "nixery"
 
+# wrangler comes from npm at deploy time: the nixpkgs package makes a huge
+# image that nixery is slow to build
 dependencies:
   nixpkgs:
     - gnugrep
     - findutils
-    - wrangler
+    - nodejs
 
 environment:
   WRANGLER_SEND_METRICS: "false"
@@ -29,4 +31,4 @@ steps:
   - name: "Deploy to Cloudflare Pages"
     command: |
       set -euo pipefail
-      wrangler pages deploy dist --project-name=saturn --branch=main
+      npx --yes wrangler@4 pages deploy dist --project-name=saturn --branch=main
