@@ -16,3 +16,13 @@ run = "node scripts/sync-posts.mjs"
 [tasks.sync-standard]
 description = "Publish my writing to standard.site"
 run = "node scripts/sync-standard.mjs"
+
+# mise run sync-commits
+[tasks.sync-commits]
+description = "Copy recent commits from my gitea into the project pages"
+run = "node scripts/sync-commits.mjs"
+
+# mise run words now/sep-2026/index.html
+[tasks.words]
+description = "Word count for a post, for the home page"
+run = "python3 scripts/word-count.py"

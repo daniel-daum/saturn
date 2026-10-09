@@ -708,7 +708,6 @@
                     </a>
                     <a class="card card--more" href="#listings">
                         <p class="card-title">all projects &rarr;</p>
-                        <p class="card-desc">more coming soon</p>
                     </a>
                 </div>
             </div>
@@ -754,8 +753,37 @@
                     </div>
                 </div>
             </div>
+            <div class="demo">
+                <p class="demo-label">.pills / .pill / .pill--dev (dot commented out), project cards and headers</p>
+                <div class="pills">
+                    <span class="pill">#new</span>
+                    <span class="pill pill--dev">#in-development</span>
+                </div>
+            </div>
+
+            <div class="demo">
+                <p class="demo-label">.commit-log, written by scripts/sync-commits.mjs (banner or /projects/ card)</p>
+                <div class="commit-log">
+                    <div class="commit-log-head">
+                        <span>recent commits</span>
+                        <a href="#projects">all commits &rarr;</a>
+                    </div>
+                    <ol class="commit-log-list">
+                        <li class="commit-log-row">
+                            <span class="commit-log-hash">3b951c1</span>
+                            <span class="commit-log-msg">feat: add containerization</span>
+                            <time class="commit-log-date" datetime="2026-09-09T15:27:32-07:00">09 Sep 26</time>
+                        </li>
+                        <li class="commit-log-row">
+                            <span class="commit-log-hash">4a962de</span>
+                            <span class="commit-log-msg">feat: add godot client</span>
+                            <time class="commit-log-date" datetime="2026-09-09T14:38:45-07:00">09 Sep 26</time>
+                        </li>
+                    </ol>
+                </div>
+            </div>
             <p class="meta">.project-banner (the tall gradient banner at the top of a project page) is page-specific
-                and not shown here.</p>
+                and not shown here. .project-banner--log lets it grow around a commit log.</p>
         </section>
 
         <!-- ===================== -->

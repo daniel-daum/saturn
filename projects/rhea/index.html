@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="rhea - an archived macos app for pulling text out of grocery receipts, built by daniel daum"
+        />
+        <meta
+            http-equiv="Content-Security-Policy"
+            content="default-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;"
+        />
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
+        <link
+            rel="preload"
+            href="/assets/fonts/ioskeleymono/IoskeleyMono-Regular.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin
+        />
+        <link
+            rel="preload"
+            href="/assets/fonts/ioskeleymono/IoskeleyMono-Bold.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin
+        />
+        <link
+            rel="preload"
+            href="/assets/fonts/ioskeleymono/IoskeleyMono-SemiBold.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin
+        />
+        <link rel="preconnect" href="https://assets.danieldaum.net" />
+        <link rel="stylesheet" href="/global.css" />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/assets/favicon/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/assets/favicon/favicon-16x16.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/assets/favicon/apple-touch-icon.png"
+        />
+        <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+        <link
+            rel="alternate"
+            type="application/atom+xml"
+            title="daniel daum"
+            href="https://danieldaum.net/feed.xml"
+        />
+        <title>daniel daum - rhea</title>
+
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="daniel daum" />
+        <meta property="og:title" content="daniel daum - rhea" />
+        <meta
+            property="og:description"
+            content="rhea - an archived macos app for pulling text out of grocery receipts, built by daniel daum"
+        />
+        <meta
+            property="og:url"
+            content="https://danieldaum.net/projects/rhea/"
+        />
+        <meta
+            property="og:image"
+            content="https://assets.danieldaum.net/img/misc/og.jpg"
+        />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta
+            property="og:image:alt"
+            content="daniel daum - software engineer, avid reader, aspiring game dev - danieldaum.net"
+        />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="daniel daum - rhea" />
+        <meta
+            name="twitter:description"
+            content="rhea - an archived macos app for pulling text out of grocery receipts, built by daniel daum"
+        />
+        <meta
+            name="twitter:image"
+            content="https://assets.danieldaum.net/img/misc/og.jpg"
+        />
+        <meta
+            name="twitter:image:alt"
+            content="daniel daum - software engineer, avid reader, aspiring game dev - danieldaum.net"
+        />
+    </head>
+
+    <body>
+        <a class="skip-link" href="#main">skip to content</a>
+
+        <!-- ===== HEADER ===== -->
+        <header class="site-header">
+            <a class="site-name" href="/">Daniel Daum</a>
+            <nav aria-label="main navigation">
+                <a href="/">home</a>
+                <a href="/about/">about</a>
+                <a href="/now/">now</a>
+                <a href="/blog/">blog</a>
+                <a href="/projects/">projects</a>
+                <a href="/garden/">garden</a>
+            </nav>
+        </header>
+
+        <!-- ===== MAIN ===== -->
+        <main id="main">
+            <nav class="breadcrumb" aria-label="breadcrumb">
+                <a href="/projects/">projects</a>
+                <span aria-hidden="true">-></span>
+                <a href="/projects/rhea/">Rhea</a>
+            </nav>
+            <section class="project-banner">
+                <div class="project-banner-background" aria-hidden="true">
+                    <svg
+                        width="100%"
+                        height="100%"
+                        preserveAspectRatio="xMinYMin"
+                    >
+                        <defs>
+                            <pattern
+                                id="grid"
+                                width="40"
+                                height="40"
+                                patternUnits="userSpaceOnUse"
+                            >
+                                <path
+                                    d="M 40 0 L 0 0 0 40"
+                                    fill="none"
+                                    stroke="white"
+                                    stroke-width="1"
+                                />
+                            </pattern>
+                            <pattern
+                                id="diagonals"
+                                width="80"
+                                height="80"
+                                patternUnits="userSpaceOnUse"
+                            >
+                                <line
+                                    x1="0"
+                                    y1="0"
+                                    x2="80"
+                                    y2="80"
+                                    stroke="white"
+                                    stroke-width="1.5"
+                                />
+                                <line
+                                    x1="80"
+                                    y1="0"
+                                    x2="0"
+                                    y2="80"
+                                    stroke="white"
+                                    stroke-width="1.5"
+                                />
+                            </pattern>
+                            <pattern
+                                id="dots"
+                                width="20"
+                                height="20"
+                                patternUnits="userSpaceOnUse"
+                            >
+                                <circle cx="10" cy="10" r="1.5" fill="white" />
+                            </pattern>
+                        </defs>
+                        <rect
+                            width="100%"
+                            height="100%"
+                            fill="url(#grid)"
+                            opacity="0.2"
+                        />
+                        <rect
+                            width="100%"
+                            height="100%"
+                            fill="url(#diagonals)"
+                            opacity="0.1"
+                        />
+                        <rect
+                            width="100%"
+                            height="100%"
+                            fill="url(#dots)"
+                            opacity="0.15"
+                        />
+                    </svg>
+                </div>
+                <img
+                    class="project-banner-img"
+                    src="https://assets.danieldaum.net/img/photos/rhea-hero.webp"
+                    alt="screenshot of rhea: a list of receipts, a scanned trader joe's receipt, and the line items pulled out of it"
+                />
+            </section>
+
+            <header class="project-header">
+                <h1 class="project-header-title">Rhea</h1>
+                <p class="project-header-desc">
+                    Grocery receipt text extraction for macOS
+                </p>
+                <div class="pills">
+                    <span class="pill">#archived</span>
+                    <span class="pill">#ai-assisted</span>
+                </div>
+            </header>
+
+            <section aria-label="project metadata">
+                <h2 class="section-label">metadata</h2>
+                <div class="project-stats">
+                    <div>
+                        <p class="project-stat-label">role</p>
+                        <p class="project-stat-value">developer</p>
+                    </div>
+                    <div>
+                        <p class="project-stat-label">timeline</p>
+                        <p class="project-stat-value">
+                            July &ndash; September 2026
+                        </p>
+                    </div>
+                    <div>
+                        <p class="project-stat-label">stack</p>
+                        <p class="project-stat-value">
+                            Swift, SwiftUI, local LLMs, Postgres
+                        </p>
+                    </div>
+                    <div>
+                        <p class="project-stat-label">context</p>
+                        <p class="project-stat-value">AI-assisted experiment</p>
+                    </div>
+                    <div>
+                        <p class="project-stat-label">source</p>
+                        <p class="project-stat-value">
+                            <a
+                                href="https://github.com/daniel-daum/Rhea"
+                                aria-label="link to rhea's source code, opens in new tab"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >github.com/daniel-daum/Rhea</a
+                            >
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section aria-label="about this project">
+                <h2 class="section-label">about | how its made</h2>
+
+                <p>
+                    Rhea is a Mac app that turns grocery receipts into data. You
+                    drop in a stack of receipt PDFs, and a vision model pulls
+                    out the store, the total and every line item. Then you check
+                    each one next to the original scan, confirm it, and export
+                    the lot to CSV or Postgres. The idea was to track what
+                    groceries cost across stores over time.
+                </p>
+
+                <p>
+                    Everything runs locally. The extraction goes to whatever
+                    model you point it at (LM Studio, oMLX, anything that speaks
+                    the OpenAI chat API), so no receipt ever leaves your
+                    machine. It's plain SwiftUI with no third-party
+                    dependencies.
+                </p>
+
+                <p>
+                    It was also an experiment. I designed and wrote it almost
+                    entirely through conversation with Claude, from the
+                    architecture down to the bug fixes, to see how far that
+                    could go on a real project.
+                </p>
+
+                <blockquote>
+                    Rhea is archived. The code works, but it's rough. It's a
+                    case study, not a product.
+                </blockquote>
+            </section>
+        </main>
+
+        <!-- ===== FOOTER ===== -->
+        <footer>
+            <nav aria-label="site links">
+                <p aria-hidden="true">//</p>
+                <a href="mailto:daniel@danieldaum.net"> email </a>
+                <a
+                    href="https://git.danieldaum.net/"
+                    aria-label="git (opens in new tab)"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >git
+                </a>
+                <a href="/pgp.asc" aria-label="PGP public key (516E97FF)"
+                    >PGP</a
+                >
+                <a href="/changelog/">changelog</a>
+                <a href="/privacy/">privacy</a>
+                <a href="/feed.xml">feed</a>
+            </nav>
+        </footer>
+    </body>
+</html>

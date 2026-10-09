@@ -1,7 +1,8 @@
 name: Sync
 
-# run by hand (from the gitea app too): copies my bluesky posts into the
-# html, publishes my writing to standard.site, and commits the result. the
+# run by hand (from the gitea app too): copies my bluesky posts and recent
+# project commits into the html, publishes my writing to standard.site, and
+# commits the result. the
 # push is made with SYNC_TOKEN, a personal access token, because pushes made
 # with the built-in actions token don't trigger other workflows, and Mirror
 # and Deploy has to run after this.
@@ -21,6 +22,9 @@ jobs:
               run: |
                   node --version
                   node scripts/sync-posts.mjs
+
+            - name: Sync commits
+              run: node scripts/sync-commits.mjs
 
             - name: Publish to standard.site
               env:

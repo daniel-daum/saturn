@@ -1278,11 +1278,13 @@ article:has(> .page-header--post) + .pager {
     color: var(--text-secondary);
 }
 
-/* muted "view all" variant */
+/* muted "view all" variant: a centred bar under the grid */
 .card--more {
     border-style: dashed;
     opacity: 0.65;
     justify-content: center;
+    align-items: center;
+    padding-block: 1.1rem;
 }
 
 .card--more:hover {
@@ -1294,6 +1296,50 @@ article:has(> .page-header--post) + .pager {
     outline-offset: 4px;
     transform: scale(1.03);
 }
+
+/*============================*/
+/* components - pills */
+/*============================*/
+
+.pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.6rem;
+}
+
+.pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.2rem 0.6rem;
+    border: 1px solid var(--borders);
+    border-radius: 999px;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    line-height: 1.4;
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+
+/* in development: a slow pulsing dot (reduced motion stops it).
+   switched off for now; uncomment to bring it back */
+/*
+.pill--dev::before {
+    content: "";
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 50%;
+    background: currentColor;
+    animation: pill-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes pill-pulse {
+    50% {
+        opacity: 0.25;
+    }
+}
+*/
 
 /*============================*/
 /* components - table */
@@ -1958,6 +2004,125 @@ figure:has(.img-scaled) figcaption {
 }
 
 /*============================*/
+/* projects - commit log */
+/*============================*/
+
+/* recent commits, written by scripts/sync-commits.mjs. stands in for a
+   screenshot: in the project banner and on the /projects/ card */
+.commit-log {
+    position: relative;
+    width: 100%;
+    max-width: 40rem;
+    margin: 0 auto;
+    padding: 1rem 1.25rem;
+    border: 1px solid #3a4a3d;
+    border-radius: 0.5rem;
+    background: var(--surface);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.commit-log-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.6rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px dashed var(--borders);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: var(--text-secondary);
+}
+
+.commit-log-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.commit-log-row {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 1rem;
+    margin: 0;
+    padding: 0.3rem 0;
+    font-size: 0.82rem;
+    line-height: 1.5;
+}
+
+.commit-log-hash,
+.commit-log-date {
+    color: var(--text-secondary);
+    font-variant-numeric: tabular-nums;
+}
+
+.commit-log-msg {
+    color: var(--text-headings);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* banner: grows to fit the log instead of a fixed height */
+.project-banner--log {
+    display: flex;
+    align-items: center;
+    height: auto;
+    min-height: 20rem;
+}
+
+/* /projects/ card: takes the screenshot's spot and shrinks like it */
+.project-card-right:has(> .commit-log) {
+    flex: 0 1 30rem;
+    min-width: 0;
+}
+
+.project-card .commit-log {
+    box-shadow: none;
+}
+
+/* no room for the hash next to the card text */
+.project-card .commit-log-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.project-card .commit-log-hash {
+    display: none;
+}
+
+/* card stacks: the 30rem basis would become its height */
+@media (max-width: 768px) {
+    .project-card-right:has(> .commit-log) {
+        flex: none;
+    }
+}
+
+/* phones: banner rows put hash and date on one line, the message under them */
+@media (max-width: 600px) {
+    .project-banner--log {
+        padding: 1rem;
+    }
+
+    .commit-log {
+        padding: 0.875rem 1rem;
+    }
+
+    .project-banner .commit-log-row {
+        grid-template-columns: auto 1fr;
+        gap: 0.1rem 1rem;
+    }
+
+    .project-banner .commit-log-date {
+        text-align: right;
+    }
+
+    .project-banner .commit-log-msg {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        white-space: normal;
+    }
+}
+
+/*============================*/
 /* photos - photo wall */
 /*============================*/
 
@@ -2479,7 +2644,10 @@ footer nav a,
 .archive-tag,
 .archive-date,
 .post-card-meta,
-.post-card-extra {
+.post-card-extra,
+.pill,
+.commit-log-head,
+.commit-log-date {
     text-transform: uppercase;
 }
 

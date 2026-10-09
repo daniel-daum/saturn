@@ -18,6 +18,8 @@ then open localhost:8080.
 
 it shows up on the home page, /blog/ and /posts/ a minute or two later. `git pull` before working on the site again.
 
+the same button refreshes the recent commits on /projects/ and /projects/holonet/ (locally: `mise run sync-commits`).
+
 ## new blog post
 
 1. `git pull`
@@ -40,3 +42,4 @@ reviews go in the same writing list, tagged #game, #movie, #show, #book or #albu
 ## good to know
 
 - `internal/` never gets deployed. `internal/styles.html` shows every style on the site.
+- `internal/site-guide.md` is the long version of all this, written for an llm to read before helping out.
