@@ -1,0 +1,32 @@
+# deploys the site to cloudflare pages on every push to main. copies every
+# tracked file except the ones that never go live (see the grep below).
+# needs the CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID secrets
+
+when:
+  - event: ["push", "manual"]
+    branch: ["main"]
+
+engine: "nixery"
+
+dependencies:
+  nixpkgs:
+    - gnugrep
+    - findutils
+    - wrangler
+
+environment:
+  WRANGLER_SEND_METRICS: "false"
+
+steps:
+  - name: "Stage public files"
+    command: |
+      set -euo pipefail
+      mkdir dist
+      git ls-files -z \
+          | grep -zv -e '^internal/' -e '^scripts/' -e '^workers/' -e '^\.tangled/' -e '^\.gitignore$' -e '^mise\.toml$' \
+          | xargs -0 cp --parents -t dist
+
+  - name: "Deploy to Cloudflare Pages"
+    command: |
+      set -euo pipefail
+      wrangler pages deploy dist --project-name=saturn --branch=main
