@@ -1,4 +1,7 @@
-package control
+// internal/holonet/server.go
+// purpose: 
+// author: daniel daum
+package
 
 import (
 	"fmt"

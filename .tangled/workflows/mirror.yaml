@@ -1,0 +1,28 @@
+# mirrors main to github and gitea on every push. tangled is the source of
+# truth, so both get force-pushed to match it. needs the GH_MIRROR_TOKEN and
+# GITEA_MIRROR_TOKEN secrets
+
+when:
+    - event: ["push", "manual"]
+      branch: ["main"]
+
+engine: "nixery"
+
+steps:
+    # spindle clones one commit deep (depth: 0 means 1 too), and the mirrors
+    # need the whole history. this also points origin/main at the newest main,
+    # so a late or retried run never rolls the mirrors back
+    - name: "Fetch full history"
+      command: |
+          set -euo pipefail
+          git fetch --unshallow origin
+
+    - name: "Mirror to GitHub"
+      command: |
+          set -euo pipefail
+          git push --force "https://x-access-token:${GH_MIRROR_TOKEN}@github.com/daniel-daum/saturn.git" refs/remotes/origin/main:refs/heads/main
+
+    - name: "Mirror to Gitea"
+      command: |
+          set -euo pipefail
+          git push --force "https://daniel-daum:${GITEA_MIRROR_TOKEN}@git.danieldaum.net/daniel-daum/saturn.git" refs/remotes/origin/main:refs/heads/main
