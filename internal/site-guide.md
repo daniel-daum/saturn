@@ -5,7 +5,8 @@ A guide for an assistant helping me with danieldaum.net. Read all of it before c
 ## the basics
 
 - Handwritten HTML and one stylesheet (`global.css`). No framework, no build step, and no JavaScript on public pages.
-- Hosting is Cloudflare Pages. Pushing to `main` on my Gitea runs `.gitea/workflows/deploy.yaml`. It copies every tracked file except `internal/`, `scripts/`, `workers/`, `.gitea/`, `.gitignore` and `mise.toml`, and deploys them.
+- The source lives on Tangled: https://tangled.org/danieldaum.net/saturn (`origin`, `git@tangled.org:danieldaum.net/saturn`). GitHub and my Gitea are read-only mirrors.
+- Hosting is Cloudflare Pages. Pushing to `main` on Tangled runs `.tangled/workflows/deploy.yml` on the public spindle. It copies every tracked file except `internal/`, `scripts/`, `workers/`, `.tangled/`, `.gitignore` and `mise.toml`, and deploys them. CI details are in section 8.
 - Images live on R2, served from `https://assets.danieldaum.net/img/...`. Photos are `img/photos/<name>.webp`.
 - Likes and comments come from `functions/_middleware.js` and a D1 database. They work on `/about/`, `/now/`, `/now/<slug>/` and `/blog/<slug>/`, with no setup per post.
 - My Bluesky account runs on my own PDS: `https://pds.danieldaum.net`, DID `did:plc:e3z5gj5iyuwgqao562bo4bdf`, handle `danieldaum.net`.
@@ -41,6 +42,7 @@ garden/ ratings/ changelog/ privacy/
 feed.xml              atom feed, long-form posts only
 internal/             never deployed: template.html, example.html, styles.html, this guide
 scripts/              sync-posts.mjs, sync-commits.mjs, sync-standard.mjs, word-count.py
+.tangled/workflows/   deploy.yml, mirror.yml, sync.yml (ci, see section 8)
 .well-known/          atproto-did, site.standard.publication
 ```
 
@@ -49,9 +51,8 @@ scripts/              sync-posts.mjs, sync-commits.mjs, sync-standard.mjs, word-
 ## 1. posting on bluesky
 
 1. Post on Bluesky.
-2. Gitea → Actions → **Sync** → Run.
 
-That's it. The workflow runs `scripts/sync-posts.mjs`, commits "chore: sync" and pushes, which deploys. It takes a few minutes. Afterwards, `git pull` before editing locally.
+That's it. The sync pipeline runs once an hour: it runs `scripts/sync-posts.mjs` (and the other sync scripts), commits "chore: sync" and pushes, which deploys. To run it now: Tangled → saturn → Pipelines → the newest sync run → Retry. Afterwards, `git pull` before editing locally.
 
 What the sync does:
 
@@ -121,7 +122,7 @@ Work out the slug (`now/oct-2026`, `blog/some-title`) and the date first.
    - `content type="html"` in CDATA: the post body. Banner first, as `<figure><img ... /></figure>`. Absolute URLs, no `class`/`aria-*`/`target`/`rel` attributes, one block per line, indented 6 spaces.
 9. **Now posts only:** replace the article in `now/index.html` with the new post's article. Keep its likes section as `data-social="/now/<slug>/"` so likes and comments are shared with the dated page.
 10. Check it locally, then show me the diff for me to commit and push.
-11. After it's deployed: Gitea → Actions → **Sync** → Run. That publishes it to standard.site (see section 6) and adds a `<link rel="site.standard.document">` tag to the page.
+11. After it's deployed, the next hourly sync publishes it to standard.site (see section 6) and adds a `<link rel="site.standard.document">` tag to the page. Retry the newest sync run to do it straight away.
 
 When an existing post changes, also update its word count on the home page and its `<content>` in `feed.xml`.
 
@@ -234,7 +235,7 @@ Every game, movie, show, book and album has a page (`games/<slug>/` and so on) w
 
 My long-form posts are published as `site.standard.document` records on my PDS, so atproto reading apps can find and follow them. It's metadata only (title, description, path, date, tag and a cover image). The post itself stays on the site.
 
-- `scripts/sync-standard.mjs` runs as part of the **Sync** button, and locally with `mise run sync-standard`. Locally it needs the app password:
+- `scripts/sync-standard.mjs` runs as part of the hourly sync, and locally with `mise run sync-standard`. Locally it needs the app password:
   ```bash
   read -s -p "app password: " ATPROTO_APP_PASSWORD && echo && export ATPROTO_APP_PASSWORD && mise run sync-standard
   ```
@@ -242,7 +243,7 @@ My long-form posts are published as `site.standard.document` records on my PDS, 
 - **Record IDs** come from the post's date, so changing a date creates a new record. The script never deletes records.
 - **Only changed records are written,** so running it twice is harmless.
 - **The publication record** has ID `3mbd3542k2222`. Its address is also in `.well-known/site.standard.publication`.
-- **Gitea secrets:** `SYNC_TOKEN` (repo write, so the push triggers a deploy) and `ATPROTO_APP_PASSWORD`. Without the app password, the standard.site step skips itself.
+- **Secrets:** `ATPROTO_APP_PASSWORD` is a spindle secret (section 8). Without it, the standard.site step skips itself.
 
 ## 7. projects
 
@@ -254,13 +255,34 @@ A project shows up in three places, newest first:
 
 **Pills.** `<div class="pills">` with `<span class="pill">#new</span>`. `#in-development` also carries `pill--dev`, a pulsing dot that is commented out in `global.css` for now. They're grey, never lime. Take them off when the project isn't new any more.
 
-**Commit log.** `scripts/sync-commits.mjs` reads recent commits from my Gitea's public API and writes them between `<!-- commits:<repo>:<count> -->` markers. It runs with the **Sync** button, or locally with `mise run sync-commits`. To add a repo, put the markers inside a `.commit-log` and add the page to `PAGES` in the script. On the `/projects/` card, the log is `aria-hidden` because the whole card is a link, and it hides the hash to save room.
+**Commit log.** `scripts/sync-commits.mjs` reads recent commits from my Gitea's public API and writes them between `<!-- commits:<repo>:<count> -->` markers. It runs with the hourly sync, or locally with `mise run sync-commits`. To add a repo, put the markers inside a `.commit-log` and add the page to `PAGES` in the script. On the `/projects/` card, the log is `aria-hidden` because the whole card is a link, and it hides the hash to save room.
 
-## 8. don't
+## 8. ci (tangled spindle)
+
+Three workflows in `.tangled/workflows/`, run by the public spindle (`spindle.tangled.sh`). Status shows under Pipelines on the repo page.
+
+- **deploy.yml** (every push to `main`): stages the public files and runs `npx wrangler@4 pages deploy`.
+- **mirror.yml** (every push to `main`): force-pushes the newest `main` to GitHub and Gitea. Never push to those directly; it gets overwritten.
+- **sync.yml** (hourly, plus Retry): checks out the newest `main`, runs the three sync scripts, and if anything changed commits "chore: sync" and pushes back over SSH, which runs deploy and mirror.
+
+**Secrets** (Tangled → saturn → Settings → Pipelines): `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`, `GH_MIRROR_TOKEN` (GitHub, contents write on this repo), `GITEA_MIRROR_TOKEN`, `ATPROTO_APP_PASSWORD`, `TANGLED_PUSH_KEY` (private half of the `saturn-spindle` SSH key on my Tangled account).
+
+**Gotchas** (nixery engine):
+
+- There's no "run workflow" button. A manual run is the Retry button on an existing run.
+- All steps share one container and run `bash -c` without `set -e`, so multi-line steps start with `set -euo pipefail`.
+- Images only have bash, git, coreutils, tar and zstd. Anything else (`gnugrep`, `findutils`, `nodejs`, `openssh`) goes under `dependencies: nixpkgs:`.
+- Big nixpkgs packages can time out on nixery with a 504 (`wrangler` did). Prefer `npx` for those.
+- The checkout is one commit deep (`clone.depth: 0` also means 1). `git fetch --unshallow origin` for full history.
+- There's no `/etc/passwd`, which `ssh` needs. sync.yml writes one before pushing.
+- A push from a pipeline triggers the push workflows. `git push -o skip-ci` skips them; `[skip ci]` in a message doesn't.
+
+## 9. don't
 
 - Don't add JavaScript, inline styles or new external hosts to public pages without asking.
 - Don't hand-edit content between `<!-- posts:... -->` or `<!-- commits:... -->` markers.
 - Don't use `#view-...` links outside `/photos/`. Posts and banners link to `/photos/<name>/`.
 - Don't commit `.claude/launch.json`, `.dev.vars` or anything with a password in it.
 - Don't re-add `@view-transition` (it caused unstyled loads in Safari).
+- Don't push to GitHub or Gitea. They're mirrors of Tangled.
 - Don't commit or push. Show me the changes instead.
