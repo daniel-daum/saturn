@@ -255,17 +255,17 @@ A project shows up in three places, newest first:
 
 **Pills.** `<div class="pills">` with `<span class="pill">#new</span>`. `#in-development` also carries `pill--dev`, a pulsing dot that is commented out in `global.css` for now. They're grey, never lime. Take them off when the project isn't new any more.
 
-**Commit log.** `scripts/sync-commits.mjs` reads recent commits from my Gitea's public API and writes them between `<!-- commits:<repo>:<count> -->` markers. It runs with the hourly sync, or locally with `mise run sync-commits`. To add a repo, put the markers inside a `.commit-log` and add the page to `PAGES` in the script. On the `/projects/` card, the log is `aria-hidden` because the whole card is a link, and it hides the hash to save room.
+**Commit log.** `scripts/sync-commits.mjs` reads recent commits from the Tangled knot (`knot1.tangled.sh`, `sh.tangled.repo.log`, no login) and writes them between `<!-- commits:<repo>:<count> -->` markers. It runs with the hourly sync, or locally with `mise run sync-commits`. To add a repo, put the markers inside a `.commit-log` and add the page to `PAGES` in the script. On the `/projects/` card, the log is `aria-hidden` because the whole card is a link, and it hides the hash to save room.
 
 ## 8. ci (tangled spindle)
 
 Three workflows in `.tangled/workflows/`, run by the public spindle (`spindle.tangled.sh`). Status shows under Pipelines on the repo page.
 
 - **deploy.yml** (every push to `main`): stages the public files and runs `npx wrangler@4 pages deploy`.
-- **mirror.yml** (every push to `main`): force-pushes the newest `main` to GitHub and Gitea. Never push to those directly; it gets overwritten.
+- **mirror.yml** (every push to `main`): force-pushes the newest `main` to GitHub (https + token) and Gitea (ssh to `git-ssh.danieldaum.net:2222`, which skips Cloudflare; https to `git.danieldaum.net` goes through Cloudflare's bot protection, which blocks spindle at random). Never push to those directly; it gets overwritten.
 - **sync.yml** (hourly, plus Retry): checks out the newest `main`, runs the three sync scripts, and if anything changed commits "chore: sync" and pushes back over SSH, which runs deploy and mirror.
 
-**Secrets** (Tangled → saturn → Settings → Pipelines): `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`, `GH_MIRROR_TOKEN` (GitHub, contents write on this repo), `GITEA_MIRROR_TOKEN`, `ATPROTO_APP_PASSWORD`, `TANGLED_PUSH_KEY` (private half of the `saturn-spindle` SSH key on my Tangled account).
+**Secrets** (Tangled → saturn → Settings → Pipelines): `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`, `GH_MIRROR_TOKEN` (GitHub, contents write on this repo), `GITEA_MIRROR_KEY` (private half of the `spindle-mirror` SSH key on my Gitea account), `ATPROTO_APP_PASSWORD`, `TANGLED_PUSH_KEY` (private half of the `saturn-spindle` SSH key on my Tangled account).
 
 **Gotchas** (nixery engine):
 

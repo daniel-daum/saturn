@@ -19,7 +19,7 @@ run = "node scripts/sync-standard.mjs"
 
 # mise run sync-commits
 [tasks.sync-commits]
-description = "Copy recent commits from my gitea into the project pages"
+description = "Copy recent commits from tangled into the project pages"
 run = "node scripts/sync-commits.mjs"
 
 # mise run words now/sep-2026/index.html

@@ -1,4 +1,5 @@
-// pulls recent commits from my gitea and writes them into the static html.
+// pulls recent commits from my repos on tangled and writes them into the
+// static html.
 // run with `mise run sync-commits`. no dependencies, node 18+.
 //
 // a page opts in with a pair of marker comments naming the repo and how many
@@ -6,13 +7,14 @@
 //
 //     <!-- commits:holonet:6 -->...<!-- /commits:holonet:6 -->
 //
-// commits come from the repo's default branch, newest first. if gitea can't
-// be reached, the script exits non-zero and touches nothing.
+// commits come from main, newest first, read from the knot that hosts my
+// repos (no login needed). if it can't be reached, the script exits non-zero
+// and touches nothing.
 
 import { readFile, writeFile } from "node:fs/promises";
 
-const GITEA = "https://git.danieldaum.net";
-const OWNER = "daniel-daum";
+const KNOT = "https://knot1.tangled.sh";
+const OWNER = "did:plc:e3z5gj5iyuwgqao562bo4bdf"; // danieldaum.net
 const TZ = "America/Los_Angeles";
 
 const PAGES = ["projects/index.html", "projects/holonet/index.html"];
@@ -23,15 +25,14 @@ const MARKER = /^([ \t]*)<!-- commits:([\w.-]+):(\d+) -->[\s\S]*?<!-- \/commits:
 // data
 
 async function fetchCommits(repo, limit) {
-    const url = new URL(`/api/v1/repos/${OWNER}/${repo}/commits`, GITEA);
+    const url = new URL("/xrpc/sh.tangled.repo.log", KNOT);
+    url.searchParams.set("repo", `${OWNER}/${repo}`);
+    url.searchParams.set("ref", "main");
     url.searchParams.set("limit", String(limit));
-    // skip diff stats, signature checks and file lists, none of it is shown
-    url.searchParams.set("stat", "false");
-    url.searchParams.set("verification", "false");
-    url.searchParams.set("files", "false");
     const res = await fetch(url);
     if (!res.ok) throw new Error(`${repo} commits: ${res.status} ${res.statusText}`);
-    return res.json();
+    const { commits } = await res.json();
+    return commits.map((c) => ({ sha: c.this, message: c.message, date: c.author.When }));
 }
 
 // ---------------------------------------------------------------------------
@@ -43,8 +44,8 @@ function render(commits) {
         [
             `    <li class="commit-log-row">`,
             `        <span class="commit-log-hash">${c.sha.slice(0, 7)}</span>`,
-            `        <span class="commit-log-msg">${esc(c.commit.message.split("\n")[0])}</span>`,
-            `        <time class="commit-log-date" datetime="${esc(c.commit.author.date)}">${formatDate(c.commit.author.date)}</time>`,
+            `        <span class="commit-log-msg">${esc(c.message.split("\n")[0])}</span>`,
+            `        <time class="commit-log-date" datetime="${esc(c.date)}">${formatDate(c.date)}</time>`,
             `    </li>`,
         ].join("\n"),
     );
