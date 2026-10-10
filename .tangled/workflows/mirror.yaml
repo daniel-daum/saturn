@@ -24,5 +24,16 @@ steps:
 
     - name: "Mirror to Gitea"
       command: |
-          set -euo pipefail
-          git push --force "https://daniel-daum:${GITEA_MIRROR_TOKEN}@git.danieldaum.net/daniel-daum/saturn.git" refs/remotes/origin/main:refs/heads/main
+        set -euo pipefail
+  
+        # ssh refuses to run without a passwd entry, and nixery images have none
+        mkdir -p /etc
+        [ -e /etc/passwd ] || echo "root:x:0:0:root:${HOME}:/bin/bash" > /etc/passwd
+  
+        mkdir -p "${HOME}/.ssh"
+        printf '%s\n' "${GITEA_MIRROR_KEY}" > "${HOME}/.ssh/gitea"
+        chmod 600 "${HOME}/.ssh/gitea"
+        ssh-keyscan -p 2222 git-ssh.danieldaum.net > "${HOME}/.ssh/known_hosts"
+  
+        export GIT_SSH_COMMAND="ssh -i ${HOME}/.ssh/gitea -o IdentitiesOnly=yes -o UserKnownHostsFile=${HOME}/.ssh/known_hosts"
+        git push --force "ssh://git@git-ssh.danieldaum.net:2222/daniel-daum/${TANGLED_REPO_NAME}.git" refs/remotes/origin/main:refs/heads/main
