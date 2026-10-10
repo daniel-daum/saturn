@@ -13,8 +13,9 @@
 // dropped. a repost shows the original post, the way bluesky does.
 //
 // my pds only holds my own records, so reposted posts, quoted posts and video
-// thumbnails are looked up on bluesky's public api. that happens here, at sync
-// time, never when a page loads. if it fails, they fall back to plain links.
+// thumbnails and streams are looked up on bluesky's public api. that happens
+// here, at sync time, never when a page loads. if it fails, they fall back to
+// plain links.
 //
 // if the pds
 // can't be reached, or comes back empty while the site still has posts, the
@@ -165,7 +166,7 @@ function renderHighlight(item) {
     ].filter((l) => l !== null).join("\n");
 }
 
-// "2 images", "video", "link", "quote"
+// "2 images", "video", "gif", "link", "quote"
 function attachments(embed) {
     switch (embed?.$type) {
         case "app.bsky.embed.images": {
@@ -175,7 +176,7 @@ function attachments(embed) {
         case "app.bsky.embed.video":
             return ["video"];
         case "app.bsky.embed.external":
-            return ["link"];
+            return [klipyGif(embed.external?.uri) ? "gif" : "link"];
         case "app.bsky.embed.record":
             return ["quote"];
         case "app.bsky.embed.recordWithMedia":
@@ -229,9 +230,9 @@ function renderEmbed(embed, view, did, bsky) {
         case "app.bsky.embed.images":
             return renderImages(embed.images, view?.images, did);
         case "app.bsky.embed.video":
-            return renderVideo(embed, view, bsky);
+            return renderVideo(embed, view, did, bsky);
         case "app.bsky.embed.external":
-            return renderCard(embed.external);
+            return renderGif(embed.external, view?.external, did) ?? renderCard(embed.external);
         case "app.bsky.embed.record":
             return renderQuote(embed.record, view?.record);
         case "app.bsky.embed.recordWithMedia":
@@ -256,12 +257,26 @@ function renderImages(images = [], views = [], did) {
     return [`<div class="${cls}">`, ...imgs.map((i) => `    ${i}`), `</div>`];
 }
 
-// the pds can't serve range requests, so safari won't play video from it.
-// show bluesky's thumbnail and send people there to watch
-function renderVideo(embed, view, bsky) {
+// my own videos play here, nothing loads until play. the pds can't serve
+// range requests, which safari needs, so safari streams bluesky's hls copy
+// and other browsers skip it for the file on the pds (no type: they try it
+// whatever the container). someone else's video is bluesky's thumbnail,
+// linking there to watch
+function renderVideo(embed, view, did, bsky) {
     const thumb = view?.thumbnail;
     if (!thumb || !/^https:\/\//.test(thumb)) {
         return [`<p class="post-item-note"><a href="${bsky}">video &rarr; watch on bluesky</a></p>`];
+    }
+    const ref = embed.video?.ref?.$link;
+    if (did === DID && ref && /^https:\/\//.test(view.playlist || "")) {
+        const label = embed.alt ? ` aria-label="${esc(embed.alt)}"` : "";
+        return [
+            `<video class="post-item-player" poster="${esc(thumb)}"${sizeAttrs(embed.aspectRatio)}${label} controls preload="none" playsinline>`,
+            `    <source src="${esc(view.playlist)}" type="application/vnd.apple.mpegurl" />`,
+            `    <source src="${esc(blobUrl(ref))}" />`,
+            `    <a href="${bsky}">video &rarr; watch on bluesky</a>`,
+            `</video>`,
+        ];
     }
     const alt = embed.alt ? `${embed.alt} (video, plays on bluesky)` : "video, plays on bluesky";
     return [
@@ -269,6 +284,41 @@ function renderVideo(embed, view, bsky) {
         `    <img src="${esc(thumb)}" alt="${esc(alt)}"${sizeAttrs(embed.aspectRatio)} loading="lazy" />`,
         `</a>`,
     ];
+}
+
+// a gif from bluesky's picker is a link card to klipy. like bluesky, play its
+// mp4 from bluesky's proxy, so visitors never reach klipy. the card's thumb is
+// the still frame shown with reduced motion. alt text is the description,
+// which bluesky saves as "Alt: ..."
+function renderGif(external, view, did) {
+    const gif = klipyGif(external?.uri);
+    if (!gif) return null;
+    const ref = external.thumb?.ref?.$link;
+    const still = did === DID ? ref && blobUrl(ref) : view?.thumb;
+    const alt = (external.description || external.title || "gif").replace(/^Alt: /, "");
+    const size = sizeAttrs(gif.size);
+    const hasStill = typeof still === "string" && /^https:\/\//.test(still);
+    return [
+        `<div class="post-item-gif">`,
+        `    <video src="${esc(gif.src)}"${hasStill ? ` poster="${esc(still)}"` : ""}${size} role="img" aria-label="${esc(alt)}" autoplay loop muted playsinline></video>`,
+        hasStill ? `    <img src="${esc(still)}" alt="${esc(alt)}"${size} loading="lazy" />` : null,
+        `</div>`,
+    ].filter((l) => l !== null);
+}
+
+// static.klipy.com/ii/<path>/<name>.gif?hh=<h>&ww=<w>&mp4=<slug>
+//  -> k.gifs.bsky.app/ii/<path>/<slug>.mp4, the way bluesky's app builds it
+function klipyGif(uri) {
+    let url;
+    try {
+        url = new URL(uri);
+    } catch {
+        return null;
+    }
+    const slug = url.searchParams.get("mp4");
+    if (url.hostname !== "static.klipy.com" || !url.pathname.startsWith("/ii/") || !/^[\w-]+$/.test(slug || "")) return null;
+    const src = new URL(url.pathname.replace(/[^/]+$/, `${slug}.mp4`), "https://k.gifs.bsky.app");
+    return { src: src.href, size: { width: Number(url.searchParams.get("ww")), height: Number(url.searchParams.get("hh")) } };
 }
 
 function sizeAttrs(ratio) {

@@ -63,7 +63,8 @@ How things show up:
 
 - Links, mentions and tags are clickable.
 - Images show as a single image or a 2-across grid.
-- Video shows Bluesky's thumbnail and links to Bluesky to play.
+- My own videos play on the page (click to play): Safari streams Bluesky's HLS copy, other browsers play the file from my PDS. Someone else's video shows Bluesky's thumbnail and links there.
+- A GIF from Bluesky's picker (Klipy) loops as a small MP4 from Bluesky's proxy (`k.gifs.bsky.app`), never from Klipy. With reduced motion it shows a still frame.
 - A quote or repost shows the other person's post in a card.
 - If the PDS returns zero posts while the site still has some, the script stops without changing anything. Run it with `-- --force` only if I really deleted everything.
 

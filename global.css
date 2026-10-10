@@ -955,13 +955,36 @@ article:has(> .page-header--post) {
     margin: 0;
 }
 
-/* one image keeps its shape */
+/* one image keeps its shape, and so do gifs and videos */
 .post-item-media img,
-.post-item-video img {
+.post-item-video img,
+.post-item-gif > *,
+.post-item-player {
     width: auto;
     height: auto;
     max-height: 26rem;
     border: 1px solid var(--borders);
+    border-radius: 2px;
+}
+
+.post-item-gif,
+.post-item-player {
+    align-self: flex-start;
+}
+
+/* gif: the video loops. with reduced motion, the still frame stands in */
+.post-item-gif > img {
+    display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .post-item-gif:has(> img) > video {
+        display: none;
+    }
+
+    .post-item-gif > img {
+        display: block;
+    }
 }
 
 /* two or more: a cropped grid, two across */
@@ -978,7 +1001,8 @@ article:has(> .page-header--post) {
     object-fit: cover;
 }
 
-/* video: bluesky's thumbnail with a play mark, links out to watch */
+/* a video that plays on bluesky (someone else's): its thumbnail with a play
+   mark, linking out */
 .post-item-video {
     position: relative;
     align-self: flex-start;

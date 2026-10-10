@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex" />
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'unsafe-inline'; font-src 'self'; img-src 'self' https://assets.danieldaum.net;" />
+        content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'unsafe-inline'; font-src 'self'; img-src 'self' https://assets.danieldaum.net https://pds.danieldaum.net; media-src https://k.gifs.bsky.app;" />
     <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Regular.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Bold.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
@@ -542,6 +542,16 @@
                     <div class="post-item-media post-item-media--grid">
                         <img src="https://assets.danieldaum.net/img/photos/regatta-lineup.webp" alt="rowing boats lined up for a regatta" loading="lazy" />
                         <img src="https://assets.danieldaum.net/img/photos/lake-tahoe-boat.webp" alt="boat on lake tahoe" loading="lazy" />
+                    </div>
+                </article>
+            </div>
+
+            <div class="demo">
+                <p class="demo-label">.post-item-gif: a klipy gif as a looping mp4, the still img instead with reduced motion. my own videos are a video.post-item-player (controls, preload="none")</p>
+                <article class="post-item">
+                    <div class="post-item-gif">
+                        <video src="https://k.gifs.bsky.app/ii/a8ada81afc59159ea5c8927feffa2e31/90/ef/AZuKvFIedRnN1u55A.mp4" poster="https://pds.danieldaum.net/xrpc/com.atproto.sync.getBlob?did=did%3Aplc%3Ae3z5gj5iyuwgqao562bo4bdf&amp;cid=bafkreiftva4sy2afsdwdu4mxa7obheflx5hx73ttavojrnyr7mv5kpqnru" width="251" height="429" role="img" aria-label="Gabby Williams celebrating" autoplay loop muted playsinline></video>
+                        <img src="https://pds.danieldaum.net/xrpc/com.atproto.sync.getBlob?did=did%3Aplc%3Ae3z5gj5iyuwgqao562bo4bdf&amp;cid=bafkreiftva4sy2afsdwdu4mxa7obheflx5hx73ttavojrnyr7mv5kpqnru" alt="Gabby Williams celebrating" width="251" height="429" loading="lazy" />
                     </div>
                 </article>
             </div>
