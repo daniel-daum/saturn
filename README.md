@@ -11,12 +11,6 @@ mise run serve
 
 then open localhost:8080.
 
-## post on bluesky
-
-post it. the sync pipeline runs once an hour and puts it on the home page, /blog/ and /posts/. to run it now: tangled → saturn → pipelines → the newest sync run → retry. `git pull` before working on the site again.
-
-the same sync refreshes the recent commits on /projects/ and /projects/holonet/ (locally: `mise run sync-commits`).
-
 ## new blog post
 
 1. `git pull`
@@ -25,7 +19,7 @@ the same sync refreshes the recent commits on /projects/ and /projects/holonet/ 
 4. add it to recent writing on the home page, with the word count
 5. add it to `feed.xml`
 6. if it's a now page, update `/now/` too
-7. push. the next sync puts it on standard.site
+7. push
 
 reviews go in the same writing list, tagged #game, #movie, #show, #book or #album. they don't go in the feed.
 
@@ -39,5 +33,5 @@ reviews go in the same writing list, tagged #game, #movie, #show, #book or #albu
 ## good to know
 
 - `internal/` never gets deployed. `internal/styles.html` shows every style on the site.
-- ci lives in `.tangled/workflows/`: deploy and mirror run on every push to main, sync runs hourly. secrets are under settings → pipelines on tangled.
+- ci lives in `.tangled/workflows/`: deploy and mirror run on every push to main. secrets are under settings → pipelines on tangled.
 - `internal/site-guide.md` is the long version of all this, written for an llm to read before helping out.

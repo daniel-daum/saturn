@@ -6,10 +6,9 @@ A guide for an assistant helping me with danieldaum.net. Read all of it before c
 
 - Handwritten HTML and one stylesheet (`global.css`). No framework, no build step, and no JavaScript on public pages.
 - The source lives on Tangled: https://tangled.org/danieldaum.net/saturn (`origin`, `git@tangled.org:danieldaum.net/saturn`). GitHub and my Gitea are read-only mirrors.
-- Hosting is Cloudflare Pages. Pushing to `main` on Tangled runs `.tangled/workflows/deploy.yml` on the public spindle. It copies every tracked file except `internal/`, `scripts/`, `workers/`, `.tangled/`, `.gitignore` and `mise.toml`, and deploys them. CI details are in section 8.
+- Hosting is Cloudflare Pages. Pushing to `main` on Tangled runs `.tangled/workflows/deploy.yml` on the public spindle. It copies every tracked file except `internal/`, `scripts/`, `.tangled/`, `.gitignore` and `mise.toml`, and deploys them. CI details are in section 6.
 - Images live on R2, served from `https://assets.danieldaum.net/img/...`. Photos are `img/photos/<name>.webp`.
-- Likes and comments come from `functions/_middleware.js` and a D1 database. They work on `/about/`, `/now/`, `/now/<slug>/` and `/blog/<slug>/`, with no setup per post.
-- My Bluesky account runs on my own PDS: `https://pds.danieldaum.net`, DID `did:plc:e3z5gj5iyuwgqao562bo4bdf`, handle `danieldaum.net`.
+- `.well-known/atproto-did` verifies my Bluesky handle (`danieldaum.net`, DID `did:plc:e3z5gj5iyuwgqao562bo4bdf`). Leave it alone.
 - Local preview: `mise run serve`, then open http://localhost:8080.
 
 ## rules that matter
@@ -18,7 +17,6 @@ A guide for an assistant helping me with danieldaum.net. Read all of it before c
 - **Caps are CSS only.** Write normal case in HTML. Elements that show in caps are listed in the caps rule near the end of `global.css`, and the `.caps` class does the same for anything else.
 - **Links.** Internal links end in a slash (`/now/sep-2026/`). Underlines only apply to links without a class inside `p`, `li`, `td`, `dd`, `blockquote` and `figcaption`. Links with a class style themselves.
 - **Colour.** Lime (`--accent`) is for navigation and actions only. Labels, tags and dates are grey.
-- **Don't edit between sync markers.** `<!-- posts:all -->`, `<!-- posts:highlight -->`, `<!-- commits:holonet:6 -->` and the matching closing comments are rewritten by a script on every sync.
 - **Style guide.** `internal/styles.html` shows every component. Update it when a component changes.
 - **Never commit or push for me.** Show me the changes and I'll commit them.
 
@@ -29,9 +27,8 @@ First person, casual and plain. Short sentences, the odd exclamation mark, and d
 ## folders
 
 ```
-index.html            home: latest post card, recent writing, projects
-blog/index.html       posts card, then the writing list (ol.archive)
-posts/index.html      every bluesky post (written by scripts/sync-posts.mjs)
+index.html            home: recent writing, projects
+blog/index.html       the writing list (ol.archive)
 now/index.html        a copy of the newest now post
 now/<slug>/           now posts (now/jan-2026/, now/sep-2026/)
 about/                about page (a post, with a 3-photo banner row)
@@ -41,45 +38,21 @@ projects/             project cards + projects/<name>/ pages (saturn, holonet, r
 garden/ ratings/ changelog/ privacy/
 feed.xml              atom feed, long-form posts only
 internal/             never deployed: template.html, example.html, styles.html, this guide
-scripts/              sync-posts.mjs, sync-commits.mjs, sync-standard.mjs, word-count.py
-.tangled/workflows/   deploy.yml, mirror.yml, sync.yml (ci, see section 8)
-.well-known/          atproto-did, site.standard.publication
+scripts/              word-count.py
+.tangled/workflows/   deploy.yml, mirror.yml (ci, see section 6)
+.well-known/          atproto-did
 ```
 
 ---
 
-## 1. posting on bluesky
-
-1. Post on Bluesky.
-
-That's it. The sync pipeline runs once an hour: it runs `scripts/sync-posts.mjs` (and the other sync scripts), commits "chore: sync" and pushes, which deploys. To run it now: Tangled → saturn → Pipelines → the newest sync run → Retry. Afterwards, `git pull` before editing locally.
-
-What the sync does:
-
-- Copies my top-level posts and reposts into `/posts/`. Replies are skipped.
-- Puts the newest post in a card on `/` and `/blog/`.
-
-How things show up:
-
-- Links, mentions and tags are clickable.
-- Images show as a single image or a 2-across grid.
-- My own videos play on the page (click to play): Safari streams Bluesky's HLS copy, other browsers play the file from my PDS. Someone else's video shows Bluesky's thumbnail and links there.
-- A GIF from Bluesky's picker (Klipy) loops as a small MP4 from Bluesky's proxy (`k.gifs.bsky.app`), never from Klipy. With reduced motion it shows a still frame.
-- A quote or repost shows the other person's post in a card.
-- If the PDS returns zero posts while the site still has some, the script stops without changing anything. Run it with `-- --force` only if I really deleted everything.
-
-Linking to my site from a post: put the full `https://danieldaum.net/...` URL in the text. A post can have images or a link card, not both. With images attached, the link in the text is still clickable.
-
-Run it locally: `mise run sync-posts`.
-
-## 2. publishing a new blog post or now post
+## 1. publishing a new blog post or now post
 
 Work out the slug (`now/oct-2026`, `blog/some-title`) and the date first.
 
 1. `git pull`.
 2. **Copy the template:** `internal/template.html` → `<section>/<slug>/index.html`. Replace everything in CAPS:
    - `<title>`, `og:title` and `twitter:title`: `daniel daum - Post Title`.
-   - `description`, `og:description` and `twitter:description`: one sentence, the same in all three (it's also the feed summary and the standard.site description).
+   - `description`, `og:description` and `twitter:description`: one sentence, the same in all three (it's also the feed summary).
    - `og:url`: the full URL.
    - The kicker: `now` or `blog`.
    - The title in `<h1>`.
@@ -90,7 +63,7 @@ Work out the slug (`now/oct-2026`, `blog/some-title`) and the date first.
    - paragraphs of 3–6 sentences
    - media as `h4` labels over lists, one title per line
    - end on a plain paragraph with no heading
-4. **Banner (optional):** see section 3.
+4. **Banner (optional):** see section 2.
 5. **Pager:** the post's pager links to the previous post in date order across all writing (now posts and about mixed). Give the new post a `← previous` card pointing at the current newest post. Then add a `next →` card to that older post, and to `/now/index.html` if it's a copy of it. Remove any card with nothing to point to.
 6. **`/blog/`:** add a row at the top of `ol.archive` in `blog/index.html`:
    ```html
@@ -121,13 +94,12 @@ Work out the slug (`now/oct-2026`, `blog/some-title`) and the date first.
    - `title`, `link`, `id` (the full URL), `published` and `updated` as `2026-10-01T09:00:00-07:00`, `<category term="now" />`.
    - `summary`: the meta description, word for word.
    - `content type="html"` in CDATA: the post body. Banner first, as `<figure><img ... /></figure>`. Absolute URLs, no `class`/`aria-*`/`target`/`rel` attributes, one block per line, indented 6 spaces.
-9. **Now posts only:** replace the article in `now/index.html` with the new post's article. Keep its likes section as `data-social="/now/<slug>/"` so likes and comments are shared with the dated page.
+9. **Now posts only:** replace the article in `now/index.html` with the new post's article.
 10. Check it locally, then show me the diff for me to commit and push.
-11. After it's deployed, the next hourly sync publishes it to standard.site (see section 6) and adds a `<link rel="site.standard.document">` tag to the page. Retry the newest sync run to do it straight away.
 
 When an existing post changes, also update its word count on the home page and its `<content>` in `feed.xml`.
 
-## 3. banners
+## 2. banners
 
 A banner is an optional photo across the top of a post. It must already be on `/photos/` and have its own photo page, and the banner links to that page.
 
@@ -163,9 +135,7 @@ How to choose: picture a horizontal strip half as tall as the photo is wide. A g
 
 No link here. Phones show only the middle photo, so put the best one in the middle.
 
-**Sizes.** On the site, any size works. For standard.site the cover has to be under 1 MB. The sync script handles that itself: it uses a Cloudflare-resized copy (`/cdn-cgi/image/width=1600,quality=80,format=webp/...`) when the original is too big. Nothing to do.
-
-## 4. adding photos
+## 3. adding photos
 
 For each photo I give you: file name, title, location, date, mood (film simulation, may be blank), and the camera (always the same unless I say otherwise).
 
@@ -206,7 +176,7 @@ For each photo I give you: file name, title, location, date, mood (film simulati
 6. **Pager:** `← newer` and `older →` follow wall order, with no looping. The first photo has no newer card and the last has no older card. Update the photo pages next to the new ones.
 7. Check that every `#view-...` and `/photos/.../` link points at something that exists.
 
-## 5. notes (reviews)
+## 4. notes (reviews)
 
 Every game, movie, show, book and album has a page (`games/<slug>/` and so on) with a review section:
 
@@ -229,44 +199,29 @@ Every game, movie, show, book and album has a page (`games/<slug>/` and so on) w
 
   Example: `<a class="rating rating--great" href="/ratings/" aria-label="rated 5 out of 5, see my rating scale">(5/5)</a>`. Unrated: `class="rating"`, `(?/5)`, `aria-label="not yet rated, see my rating scale"`.
 - When a review is written, add it to the `/blog/` writing list like a post. Link it to the entry page and tag it `#game`, `#movie`, `#show`, `#book` or `#album`.
-- Notes **never** go in `feed.xml`, and the standard.site sync skips those tags.
+- Notes **never** go in `feed.xml`.
 - The ~130 empty entries are a backlog. Don't list them on `/blog/` until they have a review.
 
-## 6. standard.site (atproto)
-
-My long-form posts are published as `site.standard.document` records on my PDS, so atproto reading apps can find and follow them. It's metadata only (title, description, path, date, tag and a cover image). The post itself stays on the site.
-
-- `scripts/sync-standard.mjs` runs as part of the hourly sync, and locally with `mise run sync-standard`. Locally it needs the app password:
-  ```bash
-  read -s -p "app password: " ATPROTO_APP_PASSWORD && echo && export ATPROTO_APP_PASSWORD && mise run sync-standard
-  ```
-- **What gets published:** every row of the `/blog/` writing list, except note tags.
-- **Record IDs** come from the post's date, so changing a date creates a new record. The script never deletes records.
-- **Only changed records are written,** so running it twice is harmless.
-- **The publication record** has ID `3mbd3542k2222`. Its address is also in `.well-known/site.standard.publication`.
-- **Secrets:** `ATPROTO_APP_PASSWORD` is a spindle secret (section 8). Without it, the standard.site step skips itself.
-
-## 7. projects
+## 5. projects
 
 A project shows up in three places, newest first:
 
 1. **Home page:** a `.card` in the projects `.card-grid`, before the "all projects" card.
-2. **`/projects/`:** a `.project-card`. The left side has the type line, name, description and pills. The right side has a screenshot (`.project-card-img`) or, before there is one, the commit log.
+2. **`/projects/`:** a `.project-card`. The left side has the type line, name, description and pills. The right side has a screenshot (`.project-card-img`) or, before there is one, a commit log.
 3. **`projects/<name>/`:** copy `projects/saturn/` (with a screenshot) or `projects/holonet/` (with the commit log in the banner).
 
 **Pills.** `<div class="pills">` with `<span class="pill">#new</span>`. `#in-development` also carries `pill--dev`, a pulsing dot that is commented out in `global.css` for now. They're grey, never lime. Take them off when the project isn't new any more.
 
-**Commit log.** `scripts/sync-commits.mjs` reads recent commits from the Tangled knot (`knot1.tangled.sh`, `sh.tangled.repo.log`, no login) and writes them between `<!-- commits:<repo>:<count> -->` markers. It runs with the hourly sync, or locally with `mise run sync-commits`. To add a repo, put the markers inside a `.commit-log` and add the page to `PAGES` in the script. On the `/projects/` card, the log is `aria-hidden` because the whole card is a link, and it hides the hash to save room.
+**Commit log.** Written by hand: one `li.commit-log-row` per commit inside a `.commit-log`, with the short hash, the first line of the message and the date (`09 Sep 26`). On the `/projects/` card, the log is `aria-hidden` because the whole card is a link, and it hides the hash to save room.
 
-## 8. ci (tangled spindle)
+## 6. ci (tangled spindle)
 
-Three workflows in `.tangled/workflows/`, run by the public spindle (`spindle.tangled.sh`). Status shows under Pipelines on the repo page.
+Two workflows in `.tangled/workflows/`, run by the public spindle (`spindle.tangled.sh`). Status shows under Pipelines on the repo page.
 
 - **deploy.yml** (every push to `main`): stages the public files and runs `npx wrangler@4 pages deploy`.
 - **mirror.yml** (every push to `main`): force-pushes the newest `main` to GitHub (https + token) and Gitea (ssh to `git-ssh.danieldaum.net:2222`, which skips Cloudflare; https to `git.danieldaum.net` goes through Cloudflare's bot protection, which blocks spindle at random). Never push to those directly; it gets overwritten.
-- **sync.yml** (hourly, plus Retry): checks out the newest `main`, runs the three sync scripts, and if anything changed commits "chore: sync" and pushes back over SSH, which runs deploy and mirror.
 
-**Secrets** (Tangled → saturn → Settings → Pipelines): `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`, `GH_MIRROR_TOKEN` (GitHub, contents write on this repo), `GITEA_MIRROR_KEY` (private half of the `spindle-mirror` SSH key on my Gitea account), `ATPROTO_APP_PASSWORD`, `TANGLED_PUSH_KEY` (private half of the `saturn-spindle` SSH key on my Tangled account).
+**Secrets** (Tangled → saturn → Settings → Pipelines): `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`, `GH_MIRROR_TOKEN` (GitHub, contents write on this repo) and `GITEA_MIRROR_KEY` (private half of the `spindle-mirror` SSH key on my Gitea account).
 
 **Gotchas** (nixery engine):
 
@@ -275,15 +230,13 @@ Three workflows in `.tangled/workflows/`, run by the public spindle (`spindle.ta
 - Images only have bash, git, coreutils, tar and zstd. Anything else (`gnugrep`, `findutils`, `nodejs`, `openssh`) goes under `dependencies: nixpkgs:`.
 - Big nixpkgs packages can time out on nixery with a 504 (`wrangler` did). Prefer `npx` for those.
 - The checkout is one commit deep (`clone.depth: 0` also means 1). `git fetch --unshallow origin` for full history.
-- There's no `/etc/passwd`, which `ssh` needs. sync.yml writes one before pushing.
-- A push from a pipeline triggers the push workflows. `git push -o skip-ci` skips them; `[skip ci]` in a message doesn't.
+- There's no `/etc/passwd`, which `ssh` needs. mirror.yml writes one before pushing.
 
-## 9. don't
+## 7. don't
 
-- Don't add JavaScript, inline styles or new external hosts to public pages without asking.
-- Don't hand-edit content between `<!-- posts:... -->` or `<!-- commits:... -->` markers.
+- Don't add JavaScript, inline styles, new external hosts or anything that needs a server to public pages without asking.
 - Don't use `#view-...` links outside `/photos/`. Posts and banners link to `/photos/<name>/`.
-- Don't commit `.claude/launch.json`, `.dev.vars` or anything with a password in it.
+- Don't commit `.claude/launch.json` or anything with a password in it.
 - Don't re-add `@view-transition` (it caused unstyled loads in Safari).
 - Don't push to GitHub or Gitea. They're mirrors of Tangled.
 - Don't commit or push. Show me the changes instead.

@@ -25,7 +25,7 @@ steps:
       set -euo pipefail
       mkdir dist
       git ls-files -z \
-          | grep -zv -e '^internal/' -e '^scripts/' -e '^workers/' -e '^\.tangled/' -e '^\.gitignore$' -e '^mise\.toml$' \
+          | grep -zv -e '^internal/' -e '^scripts/' -e '^\.tangled/' -e '^\.gitignore$' -e '^mise\.toml$' \
           | xargs -0 cp --parents -t dist
 
   - name: "Deploy to Cloudflare Pages"
