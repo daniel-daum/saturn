@@ -91,9 +91,7 @@
         <header class="site-header">
             <a class="site-name" href="/">Daniel Daum</a>
             <nav aria-label="main navigation">
-                <a href="/" aria-current="page">home</a>
                 <a href="/about/">about</a>
-                <a href="/now/">now</a>
                 <a href="/blog/">blog</a>
                 <a href="/projects/">projects</a>
                 <a href="/garden/">garden</a>
@@ -113,41 +111,31 @@
                 </p>
             </header>
 
-            <!-- RECENT WRITING -->
-            <section aria-label="recent writing">
-                <h2 class="section-label">recent writing</h2>
-
-                <ol class="recent-writing-list">
-                    <li class="recent-writing-item">
-                        <p class="recent-writing-tag">#now</p>
-                        <h3 class="recent-writing-title">
-                            <a href="/now/sep-2026/"
-                                >Wake Me Up When September Ends</a
-                            >
-                        </h3>
-                        <ul class="recent-writing-meta">
-                            <li>422 words</li>
-                            <li>
-                                <time datetime="2026-09-03"
-                                    >3 September 2026</time
-                                >
-                            </li>
-                        </ul>
+            <!-- WRITING, newest first: the latest five of /blog/'s rows. past
+                 five, add an "all writing" link to /blog/ under the list -->
+            <section aria-labelledby="home-writing">
+                <h2 class="section-label" id="home-writing">writing</h2>
+                <ol class="archive">
+                    <li>
+                        <a class="archive-row" href="/now/sep-2026/">
+                            <span class="archive-title">Wake Me Up When September Ends</span>
+                            <span class="archive-tag">#now</span>
+                            <time class="archive-date" datetime="2026-09-03">03 Sep 26</time>
+                        </a>
                     </li>
-
-                    <li class="recent-writing-item">
-                        <p class="recent-writing-tag">#about</p>
-                        <h3 class="recent-writing-title">
-                            <a href="/about/">Let Me Introduce Myself</a>
-                        </h3>
-                        <ul class="recent-writing-meta">
-                            <li>308 words</li>
-                            <li>
-                                <time datetime="2026-08-28"
-                                    >28 August 2026</time
-                                >
-                            </li>
-                        </ul>
+                    <li>
+                        <a class="archive-row" href="/about/">
+                            <span class="archive-title">Let Me Introduce Myself</span>
+                            <span class="archive-tag">#about</span>
+                            <time class="archive-date" datetime="2026-08-28">28 Aug 26</time>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="archive-row" href="/now/jan-2026/">
+                            <span class="archive-title">My First Now Page</span>
+                            <span class="archive-tag">#now</span>
+                            <time class="archive-date" datetime="2026-01-21">21 Jan 26</time>
+                        </a>
                     </li>
                 </ol>
             </section>
@@ -157,6 +145,7 @@
                 <h2 class="section-label">projects</h2>
 
                 <div class="card-grid">
+                    <!-- hidden: llm-generated project page
                     <a class="card" href="/projects/holonet/">
                         <p class="card-type">Sep '26 &middot; game backend</p>
                         <p class="card-title">Holonet</p>
@@ -168,6 +157,7 @@
                             <span class="pill pill--dev">#in-development</span>
                         </div>
                     </a>
+                    -->
                     <a class="card" href="/projects/saturn/">
                         <p class="card-type">Jan '26 &middot; re-design</p>
                         <p class="card-title">Saturn</p>

@@ -380,14 +380,10 @@ body.page--wide {
         font-size: 26px;
     }
 
-    /* one row; the site name links home */
+    /* one row */
     .site-header nav {
         width: 100%;
         justify-content: space-between;
-    }
-
-    .site-header nav a[href="/"] {
-        display: none;
     }
 }
 
@@ -1088,10 +1084,11 @@ nav p {
     white-space: nowrap;
 }
 
-/* fixed width so the dates line up whatever the tag */
+/* fixed width so the dates line up whatever the tag; the widest (#about,
+   #album) are ~7.4ch in the pixel font's caps */
 .archive-tag {
     order: 2;
-    width: 7ch;
+    width: 8ch;
 }
 
 .archive-date {
@@ -1224,96 +1221,6 @@ figure:has(.img-scaled) figcaption {
 }
 
 /*============================*/
-/* home - recent writing */
-/*============================*/
-
-.recent-writing-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 1.35rem;
-    margin: 0;
-    padding: 0;
-}
-
-.recent-writing-item {
-    position: relative; 
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-    margin: 0;
-    padding-left: 1.2rem;
-    border-left: 3px solid var(--accent-muted);
-    cursor: pointer;
-    transition: border-color 150ms ease;
-}
-
-.recent-writing-item:hover {
-    border-left-color: var(--accent);
-}
-
-.recent-writing-tag {
-    margin: 0;
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
-    color: var(--text-secondary);
-    transition: color 150ms ease;
-}
-
-.recent-writing-title {
-    margin: 0;
-    font-size: 1.05rem;
-    line-height: 1.3;
-}
-
-.recent-writing-title a {
-    color: var(--text-headings);
-}
-
-.recent-writing-title a::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-}
-
-.recent-writing-meta {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    margin: 0;
-    padding: 0;
-    font-size: 0.72rem;
-    letter-spacing: 0.06em;
-    color: var(--text-secondary);
-    transition: color 150ms ease;
-}
-
-.recent-writing-meta li {
-    margin: 0;
-}
-
-.recent-writing-meta li + li::before {
-    content: "|";
-    margin-right: 0.4rem;
-    opacity: 0.5;
-}
-
-.recent-writing-item:hover .recent-writing-title a {
-    color: var(--accent);
-}
-
-.recent-writing-title a:focus-visible {
-    outline: none;
-}
-
-.recent-writing-title a:focus-visible::after {
-    outline: 2px solid var(--accent);
-    outline-offset: 4px;
-    border-radius: 2px;
-}
-
-/*============================*/
 /* projects - project cards */
 /*============================*/
 
@@ -1362,6 +1269,7 @@ figure:has(.img-scaled) figcaption {
 }
 
 .project-card-left {
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -1507,6 +1415,14 @@ figure:has(.img-scaled) figcaption {
     aspect-ratio: 961 / 1101;
     background: url("https://assets.danieldaum.net/img/misc/saturn-moss.webp")
         center / cover;
+}
+
+/* on /projects/'s card: portrait, so narrower than the other card images;
+   leaves the text about half the card. the project page banner keeps its size */
+@media (min-width: 769px) {
+    .project-card .saturn-shot {
+        width: 18rem;
+    }
 }
 
 [data-theme="ink"] .saturn-shot {
@@ -1786,6 +1702,11 @@ figure:has(.img-scaled) figcaption {
 .photo-tile--new {
     outline: 1px solid var(--accent);
     outline-offset: -1px;
+}
+
+/* the caption paints over the inset outline; keep it inside the border */
+.photo-tile--new .photo-caption {
+    inset: auto 1px 1px 1px;
 }
 
 .new-tag {
@@ -2202,9 +2123,6 @@ footer nav a,
 .card-type,
 .project-stat-value,
 .card-title,
-.recent-writing-tag,
-.recent-writing-title,
-.recent-writing-meta,
 .meta-split > span,
 .table-title,
 .table-date,

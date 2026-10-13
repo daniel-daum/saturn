@@ -6,8 +6,3 @@ node = "latest"
 [tasks.serve]
 description = "Run the site in live-reload mode"
 run = "five-server --port=8080"
-
-# mise run words now/sep-2026/index.html
-[tasks.words]
-description = "Word count for a post, for the home page"
-run = "python3 scripts/word-count.py"
