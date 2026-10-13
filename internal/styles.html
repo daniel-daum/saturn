@@ -7,11 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex" />
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'unsafe-inline'; font-src 'self'; img-src 'self' https://assets.danieldaum.net;" />
-    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Regular.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-Bold.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/assets/fonts/ioskeleymono/IoskeleyMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
+        content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://assets.danieldaum.net;" />
+    <link rel="preload" href="/assets/fonts/geistpixel/GeistPixel-Square.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/global.css" />
+    <script src="/theme.js"></script>
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" />
     <title>daniel daum - styles</title>
 
@@ -95,7 +94,7 @@
 
         .placeholder {
             aspect-ratio: 4 / 5;
-            background: var(--accent-muted);
+            background: var(--surface);
         }
 
         @media (max-width: 600px) {
@@ -150,18 +149,20 @@
         <section class="guide-section" id="rules" aria-label="rules">
             <h2>rules</h2>
             <ul>
-                <li>Lime (<code>--accent</code>) is for navigation and things you can act on. Labels, headings in
-                    footers and metadata stay grey.</li>
+                <li>Green (<code>--accent</code>) only shows on hover, focus, the current page and the home hero.
+                    Links rest as bright text with a dim underline. Labels and metadata stay grey.</li>
                 <li>All caps come from CSS: the caps selector list at the end of global.css, or the
                     <code>.caps</code> utility. Write the HTML in normal case.</li>
                 <li>Only unclassed links inside <code>p</code>, <code>li</code>, <code>td</code>, <code>dd</code>,
-                    <code>blockquote</code> and <code>figcaption</code> get the underline and highlight. A link
+                    <code>blockquote</code> and <code>figcaption</code> get the underline. A link
                     with a class styles itself.</li>
                 <li>Internal links end in a slash: <code>/now/sep-2026/</code>.</li>
                 <li>Public pages allow no inline styles (<code>style-src 'self'</code>). Only internal/ pages,
                     like this one, use them.</li>
-                <li>No JavaScript on the site. The two lines at the bottom of this page are the only exception,
-                    and this page is never deployed.</li>
+                <li>The only script on the site is theme.js: it picks a palette per visit (moss, ink, wine,
+                    plum, teal, flexoki) and drives the footer's theme button. Without it pages stay moss and the
+                    button stays hidden. The two lines at the bottom of this page only run here; it's never
+                    deployed.</li>
             </ul>
         </section>
 
@@ -185,7 +186,7 @@
                     <div class="swatch-block" style="background: var(--surface);"></div>
                     <p class="swatch-name">--surface</p>
                     <p class="swatch-value" data-token="--surface"></p>
-                    <p class="swatch-value">post panel, pager cards</p>
+                    <p class="swatch-value">code, table hover, covers</p>
                 </div>
                 <div class="swatch">
                     <div class="swatch-block" style="background: var(--borders);"></div>
@@ -197,7 +198,7 @@
                     <div class="swatch-block" style="background: var(--accent-muted);"></div>
                     <p class="swatch-name">--accent-muted</p>
                     <p class="swatch-value" data-token="--accent-muted"></p>
-                    <p class="swatch-value">blockquote bar, code, //</p>
+                    <p class="swatch-value">link underline, quote bar, //</p>
                 </div>
             </div>
 
@@ -207,7 +208,7 @@
                     <div class="swatch-block" style="background: var(--text-headings);"></div>
                     <p class="swatch-name">--text-headings</p>
                     <p class="swatch-value" data-token="--text-headings"></p>
-                    <p class="swatch-value">h2, h3, titles</p>
+                    <p class="swatch-value">h1, h2, h3, titles</p>
                 </div>
                 <div class="swatch">
                     <div class="swatch-block" style="background: var(--text-body);"></div>
@@ -225,7 +226,7 @@
                     <div class="swatch-block" style="background: var(--accent);"></div>
                     <p class="swatch-name">--accent</p>
                     <p class="swatch-value" data-token="--accent"></p>
-                    <p class="swatch-value">h1, nav, actions</p>
+                    <p class="swatch-value">hover, focus, home hero</p>
                 </div>
             </div>
 
@@ -264,8 +265,8 @@
         <!-- ===================== -->
         <section class="guide-section" id="type" aria-label="type">
             <h2>type</h2>
-            <p>Ioskeley Mono, self-hosted in /assets/fonts/ioskeleymono/ at weights 300, 400, 600 and 700, each with
-                an italic. Root size 16px. Paragraphs and list items use a 1.65 line height, and
+            <p>Geist Pixel Square, self-hosted in /assets/fonts/geistpixel/ with its OFL license. It has one
+                weight and no italic. Root size 16px. Paragraphs and list items use a 1.65 line height, and
                 <code>body</code> is capped at 78ch.</p>
 
             <div class="type-row">
@@ -298,12 +299,7 @@
             </div>
 
             <h3>weights</h3>
-            <p>
-                <span style="font-weight: 300;">light 300</span> &middot; regular 400 &middot;
-                <span style="font-weight: 600;">semibold 600</span> &middot; <strong>bold 700</strong><br />
-                <em style="font-weight: 300;">light italic</em> &middot; <em>italic</em> &middot;
-                <em style="font-weight: 600;">semibold italic</em> &middot; <strong><em>bold italic</em></strong>
-            </p>
+            <p>regular &middot; <strong>bold looks the same</strong> &middot; <em>italic is slanted by the browser</em></p>
 
             <h3>heading spacing</h3>
             <p>h2 has 3rem above it and h3 2.25rem, so a new section reads as a bigger break than a sub-section.
@@ -392,12 +388,11 @@
         <!-- ===================== -->
         <section class="guide-section" id="post" aria-label="post">
             <h2>post</h2>
-            <p>A post is an <code>article</code> holding a <code>.page-header--post</code>, which turns it into the
-                panel. A <code>.pager</code> straight after the article sits 1rem under it. An optional
-                <code>.post-banner</code> photo can open the panel: 2:1 (4:3 on phones), bled to the panel edges,
-                linking to the photo's page. <code>.post-banner--row</code> (a <code>figure</code>, no link) holds
-                several photos side by side, as on /about/. On phones the
-                panel and pager cards run edge to edge.</p>
+            <p>A post is an <code>article</code> holding a <code>.page-header--post</code>. It sits straight on the
+                page, with no panel. A <code>.pager</code> follows the article. An optional
+                <code>.post-banner</code> photo can open the post: 2:1 (4:3 on phones), linking to the photo's
+                page. <code>.post-banner--row</code> (a <code>figure</code>, no link) holds
+                several photos side by side, as on /about/.</p>
 
             <div class="demo">
                 <p class="demo-label">article / .page-header--post / .pager</p>
@@ -599,8 +594,8 @@
                         </div>
                     </div>
                     <div class="project-card-right">
-                        <img class="project-card-img" src="https://assets.danieldaum.net/img/misc/saturn-project-hero.webp"
-                            alt="screenshot of the saturn personal website" />
+                        <div class="project-card-img saturn-shot" role="img"
+                            aria-label="screenshot of the saturn personal website"></div>
                     </div>
                 </a>
             </div>
@@ -798,6 +793,7 @@
             <a href="/changelog/">changelog</a>
             <a href="/privacy/">privacy</a>
             <a href="/feed.xml">feed</a>
+            <button type="button" class="theme-button">theme</button>
         </nav>
     </footer>
 

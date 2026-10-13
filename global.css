@@ -67,78 +67,16 @@ h6 {
 }
 
 /*============================*/
-/* fonts - ioskeley mono (static, no variable font) */
+/* fonts - geist pixel square (one weight, no italic) */
 /*============================*/
 
+/* the weight range stops the browser faking bold */
 @font-face {
-    font-family: "Ioskeley Mono";
-    src: url("./assets/fonts/ioskeleymono/IoskeleyMono-Light.woff2")
+    font-family: "Geist Pixel";
+    src: url("./assets/fonts/geistpixel/GeistPixel-Square.woff2")
         format("woff2");
-    font-weight: 300;
+    font-weight: 100 900;
     font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Ioskeley Mono";
-    src: url("./assets/fonts/ioskeleymono/IoskeleyMono-LightItalic.woff2")
-        format("woff2");
-    font-weight: 300;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Ioskeley Mono";
-    src: url("./assets/fonts/ioskeleymono/IoskeleyMono-Regular.woff2")
-        format("woff2");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Ioskeley Mono";
-    src: url("./assets/fonts/ioskeleymono/IoskeleyMono-Italic.woff2")
-        format("woff2");
-    font-weight: 400;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Ioskeley Mono";
-    src: url("./assets/fonts/ioskeleymono/IoskeleyMono-SemiBold.woff2")
-        format("woff2");
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Ioskeley Mono";
-    src: url("./assets/fonts/ioskeleymono/IoskeleyMono-SemiBoldItalic.woff2")
-        format("woff2");
-    font-weight: 600;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Ioskeley Mono";
-    src: url("./assets/fonts/ioskeleymono/IoskeleyMono-Bold.woff2")
-        format("woff2");
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Ioskeley Mono";
-    src: url("./assets/fonts/ioskeleymono/IoskeleyMono-BoldItalic.woff2")
-        format("woff2");
-    font-weight: 700;
-    font-style: italic;
     font-display: swap;
 }
 
@@ -152,15 +90,15 @@ html {
     scrollbar-gutter: stable;
     color-scheme: dark;
 
-    /* dark theme (default) */
-    --background-dark: #0f1510;
-    --surface: #18211a;
-    --borders: #28332a;
-    --text-headings: #f3f3ed;
-    --text-body: #c9ccbf;
-    --text-secondary: #aaaba3;
-    --accent: #cddc39;
-    --accent-muted: #3a413b;
+    /* moss: flexoki greens and base greys, stephango.com/flexoki (MIT) */
+    --background-dark: #1a1e0c;
+    --surface: #252d09;
+    --borders: #313d07;
+    --text-headings: #f2f0e5;
+    --text-body: #dad8ce;
+    --text-secondary: #9f9d96;
+    --accent: #a0af54;
+    --accent-muted: #536907;
 
     /* rating scale (out of 5, half steps allowed) */
     --rating-terrible: #e86b6b;
@@ -168,6 +106,47 @@ html {
     --rating-good: #bdbd7f;
     --rating-above-average: #a9c94f;
     --rating-great: #7ec98f;
+}
+
+/* other palettes, picked by theme.js; moss is the no-js default */
+[data-theme="ink"] {
+    --background-dark: #101a24;
+    --surface: #12253b;
+    --borders: #133051;
+    --accent: #66a0c8;
+    --accent-muted: #1a4f8c;
+}
+
+[data-theme="wine"] {
+    --background-dark: #24131d;
+    --surface: #39172b;
+    --borders: #4f1b39;
+    --accent: #e47da8;
+    --accent-muted: #87285e;
+}
+
+[data-theme="plum"] {
+    --background-dark: #1a1623;
+    --surface: #261c39;
+    --borders: #31234e;
+    --accent: #a699d0;
+    --accent-muted: #4f3685;
+}
+
+[data-theme="teal"] {
+    --background-dark: #101f1d;
+    --surface: #122f2c;
+    --borders: #143f3c;
+    --accent: #5abdac;
+    --accent-muted: #1c6c66;
+}
+
+[data-theme="flexoki"] {
+    --background-dark: #100f0f;
+    --surface: #1c1b1a;
+    --borders: #282726;
+    --accent: #e8705f;
+    --accent-muted: #575653;
 }
 
 /*============================*/
@@ -185,7 +164,7 @@ body {
     margin: 0 auto;
     padding: min(3rem, 8vw) min(2rem, 5vw);
     font-family:
-        "Ioskeley Mono", ui-monospace, "SF Mono", Menlo, Consolas,
+        "Geist Pixel", ui-monospace, "SF Mono", Menlo, Consolas,
         "Liberation Mono", "Courier New", monospace;
     color: var(--text-body);
     background-color: var(--background-dark);
@@ -198,9 +177,8 @@ body {
 
 h1 {
     font-size: 1.75rem;
-    color: var(--accent);
+    color: var(--text-headings);
     margin: 0 0 0.3rem 0;
-    font-weight: 700;
     line-height: 1.2;
 }
 
@@ -208,14 +186,12 @@ h2 {
     font-size: 1.35rem;
     color: var(--text-headings);
     margin: 3rem 0 0.6rem 0;
-    font-weight: 600;
 }
 
 h3 {
     font-size: 1.125rem;
     color: var(--text-headings);
     margin: 2.25rem 0 0.5rem 0;
-    font-weight: 700;
 }
 
 /* small label, same as the post kicker */
@@ -223,7 +199,6 @@ h4 {
     font-size: 0.78rem;
     color: var(--text-secondary);
     margin: 1.5rem 0 0.5rem 0;
-    font-weight: 600;
     letter-spacing: 0.12em;
 }
 
@@ -244,21 +219,21 @@ li {
 }
 
 a {
-    color: var(--accent);
+    color: var(--text-headings);
     text-decoration: none;
     transition:
-        background-color 0.15s ease,
+        border-color 0.15s ease,
         color 0.15s ease;
 }
 
 /* text links; classed links are components and style themselves */
 :where(p, li, td, dd, blockquote, figcaption) > a:not([class]) {
-    border-bottom: 1px solid var(--accent);
+    border-bottom: 1px solid var(--accent-muted);
 }
 
 :where(p, li, td, dd, blockquote, figcaption) > a:not([class]):hover {
-    color: var(--background-dark);
-    background-color: var(--accent);
+    color: var(--accent);
+    border-bottom-color: var(--accent);
 }
 
 blockquote {
@@ -284,36 +259,23 @@ figcaption {
 
 code {
     font-family:
-        "Ioskeley Mono", ui-monospace, "SF Mono", Menlo, Consolas,
+        "Geist Pixel", ui-monospace, "SF Mono", Menlo, Consolas,
         "Liberation Mono", "Courier New", monospace;
     font-size: 0.9rem;
     color: var(--text-headings);
-    background: var(--accent-muted);
+    background: var(--surface);
     padding: 0.2rem 0.4rem;
     border-radius: 4px;
     border: 1px solid var(--borders);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 pre {
     margin: 2rem 0;
     padding: 1.25rem;
-    background: var(--accent-muted);
+    background: var(--surface);
     border: 1px solid var(--borders);
     border-radius: 6px;
     overflow-x: auto;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    position: relative;
-}
-
-pre::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    border-radius: 6px 6px 0 0;
 }
 
 pre code {
@@ -356,7 +318,8 @@ hr {
 /*============================*/
 
 /* Focus visible for keyboard navigation */
-a:focus-visible {
+a:focus-visible,
+button:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 2px;
     border-radius: 2px;
@@ -397,7 +360,6 @@ body.page--wide {
 }
 
 .site-name {
-    font-weight: 700;
     color: var(--text-body);
     font-size: 30px;
 }
@@ -453,6 +415,22 @@ footer nav a {
     color: var(--text-secondary);
 }
 
+/* theme.js shows it; without js it would do nothing */
+.theme-button {
+    display: none;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--text-secondary);
+    letter-spacing: inherit;
+    cursor: pointer;
+    align-self: flex-start;
+}
+
+[data-theme] .theme-button {
+    display: inline;
+}
+
 footer nav p {
     color: var(--accent-muted);
 }
@@ -477,8 +455,17 @@ nav {
     font-size: 0.88rem;
 }
 
+.site-header nav a {
+    color: var(--text-body);
+}
+
+.site-header nav a[aria-current="page"] {
+    color: var(--accent);
+}
+
 .site-header nav a,
-footer nav a {
+footer nav a,
+.theme-button {
     border-bottom: 1px solid transparent;
 
     transition:
@@ -487,7 +474,8 @@ footer nav a {
 }
 
 .site-header nav a:hover,
-footer nav a:hover {
+footer nav a:hover,
+.theme-button:hover {
     color: var(--accent);
     border-bottom-color: var(--accent);
 }
@@ -567,11 +555,15 @@ nav p {
     font-size: 0.88rem;
 }
 
+/* the home hero is the one heading in the accent */
+.page-header--home h1 {
+    color: var(--accent);
+}
+
 /* posts: kicker, title, date */
 .page-header-kicker {
     margin: 0 0 0.5rem;
     font-size: 0.78rem;
-    font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--text-secondary);
@@ -589,22 +581,11 @@ nav p {
     letter-spacing: 0.06em;
 }
 
-/* posts: bordered panel */
-article:has(> .page-header--post) {
-    --panel-pad-block: clamp(1.25rem, 4vw, 2.5rem);
-    --panel-pad-inline: var(--panel-pad-block);
-    padding: var(--panel-pad-block) var(--panel-pad-inline);
-    background: var(--surface);
-    border: 1px solid var(--borders);
-}
-
-/* posts: optional banner photo, bled to the panel edges */
+/* posts: optional banner photo above the header */
 .post-banner {
     display: block;
     aspect-ratio: 2 / 1;
-    margin: calc(-1 * var(--panel-pad-block)) calc(-1 * var(--panel-pad-inline))
-        var(--panel-pad-block);
-    border-bottom: 1px solid var(--borders);
+    margin-bottom: 2rem;
 }
 
 .post-banner img {
@@ -653,15 +634,7 @@ article:has(> .page-header--post) {
     }
 }
 
-/* phones: edge to edge */
 @media (max-width: 480px) {
-    article:has(> .page-header--post) {
-        --panel-pad-block: 1.25rem;
-        --panel-pad-inline: 1rem;
-        margin-inline: -1rem;
-        border-inline: 0;
-    }
-
     .post-banner {
         aspect-ratio: 4 / 3;
     }
@@ -726,7 +699,6 @@ article:has(> .page-header--post) {
 
 .section-label {
     font-size: 0.78rem;
-    font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--text-secondary);
@@ -745,17 +717,11 @@ article:has(> .page-header--post) {
     margin-top: 3.5rem;
 }
 
-/* posts: dock under the panel */
-article:has(> .page-header--post) + .pager {
-    margin-top: 1rem;
-}
-
 .pager-link {
     display: flex;
     flex-direction: column;
     gap: 0.3rem;
     padding: 1rem 1.25rem;
-    background: var(--surface);
     border: 1px solid var(--borders);
     transition: border-color 150ms ease;
 }
@@ -778,7 +744,6 @@ article:has(> .page-header--post) + .pager {
 }
 
 .pager-title {
-    font-weight: 600;
     font-size: 0.95rem;
     line-height: 1.35;
     color: var(--text-headings);
@@ -802,14 +767,6 @@ article:has(> .page-header--post) + .pager {
 
     .pager-next {
         grid-column: auto;
-    }
-}
-
-/* phones: edge to edge, like the post panel */
-@media (max-width: 480px) {
-    .pager-link {
-        margin-inline: -1rem;
-        border-inline: 0;
     }
 }
 
@@ -848,7 +805,6 @@ article:has(> .page-header--post) + .pager {
 }
 
 .card-title {
-    font-weight: 700;
     color: var(--text-headings);
     font-size: 0.95rem;
     line-height: 1.2;
@@ -949,7 +905,6 @@ article:has(> .page-header--post) + .pager {
 .table thead th {
     text-align: left;
     font-size: 0.75rem;
-    font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--text-secondary);
@@ -993,7 +948,7 @@ article:has(> .page-header--post) + .pager {
 }
 
 .table-row:hover {
-    background: rgba(205, 220, 57, 0.04);
+    background: var(--surface);
     cursor: pointer;
 }
 
@@ -1020,7 +975,7 @@ article:has(> .page-header--post) + .pager {
 
 /* tag column */
 .table-tag {
-    color: var(--accent);
+    color: var(--text-secondary);
     font-size: 0.82rem;
     white-space: nowrap;
 }
@@ -1185,7 +1140,6 @@ article:has(> .page-header--post) + .pager {
 .rating {
     color: var(--rating-color, var(--text-secondary));
     white-space: nowrap;
-    font-weight: 600;
 }
 
 a.rating,
@@ -1289,8 +1243,13 @@ figure:has(.img-scaled) figcaption {
     gap: 0.3rem;
     margin: 0;
     padding-left: 1.2rem;
-    border-left: 3px solid var(--accent);
+    border-left: 3px solid var(--accent-muted);
     cursor: pointer;
+    transition: border-color 150ms ease;
+}
+
+.recent-writing-item:hover {
+    border-left-color: var(--accent);
 }
 
 .recent-writing-tag {
@@ -1304,7 +1263,6 @@ figure:has(.img-scaled) figcaption {
 .recent-writing-title {
     margin: 0;
     font-size: 1.05rem;
-    font-weight: 700;
     line-height: 1.3;
 }
 
@@ -1341,9 +1299,7 @@ figure:has(.img-scaled) figcaption {
     opacity: 0.5;
 }
 
-.recent-writing-item:hover .recent-writing-tag,
-.recent-writing-item:hover .recent-writing-title a,
-.recent-writing-item:hover .recent-writing-meta {
+.recent-writing-item:hover .recent-writing-title a {
     color: var(--accent);
 }
 
@@ -1392,7 +1348,6 @@ figure:has(.img-scaled) figcaption {
     padding: 0rem;
     margin: 0rem;
     font-size: 1.75rem;
-    font-weight: 700;
     color: var(--text-headings);
     transition: color 220ms ease;
 }
@@ -1426,8 +1381,7 @@ figure:has(.img-scaled) figcaption {
 
     background: radial-gradient(
         ellipse at top left,
-        rgba(205, 220, 57, 0.08),
-        rgba(53, 64, 55, 0.04),
+        color-mix(in srgb, var(--accent) 6%, transparent),
         transparent 70%
     );
 
@@ -1439,8 +1393,8 @@ figure:has(.img-scaled) figcaption {
 .project-card:hover {
     transform: scale(1.05);
     box-shadow:
-        0 20px 50px rgba(14, 20, 15, 0.6),
-        0 0 0 1px rgba(205, 220, 57, 0.15);
+        0 20px 50px rgba(0, 0, 0, 0.5),
+        0 0 0 1px color-mix(in srgb, var(--accent) 15%, transparent);
 }
 
 .project-card:hover::before {
@@ -1458,11 +1412,10 @@ figure:has(.img-scaled) figcaption {
     height: auto;
     display: block;
     border-radius: 12px;
-    border: 1px solid #3a4a3d;
+    border: 1px solid var(--borders);
     box-shadow:
         0 8px 24px rgba(0, 0, 0, 0.5),
-        0 2px 8px rgba(0, 0, 0, 0.3),
-        0 0 0 1px rgba(205, 220, 57, 0.1);
+        0 2px 8px rgba(0, 0, 0, 0.3);
     transition:
         transform 220ms ease,
         box-shadow 220ms ease;
@@ -1477,7 +1430,7 @@ figure:has(.img-scaled) figcaption {
     box-shadow:
         0 12px 32px rgba(0, 0, 0, 0.6),
         0 4px 12px rgba(0, 0, 0, 0.4),
-        0 0 0 1px rgba(205, 220, 57, 0.25);
+        0 0 0 1px color-mix(in srgb, var(--accent) 25%, transparent);
 }
 
 .project-card:focus-visible {
@@ -1520,10 +1473,15 @@ figure:has(.img-scaled) figcaption {
 
 .project-banner {
     position: relative;
-    border: 1px solid var(--text-body);
+    border: 1px solid var(--borders);
     border-radius: 0.75rem;
     overflow: hidden;
-    background: linear-gradient(135deg, #1a2e1a 0%, #0f1e0f 50%, #1a3520 100%);
+    background: linear-gradient(
+        135deg,
+        var(--surface) 0%,
+        var(--background-dark) 50%,
+        var(--surface) 100%
+    );
     padding: 2rem;
     height: 20rem;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
@@ -1544,6 +1502,33 @@ figure:has(.img-scaled) figcaption {
     border-radius: 0.5rem;
 }
 
+/* the saturn screenshot follows the palette theme.js picked */
+.saturn-shot {
+    aspect-ratio: 961 / 1101;
+    background: url("https://assets.danieldaum.net/img/misc/saturn-moss.webp")
+        center / cover;
+}
+
+[data-theme="ink"] .saturn-shot {
+    background-image: url("https://assets.danieldaum.net/img/misc/saturn-ink.webp");
+}
+
+[data-theme="wine"] .saturn-shot {
+    background-image: url("https://assets.danieldaum.net/img/misc/saturn-wine.webp");
+}
+
+[data-theme="plum"] .saturn-shot {
+    background-image: url("https://assets.danieldaum.net/img/misc/saturn-plum.webp");
+}
+
+[data-theme="teal"] .saturn-shot {
+    background-image: url("https://assets.danieldaum.net/img/misc/saturn-teal.webp");
+}
+
+[data-theme="flexoki"] .saturn-shot {
+    background-image: url("https://assets.danieldaum.net/img/misc/saturn-flexoki.webp");
+}
+
 .project-header {
     display: flex;
     flex-direction: column;
@@ -1554,14 +1539,12 @@ figure:has(.img-scaled) figcaption {
 .project-header-title {
     margin: 0;
     font-size: 2rem;
-    font-weight: 700;
     line-height: 1.2;
     color: var(--accent);
 }
 
 .project-header-desc {
     font-size: 0.95rem;
-    font-weight: 300;
     color: var(--text-secondary);
 }
 
@@ -1577,7 +1560,6 @@ figure:has(.img-scaled) figcaption {
 
 .project-stat-label {
     font-size: 0.72rem;
-    font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--text-secondary);
@@ -1608,10 +1590,18 @@ figure:has(.img-scaled) figcaption {
     max-width: 40rem;
     margin: 0 auto;
     padding: 1rem 1.25rem;
-    border: 1px solid #3a4a3d;
+    border: 1px solid var(--borders);
     border-radius: 0.5rem;
     background: var(--surface);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.commit-log-head a {
+    color: var(--text-secondary);
+}
+
+.commit-log-head a:hover {
+    color: var(--accent);
 }
 
 .commit-log-head {
@@ -1751,8 +1741,8 @@ figure:has(.img-scaled) figcaption {
     padding: 1.75rem 0.85rem 0.75rem;
     background: linear-gradient(
         to top,
-        rgba(10, 14, 11, 0.92) 0%,
-        rgba(10, 14, 11, 0.5) 60%,
+        color-mix(in srgb, var(--background-dark) 92%, transparent) 0%,
+        color-mix(in srgb, var(--background-dark) 50%, transparent) 60%,
         transparent 100%
     );
     backdrop-filter: blur(3px);
@@ -1776,7 +1766,6 @@ figure:has(.img-scaled) figcaption {
 .photo-caption-name {
     display: block;
     color: var(--text-headings);
-    font-weight: 600;
 }
 
 .photo-caption-location {
@@ -1801,7 +1790,6 @@ figure:has(.img-scaled) figcaption {
 
 .new-tag {
     color: var(--accent);
-    font-weight: 700;
     font-size: 0.7rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -1837,7 +1825,7 @@ figure:has(.img-scaled) figcaption {
 .lightbox-backdrop {
     position: absolute;
     inset: 0;
-    background: rgba(10, 14, 11, 0.94);
+    background: color-mix(in srgb, var(--background-dark) 94%, transparent);
 }
 
 .lightbox-content {
@@ -1873,18 +1861,17 @@ figure:has(.img-scaled) figcaption {
     margin: 0 0 0.35rem;
     color: var(--text-headings);
     font-size: 0.95rem;
-    font-weight: 600;
 }
 
 /* link to the photo's own page */
 .lightbox-details {
     font-size: 0.75rem;
     letter-spacing: 0.08em;
+    color: var(--text-secondary);
 }
 
 .lightbox-details:hover {
-    color: var(--background-dark);
-    background-color: var(--accent);
+    color: var(--accent);
 }
 
 .lightbox-close,
@@ -2006,7 +1993,7 @@ figure:has(.img-scaled) figcaption {
     border: 1px dashed var(--borders);
     border-radius: 2px;
     overflow: hidden;
-    background: var(--accent-muted);
+    background: var(--surface);
     transition:
         outline-color 0.15s ease,
         opacity 0.15s ease;
@@ -2067,7 +2054,6 @@ figure:has(.img-scaled) figcaption {
 .tracker-caption-title {
     display: block;
     color: var(--text-headings);
-    font-weight: 600;
 }
 
 .tracker-link:hover .tracker-caption-title,
@@ -2208,6 +2194,7 @@ h4,
 .site-name,
 .site-header nav a,
 footer nav a,
+.theme-button,
 .breadcrumb,
 .page-header h1,
 .project-header-title,
@@ -2240,8 +2227,9 @@ footer nav a,
 /*============================*/
 
 /* High contrast mode support */
-@media (prefers-contrast: high) {
-    html {
+@media (prefers-contrast: more) {
+    html,
+    [data-theme] {
         --text-body: #ffffff;
         --text-secondary: #cccccc;
         --text-headings: #ffffff;

@@ -11,27 +11,14 @@
         <meta name="referrer" content="strict-origin-when-cross-origin" />
         <link
             rel="preload"
-            href="/assets/fonts/ioskeleymono/IoskeleyMono-Regular.woff2"
-            as="font"
-            type="font/woff2"
-            crossorigin
-        />
-        <link
-            rel="preload"
-            href="/assets/fonts/ioskeleymono/IoskeleyMono-Bold.woff2"
-            as="font"
-            type="font/woff2"
-            crossorigin
-        />
-        <link
-            rel="preload"
-            href="/assets/fonts/ioskeleymono/IoskeleyMono-SemiBold.woff2"
+            href="/assets/fonts/geistpixel/GeistPixel-Square.woff2"
             as="font"
             type="font/woff2"
             crossorigin
         />
         <link rel="preconnect" href="https://assets.danieldaum.net" />
         <link rel="stylesheet" href="/global.css" />
+        <script src="/theme.js"></script>
         <link
             rel="icon"
             type="image/png"
@@ -110,6 +97,28 @@
                 <p class="meta">Tracking the changes to this website</p>
             </header>
             <section>
+                <blockquote>
+                    <h2>v0.7.0 — 2026-10-13 — new coat of paint</h2>
+                    <p class="meta">
+                        a pixel font, five colour themes, and a theme button
+                    </p>
+
+                    <p>
+                        The site is set in Geist Pixel now, and its colours come
+                        from <a href="https://stephango.com/flexoki">Flexoki</a>.
+                        Each visit gets one of five palettes (moss, ink, wine,
+                        plum and teal), and the theme button in the footer
+                        moves to the next one. Posts no longer sit in a panel,
+                        and the saturn screenshot changes to match.
+                    </p>
+                    <p>
+                        The themes need one small script, the only one on the
+                        site. It keeps the name of your last palette in your
+                        browser and nothing else, and the privacy page says so.
+                        Without JavaScript, the site stays moss.
+                    </p>
+                </blockquote>
+                <hr />
                 <blockquote>
                     <h2>v0.6.0 — 2026-10-13 — static again</h2>
                     <p class="meta">
@@ -343,6 +352,7 @@
                 <a href="/changelog/">changelog</a>
                 <a href="/privacy/">privacy</a>
                 <a href="/feed.xml">feed</a>
+                <button type="button" class="theme-button">theme</button>
             </nav>
         </footer>
     </body>

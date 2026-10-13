@@ -3,3 +3,7 @@
 
 /.well-known/atproto-did
   Content-Type: text/plain; charset=utf-8
+
+# fonts never change in place; rename the file to ship a new version
+/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
