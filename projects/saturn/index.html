@@ -106,7 +106,7 @@
             <nav class="breadcrumb" aria-label="breadcrumb">
                 <a href="/projects/">projects</a>
                 <span aria-hidden="true">-></span>
-                <a href="/projects/saturn/">Saturn</a>
+                <a href="/projects/saturn/" aria-current="page">Saturn</a>
             </nav>
             <section class="project-banner">
                 <div class="project-banner-background" aria-hidden="true">
@@ -205,13 +205,13 @@
                     <div>
                         <p class="project-stat-label">timeline</p>
                         <p class="project-stat-value">
-                            January 2026 &ndash; ongoing
+                            November 2021 &ndash; ongoing
                         </p>
                     </div>
                     <div>
                         <p class="project-stat-label">stack</p>
                         <p class="project-stat-value">
-                            HTML, CSS, Cloudflare Pages
+                            HTML, CSS, Tangled, Cloudflare
                         </p>
                     </div>
                     <div>
@@ -234,30 +234,272 @@
             </section>
 
             <section aria-label="about this project">
-                <h2 class="section-label">about | how its made</h2>
+                <h2 class="section-label">about | how it's made</h2>
 
                 <p>
-                    I have never been completely satisfied with the look of my
-                    websites. In my efforts to improve what I don't like, I end
-                    up redesigning it - over, and over, and over. That being
-                    said, simple, minimal sites have always appealed to me.
-                    Doing less somehow feels both calming and satisfying, and
-                    this version is my closest attempt so far.
+                    I have never been satisfied with the look of my website.
+                    I've always been drawn to simple, minimal pages, but I've
+                    struggled to find a design that feels like my own.
                 </p>
 
                 <p>
-                    The implementation is deliberately plain: static HTML and
-                    CSS, no client-side JavaScript or framework, registered and
-                    hosted on Cloudflare. I write HTML & CSS locally on my
-                    machine, and when changes hit main a spindle pipeline on
-                    tangled pushes them to cloudflare pages.
+                    Under the hood, the implementation is deliberately kept
+                    simple: static HTML and CSS, no JavaScript framework, and a
+                    domain registered and hosted on Cloudflare. I write HTML and
+                    CSS locally on my machine, when changes hit main a CI
+                    pipeline pushes them to Cloudflare Pages.
+                </p>
+                <p>
+                    I chose the name Saturn because it's my favorite planet. It
+                    has <a href="https://science.nasa.gov/saturn/">rings!</a>
                 </p>
 
-                <blockquote>
-                    As of september 2026, I think I've finally become happy with
-                    the overall look and feel of the site, enough to call it
-                    'complete', at least stylistically. :)
-                </blockquote>
+                <figure>
+                    <img
+                        class="img-scaled img-scaled--short"
+                        src="https://assets.danieldaum.net/img/meme/saturn-neat.webp"
+                        alt="Marge Simpson holding Saturn on a plate, captioned “I just think they're neat!”"
+                        width="480"
+                        height="360"
+                    />
+                </figure>
+            </section>
+
+            <!-- ===== VERSION HISTORY ===== -->
+            <section aria-label="version history">
+                <h2 class="section-label">evolution | version history</h2>
+                <p>
+                    Feeling nostalgic, I decided to go through the previous
+                    evolutions of my site's design. It was easy to do, since the
+                    entire history of the website (back to my first commit in
+                    2021) exists in
+                    <a href="https://tangled.org/danieldaum.net/saturn"
+                        >this repository</a
+                    >.
+                </p>
+
+                <ol class="version-list">
+                    <li>
+                        <p class="version-meta">
+                            <time class="version-date" datetime="2021-11"
+                                >Nov 2021</time
+                            >
+                            <a
+                                class="version-hash"
+                                href="https://tangled.org/danieldaum.net/saturn/tree/16294c0813ca7d457bb288458bf8239bdcfb836d"
+                                aria-label="source code at commit 16294c0, opens in new tab"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >16294c0</a
+                            >
+                        </p>
+                        <h3>I like food and building stuff</h3>
+                        <figure>
+                            <img
+                                src="https://assets.danieldaum.net/img/misc/v1-original.webp"
+                                alt="the site in november 2021: “I'm Daniel” centered on a white page in Lato, above “I like food and building stuff”"
+                                width="1600"
+                                height="1000"
+                                loading="lazy"
+                            />
+                        </figure>
+                        <p>
+                            This was my first website, two days after my first
+                            commit. It had one HTML file and one stylesheet,
+                            used Lato from Google Fonts, and was hosted on
+                            GitHub Pages. At the time, I was learning how to
+                            write HTML and CSS, figuring out how hosting worked,
+                            and trying to decide what a personal site should be.
+                            I remember feeling proud that I had a website, and
+                            proud that I built it myself. I still feel proud.
+                        </p>
+                    </li>
+
+                    <li>
+                        <p class="version-meta">
+                            <time class="version-date" datetime="2022-01"
+                                >Jan 2022</time
+                            >
+                            <a
+                                class="version-hash"
+                                href="https://tangled.org/danieldaum.net/saturn/tree/0042771857a46fb408fe33b9708ad71928f821a4"
+                                aria-label="source code at commit 0042771, opens in new tab"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >0042771</a
+                            >
+                        </p>
+                        <h3>create-react-app</h3>
+                        <figure>
+                            <img
+                                src="https://assets.danieldaum.net/img/misc/v2-react-grey.webp"
+                                alt="the react version in january 2022: “Daniel Daum” in bold on a dark page, above outlined cards for projects and a digital garden"
+                                width="1600"
+                                height="1000"
+                                loading="lazy"
+                            />
+                        </figure>
+                        <p>
+                            You know what proves you're a real software
+                            engineer? Rebuilding your static four-page website
+                            in React. I remember thinking at the time, "Oh yeah,
+                            baby! This is what real developers do." It used
+                            React 17 and TypeScript, and came with a
+                            120,000-line package-lock.json. Of its five routes,
+                            four rendered the same 'coming-soon' page.
+                            Addtionally, If you hover over one of those boxes,
+                            they turn pink! If you ever hear me tell someone I
+                            am good at design, feel free to bring this up for
+                            discussion.
+                        </p>
+                    </li>
+
+                    <li>
+                        <p class="version-meta">
+                            <time class="version-date" datetime="2022-04"
+                                >Apr 2022</time
+                            >
+                            <a
+                                class="version-hash"
+                                href="https://tangled.org/danieldaum.net/saturn/tree/6ce6c780c48efb2f62caf9b3efe2cb3f1cd4efd8"
+                                aria-label="source code at commit 6ce6c78, opens in new tab"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >6ce6c78</a
+                            >
+                        </p>
+                        <h3>Back to plain HTML</h3>
+                        <figure>
+                            <img
+                                src="https://assets.danieldaum.net/img/misc/v3-vanilla-white.webp"
+                                alt="the april 2022 version: “/daniel-daum.com” centered on a white page, above github and linkedin icons and an about link"
+                                width="1600"
+                                height="1000"
+                                loading="lazy"
+                            />
+                        </figure>
+                        <p>
+                            Thankfully, I must've encountered
+                            <a href="https://motherfuckingwebsite.com"
+                                >motherfuckingwebsite</a
+                            >
+                            sometime in early 2022. I got rid of React and went
+                            back to vanilla HTML and CSS. Unfortunately, I still
+                            didn't know how to make a
+                            <strike>real website</strike> landing page look
+                            great. So, while the React app was out, I replaced
+                            with this beauty: two hand-written pages set in
+                            Unica One and Open Sans. This stayed up until
+                            September 2023.
+                        </p>
+                    </li>
+
+                    <li>
+                        <p class="version-meta">
+                            <time class="version-date" datetime="2026-06"
+                                >Jun 2026</time
+                            >
+                            <a
+                                class="version-hash"
+                                href="https://tangled.org/danieldaum.net/saturn/tree/3a04d675b380446f376b976009639a650030f965"
+                                aria-label="source code at commit 3a04d67, opens in new tab"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >3a04d67</a
+                            >
+                        </p>
+                        <h3>Clean slate</h3>
+                        <figure>
+                            <img
+                                src="https://assets.danieldaum.net/img/misc/v4-clean.webp"
+                                alt="the june 2026 version: lowercase monospace text on a near-black page, with the writing and garden links struck through"
+                                width="1600"
+                                height="1000"
+                                loading="lazy"
+                            />
+                        </figure>
+                        <p>
+                            After a few more redesigns between 2023 and 2026, I
+                            felt I needed to reset my CSS in order to find the
+                            design I truly wanted. It was tagged as v0.2.0 in
+                            the
+                            <a href="/changelog/">changelog</a>. Initially,
+                            everything was lowercase and monospace (which got
+                            annoying), set in Ioskeley Mono. I then added a now
+                            page, a grey-green background, a garden page, and a
+                            <a href="/pgp.asc">PGP key</a>. I appreciate this
+                            version for being short lived, and for setting me on
+                            my current path.
+                        </p>
+                    </li>
+                </ol>
+            </section>
+
+            <section aria-label="which brings us to now">
+                <h2 class="section-label">which brings us to now</h2>
+                <p>
+                    There's an old misquote: "A good artist borrows, a great
+                    artist steals." I never learned design, but I did learn how
+                    to steal.
+                </p>
+
+                <p>
+                    The current iteration of the site is set in
+                    <a href="https://vercel.com/blog/introducing-geist-pixel"
+                        >Geist Pixel</a
+                    >, which I mercilessly ripped from
+                    <a href="https://royfish.dev">royfish.dev</a> after reading
+                    their excellent
+                    <a
+                        href="https://royfish.dev/fingerprints-are-the-new-cookies"
+                        >Fingerprints are the new cookies</a
+                    >
+                    post.
+                </p>
+
+                <p>
+                    I visited
+                    <a href="https://rmv.fyi">Ruby Morgan Voigt's blog</a> some
+                    time ago. Their old site picked a new color theme on every
+                    page load. I loved it, and added themes to this site using
+                    several color combinations from the theme
+                    <a href="https://stephango.com/flexoki">Flexoki</a> by
+                    <a href="https://stephango.com">Steph Ango</a>. The theme
+                    switcher in theme.js was written by an LLM. I’m counting
+                    that as stealing too.
+                </p>
+                <p>
+                    I have also taken code and ideas from these sites and
+                    developers, and probably others I've forgotten:
+                </p>
+
+                <!--<p>
+
+                </p>-->
+
+                <ul>
+                    <li><a href="https://vale.rocks">vale.rocks</a></li>
+                    <li><a href="https://textlog.cc/">textlog.cc</a></li>
+                    <li><a href="https://catskull.net">catskull.net</a></li>
+                    <li>
+                        <a href="https://motherfuckingwebsite.com"
+                            >motherfuckingwebsite</a
+                        >
+                        and its derivatives, like
+                        <a
+                            href="https://modernmotherfuckingwebsite.dreamstation.systems"
+                            >modernmotherfuckingwebsite</a
+                        >
+                    </li>
+                </ul>
+                <p>Thank you all.</p>
+
+                <p>
+                    I don’t know if this site is better than the first version.
+                    I’ll probably want to redesign it again someday soon. But
+                    like that first one, I made it, I like it, and I’m proud of
+                    it.
+                </p>
             </section>
         </main>
 
