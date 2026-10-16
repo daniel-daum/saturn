@@ -1,0 +1,39 @@
+# mirrors main to github and tangled on every push. gitea is the source of
+# truth, so both get force-pushed to match it. the same file works in every
+# repo: it pushes to the repo with the same name on github and tangled.
+# needs the GH_MIRROR_TOKEN and TANGLED_MIRROR_KEY secrets
+name: Mirror
+
+on:
+    push:
+        branches:
+            - main
+    workflow_dispatch:
+
+jobs:
+    mirror:
+        runs-on: ubuntu-latest
+        env:
+            REPO: ${{ github.event.repository.name }}
+        steps:
+            # full history, and origin/main is the newest main, so a late or
+            # retried run never rolls the mirrors back
+            - name: Checkout
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+
+            - name: Mirror to GitHub
+              run: |
+                  set -euo pipefail
+                  git push --force "https://x-access-token:${{ secrets.GH_MIRROR_TOKEN }}@github.com/daniel-daum/${REPO}.git" refs/remotes/origin/main:refs/heads/main
+
+            - name: Mirror to Tangled
+              run: |
+                  set -euo pipefail
+                  mkdir -p ~/.ssh
+                  printf '%s\n' "${{ secrets.TANGLED_MIRROR_KEY }}" > ~/.ssh/tangled
+                  chmod 600 ~/.ssh/tangled
+                  ssh-keyscan tangled.org >> ~/.ssh/known_hosts
+                  export GIT_SSH_COMMAND="ssh -i ~/.ssh/tangled -o IdentitiesOnly=yes"
+                  git push --force "git@tangled.org:danieldaum.net/${REPO}" refs/remotes/origin/main:refs/heads/main

@@ -57,7 +57,7 @@ this works on `/about/`, `/now/<slug>/`, `/blog/<slug>/` and `/projects/<slug>/`
 
 ## deploying
 
-- **functions:** automatic. on every push, ci (`.tangled/workflows/deploy.yml`) runs wrangler from this folder
+- **functions:** automatic. on every push, ci (`.gitea/workflows/deploy.yaml`) runs wrangler from this folder
 - **email worker:** `mise run social-email`, only when `email.js`, `lib.js` or `email.toml` change
 - **secret:** `SOCIAL_SECRET` signs moderation links and like hashes. it's set on both the pages project and the worker:
   - `wrangler pages secret put SOCIAL_SECRET --project-name saturn`
