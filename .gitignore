@@ -4,3 +4,8 @@
 
 # deploy staging
 dist/
+
+# social: local d1, secrets, deps
+social/.wrangler/
+social/.dev.vars
+social/node_modules/

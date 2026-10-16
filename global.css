@@ -703,6 +703,164 @@ nav p {
 }
 
 /*============================*/
+/* components - likes + comments */
+/*============================*/
+
+/* written in by social/functions/_middleware.js */
+.post-social {
+    margin-top: 3rem;
+    padding-top: 1.25rem;
+    border-top: 1px dashed var(--borders);
+}
+
+.post-social > .meta {
+    margin: 0;
+}
+
+.social-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.social-title {
+    margin: 0;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    color: var(--text-secondary);
+}
+
+.comment-thread {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.comment-thread li {
+    margin: 0;
+}
+
+/* replies: one level, on a rule */
+.comment-thread .comment-thread {
+    margin-top: 0.25rem;
+    padding-left: 1rem;
+    border-left: 1px solid var(--borders);
+}
+
+.comment {
+    padding: 1rem 0;
+}
+
+.comment .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 0.75rem;
+    margin: 0 0 0.5rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+}
+
+.comment-name {
+    color: var(--text-headings);
+}
+
+.comment-author {
+    padding: 0 0.35rem;
+    border: 1px solid var(--borders);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+}
+
+.comment-time,
+.comment-link {
+    color: var(--text-secondary);
+    transition: color 150ms ease;
+}
+
+.comment-time:hover,
+.comment-link:hover {
+    color: var(--accent);
+}
+
+.comment-body p {
+    margin: 0 0 0.5rem;
+}
+
+.comment-link {
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+}
+
+.social-foot {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.5rem 1rem;
+    margin-top: 1.5rem;
+}
+
+.social-foot .meta {
+    margin: 0;
+    font-size: 0.8rem;
+}
+
+.like-form {
+    margin: 0;
+}
+
+.like-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-height: 2.25rem;
+    padding: 0 0.85rem;
+    border: 1px solid var(--borders);
+    background: none;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    transition:
+        color 150ms ease,
+        border-color 150ms ease;
+}
+
+.like-button:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+/* already liked today */
+.like-button:disabled {
+    color: var(--accent);
+    border-color: var(--borders);
+    cursor: default;
+}
+
+.like-icon {
+    width: 0.95em;
+    height: 0.95em;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linejoin: round;
+}
+
+.like-button:disabled .like-icon {
+    fill: currentColor;
+}
+
+/* /api/moderate */
+.moderate-actions {
+    display: flex;
+    gap: 0.75rem;
+}
+
+/*============================*/
 /* components - pager */
 /*============================*/
 
@@ -1084,11 +1242,11 @@ nav p {
     white-space: nowrap;
 }
 
-/* fixed width so the dates line up whatever the tag; the widest (#about,
-   #album) are ~7.4ch in the pixel font's caps */
+/* fixed width so the dates line up whatever the tag; the widest
+   (#projects) is ~11.1ch in the pixel font's caps */
 .archive-tag {
     order: 2;
-    width: 8ch;
+    width: 11.5ch;
 }
 
 .archive-date {
@@ -2183,7 +2341,11 @@ footer nav a,
 .pill,
 .commit-log-head,
 .commit-log-date,
-.version-date {
+.version-date,
+.social-title,
+.comment-author,
+.comment-time,
+.comment-link {
     text-transform: uppercase;
 }
 

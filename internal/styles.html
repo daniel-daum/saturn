@@ -421,6 +421,46 @@
             </div>
 
             <div class="demo">
+                <p class="demo-label">.post-social (last in the article; written by social/functions/_middleware.js)</p>
+                <section class="post-social" aria-label="likes and comments demo">
+                    <div class="social-head">
+                        <h2 class="social-title">2 comments</h2>
+                        <form class="like-form">
+                            <button type="button" class="like-button" aria-label="you liked this post, 3 likes" disabled aria-pressed="true"><svg class="like-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" /></svg> 3</button>
+                        </form>
+                    </div>
+                    <ol class="comment-thread">
+                        <li>
+                            <article class="comment" id="demo-comment-1">
+                                <p class="meta">
+                                    <span class="comment-name">sam</span>
+                                    <a class="comment-time" href="#demo-comment-1"><time datetime="2026-09-04T16:12:00Z">4 Sep 2026 &middot; 09:12</time></a>
+                                </p>
+                                <div class="comment-body"><p>Mother Tongue is great, try the cortado.</p></div>
+                                <a class="comment-link" href="#post">reply &rarr;</a>
+                                <ol class="comment-thread">
+                                    <li>
+                                        <article class="comment" id="demo-comment-2">
+                                            <p class="meta">
+                                                <span class="comment-name">daniel</span><span class="comment-author">author</span>
+                                                <a class="comment-time" href="#demo-comment-2"><time datetime="2026-09-04T18:30:00Z">4 Sep 2026 &middot; 11:30</time></a>
+                                            </p>
+                                            <div class="comment-body"><p>Will do!</p></div>
+                                            <a class="comment-link" href="#post">reply &rarr;</a>
+                                        </article>
+                                    </li>
+                                </ol>
+                            </article>
+                        </li>
+                    </ol>
+                    <div class="social-foot">
+                        <a class="comment-link" href="#post">comment by email &rarr;</a>
+                        <p class="meta">Start with a "name:" line for your display name. Your email is never shown or stored</p>
+                    </div>
+                </section>
+            </div>
+
+            <div class="demo">
                 <p class="demo-label">.post-banner (optional, first in the article; --high / --low / --left / --right move the crop, on the banner or one photo)</p>
                 <article>
                     <a class="post-banner" href="/photos/lake-tahoe-boat/" aria-label="photo details: Boat on Lake Tahoe">

@@ -25,10 +25,12 @@ steps:
       set -euo pipefail
       mkdir dist
       git ls-files -z \
-          | grep -zv -e '^internal/' -e '^scripts/' -e '^\.tangled/' -e '^\.gitignore$' -e '^mise\.toml$' \
+          | grep -zv -e '^internal/' -e '^scripts/' -e '^social/' -e '^\.tangled/' -e '^\.gitignore$' -e '^mise\.toml$' \
           | xargs -0 cp --parents -t dist
 
+  # from social/ so wrangler finds its functions and wrangler.toml
   - name: "Deploy to Cloudflare Pages"
     command: |
       set -euo pipefail
-      npx --yes wrangler@4 pages deploy dist --project-name=saturn --branch=main
+      cd social
+      npx --yes wrangler@4 pages deploy ../dist --project-name=saturn --branch=main

@@ -1,8 +1,24 @@
 [tools]
 node = "latest"
 "npm:five-server" = "latest"
+"npm:wrangler" = "4"
 
 # mise run serve
 [tasks.serve]
 description = "Run the site in live-reload mode"
 run = "five-server --port=8080"
+
+# mise run social-dev
+[tasks.social-dev]
+description = "Run the site with likes and comments, on a local d1"
+dir = "social"
+run = [
+    "wrangler d1 execute saturn-social --local --file schema.sql",
+    "wrangler pages dev --port=8788",
+]
+
+# mise run social-email
+[tasks.social-email]
+description = "Deploy the comment email worker"
+dir = "social"
+run = ["npm ci", "wrangler deploy -c email.toml"]

@@ -7,13 +7,68 @@
   <link rel="alternate" type="text/html" href="https://danieldaum.net/" />
   <link rel="self" type="application/atom+xml" href="https://danieldaum.net/feed.xml" />
   <icon>https://danieldaum.net/assets/favicon/android-chrome-192x192.png</icon>
-  <updated>2026-09-03T09:00:00-07:00</updated>
+  <updated>2026-10-15T09:00:00-07:00</updated>
   <author>
     <name>daniel daum</name>
     <uri>https://danieldaum.net/</uri>
   </author>
 
   <!-- NEWEST FIRST. content: post body in CDATA, absolute URLs, no classes. -->
+
+  <entry>
+    <title>Saturn</title>
+    <link rel="alternate" type="text/html" href="https://danieldaum.net/projects/saturn/" />
+    <id>https://danieldaum.net/projects/saturn/</id>
+    <published>2026-10-15T09:00:00-07:00</published>
+    <updated>2026-10-15T09:00:00-07:00</updated>
+    <category term="projects" />
+    <summary type="text">saturn - daniel daum's personal website, a minimalist redesign built with html and css</summary>
+    <content type="html"><![CDATA[
+      <figure>
+      <img src="https://assets.danieldaum.net/img/misc/saturn-moss.webp" alt="screenshot of the saturn personal website" /></figure>
+      <p>This is the project page for my personal website, <a href="https://danieldaum.net">this website</a> - called saturn.</p>
+      <p>I have never been completely satisfied with the look of my website. I've always been drawn to simple, minimal pages, but I've struggled to find a design that feels entirely my own. In my efforts to improve the things I didn’t like, I’ve remade this site several times until its become what is is today: my cozy minimal personal website.</p>
+      <p>Under the hood, the implementation is deliberately kept simple: static HTML and CSS, no JavaScript framework, and a domain registered and hosted on Cloudflare. I write HTML and CSS locally on my machine, when changes hit main a CI pipeline pushes them to Cloudflare Pages.</p>
+      <p>I chose the name Saturn because it's my favorite planet. It has <a href="https://science.nasa.gov/saturn/">rings!</a></p>
+      <figure>
+      <img src="https://assets.danieldaum.net/img/meme/saturn-neat.webp" alt="Marge Simpson holding Saturn on a plate, captioned “I just think they're neat!”" /></figure>
+      <h2>Evolution | version history</h2>
+      <p>Feeling nostalgic, I decided to go through the previous evolutions of my site's design. Easy to do since the entire history of the website (back to my first commit in 2021) exists in <a href="https://tangled.org/danieldaum.net/saturn">this repository</a>.</p>
+      <h3>I like food and building stuff (Nov 2021)</h3>
+      <figure>
+      <img src="https://assets.danieldaum.net/img/misc/v1-original.webp" alt="the site in november 2021: “I'm Daniel” centered on a white page in Lato, above “I like food and building stuff”" /></figure>
+      <p>This was my first website, two days after my first commit. It had one HTML file and one stylesheet, used Lato from Google Fonts, and was hosted on GitHub Pages. At the time, I was learning how to write HTML and CSS, figuring out how hosting worked, and trying to decide what a personal site should be. I remember feeling proud that I had a website, and proud that I built it myself. I still feel proud.</p>
+      <h3>create-react-app (Jan 2022)</h3>
+      <figure>
+      <img src="https://assets.danieldaum.net/img/misc/v2-react-grey.webp" alt="the react version in january 2022: “Daniel Daum” in bold on a dark page, above outlined cards for projects and a digital garden" /></figure>
+      <p>You know what proves you're a real software engineer? Rebuilding your static four-page website in React. I remember thinking at the time, "Oh yeah, baby! This is what real developers do." It used React 17 and TypeScript, and came with a 120,000-line package-lock.json. Of its five routes, four rendered the same 'coming-soon' page. Addtionally, If you hover over one of those boxes, they turn pink! If you ever hear me tell someone I am good at design, feel free to bring this up for discussion.</p>
+      <h3>Back to plain HTML (Apr 2022)</h3>
+      <figure>
+      <img src="https://assets.danieldaum.net/img/misc/v3-vanilla-white.webp" alt="the april 2022 version: “/daniel-daum.com” centered on a white page, above github and linkedin icons and an about link" /></figure>
+      <p>Thankfully, I must've encountered <a href="https://motherfuckingwebsite.com">motherfuckingwebsite</a> sometime in early 2022. I got rid of React and went back to vanilla HTML and CSS. Unfortunately, I still didn't know how to make a <s>real website</s> landing page look great. So, while the React app was out, it was replaced with this beauty. Two hand-written pages set in Unica One and Open Sans. This stayed up until September 2023.</p>
+      <h3>Clean slate (Jun 2026)</h3>
+      <figure>
+      <img src="https://assets.danieldaum.net/img/misc/v4-clean.webp" alt="the june 2026 version: lowercase monospace text on a near-black page, with the writing and garden links struck through" /></figure>
+      <p>After a few more redesigns between 2023 and 2026, I felt I needed to reset my CSS. I had lost the plot. This reset helped me focus on figuring out what I truly wanted on a website, and put me on the path of iterating towards a design I truly enjoyed. Initially, everything was lowercase (which got annoying), and it was set in Ioskeley Mono. I then added a now page, a garden page, and a <a href="https://danieldaum.net/pgp.asc">PGP key</a>. I appreciate that my work here helped bring the design to where it is today.</p>
+      <h2>Which brings us to now</h2>
+      <p>There's an old misquote: "A good artist borrows, a great artist steals." I never really learned design, but I did learn how to steal. Every so often I would find a font I liked or some cool CSS on the web, and I'd bring it home to try on. Eventually I figured out what worked and what didn't, keeping the things I loved most.</p>
+      <p>So I wanted to acknowledge the people who's websites inspired me, and whose work I stole from.</p>
+      <ul>
+      <li>The current iteration of the site is set in <a href="https://vercel.com/blog/introducing-geist-pixel">Geist Pixel</a>, which I mercilessly ripped from <a href="https://royfish.dev">royfish.dev</a> after reading their excellent <a href="https://royfish.dev/fingerprints-are-the-new-cookies">Fingerprints are the new cookies</a> post.</li>
+      <li>I got the idea for themes from <a href="https://rmv.fyi">rmv.fyi</a>. I visited Ruby's blog some time ago, and it shows a new color theme on every page load. I loved it. I then added themes to this site using color combinations from <a href="https://stephango.com/flexoki">Flexoki</a> by <a href="https://stephango.com">Steph Ango</a>.</li>
+      <li>Comments, likes, and theme switcher in theme.js was written by an
+      LLM. I’m counting that as stealing too.</li></ul>
+      <p>I have also taken design, code, and ideas from these sites and developers, including many others I've certainly forgotten:</p>
+      <ul>
+      <li><a href="https://vale.rocks">vale.rocks</a></li>
+      <li><a href="https://textlog.cc/">textlog.cc</a></li>
+      <li><a href="https://catskull.net">catskull.net</a></li>
+      <li><a href="https://motherfuckingwebsite.com">motherfuckingwebsite</a> and its derivatives, like <a href="https://modernmotherfuckingwebsite.dreamstation.systems">modernmotherfuckingwebsite</a></li></ul>
+      <p>Thank you all.</p>
+      <p>I don’t know if this site is actually any better than my first version and I’ll probably want to redesign it again someday soon. But like that first one, I like it, I made (most of) it, and I’m proud.</p>
+      <p>- Daniel</p>
+    ]]></content>
+  </entry>
 
   <entry>
     <title>Wake Me Up When September Ends</title>
