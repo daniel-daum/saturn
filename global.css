@@ -67,7 +67,7 @@ h6 {
 }
 
 /*============================*/
-/* fonts - geist pixel square (one weight, no italic) */
+/* fonts - geist pixel square (one weight, no italic), geist mono */
 /*============================*/
 
 /* the weight range stops the browser faking bold */
@@ -77,6 +77,23 @@ h6 {
         format("woff2");
     font-weight: 100 900;
     font-style: normal;
+    font-display: swap;
+}
+
+/* geist mono, code blocks only: pixel type is proportional, so columns drift */
+@font-face {
+    font-family: "Geist Mono";
+    src: url("./assets/fonts/geistmono/GeistMono-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Geist Mono";
+    src: url("./assets/fonts/geistmono/GeistMono-Italic.woff2") format("woff2");
+    font-weight: 400;
+    font-style: italic;
     font-display: swap;
 }
 
@@ -106,6 +123,18 @@ html {
     --rating-good: #bdbd7f;
     --rating-above-average: #a9c94f;
     --rating-great: #7ec98f;
+
+    /* syntax: same roles as the zed, helix and warp themes */
+    --syn-fg: #c2c4ba;
+    --syn-punct: #a2a49b;
+    --syn-comment: #909585;
+    --syn-keyword: #ad9be2;
+    --syn-function: #6fb1d7;
+    --syn-builtin: #7ac4ad;
+    --syn-type: #ddc56c;
+    --syn-variable: #e0775d;
+    --syn-constant: #e7a86e;
+    --syn-string: #a9b767;
 }
 
 /* other palettes, picked by theme.js; moss is the no-js default */
@@ -115,6 +144,18 @@ html {
     --borders: #133051;
     --accent: #66a0c8;
     --accent-muted: #1a4f8c;
+
+    /* syntax */
+    --syn-fg: #bdc3ca;
+    --syn-punct: #9ea4aa;
+    --syn-comment: #838d98;
+    --syn-keyword: #a79eec;
+    --syn-function: #6fb2df;
+    --syn-builtin: #73c6be;
+    --syn-type: #dbc777;
+    --syn-variable: #e0796e;
+    --syn-constant: #eaa77c;
+    --syn-string: #a2ba75;
 }
 
 [data-theme="wine"] {
@@ -123,6 +164,18 @@ html {
     --borders: #4f1b39;
     --accent: #e47da8;
     --accent-muted: #87285e;
+
+    /* syntax */
+    --syn-fg: #cabfc4;
+    --syn-punct: #a9a0a5;
+    --syn-comment: #978790;
+    --syn-keyword: #b896e2;
+    --syn-function: #75afdd;
+    --syn-builtin: #77c4b6;
+    --syn-type: #ebbe6e;
+    --syn-variable: #e57268;
+    --syn-constant: #f0a17b;
+    --syn-string: #b3b365;
 }
 
 [data-theme="plum"] {
@@ -131,6 +184,18 @@ html {
     --borders: #31234e;
     --accent: #a699d0;
     --accent-muted: #4f3685;
+
+    /* syntax */
+    --syn-fg: #c3c1cb;
+    --syn-punct: #a4a1aa;
+    --syn-comment: #8c8897;
+    --syn-keyword: #b19ee7;
+    --syn-function: #7db1de;
+    --syn-builtin: #7fc5c2;
+    --syn-type: #e4c584;
+    --syn-variable: #de7c7b;
+    --syn-constant: #eba78c;
+    --syn-string: #adb87b;
 }
 
 [data-theme="teal"] {
@@ -139,6 +204,18 @@ html {
     --borders: #143f3c;
     --accent: #5abdac;
     --accent-muted: #1c6c66;
+
+    /* syntax */
+    --syn-fg: #bac5c4;
+    --syn-punct: #9ca5a4;
+    --syn-comment: #859794;
+    --syn-keyword: #a59ee7;
+    --syn-function: #6bb1da;
+    --syn-builtin: #73c5b5;
+    --syn-type: #d6c872;
+    --syn-variable: #de7965;
+    --syn-constant: #e5a873;
+    --syn-string: #9fb970;
 }
 
 [data-theme="flexoki"] {
@@ -147,6 +224,18 @@ html {
     --borders: #282726;
     --accent: #e8705f;
     --accent-muted: #575653;
+
+    /* syntax */
+    --syn-fg: #c6c2bb;
+    --syn-punct: #a6a29d;
+    --syn-comment: #8a847a;
+    --syn-keyword: #af98ec;
+    --syn-function: #69b1e0;
+    --syn-builtin: #6dc6b5;
+    --syn-type: #e3c363;
+    --syn-variable: #e8705f;
+    --syn-constant: #f0a26d;
+    --syn-string: #a9b761;
 }
 
 /*============================*/
@@ -276,17 +365,68 @@ pre {
     border: 1px solid var(--borders);
     border-radius: 6px;
     overflow-x: auto;
+    tab-size: 4;
+    scrollbar-color: var(--borders) transparent;
 }
 
 pre code {
     background: none;
     padding: 0;
     display: block;
-    color: var(--text-body);
-    font-size: 0.88rem;
+    font-family:
+        "Geist Mono", ui-monospace, "SF Mono", Menlo, Consolas,
+        "Liberation Mono", monospace;
+    color: var(--syn-fg);
+    font-size: 0.84rem;
+    font-synthesis: none;
     border: none;
     box-shadow: none;
     line-height: 1.5;
+}
+
+/* syntax roles, set by scripts/highlight.mjs */
+.hl-comment {
+    color: var(--syn-comment);
+    font-style: italic;
+}
+
+.hl-keyword {
+    color: var(--syn-keyword);
+}
+
+.hl-function,
+.hl-link {
+    color: var(--syn-function);
+}
+
+.hl-builtin,
+.hl-escape {
+    color: var(--syn-builtin);
+}
+
+.hl-type,
+.hl-self,
+.hl-changed {
+    color: var(--syn-type);
+}
+
+.hl-variable,
+.hl-heading,
+.hl-removed {
+    color: var(--syn-variable);
+}
+
+.hl-constant {
+    color: var(--syn-constant);
+}
+
+.hl-string,
+.hl-added {
+    color: var(--syn-string);
+}
+
+.hl-punct {
+    color: var(--syn-punct);
 }
 
 figure {
@@ -531,7 +671,7 @@ nav p {
     }
 
     pre code {
-        font-size: 0.82rem;
+        font-size: 0.8rem;
     }
 }
 
@@ -1331,6 +1471,43 @@ a.rating:focus-visible {
 
 .rating--great {
     --rating-color: var(--rating-great);
+}
+
+/*============================*/
+/* components - code block */
+/*============================*/
+
+/* optional file label over a pre, like bat's header */
+.code-block {
+    margin: 2rem 0;
+}
+
+.code-block pre {
+    margin: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.code-label {
+    margin: 0;
+    padding: 0.45rem 1.25rem;
+    border: 1px solid var(--borders);
+    border-bottom: 0;
+    border-radius: 6px 6px 0 0;
+    background: var(--background-dark);
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+}
+
+@media (max-width: 480px) {
+    .code-block {
+        margin: 1.5rem -0.5rem;
+    }
+
+    .code-label {
+        padding-inline: 1rem;
+        border-radius: 4px 4px 0 0;
+    }
 }
 
 /*============================*/
@@ -2369,6 +2546,18 @@ footer nav a,
         --rating-good: #ffffff;
         --rating-above-average: #d4f06a;
         --rating-great: #8dffab;
+
+        /* flexoki 200, at least 6.8:1 on every surface */
+        --syn-fg: #ffffff;
+        --syn-punct: #e6e4d9;
+        --syn-comment: #cccccc;
+        --syn-keyword: #c4b9e0;
+        --syn-function: #92bfdb;
+        --syn-builtin: #87d3c3;
+        --syn-type: #eccb60;
+        --syn-variable: #f89a8a;
+        --syn-constant: #f9ae77;
+        --syn-string: #bec97e;
     }
 
     a {
@@ -2397,6 +2586,45 @@ footer nav a,
 /*============================*/
 
 @media print {
+    html,
+    [data-theme] {
+        --text-body: #100f0f;
+        --text-headings: #100f0f;
+        --text-secondary: #575653;
+        --background-dark: #ffffff;
+        --surface: #f5f5f5;
+        --borders: #cccccc;
+        --accent: #100f0f;
+
+        --rating-terrible: #af3029;
+        --rating-below-average: #bc5215;
+        --rating-good: #8e6b01;
+        --rating-above-average: #536907;
+        --rating-great: #1c6c66;
+
+        /* flexoki 600/700, all at least 4.5:1 on #f5f5f5 */
+        --syn-fg: #100f0f;
+        --syn-punct: #575653;
+        --syn-comment: #6f6e69;
+        --syn-keyword: #5e409d;
+        --syn-function: #205ea6;
+        --syn-builtin: #1c6c66;
+        --syn-type: #8e6b01;
+        --syn-variable: #af3029;
+        --syn-constant: #9d4310;
+        --syn-string: #536907;
+    }
+
+    pre {
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+        break-inside: avoid;
+    }
+
+    .code-label {
+        break-after: avoid;
+    }
+
     body {
         background: white;
         color: black;
@@ -2452,12 +2680,6 @@ footer nav a,
 
     nav {
         display: none;
-    }
-
-    pre,
-    code {
-        background: #f5f5f5;
-        border: 1px solid #ccc;
     }
 
     blockquote {

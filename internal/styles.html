@@ -155,6 +155,9 @@
                     <code>blockquote</code> and <code>figcaption</code> get the underline. A link
                     with a class styles itself.</li>
                 <li>Internal links end in a slash: <code>/now/sep-2026/</code>.</li>
+                <li>Code blocks are <code>&lt;pre&gt;&lt;code class="language-go"&gt;</code> with escaped source.
+                    Run <code>mise run highlight path/index.html</code> after writing or editing one; never
+                    hand-edit the spans.</li>
                 <li>Public pages allow no inline styles (<code>style-src 'self'</code>). Only internal/ pages,
                     like this one, use them.</li>
                 <li>The only script on the site is theme.js: it picks a palette per visit (moss, ink, wine,
@@ -256,6 +259,71 @@
                     <p class="swatch-value" data-token="--rating-great"></p>
                 </div>
             </div>
+
+            <h3>syntax</h3>
+            <p>Code block colours, one set per palette. Same roles as the Zed, Helix and Warp themes.</p>
+            <div class="swatch-row">
+                <div class="swatch">
+                    <div class="swatch-block" style="background: var(--syn-fg);"></div>
+                    <p class="swatch-name">--syn-fg</p>
+                    <p class="swatch-value" data-token="--syn-fg"></p>
+                    <p class="swatch-value">plain code</p>
+                </div>
+                <div class="swatch">
+                    <div class="swatch-block" style="background: var(--syn-punct);"></div>
+                    <p class="swatch-name">--syn-punct</p>
+                    <p class="swatch-value" data-token="--syn-punct"></p>
+                    <p class="swatch-value">operators, brackets</p>
+                </div>
+                <div class="swatch">
+                    <div class="swatch-block" style="background: var(--syn-comment);"></div>
+                    <p class="swatch-name">--syn-comment</p>
+                    <p class="swatch-value" data-token="--syn-comment"></p>
+                    <p class="swatch-value">comments, italic</p>
+                </div>
+                <div class="swatch">
+                    <div class="swatch-block" style="background: var(--syn-keyword);"></div>
+                    <p class="swatch-name">--syn-keyword</p>
+                    <p class="swatch-value" data-token="--syn-keyword"></p>
+                    <p class="swatch-value">keywords</p>
+                </div>
+                <div class="swatch">
+                    <div class="swatch-block" style="background: var(--syn-function);"></div>
+                    <p class="swatch-name">--syn-function</p>
+                    <p class="swatch-value" data-token="--syn-function"></p>
+                    <p class="swatch-value">functions, links</p>
+                </div>
+                <div class="swatch">
+                    <div class="swatch-block" style="background: var(--syn-builtin);"></div>
+                    <p class="swatch-name">--syn-builtin</p>
+                    <p class="swatch-value" data-token="--syn-builtin"></p>
+                    <p class="swatch-value">builtins, escapes</p>
+                </div>
+                <div class="swatch">
+                    <div class="swatch-block" style="background: var(--syn-type);"></div>
+                    <p class="swatch-name">--syn-type</p>
+                    <p class="swatch-value" data-token="--syn-type"></p>
+                    <p class="swatch-value">types, self</p>
+                </div>
+                <div class="swatch">
+                    <div class="swatch-block" style="background: var(--syn-variable);"></div>
+                    <p class="swatch-name">--syn-variable</p>
+                    <p class="swatch-value" data-token="--syn-variable"></p>
+                    <p class="swatch-value">variables, tags</p>
+                </div>
+                <div class="swatch">
+                    <div class="swatch-block" style="background: var(--syn-constant);"></div>
+                    <p class="swatch-name">--syn-constant</p>
+                    <p class="swatch-value" data-token="--syn-constant"></p>
+                    <p class="swatch-value">numbers, constants</p>
+                </div>
+                <div class="swatch">
+                    <div class="swatch-block" style="background: var(--syn-string);"></div>
+                    <p class="swatch-name">--syn-string</p>
+                    <p class="swatch-value" data-token="--syn-string"></p>
+                    <p class="swatch-value">strings</p>
+                </div>
+            </div>
         </section>
 
         <!-- ===================== -->
@@ -345,10 +413,31 @@
             </div>
 
             <div class="demo">
-                <p class="demo-label">pre, code</p>
-                <pre><code>function greet(name) {
-    return `hello, ${name}`;
-}</code></pre>
+                <p class="demo-label">.code-block, pre, code</p>
+                <figure class="code-block">
+                    <figcaption class="code-label">cmd/server/main.go</figcaption>
+                    <pre><code class="language-go"><span class="hl-keyword">package</span> <span class="hl-type">main</span>
+
+<span class="hl-keyword">import</span> <span class="hl-string">"fmt"</span>
+
+<span class="hl-comment">// server holds the listen config.</span>
+<span class="hl-keyword">type</span> <span class="hl-type">server</span> <span class="hl-keyword">struct</span> <span class="hl-punct">{</span>
+	<span class="hl-variable">addr</span>    <span class="hl-type">string</span>
+	<span class="hl-variable">timeout</span> <span class="hl-type">int</span>
+	<span class="hl-variable">debug</span>   <span class="hl-type">bool</span>
+<span class="hl-punct">}</span>
+
+<span class="hl-keyword">func</span> <span class="hl-function">main</span><span class="hl-punct">()</span> <span class="hl-punct">{</span>
+	<span class="hl-variable">s</span> <span class="hl-punct">:=</span> <span class="hl-type">server</span><span class="hl-punct">{</span><span class="hl-variable">addr</span><span class="hl-punct">:</span> <span class="hl-string">":8080"</span><span class="hl-punct">,</span> <span class="hl-variable">timeout</span><span class="hl-punct">:</span> <span class="hl-constant">30</span><span class="hl-punct">}</span>
+	<span class="hl-variable">routes</span> <span class="hl-punct">:=</span> <span class="hl-punct">[]</span><span class="hl-type">string</span><span class="hl-punct">{</span><span class="hl-string">"/"</span><span class="hl-punct">,</span> <span class="hl-string">"/blog/"</span><span class="hl-punct">,</span> <span class="hl-string">"/now/"</span><span class="hl-punct">}</span>
+	<span class="hl-variable">fmt</span><span class="hl-punct">.</span><span class="hl-function">Printf</span><span class="hl-punct">(</span><span class="hl-string">"listening on </span><span class="hl-escape">%s\n</span><span class="hl-string">"</span><span class="hl-punct">,</span> <span class="hl-variable">s</span><span class="hl-punct">.</span><span class="hl-variable">addr</span><span class="hl-punct">)</span>
+	<span class="hl-variable">fmt</span><span class="hl-punct">.</span><span class="hl-function">Println</span><span class="hl-punct">(</span><span class="hl-builtin">len</span><span class="hl-punct">(</span><span class="hl-variable">routes</span><span class="hl-punct">),</span> <span class="hl-string">"routes"</span><span class="hl-punct">)</span>
+<span class="hl-punct">}</span></code></pre>
+                </figure>
+                <pre><code class="language-bash"><span class="hl-comment"># highlight every post in place</span>
+<span class="hl-keyword">for</span> <span class="hl-variable">page</span> <span class="hl-keyword">in</span> <span class="hl-string">blog/*/index.html</span><span class="hl-punct">;</span> <span class="hl-keyword">do</span>
+    <span class="hl-function">mise</span> <span class="hl-string">run</span> <span class="hl-string">highlight</span> <span class="hl-string">"</span><span class="hl-variable">$page</span><span class="hl-string">"</span>
+<span class="hl-keyword">done</span></code></pre>
             </div>
 
             <div class="demo">

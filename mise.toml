@@ -22,3 +22,8 @@ run = [
 description = "Deploy the comment email worker"
 dir = "social"
 run = ["npm ci", "wrangler deploy -c email.toml"]
+
+# mise run highlight blog/some-post/index.html
+[tasks.highlight]
+description = "Syntax-highlight code blocks in place"
+run = ["npm ci --prefix scripts --silent", "node scripts/highlight.mjs"]

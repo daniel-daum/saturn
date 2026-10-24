@@ -1,0 +1,8 @@
+{
+    "name": "saturn-scripts",
+    "private": true,
+    "type": "module",
+    "dependencies": {
+        "shiki": "4.5.0"
+    }
+}

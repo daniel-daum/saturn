@@ -9,3 +9,6 @@ dist/
 social/.wrangler/
 social/.dev.vars
 social/node_modules/
+
+# scripts: deps
+scripts/node_modules/
