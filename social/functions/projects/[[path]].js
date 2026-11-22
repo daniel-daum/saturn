@@ -7,7 +7,7 @@
 // clone, go get and docker pull stay on code.danieldaum.net
 
 const ORIGIN = "https://code.danieldaum.net";
-const MODE = "redirect";
+const MODE = "proxy";
 
 export async function onRequest({ request }) {
     const url = new URL(request.url);
