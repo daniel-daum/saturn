@@ -3,9 +3,9 @@
 export const SITE = "https://danieldaum.net";
 export const REPLY_TO = "reply@replies.danieldaum.net";
 
-// /about/, /now/, /now/<slug>/, /blog/<slug>/, /projects/<slug>/
+// /about/, /now/, /now/<slug>/, /blog/<slug>/ (/projects/ is showcase, see functions/projects/)
 export function isLikeable(path) {
-    return /^\/(about|now)\/$|^\/(blog|now|projects)\/[a-z0-9-]+\/$/.test(path);
+    return /^\/(about|now)\/$|^\/(blog|now)\/[a-z0-9-]+\/$/.test(path);
 }
 
 // ===== hmac =====

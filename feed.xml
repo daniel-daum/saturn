@@ -15,6 +15,7 @@
 
   <!-- NEWEST FIRST. content: post body in CDATA, absolute URLs, no classes. -->
 
+  <!-- hidden: old project page, /projects/ is showcase now
   <entry>
     <title>Saturn</title>
     <link rel="alternate" type="text/html" href="https://danieldaum.net/projects/saturn/" />
@@ -69,6 +70,7 @@
       <p>- Daniel</p>
     ]]></content>
   </entry>
+  -->
 
   <entry>
     <title>Wake Me Up When September Ends</title>
@@ -127,7 +129,7 @@
       <img src="https://assets.danieldaum.net/img/photos/reno-race-day.webp" alt="daniel running a relay race in Reno, Nevada" /></figure>
       <h2>hi, I'm Daniel</h2>
       <p>I'm a software engineer and student living in Oakland, California. I worked professionally building backend services and data infrastructure before going back to school. College wasn't affordable for me the first time around, so I'm finishing my computer science degree now! I'm also learning video game development on the side</p>
-      <p>I built this site to practice writing, share my thoughts, and publish things I find interesting. It's mostly handwritten HTML and CSS - there's more on that <a href="https://danieldaum.net/projects/saturn/">here</a> if you're interested.</p>
+      <p>I built this site to practice writing, share my thoughts, and publish things I find interesting. It's mostly handwritten HTML and CSS.</p>
       <h2>my interests</h2>
       <p>If I'm not working, I'm probably enjoying one of the following activities!</p>
       <h4>Video games</h4>

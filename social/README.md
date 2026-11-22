@@ -10,6 +10,7 @@ likes and comments. everything for them lives in this folder, and none of it is 
 | `functions/_middleware.js` | runs before a page is served and fills its `data-social` section from d1 |
 | `functions/api/like.js` | the like button posts here |
 | `functions/api/moderate.js` | the approve/delete page linked from new-comment emails |
+| `functions/projects/` | not social: `/projects/` is showcase at code.danieldaum.net, redirected or proxied |
 | `email.js` | email worker: turns mail sent to `reply@replies.danieldaum.net` into comments |
 | `schema.sql` | the d1 tables: `Likes`, `LikeVoters`, `Comments` |
 | `wrangler.toml` | pages config (d1 binding) |
@@ -44,13 +45,13 @@ put this at the end of the post, inside `<article>` if it has one. the template 
 </section>
 ```
 
-this works on `/about/`, `/now/<slug>/`, `/blog/<slug>/` and `/projects/<slug>/`. take the section out and the page has none.
+this works on `/about/`, `/now/<slug>/` and `/blog/<slug>/`. `/projects/` is showcase (`functions/projects/`), so it has none. take the section out and the page has none.
 
 `/now/` is a copy of the newest edition, so it points at that edition: `data-social="/now/<slug>/"`. update it with each new now post. comments always go on the edition, never on `/now/`.
 
 ### a new kind of page (e.g. `/books/<slug>/`)
 
-1. add it to `isLikeable()` in `lib.js`: `(blog|now|projects)` → `(blog|now|projects|books)`
+1. add it to `isLikeable()` in `lib.js`: `(blog|now)` → `(blog|now|books)`
 2. add `"/books/*"` to `/_routes.json`. every path in there runs a function and isn't cached, so keep it narrow
 3. add the section to the pages
 4. `mise run social-email`: the worker uses `isLikeable()` too, so it rejects comments for the new pages until it's redeployed
