@@ -1,7 +1,8 @@
 # mirrors main to github and tangled on every push. gitea is the source of
 # truth, so both get force-pushed to match it. the same file works in every
 # repo: it pushes to the repo with the same name on github and tangled.
-# needs the GH_MIRROR_TOKEN and TANGLED_MIRROR_KEY secrets
+# needs the GH_MIRROR_TOKEN and TANGLED_MIRROR_KEY secrets, and the
+# TANGLED_KNOWN_HOSTS variable (ssh-keyscan tangled.org, checked once)
 name: Mirror
 
 on:
@@ -18,22 +19,26 @@ jobs:
         steps:
             # full history, and origin/main is the newest main, so a late or
             # retried run never rolls the mirrors back
-            - name: Checkout
-              uses: actions/checkout@v4
+            - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
               with:
                   fetch-depth: 0
 
             - name: Mirror to GitHub
+              env:
+                  TOKEN: ${{ secrets.GH_MIRROR_TOKEN }}
               run: |
                   set -euo pipefail
-                  git push --force "https://x-access-token:${{ secrets.GH_MIRROR_TOKEN }}@github.com/daniel-daum/${REPO}.git" refs/remotes/origin/main:refs/heads/main
+                  git push --force "https://x-access-token:${TOKEN}@github.com/daniel-daum/${REPO}.git" refs/remotes/origin/main:refs/heads/main
 
             - name: Mirror to Tangled
+              env:
+                  KEY: ${{ secrets.TANGLED_MIRROR_KEY }}
+                  KNOWN_HOSTS: ${{ vars.TANGLED_KNOWN_HOSTS }}
               run: |
                   set -euo pipefail
                   mkdir -p ~/.ssh
-                  printf '%s\n' "${{ secrets.TANGLED_MIRROR_KEY }}" > ~/.ssh/tangled
+                  printf '%s\n' "$KEY" > ~/.ssh/tangled
                   chmod 600 ~/.ssh/tangled
-                  ssh-keyscan tangled.org >> ~/.ssh/known_hosts
-                  export GIT_SSH_COMMAND="ssh -i ~/.ssh/tangled -o IdentitiesOnly=yes"
-                  git push --force "git@tangled.org:danieldaum.net/${REPO}" refs/remotes/origin/main:refs/heads/main
+                  printf '%s\n' "$KNOWN_HOSTS" > ~/.ssh/known_hosts
+                  export GIT_SSH_COMMAND="ssh -i ~/.ssh/tangled -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes"
+                  git push --force "daum.dev@tangled.org:daum.dev/${REPO}" refs/remotes/origin/main:refs/heads/main
