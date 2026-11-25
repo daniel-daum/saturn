@@ -9,7 +9,7 @@
         />
         <meta
             http-equiv="Content-Security-Policy"
-            content="default-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;"
+            content="default-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' https://assets.danieldaum.net https://cdn.bsky.app https://video.bsky.app; media-src 'self' https://assets.danieldaum.net;"
         />
         <meta name="referrer" content="strict-origin-when-cross-origin" />
         <link
@@ -111,6 +111,22 @@
                 </p>
             </header>
 
+            <!-- POSTS: my newest bluesky posts, filled at the edge by
+                 social/posts.js. what's inside [data-posts] is the fallback,
+                 shown when the pds can't be reached -->
+            <section aria-labelledby="home-posts">
+                <h2 class="section-label" id="home-posts">posts</h2>
+                <div class="post-feed" data-posts="3">
+                    <p class="meta">
+                        posts are on
+                        <a href="https://bsky.app/profile/daum.dev">bluesky</a>.
+                    </p>
+                </div>
+                <p class="post-feed-more caps">
+                    <a href="/posts/">all posts &rarr;</a>
+                </p>
+            </section>
+
             <!-- WRITING, newest first: the latest five of /blog/'s rows. past
                  five, add an "all writing" link to /blog/ under the list -->
             <section aria-labelledby="home-writing">
@@ -148,39 +164,6 @@
                         </a>
                     </li>
                 </ol>
-            </section>
-
-            <!-- PROJECTS -->
-            <section aria-label="projects">
-                <h2 class="section-label">projects</h2>
-
-                <div class="card-grid">
-                    <!-- hidden: llm-generated project page
-                    <a class="card" href="/projects/holonet/">
-                        <p class="card-type">Sep '26 &middot; game backend</p>
-                        <p class="card-title">Holonet</p>
-                        <p class="card-desc">
-                            A multiplayer video game backend in Go
-                        </p>
-                        <div class="pills">
-                            <span class="pill">#new</span>
-                            <span class="pill pill--dev">#in-development</span>
-                        </div>
-                    </a>
-                    -->
-                    <!-- hidden: old project page, /projects/ is showcase now
-                    <a class="card" href="/projects/saturn/">
-                        <p class="card-type">Jan '26 &middot; re-design</p>
-                        <p class="card-title">Saturn</p>
-                        <p class="card-desc">
-                            A cozy yet minimalist personal website
-                        </p>
-                    </a>
-                    -->
-                    <a class="card card--more" href="/projects/">
-                        <p class="card-title">all projects &rarr;</p>
-                    </a>
-                </div>
             </section>
         </main>
 

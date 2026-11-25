@@ -1429,6 +1429,264 @@ nav p {
 }
 
 /*============================*/
+/* components - posts feed */
+/*============================*/
+
+/* my bluesky posts on / and /posts/, written in by social/posts.js.
+   a quiet log: dashed rules between posts, grey meta row, lime only on
+   links */
+.post-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1.5rem 0;
+    scroll-margin-top: 1rem;
+}
+
+.post-item + .post-item {
+    border-top: 1px dashed var(--borders);
+}
+
+/* arriving from a permalink: the post sits in the panel colour */
+.post-item:target {
+    margin-inline: -1rem;
+    padding-inline: 1rem;
+    background-color: var(--surface);
+    box-shadow: inset 2px 0 0 var(--accent);
+}
+
+/* time left, reply right; both grey until hovered, like the footer */
+.post-item-meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.25rem 1rem;
+    margin: 0;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+}
+
+.post-item-time,
+.post-item-reply {
+    color: var(--text-secondary);
+    border-bottom: 1px solid transparent;
+    transition:
+        color 150ms ease,
+        border-bottom-color 150ms ease;
+}
+
+.post-item-time:hover,
+.post-item-reply:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+.post-item-body {
+    margin: 0;
+}
+
+/* one image keeps its shape, and so do video thumbnails */
+.post-item-media img,
+.post-item-video img {
+    width: auto;
+    height: auto;
+    max-height: 26rem;
+    border: 1px solid var(--borders);
+    border-radius: 2px;
+}
+
+/* two or more: a cropped grid, two across */
+.post-item-media--grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.4rem;
+}
+
+.post-item-media--grid img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+
+/* a video: its thumbnail with a play mark, linking to bluesky to play */
+.post-item-video {
+    position: relative;
+    align-self: flex-start;
+}
+
+.post-item-video::after {
+    content: "\25B6";
+    position: absolute;
+    inset: 50% auto auto 50%;
+    translate: -50% -50%;
+    display: grid;
+    place-items: center;
+    width: 3rem;
+    height: 3rem;
+    padding-left: 0.2rem;
+    border: 1px solid var(--borders);
+    background-color: color-mix(in srgb, var(--background-dark) 80%, transparent);
+    color: var(--text-headings);
+    font-size: 1rem;
+    transition:
+        color 150ms ease,
+        border-color 150ms ease;
+}
+
+.post-item-video:hover::after {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+/* link cards and quoted posts */
+.post-item-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 0.875rem 1rem;
+    border: 1px solid var(--borders);
+    background-color: var(--surface);
+    transition: border-color 150ms ease;
+}
+
+.post-item-card:hover {
+    border-color: var(--accent);
+}
+
+.post-item-card-title {
+    color: var(--text-headings);
+    font-size: 0.9375rem;
+}
+
+.post-item-card-desc,
+.post-item-quote-text {
+    color: var(--text-body);
+    font-size: 0.85rem;
+    line-height: 1.55;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+.post-item-quote-text {
+    -webkit-line-clamp: 4;
+}
+
+.post-item-card-meta {
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+}
+
+.post-item-quote .post-item-card-meta {
+    color: var(--text-headings);
+}
+
+.post-item-quote .post-item-card-meta span {
+    color: var(--text-secondary);
+}
+
+.post-item-note {
+    margin: 0;
+    font-size: 0.85rem;
+}
+
+/* a repost: small label before the time, the original post in a panel */
+.post-item-label {
+    margin-right: 0.5rem;
+    color: var(--text-secondary);
+}
+
+.post-item-label::before {
+    content: "\21BB\00A0";
+}
+
+.post-item-repost {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1rem;
+    border: 1px solid var(--borders);
+    background-color: var(--surface);
+}
+
+.post-item-repost > .post-item-card-meta {
+    margin: 0;
+    color: var(--text-headings);
+}
+
+.post-item-repost > .post-item-card-meta span {
+    color: var(--text-secondary);
+}
+
+/* cards inside the panel step back down to the page colour */
+.post-item-repost .post-item-card {
+    background-color: var(--background-dark);
+}
+
+/* the first post sits right under the label */
+.post-feed > .post-item:first-child:not(:target) {
+    padding-top: 0.25rem;
+}
+
+.post-feed > .meta {
+    margin: 0;
+}
+
+.post-feed > .post-item:last-child:not(:target) {
+    padding-bottom: 0.25rem;
+}
+
+/* the newest post on /blog/: a small panel, set apart from the list
+   under it */
+.post-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--borders);
+    background-color: var(--surface);
+    transition: border-color 150ms ease;
+}
+
+.post-card:hover {
+    border-color: var(--accent);
+}
+
+.post-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.25rem 1rem;
+}
+
+.post-card-meta,
+.post-card-extra {
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: var(--text-secondary);
+}
+
+.post-card-text {
+    color: var(--text-headings);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+}
+
+/* "all posts ->" under the posts on / and /blog/ */
+.post-feed-more {
+    margin: 1rem 0 0;
+    font-size: 0.85rem;
+}
+
+/*============================*/
 /* components - id list */
 /*============================*/
 
@@ -2604,7 +2862,12 @@ footer nav a,
 .comment-author,
 .comment-time,
 .comment-link,
-.id-row dt {
+.id-row dt,
+.post-item-time,
+.post-item-reply,
+.post-item-label,
+.post-card-meta,
+.post-card-extra {
     text-transform: uppercase;
 }
 

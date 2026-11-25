@@ -103,10 +103,25 @@
             <header class="page-header">
                 <h1><span aria-hidden="true">/</span>blog</h1>
                 <p class="meta">
-                    Things I've written &mdash; long-form writing and notes on
-                    what I've played, watched and read.
+                    Things I've written &mdash; short posts, long-form writing,
+                    and notes on what I've played, watched and read.
                 </p>
             </header>
+
+            <!-- POSTS: my newest bluesky post as a card, filled at the edge
+                 by social/posts.js. what's inside [data-posts] is the fallback -->
+            <section aria-labelledby="blog-posts">
+                <h2 class="section-label" id="blog-posts">posts</h2>
+                <div data-posts="highlight">
+                    <p class="meta">
+                        posts are on
+                        <a href="https://bsky.app/profile/daum.dev">bluesky</a>.
+                    </p>
+                </div>
+                <p class="post-feed-more caps">
+                    <a href="/posts/">all posts &rarr;</a>
+                </p>
+            </section>
 
             <section aria-labelledby="blog-writing">
                 <h2 class="section-label" id="blog-writing">writing</h2>

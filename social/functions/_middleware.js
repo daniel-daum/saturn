@@ -1,11 +1,14 @@
 // fills [data-social] with likes and comments from d1. if anything fails the
-// page keeps its fallback text. runs on the paths in /_routes.json
+// page keeps its fallback text. runs on the paths in /_routes.json.
+// /, /blog/ and /posts/ get my bluesky posts instead (../posts.js)
 
 import { isLikeable, voterId, renderSocial } from "../lib.js";
+import { POST_PAGES, withPosts } from "../posts.js";
 
 export async function onRequest(context) {
     const { request, env } = context;
     const { pathname } = new URL(request.url);
+    if (POST_PAGES.has(pathname) && (request.method === "GET" || request.method === "HEAD")) return withPosts(context);
     if (!isLikeable(pathname)) return context.next();
 
     // the file never changes, so a 304 would show stale counts

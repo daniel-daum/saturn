@@ -11,6 +11,7 @@ likes and comments. everything for them lives in this folder, and none of it is 
 | `functions/api/like.js` | the like button posts here |
 | `functions/api/moderate.js` | the approve/delete page linked from new-comment emails |
 | `functions/projects/` | not social: `/projects/` is showcase at code.danieldaum.net, redirected or proxied |
+| `posts.js` | not social: my bluesky posts on `/`, `/blog/` and `/posts/`, called from `_middleware.js`. see [posts](#posts) |
 | `email.js` | email worker: turns mail sent to `reply@replies.danieldaum.net` into comments |
 | `schema.sql` | the d1 tables: `Likes`, `LikeVoters`, `Comments` |
 | `wrangler.toml` | pages config (d1 binding) |
@@ -55,6 +56,32 @@ this works on `/about/`, `/now/<slug>/` and `/blog/<slug>/`. `/projects/` is sho
 2. add `"/books/*"` to `/_routes.json`. every path in there runs a function and isn't cached, so keep it narrow
 3. add the section to the pages
 4. `mise run social-email`: the worker uses `isLikeable()` too, so it rejects comments for the new pages until it's redeployed
+
+## posts
+
+my bluesky posts and reposts, newest first, replies left out:
+
+| page | `data-posts` | shows |
+| --- | --- | --- |
+| `/` | `3` | the newest 3 |
+| `/blog/` | `highlight` | the newest one as a card |
+| `/posts/` | `all` | every post, each with an id so `/posts/#<rkey>` links to it |
+
+`posts.js` reads which posts exist from my pds (`home.daum.dev`) and asks bluesky's appview for the rest: reposted and quoted text, and image thumbnails, which load from `cdn.bsky.app`. `_middleware.js` hands it the pages in `POST_PAGES`, and it writes each `[data-posts]`. whatever is inside the element in the html is the fallback.
+
+**it never slows the site down:**
+
+- it runs on those three pages only. every other page and file is served straight from pages, no function (`/_routes.json`)
+- the post data comes from cloudflare's cache, shared by all three pages. once it's 5 minutes old, visitors still get the cached copy and a refresh runs after the response is sent
+- only an empty cache (first visit after a deploy, or a new colo) waits, at most 800 ms. past that the page goes out with its fallback and the refresh finishes in the background
+- if the pds is down, the cached posts are kept for a day before the fallback shows
+- no js in the browser. images are lazy, sized thumbnails
+
+the micro posts version that came before had no `_routes.json`, so a function ran on every request on the site, and it waited on the pds with no limit.
+
+**changing it:** `FRESH`, `WAIT` and `CACHE_KEY` are at the top of `posts.js`; bump `CACHE_KEY` when the shape of the cached data changes. a new page needs its path in `POST_PAGES` and `/_routes.json`. pages with images need `https://cdn.bsky.app` (and `https://video.bsky.app` for video thumbnails) in their `img-src`.
+
+**locally:** `mise run serve` doesn't run functions, so it shows the fallback. `mise run social-dev` shows real posts on `localhost:8788`.
 
 ## deploying
 
