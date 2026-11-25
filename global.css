@@ -717,6 +717,27 @@ nav p {
     letter-spacing: 0.06em;
 }
 
+/* a section page (/books/, /posts/, ...): the kicker is its parent and links
+   back up, and the meta is a sentence about the page, not a date */
+.page-header-kicker a {
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--accent-muted);
+    transition:
+        color 150ms ease,
+        border-bottom-color 150ms ease;
+}
+
+.page-header-kicker a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+.page-header--post .meta:not(.caps) {
+    font-size: 0.88rem;
+    letter-spacing: normal;
+    line-height: 1.6;
+}
+
 /* posts: optional banner photo above the header */
 .post-banner {
     display: block;

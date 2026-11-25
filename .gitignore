@@ -12,3 +12,6 @@ social/node_modules/
 
 # scripts: deps
 scripts/node_modules/
+
+# local env, e.g. ATPROTO_APP_PASSWORD for mise run publish
+mise.local.toml

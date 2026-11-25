@@ -27,3 +27,8 @@ run = ["npm ci", "wrangler deploy -c email.toml"]
 [tasks.highlight]
 description = "Syntax-highlight code blocks in place"
 run = ["npm ci --prefix scripts --silent", "node scripts/highlight.mjs"]
+
+# mise run publish now/some-post/index.html [--dry-run]
+[tasks.publish]
+description = "Add a finished post to feed.xml and publish it to standard.site"
+run = "node scripts/publish.mjs"
