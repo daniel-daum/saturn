@@ -1429,6 +1429,87 @@ nav p {
 }
 
 /*============================*/
+/* components - id list */
+/*============================*/
+
+/* /id/: one account or key per row, the kind on the left, the value and
+   a grey note on the right. dashed rules between, like the posts feed */
+.id-list {
+    margin: 0;
+}
+
+.id-row {
+    display: grid;
+    grid-template-columns: 9ch minmax(0, 1fr);
+    gap: 0 1rem;
+    padding: 0.7rem 0;
+}
+
+.id-row + .id-row {
+    border-top: 1px dashed var(--borders);
+}
+
+.id-row dt {
+    padding-top: 0.15rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    color: var(--text-secondary);
+}
+
+.id-row dd {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+    margin: 0;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: var(--text-headings);
+}
+
+.id-note {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.id-note > a {
+    border-bottom: 1px solid var(--accent-muted);
+}
+
+.id-note > a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+/* fingerprints and dids: the code font, free to break anywhere */
+.id-mono {
+    font-family:
+        "Geist Mono", ui-monospace, "SF Mono", Menlo, Consolas,
+        "Liberation Mono", monospace;
+    font-size: 0.8rem;
+    color: var(--text-body);
+    overflow-wrap: anywhere;
+}
+
+.id-note.id-mono {
+    color: var(--text-secondary);
+}
+
+/* the public key wraps instead of scrolling; copying still gets one line */
+.id-key code {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+/* phones: kind above value */
+@media (max-width: 480px) {
+    .id-row {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0.3rem;
+    }
+}
+
+/*============================*/
 /* components - rating */
 /*============================*/
 
@@ -2522,7 +2603,8 @@ footer nav a,
 .social-title,
 .comment-author,
 .comment-time,
-.comment-link {
+.comment-link,
+.id-row dt {
     text-transform: uppercase;
 }
 

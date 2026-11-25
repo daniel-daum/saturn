@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="The accounts and keys that are mine, and how to check them"
+        />
+        <meta
+            http-equiv="Content-Security-Policy"
+            content="default-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' https://assets.danieldaum.net; media-src 'self' https://assets.danieldaum.net;"
+        />
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
+        <link
+            rel="preload"
+            href="/assets/fonts/geistpixel/GeistPixel-Square.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin
+        />
+        <link rel="preconnect" href="https://assets.danieldaum.net" />
+        <link rel="stylesheet" href="/global.css" />
+        <script src="/theme.js"></script>
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/assets/favicon/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/assets/favicon/favicon-16x16.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/assets/favicon/apple-touch-icon.png"
+        />
+        <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+        <link
+            rel="alternate"
+            type="application/atom+xml"
+            title="daniel daum"
+            href="https://danieldaum.net/feed.xml"
+        />
+        <title>daniel daum - id</title>
+
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="daniel daum" />
+        <meta property="og:title" content="daniel daum - id" />
+        <meta
+            property="og:description"
+            content="The accounts and keys that are mine, and how to check them"
+        />
+        <meta property="og:url" content="https://danieldaum.net/id/" />
+        <meta
+            property="og:image"
+            content="https://assets.danieldaum.net/img/misc/og.jpg"
+        />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta
+            property="og:image:alt"
+            content="daniel daum - software engineer, avid reader, aspiring game dev - danieldaum.net"
+        />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="daniel daum - id" />
+        <meta
+            name="twitter:description"
+            content="The accounts and keys that are mine, and how to check them"
+        />
+        <meta
+            name="twitter:image"
+            content="https://assets.danieldaum.net/img/misc/og.jpg"
+        />
+        <meta
+            name="twitter:image:alt"
+            content="daniel daum - software engineer, avid reader, aspiring game dev - danieldaum.net"
+        />
+    </head>
+
+    <body>
+        <a class="skip-link" href="#main">skip to content</a>
+
+        <!-- ===== HEADER ===== -->
+        <header class="site-header">
+            <a class="site-name" href="/">Daniel Daum</a>
+            <nav aria-label="main navigation">
+                <a href="/about/">about</a>
+                <a href="/blog/">blog</a>
+                <a href="/projects/">projects</a>
+                <a href="/garden/">garden</a>
+            </nav>
+        </header>
+
+        <!-- ===== MAIN ===== -->
+        <main id="main">
+            <article>
+                <header class="page-header page-header--post">
+                    <p class="page-header-kicker">
+                        <span aria-hidden="true">/</span>id
+                    </p>
+                    <h1>Identity</h1>
+                    <p class="meta caps">
+                        <time datetime="2026-11-24">24 November 2026</time>
+                    </p>
+                </header>
+
+                <p>
+                    These accounts and keys are mine. If something claims to be
+                    me and isn't listed here, it isn't me. Each one can be
+                    checked against something only I control; the commands are
+                    at the bottom.
+                </p>
+
+                <!-- ACCOUNTS -->
+                <section aria-labelledby="id-accounts">
+                    <h2 class="section-label" id="id-accounts">accounts</h2>
+                    <dl class="id-list">
+                        <div class="id-row">
+                            <dt>email</dt>
+                            <dd>
+                                <a href="mailto:daniel@danieldaum.net">daniel@danieldaum.net</a>
+                                <span class="id-note">encrypt to the pgp key below</span>
+                            </dd>
+                        </div>
+                        <div class="id-row">
+                            <dt>web</dt>
+                            <dd>
+                                <a href="https://danieldaum.net/">danieldaum.net</a>
+                                <span class="id-note">this site</span>
+                            </dd>
+                        </div>
+                        <div class="id-row">
+                            <dt>web</dt>
+                            <dd>
+                                <a href="https://daum.dev/">daum.dev</a>
+                                <span class="id-note">redirects here</span>
+                            </dd>
+                        </div>
+                        <div class="id-row">
+                            <dt>bluesky</dt>
+                            <dd>
+                                <a href="https://bsky.app/profile/daum.dev">@daum.dev</a>
+                                <span class="id-note id-mono"
+                                    >did:plc:e3z5gj5iyuwgqao562bo4bdf</span
+                                >
+                            </dd>
+                        </div>
+                        <div class="id-row">
+                            <dt>github</dt>
+                            <dd>
+                                <a href="https://github.com/daniel-daum">daniel-daum</a>
+                            </dd>
+                        </div>
+                    </dl>
+                </section>
+
+                <!-- KEYS -->
+                <section aria-labelledby="id-keys">
+                    <h2 class="section-label" id="id-keys">keys</h2>
+                    <dl class="id-list">
+                        <div class="id-row">
+                            <dt>ssh</dt>
+                            <dd>
+                                <span class="id-note"
+                                    >desktop. ecdsa p-256, kept in the secure
+                                    enclave by secretive. signs my git
+                                    commits.</span
+                                >
+                                <span class="id-mono"
+                                    >SHA256:drhIqfmUzuijEg5lpF1wfHhbG2Z4ebL9Lf+nLCJWAfg</span
+                                >
+                                <span class="id-mono"
+                                    >MD5:a3:1a:fa:bc:0f:ae:ae:5f:1b:62:2e:a6:ea:6b:49:4a</span
+                                >
+                            </dd>
+                        </div>
+                        <div class="id-row">
+                            <dt>ssh</dt>
+                            <dd>
+                                <span class="id-note"
+                                    >laptop. ecdsa p-256, kept in the secure
+                                    enclave by secretive.</span
+                                >
+                                <span class="id-mono"
+                                    >SHA256:kx8AJpgUtgt39bdVfggw+0O3fo+LSiBg8xMSHeRwvW0</span
+                                >
+                                <span class="id-mono"
+                                    >MD5:d5:69:f6:48:37:3f:46:51:43:c6:de:e0:f2:ec:fb:e1</span
+                                >
+                            </dd>
+                        </div>
+                        <div class="id-row">
+                            <dt>ssh</dt>
+                            <dd>
+                                <span class="id-note"
+                                    >gitea. ed25519, held by git.danieldaum.net,
+                                    not by me. signs merges and edits made in
+                                    its web ui.</span
+                                >
+                                <span class="id-mono"
+                                    >SHA256:swJNnaV4/owiHB00kAZ4NlkWrRyGklgnKA4JuVAtnHU</span
+                                >
+                                <span class="id-mono"
+                                    >MD5:ca:7d:db:4e:79:20:6d:57:8d:15:95:63:ba:d0:41:6a</span
+                                >
+                            </dd>
+                        </div>
+                        <div class="id-row">
+                            <dt>pgp</dt>
+                            <dd>
+                                <span class="id-note"
+                                    >ed25519, made 16 Apr 2025.
+                                    <a href="/pgp.asc">pgp.asc</a></span
+                                >
+                                <span class="id-mono"
+                                    >2811 D7C0 28D6 F339 3A21 DDF5 1C24 8810 516E 97FF</span
+                                >
+                            </dd>
+                        </div>
+                    </dl>
+
+                    <figure class="code-block">
+                        <figcaption class="code-label">ssh public keys</figcaption>
+                        <pre class="id-key"><code>ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBBjfvyQvXhp0zOi6w4dpANVBl80um4L31uZXpVmLhZAfR+OkNxRBLlyGo8M877s0thLO15hDjWKcyqvYza2IAdQ= desktop
+
+ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBPxyxkSKCEQfVA/SumWUBeGu9YhJGZUg6rCfMB+Rf6kIdMOY0AWhpZduvu2F0a9QSPoK33EjICZavJ0PaSWWKXs= laptop
+
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICAELNFjG5A4apr8AxZuRrYGd/NDnKj7UVn7j7Xcb21U gitea</code></pre>
+                    </figure>
+                </section>
+
+                <!-- VERIFY -->
+                <section aria-labelledby="id-verify">
+                    <h2 class="section-label" id="id-verify">verify</h2>
+                    <p>
+                        Run these yourself. Each should print the fingerprints or
+                        did shown above.
+                    </p>
+                    <figure class="code-block">
+                        <figcaption class="code-label">shell</figcaption>
+                        <pre><code><span class="hl-comment"># ssh: github serves the desktop and laptop keys</span>
+curl -s https://github.com/daniel-daum.keys | ssh-keygen -lf -
+
+<span class="hl-comment"># pgp: the key file on this site</span>
+curl -s https://danieldaum.net/pgp.asc | gpg --show-keys
+
+<span class="hl-comment"># bluesky: the handle points at my did</span>
+dig +short TXT _atproto.daum.dev</code></pre>
+                    </figure>
+                </section>
+            </article>
+        </main>
+
+        <!-- ===== FOOTER ===== -->
+        <footer>
+            <nav aria-label="site links">
+                <p aria-hidden="true">//</p>
+                <a href="mailto:daniel@danieldaum.net">email</a>
+                <a href="/projects/saturn/">source</a>
+                <a href="/id/">ID</a>
+                <a href="/changelog/">changelog</a>
+                <a href="/privacy/">privacy</a>
+                <a href="/feed.xml">feed</a>
+                <button type="button" class="theme-button">theme</button>
+            </nav>
+        </footer>
+    </body>
+</html>
